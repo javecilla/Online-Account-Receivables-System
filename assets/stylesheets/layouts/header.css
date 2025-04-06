@@ -1,0 +1,261 @@
+/* Base header structure */
+.header {
+  grid-area: header;
+  background-color: #ffffff;
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 30px;
+  height: 60px;
+}
+
+.header-left,
+.header-right {
+  display: flex;
+  align-items: center;
+}
+
+.header-right {
+  gap: 20px;
+}
+/* menu button */
+.menu-button {
+  cursor: no-drop;
+}
+.menu-button i {
+  font-size: 1.2rem !important;
+}
+
+/* Title */
+/* .header-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  font-family: var(--font-nunito);
+  line-height: 0.5;
+  opacity: 0.8;
+  margin-top: 5px;
+  cursor: default;
+}
+.header-title span {
+  margin-right: 5px;
+  color: var(--primary-color);
+} */
+/* .header-title:hover::before {
+  content: '#';
+  margin-right: 5px;
+  color: var(--primary-color);
+} */
+
+/* .header-description {
+  color: #6c757d;
+  font-size: 0.9rem;
+} */
+
+/* Notification styles */
+.notification-dropdown {
+  position: relative;
+}
+
+.notification-btn {
+  background: none;
+  border: none;
+  color: #555;
+  font-size: 1.3rem;
+  cursor: pointer;
+  position: relative;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 6px;
+}
+
+.notification-btn:hover {
+  color: var(--primary-color);
+}
+
+.notification-badge {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background-color: var(--danger-color);
+  color: white;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  font-size: 0.7rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.notification-menu {
+  width: 320px;
+  padding: 0;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.dropdown-header {
+  font-weight: bold;
+  padding: 10px 15px;
+  color: #333;
+  background-color: #f8f9fa;
+}
+
+.notification-item {
+  width: 100%;
+}
+
+.notification-content {
+  display: flex;
+  align-items: flex-start;
+  padding: 5px 0;
+}
+
+.notification-icon {
+  margin-right: 10px;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.notification-text {
+  flex: 1;
+}
+
+.notification-title {
+  margin: 0;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.notification-time {
+  margin: 0;
+  font-size: 0.75rem;
+  color: #6c757d;
+}
+
+/* Profile dropdown styles */
+.profile-dropdown {
+  position: relative;
+}
+
+.profile-btn {
+  background: none;
+  border: none;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.profile-btn:hover .profile-name {
+  color: var(--primary-color);
+}
+
+.profile-name {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #333;
+  transition: color 0.2s;
+  line-height: 1.2;
+}
+
+.profile-btn .text-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.user-role {
+  font-size: 0.8rem;
+  color: #6c757d;
+  line-height: 1.2;
+}
+
+.profile-btn .fa-chevron-down {
+  font-size: 0.8rem;
+  color: #6c757d;
+}
+
+.profile-menu {
+  min-width: 200px;
+}
+
+.profile-menu .dropdown-item {
+  padding: 8px 15px;
+}
+
+.profile-menu .dropdown-item i {
+  margin-right: 10px;
+  width: 16px;
+  text-align: center;
+}
+
+.round-circle {
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .header {
+    padding: 0 15px;
+  }
+
+  .profile-name {
+    display: none;
+  }
+
+  .notification-menu {
+    width: 280px;
+    right: -100px;
+  }
+
+  .profile-menu {
+    right: 0;
+  }
+}
+
+@media (max-width: 576px) {
+  .header-title {
+    font-size: 1rem;
+  }
+
+  .notification-menu {
+    width: 250px;
+    right: -100px;
+  }
+}
+
+/* Breadcrumb styles */
+.breadcrumb-nav {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.breadcrumb-item a {
+  color: #333;
+  opacity: 0.8;
+  text-decoration: none;
+  transition: 0.2s all ease;
+}
+.breadcrumb-item a:hover {
+  text-decoration: underline;
+}
+
+.breadcrumb-item.user-role {
+  color: var(--primary-color);
+}
+
+.breadcrumb-separator {
+  color: #6c757d;
+  font-size: 1rem;
+}

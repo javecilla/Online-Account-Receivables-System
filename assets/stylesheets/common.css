@@ -1,0 +1,100 @@
+@charset "UTF-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700;800&family=Roboto+Flex:opsz,wght@8..144,300&display=swap');
+@import url('https://fonts.bunny.net/css?family=Nunito');
+
+:root {
+  --primary-color: #4361ee;
+  --secondary-color: #3f37c9;
+  --success-color: #4cc9f0;
+  --info-color: #4895ef;
+  --warning-color: #f72585;
+  --danger-color: #e63946;
+  --light-color: #f8f9fa;
+  --dark-color: #212529;
+  --font-poppins: 'Poppins', sans-serif;
+  --font-nunito: 'Nunito', sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  :root {
+    scroll-behavior: smooth;
+  }
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f5f7fb;
+  display: grid;
+  grid-template-areas:
+    'sidebar header'
+    'sidebar main'
+    'sidebar footer';
+  grid-template-columns: 240px 1fr;
+  grid-template-rows: 60px 1fr 40px;
+  height: 100vh;
+  margin: 0;
+}
+
+/** ========= Common Styles =========== **/
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+/* input[type='number'] {
+  -moz-appearance: textfield;
+} */
+
+img {
+  pointer-events: none;
+}
+
+button:disabled,
+input:disabled,
+select:disabled {
+  /* opacity: 1; */
+  cursor: not-allowed;
+}
+input[type='submit'],
+input[type='button'] {
+  cursor: pointer;
+}
+input:read-only {
+  /* opacity: 1; */
+  cursor: default;
+}
+
+/* Main content styles */
+.main-content {
+  grid-area: main;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+/**==============Bootstrap Override styles==============**/
+.custom-tooltip {
+  --bs-tooltip-bg: var(--bs-secondary);
+  --bs-tooltip-border-radius: 3px;
+  --bs-tooltip-border: 1px;
+  --bs-tooltip-color: #ffffff;
+  --bs-tooltip-text-align: left;
+  --bs-tooltip-font-size: 0.8rem;
+  --bs-tooltip-padding: 8px 12px;
+  --bs-tooltip-opacity: 1;
+  --bs-tooltip-max-width: 200px;
+}

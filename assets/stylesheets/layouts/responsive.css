@@ -1,0 +1,36 @@
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  body {
+    grid-template-columns: 60px 1fr;
+  }
+
+  .sidebar-brand span,
+  .sidebar-menu span {
+    display: none;
+  }
+
+  .sidebar-menu a {
+    justify-content: center;
+    padding: 15px 0;
+  }
+
+  .sidebar-menu i {
+    margin-right: 0;
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    grid-template-areas:
+      'header header'
+      'main main'
+      'footer footer';
+    grid-template-columns: 1fr;
+    grid-template-rows: 60px 1fr 40px;
+  }
+
+  .sidebar {
+    display: none;
+  }
+}

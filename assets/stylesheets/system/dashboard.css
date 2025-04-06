@@ -1,0 +1,109 @@
+/* Card styles */
+.dashboard-card {
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+  padding: 20px;
+  height: 100%;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.card-title {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #6c757d;
+  margin: 0;
+}
+
+.card-value {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.card-subtitle {
+  font-size: 0.8rem;
+  color: #6c757d;
+  margin: 5px 0;
+}
+
+.percentage-badge {
+  font-size: 0.8rem;
+  padding: 3px 8px;
+  border-radius: 20px;
+}
+
+.percentage-badge.positive {
+  background-color: rgba(76, 201, 240, 0.2);
+  color: var(--success-color);
+}
+
+.percentage-badge.negative {
+  background-color: rgba(231, 57, 70, 0.2);
+  color: var(--danger-color);
+}
+
+/* Chart styles */
+.chart-container {
+  position: relative;
+  height: 300px;
+  margin-top: 20px;
+}
+
+/* Table styles */
+.table-container {
+  overflow-x: auto;
+}
+
+.dashboard-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.dashboard-table th {
+  background-color: #f8f9fa;
+  color: #6c757d;
+  font-weight: 500;
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.dashboard-table td {
+  padding: 12px 15px;
+  border-bottom: 1px solid #e9ecef;
+  color: #495057;
+}
+
+.dashboard-table tr:last-child td {
+  border-bottom: none;
+}
+
+.dashboard-table tr:hover td {
+  background-color: #f8f9fa;
+}
+
+.daterangepicker {
+  font-size: 0.9rem;
+}
+
+#dateRange {
+  background: #fff;
+  cursor: pointer;
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-left: -200px !important;
+}
+
+#dateRange i {
+  color: #666;
+  opacity: 0.5 !important;
+}

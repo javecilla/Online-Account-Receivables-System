@@ -1,0 +1,9 @@
+/* Footer styles */
+.footer {
+  grid-area: footer;
+  background-color: #ffffff;
+  padding: 10px 20px;
+  text-align: center;
+  color: #6c757d;
+  font-size: 0.8rem;
+}
