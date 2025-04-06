@@ -1,0 +1,179 @@
+/* Accounts Page Styles */
+
+/* Card styling */
+.card {
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border: none;
+  margin-bottom: 20px;
+}
+
+.card-body {
+  padding: 1.5rem;
+}
+
+/* Page title styling */
+.module-title {
+  color: var(--dark-color);
+  font-family: var(--font-nunito);
+  font-weight: 600;
+  margin-bottom: 0;
+  font-size: 1rem;
+}
+
+/* Table styling */
+#accountsTable {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  /* Makes all columns equal width */
+  /* table-layout: fixed;  */
+}
+
+#accountsTable thead th {
+  background-color: #f8f9fa;
+  font-weight: 600;
+  color: #495057;
+  padding: 12px 15px;
+  border-bottom: 2px solid #dee2e6;
+}
+
+#accountsTable thead th:first-child {
+  /* border-top-left-radius: 10px; */
+  width: 13%;
+}
+#accountsTable thead th:nth-child(2) {
+  width: 12%;
+}
+#accountsTable thead th:nth-child(3) {
+  width: 25%;
+}
+#accountsTable thead th:nth-child(4) {
+  width: 13%;
+}
+#accountsTable thead th:nth-child(5) {
+  width: 13%;
+}
+#accountsTable thead th:nth-child(6) {
+  width: 35%;
+}
+#accountsTable tbody td {
+  padding: 12px 15px;
+  vertical-align: middle;
+  border-bottom: 1px solid #dee2e6;
+}
+
+/* Status indicator styling */
+.status-badge {
+  padding: 5px 10px;
+  border-radius: 4px; /* Reduced border-radius as requested */
+  font-size: 0.75rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+}
+
+.status-badge i {
+  margin-right: 5px;
+}
+
+.status-active {
+  /* blue */
+  background-color: rgba(93, 126, 196, 0.1);
+  color: #417ec8;
+  border: 1px solid rgba(51, 76, 188, 0.2);
+}
+
+.status-inactive {
+  background-color: rgba(220, 53, 69, 0.1);
+  color: #dc3545;
+  border: 1px solid rgba(220, 53, 69, 0.2);
+}
+
+/* Email verified badge styling */
+.status-verified-yes {
+  background-color: rgba(40, 167, 69, 0.1);
+  color: #28a745;
+  border: 1px solid rgba(40, 167, 69, 0.2);
+}
+
+.status-verified-no {
+  background-color: rgba(220, 53, 69, 0.1);
+  color: #dc3545;
+  border: 1px solid rgba(220, 53, 69, 0.2);
+}
+
+/* Action buttons styling */
+.action-btn {
+  padding: 5px 10px;
+  margin-right: 5px;
+  border-radius: 3px;
+  font-size: 0.8rem;
+  background-color: transparent;
+  border: 1px solid var(--dark-color);
+  color: var(--dark-color);
+  opacity: 0.8;
+}
+.action-btn:hover {
+  border: 1px solid var(--dark-color);
+  color: var(--dark-color);
+}
+
+.action-btn:last-child {
+  margin-right: 0;
+}
+
+.action-btn i {
+  margin-right: 5px;
+}
+
+/* .action-btn.view-btn {
+  background-color: rgba(123, 126, 123, 0.1);
+  color: #818481;
+  border-color: #565a56;
+}
+
+.action-btn.edit-btn {
+  color: #ffc107;
+  border-color: #ffc107;
+}
+
+.action-btn.delete-btn {
+  color: #dc3545;
+  border-color: #dc3545;
+} */
+
+/* DataTables custom styling */
+.dataTables_wrapper .dataTables_length,
+.dataTables_wrapper .dataTables_filter {
+  margin-bottom: 15px;
+}
+
+.dataTables_wrapper .dataTables_info,
+.dataTables_wrapper .dataTables_paginate {
+  margin-top: 15px;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+  border-radius: 4px;
+  margin: 0 2px;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.current {
+  background: var(--primary-color);
+  border-color: var(--primary-color);
+  color: white !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .action-btn {
+    padding: 4px 8px;
+    font-size: 0.75rem;
+  }
+
+  #accountsTable thead th,
+  #accountsTable tbody td {
+    padding: 10px;
+  }
+}

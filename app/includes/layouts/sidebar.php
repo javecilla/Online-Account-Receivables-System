@@ -8,26 +8,26 @@
     <hr style="color:rgb(180, 180, 180)">
     <ul class="sidebar-menu">
         <li>
-            <a href="#" class="active">
+            <a href="<?= get_base_url() ?>/dashboard" title="Dashboard">
                 <!-- <i class="fas fa-gauge"></i> -->
                 <i class="fas fa-table-columns"></i>
                 <span>Dashboard</span>
             </a>
         </li>
         <li>
-            <a href="#">
+            <a href="<?= get_base_url() ?>/accounts" title="Accounts">
                 <i class="fas fa-users"></i>
                 <span>Accounts</span>
             </a>
         </li>
         <li>
-            <a href="#">
+            <a href="<?= get_base_url() ?>/members" title="Members">
                 <i class="fas fa-user"></i>
                 <span>Members</span>
             </a>
         </li>
         <li>
-            <a href="#">
+            <a href="<?= get_base_url() ?>/amortization" title="Amortization">
                 <i class="fas fa-credit-card"></i>
                 <span>Amortization</span>
             </a>

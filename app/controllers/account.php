@@ -43,7 +43,7 @@ function handle_get_accounts(mixed $payload): void
     ]);
 
     $page = isset($validated['data']['page']) ? (int)$validated['data']['page'] : 1;
-    $per_page = isset($validated['data']['per_page']) ? (int)$validated['data']['per_page'] : 10;
+    $per_page = isset($validated['data']['per_page']) ? (int)$validated['data']['per_page'] : 100;
 
     $accounts = get_accounts($page, $per_page);
     return_response($accounts);

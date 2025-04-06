@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
       .get(`/app/router/api.php?action=get_monthly_balance_trends&year=${year}`)
       .then((response) => {
         if (response.data.success) {
-          console.log('Monthly Balance Trends Data:', response.data.data)
+          //console.log('Monthly Balance Trends Data:', response.data.data)
           const data = response.data.data
 
           // Process data for chart

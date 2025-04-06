@@ -230,3 +230,8 @@ Stack trace:
   thrown in C:\xampp\htdocs\bulsu-school\account-receivable-system-project\app\services\app.php on line 34
 [07-Apr-2025 03:25:47 Asia/Manila] [[07-Apr-2025 03:25:47 Asia/Manila]] ERROR: Error fetching daily transaction stats: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE transaction_date BETWEEN ? AND ?' at line 11
 
+[06-Apr-2025 22:15:16 Europe/Berlin] PHP Warning:  Undefined variable $REQUEST_FILE_NAME in C:\xampp\htdocs\bulsu-school\account-receivable-system-project\app\includes\layouts\sidebar.php on line 11
+[06-Apr-2025 22:15:16 Europe/Berlin] PHP Warning:  Undefined variable $REQUEST_FILE_NAME in C:\xampp\htdocs\bulsu-school\account-receivable-system-project\app\includes\layouts\sidebar.php on line 18
+[06-Apr-2025 22:15:16 Europe/Berlin] PHP Warning:  Undefined variable $REQUEST_FILE_NAME in C:\xampp\htdocs\bulsu-school\account-receivable-system-project\app\includes\layouts\sidebar.php on line 24
+[06-Apr-2025 22:15:16 Europe/Berlin] PHP Warning:  Undefined variable $REQUEST_FILE_NAME in C:\xampp\htdocs\bulsu-school\account-receivable-system-project\app\includes\layouts\sidebar.php on line 30
+[06-Apr-2025 22:57:36 Europe/Berlin] PHP Warning:  Undefined variable $base_url in C:\xampp\htdocs\bulsu-school\account-receivable-system-project\app\includes\layouts\begin.php on line 5

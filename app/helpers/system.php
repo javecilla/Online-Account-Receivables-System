@@ -74,6 +74,10 @@ function get_base_url(): string
     return get_protocol() . get_domain();
 }
 
+function get_request_file_name(): string
+{
+    return basename($_SERVER['PHP_SELF']);
+}
 
 function generate_member_id(int $role_id): string
 {
