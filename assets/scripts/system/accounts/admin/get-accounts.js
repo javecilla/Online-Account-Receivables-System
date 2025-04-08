@@ -1,24 +1,19 @@
 document.addEventListener('DOMContentLoaded', async function () {
-  // Constants and selectors
+  //console.log(API_URL)
   const accountsTable = document.getElementById('accountsTable')
-  const API_ENDPOINT = '/app/router/api.php?action=get_accounts'
-  const baseUrl = document
-    .querySelector('meta[name="base-url"]')
-    .getAttribute('content')
-
-  // Initialize DataTable with empty data first
   let dataTable = $(accountsTable).DataTable({
     responsive: true,
     processing: true,
     language: {
       processing:
         '<div class="spinner-border text-primary" role="status"><span class="visually-hidden">Loading...</span></div>',
-      emptyTable: 'No accounts found',
+      emptyTable: 'Loading accounts records...',
       zeroRecords: 'No matching accounts found',
-      info: 'Showing _START_ to _END_ of _TOTAL_ accounts',
-      infoEmpty: 'Showing 0 to 0 of 0 accounts',
-      infoFiltered: '(filtered from _MAX_ total accounts)',
-      search: 'Search:',
+      info: 'Showing _START_ to _END_ of _TOTAL_ Accounts',
+      infoEmpty: 'Showing 0 to 0 of 0 Accounts',
+      infoFiltered: '(filtered from _MAX_ total Accounts)',
+      search: 'Search Account:',
+      lengthMenu: 'Show _MENU_ Accounts',
       paginate: {
         first: '<i class="fas fa-angle-double-left"></i>',
         previous: '<i class="fas fa-angle-left"></i>',
@@ -58,9 +53,7 @@ document.addEventListener('DOMContentLoaded', async function () {
         data: 'created_at',
         title: 'Joined Date',
         render: function (data) {
-          //format date like: 24 Jun 2025, 9:23 PM
           return moment(data).format('DD MMM YYYY, h:mm A')
-          // return moment(data).format('YYYY-MM-DD')
         }
       },
       {
@@ -87,39 +80,25 @@ document.addEventListener('DOMContentLoaded', async function () {
     order: [[5, 'desc']] // Sort by created_at by default
   })
 
-  // Function to fetch accounts data
   async function fetchAccounts() {
     try {
-      // Show loading state
       $(accountsTable).addClass('loading')
 
-      // Fetch data from API
-      const response = await axios.get(baseUrl + API_ENDPOINT)
-
-      // Check if request was successful
+      const response = await axios.get(`${API_URL}?action=get_accounts`)
       if (response.data.success) {
-        // Clear existing data and add new data
         dataTable.clear()
         dataTable.rows.add(response.data.data.items)
         dataTable.draw()
-
-        // Update pagination info if needed
         const metaData = response.data.data.meta_data
-        // You can implement custom pagination here if needed
-
-        // Remove loading state
         $(accountsTable).removeClass('loading')
       } else {
-        // Handle error response
         console.error('Error fetching accounts:', response.data.message)
         toastr.error('Failed to load accounts data')
       }
     } catch (error) {
-      // Handle network or other errors
       console.error('Error fetching accounts:', error)
       toastr.error('An error occurred while fetching accounts data')
     } finally {
-      // Always remove loading state
       $(accountsTable).removeClass('loading')
     }
   }

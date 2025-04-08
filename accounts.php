@@ -14,6 +14,7 @@
                         <div class="table-responsive">
                             <div class="border-bottom mb-4">
                                 <div class="col-12">
+
                                     <div class="d-flex justify-content-between align-items-center mb-4">
                                         <h4 class="module-title"><span class="text-danger">TODO:</span> Accounts Management</h4>
                                         <div>
@@ -28,7 +29,6 @@
                                 </div>
                             </div>
                             <table id="accountsTable" class="table table-striped table-hover">
-
                                 <thead>
                                     <tr>
                                         <th>Account ID</th>

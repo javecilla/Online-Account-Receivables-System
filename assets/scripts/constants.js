@@ -1,5 +1,9 @@
-const BASE_URL = $('meta[name="base-URL"]').attr('content')
-const REQUEST_FILE_NAME = $('meta[name="request-file-name"]').attr('content') //dashboard.php
+const BASE_URL = document
+  .querySelector('meta[name="base-url"]')
+  .getAttribute('content')
+const REQUEST_FILE_NAME = document
+  .querySelector('meta[name="request-file-name"]')
+  .getAttribute('content') //dashboard.php
 const API_URL = `${BASE_URL}/app/router/api.php`
 
 const HEADERS = {
