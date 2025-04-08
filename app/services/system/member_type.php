@@ -23,3 +23,25 @@ function get_type(int $type_id): array
         return ['success' => false, 'message' => 'Database error occurred'];
     }
 }
+
+function get_membership_types(): array
+{
+    try {
+        $conn = open_connection();
+
+        $sql = "SELECT * FROM member_types";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $types = $result->num_rows > 0 ? $result->fetch_all(MYSQLI_ASSOC) : [];
+
+        return [
+            'success' => true,
+            'message' => 'Membership types retrieved successfully',
+            'data' => $types
+        ];
+    } catch (Exception $e) {
+        log_error("Error fetching membership types: {$e->getMessage()}");
+        return ['success' => false, 'message' => 'Database error occurred'];
+    }
+}

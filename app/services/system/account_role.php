@@ -23,3 +23,25 @@ function get_role(int $id): array
         return ['success' => false, 'message' => 'Database error occurred'];
     }
 }
+
+function get_account_roles(): array
+{
+    try {
+        $conn = open_connection();
+
+        $sql = "SELECT * FROM account_roles";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $roles = $result->num_rows > 0 ? $result->fetch_all(MYSQLI_ASSOC) : [];
+
+        return [
+            'success' => true,
+            'message' => 'Accounts roles retrieved successfully',
+            'data' => $roles
+        ];
+    } catch (Exception $e) {
+        log_error("Error fetching account roles: {$e->getMessage()}");
+        return ['success' => false, 'message' => 'Database error occurred'];
+    }
+}

@@ -120,29 +120,28 @@ function get_account(int $account_id): array
 //TODO: make the updation dynamic, only update those fields is naka set
 function update_account(int $account_id, array $data): array
 {
-    //return ['success' => true, 'message' => 'service: update_account'];
     try {
         $conn = open_connection();
-
-        $hashed_password = hash_password($data['confirm_password']);
-
         $conn->begin_transaction();
 
-        $sql = "UPDATE accounts SET role_id = ?, 
-                email = ?, 
-                username = ?, 
-                `password` = ?
-            WHERE `account_id` = ? LIMIT 1";
+        $sql = "UPDATE accounts SET role_id = ?, email = ?, username = ?";
+        $params = [$data['role_id'], $data['email'], $data['username']];
+        $types = "iss";
+
+        // Check if confirm_password is set and not empty
+        if (!empty($data['confirm_password'])) {
+            $hashed_password = hash_password($data['confirm_password']);
+            $sql .= ", `password` = ?";
+            $params[] = $hashed_password;
+            $types .= "s";
+        }
+
+        $sql .= " WHERE `account_id` = ? LIMIT 1";
+        $params[] = $account_id;
+        $types .= "i";
 
         $stmt = $conn->prepare($sql);
-        $stmt->bind_param(
-            "isssi",
-            $data['role_id'],
-            $data['email'],
-            $data['username'],
-            $hashed_password,
-            $account_id
-        );
+        $stmt->bind_param($types, ...$params);
         $updated = $stmt->execute();
 
         if (!$updated) {

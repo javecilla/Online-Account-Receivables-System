@@ -1,6 +1,8 @@
 // Initialize chart data and chart instance
 let loanPerformanceChart = null
-const ctx = document.getElementById('loanPerformanceChart').getContext('2d')
+const loanPeformanceCtx = document
+  .getElementById('loanPerformanceChart')
+  .getContext('2d')
 
 // Fetch loan performance data and render chart
 async function fetchAndRenderLoanPerformanceData() {
@@ -39,19 +41,19 @@ async function fetchAndRenderLoanPerformanceData() {
       ]
     }
 
-    renderChart(chartData)
+    updateLoanPerformanceMetricsChart(chartData)
   } catch (error) {
     console.error('Error fetching loan performance data:', error)
   }
 }
 
 // Render the chart with the provided data
-function renderChart(chartData) {
+function updateLoanPerformanceMetricsChart(chartData) {
   if (loanPerformanceChart) {
     loanPerformanceChart.destroy()
   }
 
-  loanPerformanceChart = new Chart(ctx, {
+  loanPerformanceChart = new Chart(loanPeformanceCtx, {
     type: 'bar',
     data: chartData,
     options: {
@@ -123,5 +125,5 @@ function renderChart(chartData) {
   })
 }
 
-// Initialize chart when DOM is loaded
-document.addEventListener('DOMContentLoaded', fetchAndRenderLoanPerformanceData)
+// Expose the function globally
+window.updateLoanPerformanceMetricsChart = updateLoanPerformanceMetricsChart

@@ -1,18 +1,33 @@
 # Jerome Avecilla [https://github.com/javecilla]
 
-# mod_rewrite starts here
+# Enable CORS
+<IfModule mod_headers.c>
+    Header always set Access-Control-Allow-Origin "*"
+    Header always set Access-Control-Allow-Methods "GET, POST, PUT, PATCH, DELETE, OPTIONS"
+    Header always set Access-Control-Allow-Headers "*"
+    Header always set Access-Control-Max-Age "86400"
+    Header always set Access-Control-Expose-Headers "*"
 
+    # Handle preflight requests
+    RewriteEngine On
+    RewriteCond %{REQUEST_METHOD} OPTIONS
+    RewriteRule ^(.*)$ $1 [R=200,L,E=HTTP_ORIGIN:%{HTTP:ORIGIN}]
+</IfModule>
+
+# Force HTTPS
+# RewriteEngine On
+# RewriteCond %{HTTPS} off
+# RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# URL Rewriting Rules
 RewriteEngine on
 
-# does not apply to existing directories, meaning that if the folder exist on the server then don't change anything and don't run the rule
-
+# Does not apply to existing directories
 RewriteCond %{REQUEST_FILENAME} !-d
 
-# check for file in directory with .php extension
-
+# Check for file with .php extension
 RewriteCond %{REQUEST_FILENAME}\.php -f
 
-# here we actually show the page that has the .php extension
-
+# Rewrite to .php extension
 RewriteRule ^(.*)$ $1.php [NC,L]
 

@@ -86,6 +86,13 @@ input:read-only {
   overflow-y: auto;
 }
 
+.hidden {
+  display: none !important;
+}
+
+.text-bold {
+  font-weight: bolder !important;
+}
 /**==============Bootstrap Override styles==============**/
 .custom-tooltip {
   --bs-tooltip-bg: var(--bs-secondary);
@@ -97,4 +104,73 @@ input:read-only {
   --bs-tooltip-padding: 8px 12px;
   --bs-tooltip-opacity: 1;
   --bs-tooltip-max-width: 200px;
+}
+
+/* Make all the fields silver ui */
+.form-control {
+  background: linear-gradient(to bottom, #ffffff 40%, #f8f9fa 100%) !important;
+  border: 1px solid #dee2e6 !important;
+  border-radius: 3px !important;
+  color: #495057 !important;
+}
+.form-control::placeholder {
+  color: #848d95 !important;
+  opacity: 1 !important;
+  font-size: 0.9rem !important;
+}
+.form-control:read-only {
+  pointer-events: none !important;
+  background-color: #ebeff2 !important;
+}
+.form-control.is-invalid,
+.form-select.is-invalid {
+  border: 1px solid var(--danger-color) !important;
+}
+
+.form-select-custom {
+  background: linear-gradient(to bottom, #ffffff 40%, #f8f9fa 100%) !important;
+  border: 1px solid #dee2e6 !important;
+  color: #495057 !important;
+  pointer-events: auto !important;
+  position: relative;
+  width: 100%;
+  display: block;
+  height: calc(1.5em + 0.75rem + 2px);
+  /* top, right, bottom, left */
+  padding: 0.375rem 2.25rem 0.375rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  border-radius: 3px !important;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.input-group-text select {
+  background: none !important;
+  border: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  float: start !important;
+}
+
+.col-form-label {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #697078;
+  text-align: end;
+}
+
+/** Sweetalert Override Styles **/
+.swal2-loader {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 2.2em;
+  height: 2.2em;
+  margin: 0 1.875em;
+  animation: swal2-rotate-loading 1.5s linear 0s infinite normal;
+  border-width: 0.25em;
+  border-style: solid;
+  border-radius: 100%;
+  border-color: #242220 rgba(0, 0, 0, 0) #323131 rgba(0, 0, 0, 0) !important;
 }

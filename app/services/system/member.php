@@ -128,11 +128,11 @@ function get_member(int $member_id): array
 
 function get_member_by_account(int $account_id): array
 {
-    log_request('get_member_by_account', ['account_id' => $account_id]);
+    //log_request('get_member_by_account', ['account_id' => $account_id]);
     try {
         $conn = open_connection();
 
-        $sql = vw_member_details() . " WHERE account_id = ? LIMIT 1";
+        $sql = vw_member_details() . " WHERE a.account_id = ? LIMIT 1";
         $stmt = $conn->prepare($sql);
         $stmt->bind_param('i', $account_id);
         $stmt->execute();
@@ -152,28 +152,12 @@ function get_member_by_account(int $account_id): array
 
 function update_member(int $member_id, array $data): array
 {
-    //return ['success' => true, 'message' => 'service: update_member'];
     try {
         $conn = open_connection();
-
         $conn->begin_transaction();
 
-        $sql = "UPDATE members SET `type_id` = ?, 
-                first_name = ?, 
-                middle_name = ?, 
-                last_name = ?, 
-                contact_number = ?, 
-                house_address = ?, 
-                barangay = ?, 
-                municipality = ?, 
-                province = ?, 
-                region = ?, 
-                membership_status = ?
-            WHERE `member_id` = ? LIMIT 1";
-
-        $stmt = $conn->prepare($sql);
-        $stmt->bind_param(
-            "issssssssssi",
+        $sql = "UPDATE members SET `type_id` = ?, first_name = ?, middle_name = ?, last_name = ?, contact_number = ?, house_address = ?, barangay = ?, municipality = ?, province = ?, region = ?";
+        $params = [
             $data['type_id'],
             $data['first_name'],
             $data['middle_name'],
@@ -183,11 +167,25 @@ function update_member(int $member_id, array $data): array
             $data['barangay'],
             $data['municipality'],
             $data['province'],
-            $data['region'],
-            $data['membership_status'],
-            $member_id
-        );
+            $data['region']
+        ];
+        $types = "isssssssss";
+
+        // Check if membership_status is set and not empty
+        if (!empty($data['membership_status'])) {
+            $sql .= ", membership_status = ?";
+            $params[] = $data['membership_status'];
+            $types .= "s";
+        }
+
+        $sql .= " WHERE `member_id` = ? LIMIT 1";
+        $params[] = $member_id;
+        $types .= "i";
+
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param($types, ...$params);
         $updated = $stmt->execute();
+
         if (!$updated) {
             $conn->rollback();
             return ['success' => false, 'message' => 'Failed to update member', 'status' => 500];

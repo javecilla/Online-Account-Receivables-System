@@ -24,6 +24,9 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   )
 
+  // Expose the function globally
+  window.fetchAndRenderData = fetchAndRenderData
+
   // Initial data fetch
   fetchAndRenderData(
     moment().subtract(6, 'months').format('YYYY-MM-DD'),

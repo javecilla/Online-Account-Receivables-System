@@ -6,6 +6,18 @@ require_once __DIR__ . '/../helpers/api.php';
 require_once __DIR__ . '/../services/app.php';
 require_once __DIR__ . '/../controllers/app.php';
 
+// Set CORS headers
+header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Methods: GET, POST, PUT, PATCH, DELETE, OPTIONS');
+header('Access-Control-Allow-Headers: Content-Type, Authorization, X-Requested-With');
+header('Access-Control-Max-Age: 86400');
+
+// Handle preflight OPTIONS request
+if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+    http_response_code(200);
+    exit(0);
+}
+
 try {
     if (get_request_method() === 'POST') {
         $request = get_server_request_data();
@@ -66,6 +78,49 @@ try {
                 handle_create_member_cooperative($payload);
                 break;
 
+            //TODO:
+            case 'create_employee_cooperative':
+                handle_create_employee_cooperative($payload);
+                break;
+
+            /* //TODO: POST ALTERNATIVES FOR PUT/PATCH ENDPOINTS */
+            case 'update_account':
+                handle_update_account($payload);
+                break;
+
+            case 'reset_password':
+                handle_reset_password($payload);
+                break;
+
+            case 'update_member':
+                handle_update_member($payload);
+                break;
+
+            case 'update_member_status':
+                handle_update_member_status($payload);
+                break;
+
+            case 'update_member_cooperative':
+                handle_update_member_cooperative($payload);
+                break;
+
+            case 'update_employee_cooperative':
+                handle_update_employee_cooperative($payload);
+                break;
+
+            case 'update_amortization_status':
+                handle_update_amortization_status($payload);
+                break;
+
+            /* //TODO: POST ALTERNATIVES FOR DELETE ENDPOINTS */
+            case 'delete_account':
+                handle_delete_account($payload);
+                break;
+
+            case 'delete_member':
+                handle_delete_member($payload);
+                break;
+
             /* TRANSACTIONS */
             case 'deposit':
                 handle_deposit_transaction($payload);
@@ -115,6 +170,10 @@ try {
                 handle_get_account($payload);
                 break;
 
+            case 'get_account_roles':
+                handle_get_account_roles($payload);
+                break;
+
             case 'get_members':
                 handle_get_members($payload);
                 break;
@@ -123,8 +182,20 @@ try {
                 handle_get_member($payload);
                 break;
 
+            case 'get_membership_types':
+                handle_get_membership_types($payload);
+                break;
+
             case 'get_member_amortizations':
                 handle_get_member_amortizations($payload);
+                break;
+
+            case 'get_employee_by_account':
+                handle_get_employee_by_account($payload);
+                break;
+
+            case 'get_member_by_account':
+                handle_get_member_by_account($payload);
                 break;
 
             // Analytics endpoints
@@ -199,6 +270,14 @@ try {
                 handle_update_member_status($payload);
                 break;
 
+            case 'update_member_cooperative':
+                handle_update_member_cooperative($payload);
+                break;
+
+            case 'update_employee_cooperative':
+                handle_update_employee_cooperative($payload);
+                break;
+
             case 'update_amortization_status':
                 handle_update_amortization_status($payload);
                 break;
@@ -216,7 +295,6 @@ try {
         //log_request('action: ', $action);
         $payload = $request['data'];
         //log_request('payload: ', $payload);
-
 
         switch ($action) {
             case 'delete_account':

@@ -236,6 +236,12 @@ function validate_data(mixed $data, array $expected_field_types): ?array
                                         }
                                         break;
 
+                                    case 'employee_model':
+                                        $result = get_employee((int) $data[$field]);
+                                        if (!$result['success']) {
+                                            return_response($result);
+                                        }
+                                        break;
 
                                     default:
                                         return_response([

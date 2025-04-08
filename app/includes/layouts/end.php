@@ -17,9 +17,14 @@
 <script type="text/javascript" src="<?= $base_url ?>/assets/scripts/constants.js" loading="eager"></script>
 <script type="text/javascript" src="<?= $base_url ?>/assets/scripts/helpers/global.js" loading="eager"></script>
 <script type="text/javascript" src="<?= $base_url ?>/assets/scripts/helpers/system.js" loading="eager"></script>
+<script type="text/javascript" src="<?= $base_url ?>/assets/scripts/helpers/loading.js" loading="eager"></script>
 <script type="text/javascript" src="<?= $base_url ?>/assets/scripts/layouts/header.js" loading="eager"></script>
 <script type="text/javascript" src="<?= $base_url ?>/assets/scripts/layouts/sidebar.js" loading="eager"></script>
 
+<!-- autoload all services -->
+<script type="text/javascript" src="<?= $base_url ?>/assets/scripts/system/accounts/services.js" loading="lazy"></script>
+<script type="text/javascript" src="<?= $base_url ?>/assets/scripts/system/members/services.js" loading="lazy"></script>
+<script type="text/javascript" src="<?= $base_url ?>/assets/scripts/system/employee/services.js" loading="lazy"></script>
 <?php
 if ($request_file_name === 'dashboard.php') {
     echo <<<HTML
@@ -27,10 +32,13 @@ if ($request_file_name === 'dashboard.php') {
         <script type="text/javascript" src="{$base_url}/assets/scripts/system/dashboard/admin/summary-metrics.js" loading="lazy"></script>
         <script type="text/javascript" src="{$base_url}/assets/scripts/system/dashboard/admin/monthly-balance-trends.js" loading="lazy"></script>
         <script type="text/javascript" src="{$base_url}/assets/scripts/system/dashboard/admin/loan-performance-metrics.js" loading="lazy"></script>
+        <script type="text/javascript" src="{$base_url}/assets/scripts/system/dashboard/admin/dashboard.js" loading="lazy"></script>
     HTML;
 } else if ($request_file_name === 'accounts.php') {
     echo <<<HTML
         <script type="text/javascript" src="{$base_url}/assets/scripts/system/accounts/admin/get-accounts.js" loading="lazy"></script>
+        <script type="text/javascript" src="{$base_url}/assets/scripts/system/accounts/admin/accounts.js" loading="lazy"></script>
+        <script type="text/javascript" src="{$base_url}/assets/scripts/system/accounts/admin/create-member-accounts.js" loading="lazy"></script>
     HTML;
 }
 ?>

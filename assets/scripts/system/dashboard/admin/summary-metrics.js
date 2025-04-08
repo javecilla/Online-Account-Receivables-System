@@ -1,12 +1,3 @@
-// Format currency function
-const formatCurrency = (value) => {
-  if (value === null || value === undefined) return '₱0.00'
-  return `₱${parseFloat(value).toLocaleString('en-US', {
-    minimumFractionDigits: 2,
-    maximumFractionDigits: 2
-  })}`
-}
-
 // Function to update dashboard metrics
 const updateDashboardMetrics = async () => {
   try {
@@ -81,16 +72,15 @@ const updateDashboardMetrics = async () => {
 }
 
 // Initialize dashboard on page load
-let dashboardInterval
-document.addEventListener('DOMContentLoaded', () => {
-  updateDashboardMetrics()
-  // Refresh dashboard every 5 minutes
-  dashboardInterval = setInterval(updateDashboardMetrics, 300000)
-})
+// let dashboardInterval
+// document.addEventListener('DOMContentLoaded', () => {
+//   updateDashboardMetrics()
+//   dashboardInterval = setInterval(updateDashboardMetrics, 300000)
+// })
 
 // Cleanup on page unload
-window.addEventListener('unload', () => {
-  if (dashboardInterval) {
-    clearInterval(dashboardInterval)
-  }
-})
+// window.addEventListener('unload', () => {
+//   if (dashboardInterval) {
+//     clearInterval(dashboardInterval)
+//   }
+// })

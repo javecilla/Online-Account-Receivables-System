@@ -80,6 +80,7 @@ function handle_delete_account(mixed $payload): void
     $validated = validate_data($payload, [
         'account_id' => 'required|numeric|min:1|check:account_model',
     ]);
+    //log_request('payloadvalidated', $validated['data']);
 
     $deleted = delete_account((int) $validated['data']['account_id']);
     return_response($deleted);
@@ -188,4 +189,10 @@ function handle_logout_account(mixed $payload): void
 {
     terminate_session();
     return_response(['success' => true, 'message' => 'Logout successful', 'redirect' => '/auth/login']);
+}
+
+function handle_get_account_roles(mixed $payload): void
+{
+    $roles = get_account_roles();
+    return_response($roles);
 }

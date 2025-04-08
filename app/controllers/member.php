@@ -27,6 +27,7 @@ function handle_create_member(mixed $payload): void
 //TODO:
 function handle_create_member_cooperative(mixed $payload): void
 {
+    //log_request('payload', $payload);
     $validated = validate_data($payload, [
         //account information
         'role_id' => 'required|numeric|min:1|check:role_model',
@@ -49,6 +50,8 @@ function handle_create_member_cooperative(mixed $payload): void
         'page_from' => 'required'
     ]);
 
+    //return_response(['success' => true, 'message' => '[TEST]: Member Registered successfully.']);
+
     $a_created = create_account($validated['data']);
     if (!$a_created['success']) {
         return_response($a_created);
@@ -64,7 +67,7 @@ function handle_create_member_cooperative(mixed $payload): void
     $response_message = 'Registered successfully. ';
     $page_from = $validated['data']['page_from'];
     //check if the account creation came from registration in client page
-    if ($page_from === 'registration') {
+    if ($page_from === 'external') {
         $mailed = send_verification_email($validated['data']['email']);
         if (!$mailed['success']) {
             return_response($mailed);
@@ -98,6 +101,15 @@ function handle_get_member(mixed $payload): void
     return_response($member);
 }
 
+function handle_get_member_by_account(mixed $payload): void
+{
+    $validated = validate_data($payload, [
+        'account_id' => 'required|numeric|min:1|check:account_model',
+    ]);
+    $member = get_member_by_account((int)$validated['data']['account_id']);
+    return_response($member);
+}
+
 function handle_update_member(mixed $payload): void
 {
     $validated = validate_data($payload, [
@@ -117,6 +129,45 @@ function handle_update_member(mixed $payload): void
 
     $updated = update_member($validated['data']['member_id'], $validated['data']);
     return_response($updated);
+}
+
+function handle_update_member_cooperative(mixed $paylod): void
+{
+    $validated = validate_data($paylod, [
+        //acount info
+        'account_id' => 'required|numeric|min:1|check:account_model',
+        'role_id' => 'required|numeric|min:1|check:role_model',
+        'email'   => 'required|email|check_except:is_email_unique,account_id',
+        'username' => 'required|check_except:is_username_unique,account_id',
+        'password' => 'optional|min:8|contains:lowercase,uppercase,number,symbol',
+        'confirm_password' => 'optional|match:password',
+        //member info
+        'member_id' => 'required|numeric|min:1|check:member_model',
+        'type_id' => 'required|numeric|min:1|check:type_model',
+        'first_name' => 'required|string',
+        'middle_name' => 'optional|string',
+        'last_name' => 'required|string',
+        'contact_number' => 'required|length:13',
+        'house_address' => 'required',
+        'barangay' => 'required',
+        'municipality' => 'required|string',
+        'province' => 'required|string',
+        'region' => 'required',
+    ]);
+    // log_request('payload', $validated['data']);
+    // return_response(['success' => true, 'message' => 'testtt update']);
+
+    $a_updated = update_account((int)$validated['data']['account_id'], $validated['data']);
+    if (!$a_updated['success']) {
+        return_response($a_updated);
+    }
+
+    $m_updated = update_member((int)$validated['data']['member_id'], $validated['data']);
+    if (!$m_updated['success']) {
+        return_response($m_updated);
+    }
+
+    return_response(['success' => true, 'message' => 'Updated successfully.']);
 }
 
 // TODO: email members for their membership status if status 'closed'
@@ -278,4 +329,10 @@ function handle_check_and_apply_penalties(mixed $payload): void
         'message' => 'Account is maintaining required balance',
         'data' => $balance_check['data']
     ]);
+}
+
+function handle_get_membership_types(mixed $payload): void
+{
+    $roles = get_membership_types();
+    return_response($roles);
 }
