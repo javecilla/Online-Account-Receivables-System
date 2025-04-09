@@ -40,6 +40,13 @@ if ($request_file_name === 'dashboard.php') {
         <script type="text/javascript" src="{$base_url}/assets/scripts/system/accounts/admin/accounts.js" loading="lazy"></script>
         <script type="text/javascript" src="{$base_url}/assets/scripts/system/accounts/admin/create-member-accounts.js" loading="lazy"></script>
     HTML;
+} else if ($request_file_name === 'members.php') {
+    echo <<<HTML
+        <script type="text/javascript" src="{$base_url}/assets/scripts/system/members/admin/update-member.js" loading="lazy"></script>
+        <script type="text/javascript" src="{$base_url}/assets/scripts/system/members/admin/get-members.js" loading="lazy"></script>
+        <script type="text/javascript" src="{$base_url}/assets/scripts/system/members/admin/members.js" loading="lazy"></script>
+        <script type="text/javascript" src="{$base_url}/assets/scripts/system/members/admin/member-tabs.js" loading="lazy"></script>
+    HTML;
 }
 ?>
 </body>

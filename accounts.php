@@ -312,7 +312,7 @@
                                                         </button>
                                                     </div>
                                                     <div id="viewActionContainer" class="hidden">
-                                                        <button class="btn action-btn">
+                                                        <button id="viewMoreMemberInfoBtn" class="btn action-btn">
                                                             <i class="fas fa-eye me-2"></i> View more <span id="accountRoleTextBtn">Member</span> Information
                                                         </button>
                                                     </div>

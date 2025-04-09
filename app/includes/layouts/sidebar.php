@@ -3,31 +3,31 @@
     <div class="sidebar-brand">
         <!-- <i class="fas fa-bolt"></i>
         <span>Javecilla</span> -->
-        <img src="<?= get_base_url() ?>/assets/images/logo-text.png" width="220" alt="logo" />
+        <img src="<?= $base_url ?>/assets/images/logo-text.png" width="220" alt="logo" />
     </div>
     <hr style="color:rgb(180, 180, 180)">
     <ul class="sidebar-menu">
         <li>
-            <a href="<?= get_base_url() ?>/dashboard" title="Dashboard">
+            <a href="<?= $base_url ?>/dashboard" title="Dashboard">
                 <!-- <i class="fas fa-gauge"></i> -->
                 <i class="fas fa-table-columns"></i>
                 <span>Dashboard</span>
             </a>
         </li>
         <li>
-            <a href="<?= get_base_url() ?>/accounts" title="Accounts">
+            <a href="<?= $base_url ?>/accounts" title="Accounts">
                 <i class="fas fa-users"></i>
                 <span>Accounts</span>
             </a>
         </li>
         <li>
-            <a href="<?= get_base_url() ?>/members" title="Members">
+            <a href="<?= $base_url ?>/members" title="Members">
                 <i class="fas fa-user"></i>
                 <span>Members</span>
             </a>
         </li>
         <li>
-            <a href="<?= get_base_url() ?>/amortization" title="Amortization">
+            <a href="<?= $base_url ?>/amortization" title="Amortization">
                 <i class="fas fa-credit-card"></i>
                 <span>Amortization</span>
             </a>

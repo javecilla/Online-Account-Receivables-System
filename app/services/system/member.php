@@ -66,7 +66,7 @@ function get_members(int $page = 1, int $per_page = 10): array
 
         $offset = ($page - 1) * $per_page;
 
-        $count_sql = "SELECT COUNT(*) as total FROM vw_member_details";
+        $count_sql = "SELECT COUNT(*) as total FROM (" . vw_member_details() . ") as member_ngani";
         $count_result = $conn->query($count_sql);
         $total_records = $count_result->fetch_assoc()['total'];
         # ORDER BY member_id DESC
@@ -517,6 +517,57 @@ function record_transaction(int $member_id, array $data): array
         ];
     } catch (Exception $e) {
         $conn->rollback();
+        log_error("Error recording transaction: {$e->getTraceAsString()}");
+        return ['success' => false, 'message' => "Error: {$e->getMessage()}"];
+    }
+}
+
+function get_member_transactions(int $member_id): array
+{
+    try {
+        $conn = open_connection();
+
+        $base_sql = vw_member_transaction_history();
+        $sql = $base_sql . "WHERE m.member_id = ?";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param('i', $member_id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        $transactions = [];
+        while ($row = $result->fetch_assoc()) {
+            $transactions[] = $row;
+        }
+
+        return [
+            'success' => true,
+            'message' => 'Member transactions retrieved successfully',
+            'data' => $transactions
+        ];
+    } catch (Exception $e) {
+        log_error("Error fetching member transactions: {$e->getTraceAsString()}");
+        return ['success' => false, 'message' => "Error: {$e->getMessage()}"];
+    }
+}
+
+function get_members_transactions(): array
+{
+    try {
+        $conn = open_connection();
+
+        $sql = vw_member_transaction_history();
+        $stmt = $conn->prepare($sql);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        $transactions = $result->fetch_all(MYSQLI_ASSOC);
+        return [
+            'success' => true,
+            'message' => 'Transactions retrieved successfully',
+            'data' => $transactions
+        ];
+    } catch (Exception $e) {
+        log_error("Error fetching members transactions: {$e->getTraceAsString()}");
         return ['success' => false, 'message' => "Error: {$e->getMessage()}"];
     }
 }

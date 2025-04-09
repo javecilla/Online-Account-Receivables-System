@@ -239,6 +239,14 @@ try {
                 handle_get_monthly_overdue_metrics($payload);
                 break;
 
+            case 'get_member_transactions':
+                hanlde_get_member_transactions($payload);
+                break;
+
+            case 'get_members_transactions':
+                hanlde_get_members_transactions($payload);
+                break;
+
             default:
                 throw new Exception('Bad Request! Invalid action.', 400);
                 break;

@@ -87,6 +87,11 @@ $request_file_name = get_request_file_name();
         echo <<<HTML
           <link rel="stylesheet" type="text/css" href="{$base_url}/assets/stylesheets/system/accounts.css" loading="eager" />
           HTML;
+    } else if ($request_file_name === 'members.php') {
+        echo <<<HTML
+          <link rel="stylesheet" type="text/css" href="{$base_url}/assets/stylesheets/system/members.css" loading="eager" />
+          <link rel="stylesheet" type="text/css" href="{$base_url}/assets/stylesheets/system/member-tabs.css" loading="eager" />
+          HTML;
     }
     ?>
 

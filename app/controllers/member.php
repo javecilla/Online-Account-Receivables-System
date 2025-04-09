@@ -86,7 +86,7 @@ function handle_get_members(mixed $payload): void
     ]);
 
     $page = isset($validated['data']['page']) ? (int)$validated['data']['page'] : 1;
-    $per_page = isset($validated['data']['per_page']) ? (int)$validated['data']['per_page'] : 10;
+    $per_page = isset($validated['data']['per_page']) ? (int)$validated['data']['per_page'] : 100;
 
     $members = get_members($page, $per_page);
     return_response($members);
@@ -196,6 +196,20 @@ function handle_delete_member(mixed $payload): void
     $validated = validate_data($payload, [
         'member_id' => 'required|numeric|min:1|check:member_model',
     ]);
+
+    //check if member has active amortizations before deleting
+    $active_check = check_active_amortizations($validated['data']['member_id']);
+    if (!$active_check['success']) {
+        return_response($active_check);
+    }
+
+    if ($active_check['has_active']) {
+        return_response([
+            'success' => false,
+            'message' => "Cannot delete member becuase this member has {$active_check['active_count']} active amortization(s).",
+            'status' => 400
+        ]);
+    }
 
     $deleted = delete_member((int) $validated['data']['member_id']);
     return_response($deleted);
@@ -335,4 +349,20 @@ function handle_get_membership_types(mixed $payload): void
 {
     $roles = get_membership_types();
     return_response($roles);
+}
+
+function hanlde_get_member_transactions(mixed $payload): void
+{
+    $validated = validate_data($payload, [
+        'member_id' => 'required|numeric|min:1|check:member_model',
+    ]);
+
+    $transactions = get_member_transactions((int)$validated['data']['member_id']);
+    return_response($transactions);
+}
+
+function hanlde_get_members_transactions(mixed $payload): void
+{
+    $transactions = get_members_transactions();
+    return_response($transactions);
 }

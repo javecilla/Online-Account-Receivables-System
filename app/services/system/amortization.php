@@ -102,8 +102,7 @@ function get_member_amortizations(int $member_id, int $page = 1, int $per_page =
     try {
         $conn = open_connection();
 
-        $offset = ($page - 1) * $per_page;
-        $where_clause = "member_id = ?";
+        $where_clause = "m.member_id = ?";
         $types = "i";
         $params = [$member_id];
 
@@ -113,39 +112,18 @@ function get_member_amortizations(int $member_id, int $page = 1, int $per_page =
             $params[] = $status;
         }
 
-        //total records
-        $count_sql = "SELECT COUNT(*) as total 
-                     FROM (" . vw_amortization_details() . ") as ad 
-                     WHERE {$where_clause}";
-        $count_stmt = $conn->prepare($count_sql);
-        $count_stmt->bind_param($types, ...$params);
-        $count_stmt->execute();
-        $total_records = $count_stmt->get_result()->fetch_assoc()['total'];
-
-        $sql = vw_amortization_details() . "
-                WHERE {$where_clause}
-                ORDER BY created_at DESC
-                LIMIT ? OFFSET ?";
-
+        $base_sql = vw_amortization_details();
+        $sql = $base_sql . " WHERE {$where_clause} ORDER BY ma.created_at DESC";
         $stmt = $conn->prepare($sql);
-        $stmt->bind_param($types . "ii", ...[...$params, $per_page, $offset]);
+        $stmt->bind_param($types, ...$params);
         $stmt->execute();
         $result = $stmt->get_result();
 
         $amortizations = $result->fetch_all(MYSQLI_ASSOC);
-        $total_pages = ceil($total_records / $per_page);
 
         return [
             'success' => true,
-            'data' => [
-                'items' => $amortizations,
-                'meta' => [
-                    'total' => $total_records,
-                    'page' => $page,
-                    'per_page' => $per_page,
-                    'total_pages' => $total_pages
-                ]
-            ]
+            'data' => $amortizations
         ];
     } catch (Exception $e) {
         log_error("Error fetching amortizations: {$e->getTraceAsString()}");

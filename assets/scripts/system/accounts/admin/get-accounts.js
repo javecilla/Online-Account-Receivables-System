@@ -33,6 +33,17 @@ $(document).ready(async function () {
       { data: 'email', title: 'Email' },
       // { data: 'username', title: 'Username' },
       {
+        data: 'email_verified_at',
+        title: 'Verified',
+        render: function (data) {
+          const verifiedClass =
+            data !== null ? 'status-verified-yes' : 'status-verified-no'
+          const icon = data !== null ? 'fa-shield-alt' : 'fa-circle-exclamation'
+          const statusText = data !== null ? 'Verified' : 'Not Verified'
+          return `<span class="status-badge ${verifiedClass}"><i class="fas ${icon}"></i>&nbsp;${statusText}</span>`
+        }
+      },
+      {
         data: 'account_status',
         title: 'Status',
         render: function (data) {
@@ -42,17 +53,6 @@ $(document).ready(async function () {
           return `<span class="status-badge ${statusClass}"><i class="fas ${icon}"></i>&nbsp;${
             data.charAt(0).toUpperCase() + data.slice(1)
           }</span>`
-        }
-      },
-      {
-        data: 'email_verified_at',
-        title: 'Verified',
-        render: function (data) {
-          const verifiedClass =
-            data !== null ? 'status-verified-yes' : 'status-verified-no'
-          const icon = data !== null ? 'fa-shield-alt' : 'fa-circle-exclamation'
-          const statusText = data !== null ? 'Verified' : 'Not Verified'
-          return `<span class="status-badge ${verifiedClass}"><i class="fas ${icon}"></i>&nbsp;${statusText}</span>`
         }
       },
       {
@@ -384,6 +384,7 @@ $(document).ready(async function () {
   async function displayAccountInformation(account) {
     const $mainContent = $('.main-content')
     LoadingManager.show($mainContent)
+    //console.log(account)
     try {
       // await displayAccountRoles()
       // await displayMembershipTypes()
@@ -459,6 +460,13 @@ $(document).ready(async function () {
         $('#accountUpdatedAt')
           .val(formatReadableDateTime(account.account_updated_at))
           .prop('readonly', true)
+        //view more member info
+        $('#viewMoreMemberInfoBtn').on('click', function () {
+          window.open(
+            `members?mode=view&member_id=${account.member_id}#internal`,
+            '_blank'
+          )
+        })
 
         if (account.for === 'member') {
           $membershipType.prop('disabled', true)

@@ -29,6 +29,7 @@ require_once __DIR__ . '/system/views_sql/vw_loan_performance_analytics.php';
 require_once __DIR__ . '/system/views_sql/vw_member_details.php';
 require_once __DIR__ . '/system/views_sql/vw_member_growth_analysis.php';
 require_once __DIR__ . '/system/views_sql/vw_member_locations.php';
+require_once __DIR__ . '/system/views_sql/vw_member_transaction_history.php';
 require_once __DIR__ . '/system/views_sql/vw_membership_status_summary.php';
 require_once __DIR__ . '/system/views_sql/vw_monthly_balance_trends.php';
 require_once __DIR__ . '/system/views_sql/vw_monthly_overdue_metrics.php';

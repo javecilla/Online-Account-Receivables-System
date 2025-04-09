@@ -10,7 +10,7 @@ const fetchAccounts = async () => {
   } catch (error) {
     console.error('Error fetching accounts:', error)
     const errorMessage =
-      error.response?.data?.message || 'Something went wrong on our end'
+      error.response?.data?.message || 'Oppss! Something went wrong.'
     toastr.error(errorMessage)
     throw error
   }
@@ -28,7 +28,7 @@ const fetchAccountRoles = async () => {
   } catch (error) {
     console.error('Error fetching accounts:', error)
     const errorMessage =
-      error.response?.data?.message || 'Something went wrong on our end'
+      error.response?.data?.message || 'Oppss! Something went wrong.'
     toastr.error(errorMessage)
     throw error
   }
@@ -51,7 +51,7 @@ const createMemberCooperative = async (payload) => {
   } catch (error) {
     console.error('Error create member account:', error)
     const errorMessage =
-      error.response?.data?.message || 'Something went wrong on our end'
+      error.response?.data?.message || 'Oppss! Something went wrong.'
     toastr.error(errorMessage)
     throw error
   }
@@ -71,7 +71,7 @@ const createEmployeeCooperative = async (payload) => {
   } catch (error) {
     console.error('Error create employee account:', error)
     const errorMessage =
-      error.response?.data?.message || 'Something went wrong on our end'
+      error.response?.data?.message || 'Oppss! Something went wrong.'
     toastr.error(errorMessage)
     throw error
   }
@@ -95,7 +95,7 @@ const updateMemberCooperative = async (payload) => {
   } catch (error) {
     console.error('Error update member account:', error)
     const errorMessage =
-      error.response?.data?.message || 'Something went wrong on our end'
+      error.response?.data?.message || 'Oppss! Something went wrong.'
     toastr.error(errorMessage)
     throw error
   }
@@ -103,7 +103,7 @@ const updateMemberCooperative = async (payload) => {
 
 const updateEmployeeCooperative = async (payload) => {
   try {
-    console.log(postPayload)
+    //console.log(postPayload)
     const response = await axios.post(`${API_URL}`, payload, {
       headers: HEADERS
     })
@@ -117,7 +117,7 @@ const updateEmployeeCooperative = async (payload) => {
   } catch (error) {
     console.error('Error updating employee account:', error)
     const errorMessage =
-      error.response?.data?.message || 'Something went wrong on our end'
+      error.response?.data?.message || 'Oppss! Something went wrong.'
     toastr.error(errorMessage)
     throw error
   }
@@ -144,7 +144,7 @@ const deleteAccount = async (accountId) => {
   } catch (error) {
     console.error('Error deleting account:', error)
     const errorMessage =
-      error.response?.data?.message || 'Something went wrong on our end'
+      error.response?.data?.message || 'Oppss! Something went wrong.'
     toastr.error(errorMessage)
     throw error
   }
