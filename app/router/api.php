@@ -112,13 +112,8 @@ try {
                 handle_update_amortization_status($payload);
                 break;
 
-            /* //TODO: POST ALTERNATIVES FOR DELETE ENDPOINTS */
-            case 'delete_account':
-                handle_delete_account($payload);
-                break;
-
-            case 'delete_member':
-                handle_delete_member($payload);
+            case 'update_amortization_approval':
+                handle_update_amortization_approval($payload);
                 break;
 
             /* TRANSACTIONS */
@@ -145,6 +140,19 @@ try {
 
             case 'process_amortization_payment':
                 handle_process_amortization_payment($payload);
+                break;
+
+            /* //TODO: POST ALTERNATIVES FOR DELETE ENDPOINTS */
+            case 'delete_account':
+                handle_delete_account($payload);
+                break;
+
+            case 'delete_member':
+                handle_delete_member($payload);
+                break;
+
+            case 'delete_amortization':
+                handle_delete_amortization($payload);
                 break;
 
             default:
@@ -198,6 +206,10 @@ try {
                 handle_get_member_by_account($payload);
                 break;
 
+            case 'get_amortization_payments':
+                handle_get_amortization_payments($payload);
+                break;
+
             // Analytics endpoints
             case 'get_daily_transaction_stats':
                 handle_get_daily_transaction_stats($payload);
@@ -247,6 +259,14 @@ try {
                 hanlde_get_members_transactions($payload);
                 break;
 
+            case 'get_amortizations_by_status':
+                handle_get_amortizations_by_status($payload);
+                break;
+
+            case 'get_amortizations_by_approval':
+                handle_get_amortizations_by_approval($payload);
+                break;
+
             default:
                 throw new Exception('Bad Request! Invalid action.', 400);
                 break;
@@ -288,6 +308,10 @@ try {
 
             case 'update_amortization_status':
                 handle_update_amortization_status($payload);
+                break;
+
+            case 'update_amortization_approval':
+                handle_update_amortization_approval($payload);
                 break;
 
             default:

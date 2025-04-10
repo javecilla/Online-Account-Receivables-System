@@ -79,14 +79,21 @@ function get_request_file_name(): string
     return basename($_SERVER['PHP_SELF']);
 }
 
-function generate_member_id(int $role_id): string
-{
-    $prefix = match ($role_id) {
-        1 => 'ADMIN',
-        2 => 'ACC',
-        3 => 'MEM',
-        default => 'USR'
-    };
+// function generate_member_id(int $role_id): string
+// {
+//     $prefix = match ($role_id) {
+//         1 => 'ADMIN',
+//         2 => 'ACC',
+//         3 => 'MEM',
+//         default => 'USR'
+//     };
 
-    return $prefix . str_pad((string)mt_rand(1, 999), 3, '0', STR_PAD_LEFT);
+//     return $prefix . str_pad((string)mt_rand(1, 999), 3, '0', STR_PAD_LEFT);
+// }
+
+function escape_and_implodes(array $values): string
+{
+    return implode("','", array_map(function ($value) {
+        return str_replace(["'", "\\"], ["''", "\\\\"], $value);
+    }, $values));
 }

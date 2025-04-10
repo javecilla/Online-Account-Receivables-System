@@ -56,11 +56,59 @@ function handle_get_member_amortizations(mixed $payload): void
     return_response($amortizations);
 }
 
+function handle_get_amortizations_by_status(mixed $payload): void
+{
+    //paylaod: status=active,completed,defaulted
+    //log_request('data:', $payload);
+    $validated = validate_data($payload, [
+        'status' => 'required' //in:active,completed,defaulted
+    ]);
+
+    $status_array = array_map('trim', explode(',', $validated['data']['status']));
+    foreach ($status_array as $status) {
+        if (!in_array($status, AMORTIZATION_STATUS)) {
+            return_response([
+                'success' => false,
+                'message' => "Invalid status value: {$status}",
+                'status' => 400
+            ]);
+        }
+    }
+
+    $amortizations = get_amortizations_by_status($status_array);
+    return_response($amortizations);
+}
+
+function handle_get_amortizations_by_approval(mixed $payload): void
+{
+    //paylaod: status=pending,approved,rejected
+    //log_request('data:', $payload);
+    $validated = validate_data($payload, [
+        'approval' => 'required' //in:pending,approved,rejected
+    ]);
+
+    $approval_array = array_map('trim', explode(',', $validated['data']['approval']));
+    foreach ($approval_array as $approval) {
+        if (!in_array($approval, AMORTIZATION_APPROVAL_STATUS)) {
+            return_response([
+                'success' => false,
+                'message' => "Invalid approval value: {$approval}",
+                'status' => 400
+            ]);
+        }
+    }
+
+    $amortizations = get_amortizations_by_approval($approval_array);
+    return_response($amortizations);
+}
+
+
 function handle_process_amortization_payment(mixed $payload): void
 {
     //log_request('data:', $payload);
     $validated = validate_data($payload, [
         'amortization_id' => 'required|numeric|min:1|check:amortization_model',
+        'payment_method' => 'required|in:cash,check,bank_transfer,online_payment,others',
         'amount' => 'required|numeric|min:1',
         'payment_date' => 'required|date:YYYY-MM-DD',
         'notes' => 'optional'
@@ -84,6 +132,50 @@ function handle_update_amortization_status(mixed $payload): void
     );
     return_response($status_update);
 }
+
+function handle_update_amortization_approval(mixed $payload): void
+{
+    $validated = validate_data($payload, [
+        'amortization_id' => 'required|numeric|min:1|check:amortization_model',
+        'approval' => 'required|string|in:pending,approved,rejected',
+    ]);
+
+    //if approved, update status to active
+    if ($validated['data']['approval'] === AMORTIZATION_APPROVED) {
+        $status_update = update_amortization_status(
+            (int)$validated['data']['amortization_id'],
+            AMORTIZATION_ACTIVE
+        );
+        if (!$status_update['success']) {
+            return_response($status_update);
+        }
+    }
+    //TODO: if rejected, send email notification to user that their request for loan is not approved (update status to defaulted)
+
+    $approval_update = update_amortization_approval(
+        (int)$validated['data']['amortization_id'],
+        $validated['data']['approval']
+    );
+    return_response($approval_update);
+}
+
+function handle_delete_amortization(mixed $payload): void
+{
+    $validated = validate_data($payload, [
+        'amortization_id' => 'required|numeric|min:1|check:amortization_model'
+    ]);
+
+    $deleted = delete_amortization((int)$validated['data']['amortization_id']);
+    return_response($deleted);
+}
+
+function handle_get_amortization_payments(mixed $payload): void
+{
+    $payments = get_amortization_payments();
+    return_response($payments);
+}
+
+
 
 /**
  * Analytics and Reporting Handlers

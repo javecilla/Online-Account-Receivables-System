@@ -222,7 +222,7 @@ $(document).ready(function () {
           ? 'update_member_cooperative'
           : 'update_employee_cooperative',
       data: {
-        page_from: hashFragment,
+        page_from: getHashFragment(),
         role_id: null,
         email: '',
         username: '',

@@ -36,6 +36,7 @@ require_once __DIR__ . '/system/views_sql/vw_monthly_overdue_metrics.php';
 require_once __DIR__ . '/system/views_sql/vw_monthly_receivables_trend.php';
 require_once __DIR__ . '/system/views_sql/vw_payment_collection_efficiency.php';
 require_once __DIR__ . '/system/views_sql/vw_risk_assessment_dashboard.php';
+require_once __DIR__ . '/system/views_sql/vw_amortization_payments_details.php';
 
 require_once __DIR__ . '/system/account_role.php';
 require_once __DIR__ . '/system/account.php';

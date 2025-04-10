@@ -22,7 +22,7 @@
 }
 
 /* Table styling */
-#membersTable {
+#amortizationsTable {
   width: 100%;
   border-collapse: separate;
   border-spacing: 0;
@@ -30,7 +30,7 @@
   /* table-layout: fixed;  */
 }
 
-#membersTable thead th {
+#amortizationsTable thead th {
   background-color: #f8f9fa;
   font-weight: 600;
   color: #495057;
@@ -38,26 +38,26 @@
   border-bottom: 2px solid #dee2e6;
 }
 
-#membersTable thead th:first-child {
+#amortizationsTable thead th:first-child {
   /* border-top-left-radius: 10px; */
   width: 12%;
 }
-#membersTable thead th:nth-child(2) {
+#amortizationsTable thead th:nth-child(2) {
   width: 20%;
 }
-#membersTable thead th:nth-child(3) {
+#amortizationsTable thead th:nth-child(3) {
   width: 20%;
 }
-#membersTable thead th:nth-child(4) {
+#amortizationsTable thead th:nth-child(4) {
   width: 15%;
 }
-#membersTable thead th:nth-child(5) {
+#amortizationsTable thead th:nth-child(5) {
   width: 20%;
 }
-#membersTable thead th:nth-child(6) {
+#amortizationsTable thead th:nth-child(6) {
   width: 20%;
 }
-#membersTable tbody td {
+#amortizationsTable tbody td {
   padding: 12px 15px;
   vertical-align: middle;
   border-bottom: 1px solid #dee2e6;
@@ -94,7 +94,9 @@
 .at-savings-account,
 .at-agricultural-loan,
 .tt-deposit,
-.as-completed {
+.as-completed,
+.status-approved,
+.ap-online-payment {
   background-color: rgba(40, 167, 69, 0.2); /* Slightly darker green */
   color: #28a745;
   border: 1px solid rgba(40, 167, 69, 0.3);
@@ -109,34 +111,35 @@
 
 .at-fixed-deposit,
 .at-calamity-loan,
-.ff-interest {
+.ff-interest,
+.ap-bank-transfer {
   background-color: rgba(0, 123, 255, 0.2); /* Blue for fixed deposit */
   color: var(--primary-color);
   border: 1px solid rgba(0, 123, 255, 0.3);
 }
 
 .at-special-savings,
-.at-business-loan {
+.at-business-loan,
+.status-pending,
+.ap-check {
   background-color: rgba(23, 162, 184, 0.2); /* Cyan for special savings */
   color: #17a2b8;
   border: 1px solid rgba(23, 162, 184, 0.3);
 }
 
-.at-loan {
-  background-color: rgba(255, 165, 0, 0.2); /* Orange background */
-  color: #ff8c00; /* Darker orange for text */
-  border: 1px solid rgba(255, 165, 0, 0.3); /* Orange border */
-}
-
 .at-youth-savings,
 .at-personal-loan,
-.ff-fee {
+.ff-fee,
+.ap-cash {
   background-color: rgba(111, 66, 193, 0.2); /* Purple for youth savings */
   color: #6f42c1;
   border: 1px solid rgba(111, 66, 193, 0.3);
 }
 
-.tt-withdrawal {
+.at-loan,
+.tt-withdrawal,
+.status-rejected,
+.ap-others {
   background-color: rgba(220, 53, 69, 0.2); /* Red for loan */
   color: #dc3545;
   border: 1px solid rgba(220, 53, 69, 0.3);
@@ -223,8 +226,8 @@
     font-size: 0.75rem;
   }
 
-  #membersTable thead th,
-  #membersTable tbody td {
+  #amortizationsTable thead th,
+  #amortizationsTable tbody td {
     padding: 10px;
   }
 }

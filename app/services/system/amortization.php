@@ -79,7 +79,7 @@ function get_amortization(int $amortization_id): array
     try {
         $conn = open_connection();
 
-        $sql = vw_amortization_details() . " WHERE amortization_id = ? LIMIT 1";
+        $sql = vw_amortization_details() . " WHERE ma.amortization_id = ? LIMIT 1";
         $stmt = $conn->prepare($sql);
         $stmt->bind_param('i', $amortization_id);
         $stmt->execute();
@@ -93,6 +93,51 @@ function get_amortization(int $amortization_id): array
         return ['success' => true, 'message' => 'Retrieved successfully', 'data' => $result->fetch_assoc()];
     } catch (Exception $e) {
         log_error("Error fetching amortization: {$e->getTraceAsString()}");
+        return ['success' => false, 'message' => "Database error occurred: {$e->getMessage()}"];
+    }
+}
+
+function get_amortizations_by_status(array $statuses): array
+{
+    try {
+        $conn = open_connection();
+
+        $placeholders = str_repeat('?,', count($statuses) - 1) . '?';
+        $sql = vw_amortization_details() . " WHERE ma.status IN ({$placeholders}) AND ma.approval = 'approved' ORDER BY ma.updated_at DESC";
+        $stmt = $conn->prepare($sql);
+
+        $types = str_repeat('s', count($statuses));
+        $stmt->bind_param($types, ...$statuses);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $amortizations = $result->num_rows > 0 ? $result->fetch_all(MYSQLI_ASSOC) : [];
+
+        return ['success' => true, 'message' => 'Retrieved successfully', 'data' => $amortizations];
+    } catch (Exception $e) {
+        log_error("Error fetching amortization by status: {$e->getTraceAsString()}");
+        return ['success' => false, 'message' => "Database error occurred: {$e->getMessage()}"];
+    }
+}
+
+function get_amortizations_by_approval(array $approvals): array
+{
+    try {
+        $conn = open_connection();
+
+        $placeholders = str_repeat('?,', count($approvals) - 1) . '?';
+        $sql = vw_amortization_details() . " WHERE ma.approval IN ({$placeholders}) AND ma.status IS NULL";
+        $stmt = $conn->prepare($sql);
+
+        $types = str_repeat('s', count($approvals));
+        $stmt->bind_param($types, ...$approvals);
+        $stmt->execute();
+
+        $result = $stmt->get_result();
+        $amortizations = $result->num_rows > 0 ? $result->fetch_all(MYSQLI_ASSOC) : [];
+
+        return ['success' => true, 'message' => 'Retrieved successfully', 'data' => $amortizations];
+    } catch (Exception $e) {
+        log_error("Error fetching amortization by approval: {$e->getTraceAsString()}");
         return ['success' => false, 'message' => "Database error occurred: {$e->getMessage()}"];
     }
 }
@@ -119,7 +164,7 @@ function get_member_amortizations(int $member_id, int $page = 1, int $per_page =
         $stmt->execute();
         $result = $stmt->get_result();
 
-        $amortizations = $result->fetch_all(MYSQLI_ASSOC);
+        $amortizations = $result->num_rows > 0 ? $result->fetch_all(MYSQLI_ASSOC) : [];
 
         return [
             'success' => true,
@@ -150,13 +195,14 @@ function process_amortization_payment(array $data): array
 
         // Insert payment record
         $sql = "INSERT INTO amortization_payments (
-            amortization_id, amount, payment_date, reference_number, notes, created_by
-        ) VALUES (?, ?, ?, ?, ?, ?)";
+            amortization_id, payment_method, amount, payment_date, reference_number, notes, created_by
+        ) VALUES (?, ?, ?, ?, ?, ?, ?)";
 
         $stmt = $conn->prepare($sql);
         $stmt->bind_param(
-            'idsssi',
+            'isdsssi',
             $data['amortization_id'],
+            $data['payment_method'],
             $data['amount'],
             $data['payment_date'],
             $reference_number,
@@ -274,6 +320,78 @@ function update_amortization_status(int $amortization_id, string $new_status): a
         $conn->rollback();
         log_error("Error updating amortization status: {$e->getTraceAsString()}");
         return ['success' => false, 'message' => "Database error: {$e->getMessage()}"];
+    }
+}
+
+function update_amortization_approval(int $amortization_id, string $new_approval): array
+{
+    try {
+        $conn = open_connection();
+
+        $conn->begin_transaction();
+
+        $sql = "UPDATE member_amortizations 
+                SET approval = ?, updated_at = CURRENT_TIMESTAMP
+                WHERE amortization_id = ? LIMIT 1";
+
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param('si', $new_approval, $amortization_id);
+        $updated = $stmt->execute();
+        if (!$updated) {
+            $conn->rollback();
+            return ['success' => false, 'message' => 'Failed to update amortization approval'];
+        }
+
+        $conn->commit();
+        return [
+            'success' => true,
+            'message' => "Amortization approval updated to {$new_approval}",
+        ];
+    } catch (Exception $e) {
+        $conn->rollback();
+        log_error("Error updating amortization approval: {$e->getTraceAsString()}");
+        return ['success' => false, 'message' => "Database error: {$e->getMessage()}"];
+    }
+}
+
+function delete_amortization(int $amortization_id): array
+{
+    try {
+        $conn = open_connection();
+
+        $conn->begin_transaction();
+
+        $sql = "DELETE FROM member_amortizations WHERE amortization_id = ? AND `status` IS NULL AND approval = 'rejected' LIMIT 1";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param('i', $amortization_id);
+        $deleted = $stmt->execute();
+
+        if (!$deleted) {
+            $conn->rollback();
+            return ['success' => false, 'message' => 'Failed to delete amortization', 'status' => 500];
+        }
+
+        $conn->commit();
+        return ['success' => true, 'message' => 'Amortization deleted successfully'];
+    } catch (Exception $e) {
+        $conn->rollback();
+        log_error("Error deleting amortization: {$e->getTraceAsString()}");
+        return ['success' => false, 'message' => "Database error occurred: {$e->getMessage()}"];
+    }
+}
+
+function get_amortization_payments(): array
+{
+    try {
+        $conn = open_connection();
+
+        $sql = vw_amortization_payments_details();
+        $result = $conn->query($sql);
+        $payments = $result->num_rows > 0 ? $result->fetch_all(MYSQLI_ASSOC) : [];
+        return ['success' => true, 'message' => 'Retrieved successfully', 'data' => $payments];
+    } catch (Exception $e) {
+        log_error("Error fetching amortization payments: {$e->getTraceAsString()}");
+        return ['success' => false, 'message' => "Database error occurred: {$e->getMessage()}"];
     }
 }
 

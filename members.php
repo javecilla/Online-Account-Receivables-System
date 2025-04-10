@@ -61,7 +61,7 @@
                                     </li>
                                     <li class="nav-item" role="presentation">
                                         <button class="nav-link" id="amortilization-tab" data-bs-toggle="tab" data-bs-target="#amortilization" type="button" role="tab" aria-controls="amortilization" aria-selected="false">
-                                            <i class="fas fa-calculator me-2"></i>Amortilization
+                                            <i class="fas fa-credit-card me-2"></i> Amortilization
                                         </button>
                                     </li>
                                     <li class="nav-item" role="presentation">

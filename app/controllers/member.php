@@ -154,7 +154,7 @@ function handle_update_member_cooperative(mixed $paylod): void
         'province' => 'required|string',
         'region' => 'required',
     ]);
-    // log_request('payload', $validated['data']);
+    log_request('payload', $validated['data']);
     // return_response(['success' => true, 'message' => 'testtt update']);
 
     $a_updated = update_account((int)$validated['data']['account_id'], $validated['data']);

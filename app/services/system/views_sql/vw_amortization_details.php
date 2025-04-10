@@ -26,12 +26,15 @@ function vw_amortization_details(): string
         ma.start_date,
         ma.end_date,
         ma.`status`,
+        ma.approval,
         ma.created_at,
+        ma.updated_at,
         `at`.type_name,
         `at`.`description`,
         `at`.interest_rate,
         ps.total_paid,
-        (ma.remaining_balance - ps.total_paid) as balance_due,
+        -- (ma.remaining_balance - ps.total_paid) as balance_due,
+         -- ma.remaining_balance as balance_due,
         m.current_balance,
         CONCAT(m.first_name, ' ',IFNULL(CONCAT(LEFT(m.middle_name, 1), '. '), ''), m.last_name) as full_name
     FROM member_amortizations ma

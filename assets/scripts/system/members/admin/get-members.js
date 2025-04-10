@@ -318,7 +318,7 @@ $(document).ready(async function () {
           data: 'transaction_created_at',
           title: 'Date and Time',
           render: function (data) {
-            return moment(data).format('DD MMM YYYY HH:mm:ss')
+            return moment(data).format('DD MMM YYYY h:mm A') //31 Mar 2025  5:30 PM
           }
         }
       ],
@@ -380,8 +380,22 @@ $(document).ready(async function () {
           }
         },
         {
+          data: 'principal_amount',
+          title: 'Principal Amount',
+          render: function (data) {
+            return `&#8369;${parseFloat(data).toFixed(2)}`
+          }
+        },
+        // {
+        //   data: 'remaining_balance',
+        //   title: 'Remaining Balance',
+        //   render: function (data) {
+        //     return `&#8369;${parseFloat(data).toFixed(2)}`
+        //   }
+        // },
+        {
           data: 'remaining_balance',
-          title: 'Remaining Balance',
+          title: 'Balance Due',
           render: function (data) {
             return `&#8369;${parseFloat(data).toFixed(2)}`
           }
@@ -389,13 +403,6 @@ $(document).ready(async function () {
         {
           data: 'total_paid',
           title: 'Total Paid',
-          render: function (data) {
-            return `&#8369;${parseFloat(data).toFixed(2)}`
-          }
-        },
-        {
-          data: 'balance_due',
-          title: 'Balance Due',
           render: function (data) {
             return `&#8369;${parseFloat(data).toFixed(2)}`
           }
@@ -584,7 +591,7 @@ $(document).ready(async function () {
           data: 'transaction_created_at',
           title: 'Date and Time',
           render: function (data) {
-            return moment(data).format('DD MMM YYYY HH:mm:ss')
+            return moment(data).format('DD MMM YYYY h:mm A')
           }
         }
       ],

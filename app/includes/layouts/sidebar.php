@@ -8,28 +8,28 @@
     <hr style="color:rgb(180, 180, 180)">
     <ul class="sidebar-menu">
         <li>
-            <a href="<?= $base_url ?>/dashboard" title="Dashboard">
+            <a href="<?= $base_url ?>/dashboard" title="Dashboard | OARMC (Avecilla)">
                 <!-- <i class="fas fa-gauge"></i> -->
                 <i class="fas fa-table-columns"></i>
                 <span>Dashboard</span>
             </a>
         </li>
         <li>
-            <a href="<?= $base_url ?>/accounts" title="Accounts">
+            <a href="<?= $base_url ?>/accounts" title="Accounts | OARMC (Avecilla)">
                 <i class="fas fa-users"></i>
                 <span>Accounts</span>
             </a>
         </li>
         <li>
-            <a href="<?= $base_url ?>/members" title="Members">
+            <a href="<?= $base_url ?>/members" title="Members | OARMC (Avecilla)">
                 <i class="fas fa-user"></i>
                 <span>Members</span>
             </a>
         </li>
         <li>
-            <a href="<?= $base_url ?>/amortization" title="Amortization">
+            <a href="<?= $base_url ?>/amortizations" title="Amortizations | OARMC (Avecilla)">
                 <i class="fas fa-credit-card"></i>
-                <span>Amortization</span>
+                <span>Amortizations</span>
             </a>
         </li>
     </ul>

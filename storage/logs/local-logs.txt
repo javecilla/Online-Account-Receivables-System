@@ -1,132 +1,301 @@
-[09-Apr-2025 04:14:37 Asia/Manila] [[09-Apr-2025 04:14:37 Asia/Manila]] ERROR: Error fetching monthly receivables trend: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ORDER BY month_date DESC' at line 33
-
-[09-Apr-2025 04:14:37 Asia/Manila] [[09-Apr-2025 04:14:37 Asia/Manila]] ERROR: Error fetching monthly receivables trend: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ORDER BY month_date DESC' at line 33
-
-[09-Apr-2025 05:06:37 Asia/Manila] [[09-Apr-2025 05:06:37 Asia/Manila]] ERROR: Error fetching monthly receivables trend: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ORDER BY month_date DESC' at line 33
-
-[09-Apr-2025 05:06:38 Asia/Manila] [[09-Apr-2025 05:06:38 Asia/Manila]] ERROR: Error fetching monthly receivables trend: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ORDER BY month_date DESC' at line 33
-
-[09-Apr-2025 05:45:55 Europe/Berlin] PHP Warning:  Undefined variable $base_url in C:\xampp\htdocs\bulsu-school\account-receivable-system-project\app\includes\layouts\sidebar.php on line 6
-[09-Apr-2025 05:45:55 Europe/Berlin] PHP Warning:  Undefined variable $base_url in C:\xampp\htdocs\bulsu-school\account-receivable-system-project\app\includes\layouts\sidebar.php on line 11
-[09-Apr-2025 05:45:55 Europe/Berlin] PHP Warning:  Undefined variable $base_url in C:\xampp\htdocs\bulsu-school\account-receivable-system-project\app\includes\layouts\sidebar.php on line 18
-[09-Apr-2025 05:45:55 Europe/Berlin] PHP Warning:  Undefined variable $base_url in C:\xampp\htdocs\bulsu-school\account-receivable-system-project\app\includes\layouts\sidebar.php on line 24
-[09-Apr-2025 05:45:55 Europe/Berlin] PHP Warning:  Undefined variable $base_url in C:\xampp\htdocs\bulsu-school\account-receivable-system-project\app\includes\layouts\sidebar.php on line 30
-[09-Apr-2025 07:03:49 Europe/Berlin] [[09-Apr-2025 07:03:49 Europe/Berlin]] Action: get_server_request_data(): , Data: {
-    "rawInput": "{\"action\":\"delete_member\",\"data\":{\"member_id\":32}}"
+[10-Apr-2025 18:11:26 Europe/Berlin] [[10-Apr-2025 18:11:26 Europe/Berlin]] Action: get_server_request_data(): , Data: {
+    "rawInput": "{\r\n    \"action\": \"create_amortization\",\r\n    \"data\": {\r\n        \n        \n        \"member_id\": 34, \n        \"type_id\": 4,  \r\n        \"amount\": 30000,\r\n        \"term_months\": 12,\r\n        \"start_date\": \"2025-04-10\"\r\n    }\r\n}"
 }
 
-[09-Apr-2025 07:03:49 Europe/Berlin] [[09-Apr-2025 07:03:49 Europe/Berlin]] Action: request: , Data: {
-    "action": "delete_member",
+[10-Apr-2025 18:11:26 Europe/Berlin] [[10-Apr-2025 18:11:26 Europe/Berlin]] Action: request: , Data: {
+    "action": "create_amortization",
     "data": {
-        "member_id": 32
+        "member_id": 34,
+        "type_id": 4,
+        "amount": 30000,
+        "term_months": 12,
+        "start_date": "2025-04-10"
     }
 }
 
-[09-Apr-2025 07:04:10 Europe/Berlin] [[09-Apr-2025 07:04:10 Europe/Berlin]] Action: get_server_request_data(): , Data: {
-    "rawInput": "{\"action\":\"delete_member\",\"data\":{\"member_id\":31}}"
+[10-Apr-2025 18:13:13 Europe/Berlin] [[10-Apr-2025 18:13:13 Europe/Berlin]] Action: get_server_request_data(): , Data: {
+    "rawInput": "{\"action\":\"update_amortization_approval\",\"data\":{\"amortization_id\":9,\"approval\":\"rejected\"}}"
 }
 
-[09-Apr-2025 07:04:10 Europe/Berlin] [[09-Apr-2025 07:04:10 Europe/Berlin]] Action: request: , Data: {
-    "action": "delete_member",
+[10-Apr-2025 18:13:13 Europe/Berlin] [[10-Apr-2025 18:13:13 Europe/Berlin]] Action: request: , Data: {
+    "action": "update_amortization_approval",
     "data": {
-        "member_id": 31
+        "amortization_id": 9,
+        "approval": "rejected"
     }
 }
 
-[09-Apr-2025 07:04:42 Europe/Berlin] [[09-Apr-2025 07:04:42 Europe/Berlin]] Action: get_server_request_data(): , Data: {
-    "rawInput": "{\"action\":\"delete_member\",\"data\":{\"member_id\":29}}"
+[10-Apr-2025 18:13:18 Europe/Berlin] [[10-Apr-2025 18:13:18 Europe/Berlin]] Action: get_server_request_data(): , Data: {
+    "rawInput": "{\"action\":\"update_amortization_approval\",\"data\":{\"amortization_id\":9,\"approval\":\"pending\"}}"
 }
 
-[09-Apr-2025 07:04:42 Europe/Berlin] [[09-Apr-2025 07:04:42 Europe/Berlin]] Action: request: , Data: {
-    "action": "delete_member",
+[10-Apr-2025 18:13:18 Europe/Berlin] [[10-Apr-2025 18:13:18 Europe/Berlin]] Action: request: , Data: {
+    "action": "update_amortization_approval",
     "data": {
-        "member_id": 29
+        "amortization_id": 9,
+        "approval": "pending"
     }
 }
 
-[09-Apr-2025 07:14:15 Europe/Berlin] [[09-Apr-2025 07:14:15 Europe/Berlin]] Action: get_server_request_data(): , Data: {
-    "rawInput": "{\"action\":\"delete_member\",\"data\":{\"member_id\":27}}"
+[10-Apr-2025 18:13:19 Europe/Berlin] [[10-Apr-2025 18:13:19 Europe/Berlin]] Action: get_server_request_data(): , Data: {
+    "rawInput": "{\"action\":\"update_amortization_approval\",\"data\":{\"amortization_id\":9,\"approval\":\"rejected\"}}"
 }
 
-[09-Apr-2025 07:14:15 Europe/Berlin] [[09-Apr-2025 07:14:15 Europe/Berlin]] Action: request: , Data: {
-    "action": "delete_member",
+[10-Apr-2025 18:13:19 Europe/Berlin] [[10-Apr-2025 18:13:19 Europe/Berlin]] Action: request: , Data: {
+    "action": "update_amortization_approval",
     "data": {
-        "member_id": 27
+        "amortization_id": 9,
+        "approval": "rejected"
     }
 }
 
-[09-Apr-2025 07:14:21 Europe/Berlin] [[09-Apr-2025 07:14:21 Europe/Berlin]] Action: get_server_request_data(): , Data: {
-    "rawInput": "{\"action\":\"delete_member\",\"data\":{\"member_id\":28}}"
+[10-Apr-2025 18:14:38 Europe/Berlin] [[10-Apr-2025 18:14:38 Europe/Berlin]] Action: get_server_request_data(): , Data: {
+    "rawInput": "{\"action\":\"update_amortization_approval\",\"data\":{\"amortization_id\":9,\"approval\":\"pending\"}}"
 }
 
-[09-Apr-2025 07:14:21 Europe/Berlin] [[09-Apr-2025 07:14:21 Europe/Berlin]] Action: request: , Data: {
-    "action": "delete_member",
+[10-Apr-2025 18:14:38 Europe/Berlin] [[10-Apr-2025 18:14:38 Europe/Berlin]] Action: request: , Data: {
+    "action": "update_amortization_approval",
     "data": {
-        "member_id": 28
+        "amortization_id": 9,
+        "approval": "pending"
     }
 }
 
-[09-Apr-2025 13:51:02 Asia/Manila] [[09-Apr-2025 13:51:02 Asia/Manila]] ERROR: Error fetching amortizations: #0 C:\xampp\htdocs\bulsu-school\account-receivable-system-project\app\services\system\amortization.php(130): mysqli->prepare('SELECT \r\n      ...')
-#1 C:\xampp\htdocs\bulsu-school\account-receivable-system-project\app\controllers\amortization.php(50): get_member_amortizations(24, 1, 10, NULL)
-#2 C:\xampp\htdocs\bulsu-school\account-receivable-system-project\app\router\api.php(190): handle_get_member_amortizations(Array)
-#3 {main}
-
-[09-Apr-2025 13:56:44 Asia/Manila] [[09-Apr-2025 13:56:44 Asia/Manila]] ERROR: Error fetching amortizations: #0 C:\xampp\htdocs\bulsu-school\account-receivable-system-project\app\services\system\amortization.php(130): mysqli->prepare('SELECT \r\n      ...')
-#1 C:\xampp\htdocs\bulsu-school\account-receivable-system-project\app\controllers\amortization.php(50): get_member_amortizations(24, 1, 10, NULL)
-#2 C:\xampp\htdocs\bulsu-school\account-receivable-system-project\app\router\api.php(190): handle_get_member_amortizations(Array)
-#3 {main}
-
-[09-Apr-2025 13:58:17 Asia/Manila] [[09-Apr-2025 13:58:17 Asia/Manila]] ERROR: Error fetching amortizations: #0 C:\xampp\htdocs\bulsu-school\account-receivable-system-project\app\services\system\amortization.php(130): mysqli->prepare('WITH payment_su...')
-#1 C:\xampp\htdocs\bulsu-school\account-receivable-system-project\app\controllers\amortization.php(50): get_member_amortizations(24, 1, 10, NULL)
-#2 C:\xampp\htdocs\bulsu-school\account-receivable-system-project\app\router\api.php(190): handle_get_member_amortizations(Array)
-#3 {main}
-
-[09-Apr-2025 13:59:16 Asia/Manila] [[09-Apr-2025 13:59:16 Asia/Manila]] ERROR: An error occured: #0 C:\xampp\htdocs\bulsu-school\account-receivable-system-project\app\services\system\amortization.php(121): mysqli_stmt->bind_param('i', 24)
-#1 C:\xampp\htdocs\bulsu-school\account-receivable-system-project\app\controllers\amortization.php(50): get_member_amortizations(24, 1, 10, NULL)
-#2 C:\xampp\htdocs\bulsu-school\account-receivable-system-project\app\router\api.php(190): handle_get_member_amortizations(Array)
-#3 {main}
-
-[09-Apr-2025 14:00:57 Asia/Manila] [[09-Apr-2025 14:00:57 Asia/Manila]] ERROR: Error fetching amortizations: #0 C:\xampp\htdocs\bulsu-school\account-receivable-system-project\app\services\system\amortization.php(124): mysqli->prepare('WITH payment_su...')
-#1 C:\xampp\htdocs\bulsu-school\account-receivable-system-project\app\controllers\amortization.php(50): get_member_amortizations(24, 1, 10, NULL)
-#2 C:\xampp\htdocs\bulsu-school\account-receivable-system-project\app\router\api.php(190): handle_get_member_amortizations(Array)
-#3 {main}
-
-[09-Apr-2025 10:59:36 Europe/Berlin] [[09-Apr-2025 10:59:36 Europe/Berlin]] Action: get_server_request_data(): , Data: {
-    "rawInput": "{\"action\":\"update_member_cooperative\",\"data\":{\"page_from\":\"internal\",\"role_id\":3,\"email\":\"kevin.santos@example.com\",\"username\":\"kevin.santos\",\"password\":\"\",\"confirm_password\":\"\",\"account_id\":\"14\",\"member_id\":\"11\",\"employee_id\":null,\"type_id\":4,\"first_name\":\"Kevin\",\"middle_name\":\"Lopez\",\"last_name\":\"Santos\",\"contact_number\":\"+639301234567\",\"house_address\":\"Block 9 Lot 29\",\"barangay\":\"Cacarong\",\"municipality\":\"Pandi\",\"province\":\"Bulacan\",\"region\":\"Region 3\"}}"
+[10-Apr-2025 18:14:40 Europe/Berlin] [[10-Apr-2025 18:14:40 Europe/Berlin]] Action: get_server_request_data(): , Data: {
+    "rawInput": "{\"action\":\"update_amortization_approval\",\"data\":{\"amortization_id\":9,\"approval\":\"rejected\"}}"
 }
 
-[09-Apr-2025 10:59:36 Europe/Berlin] [[09-Apr-2025 10:59:36 Europe/Berlin]] Action: request: , Data: {
+[10-Apr-2025 18:14:40 Europe/Berlin] [[10-Apr-2025 18:14:40 Europe/Berlin]] Action: request: , Data: {
+    "action": "update_amortization_approval",
+    "data": {
+        "amortization_id": 9,
+        "approval": "rejected"
+    }
+}
+
+[10-Apr-2025 18:27:44 Europe/Berlin] [[10-Apr-2025 18:27:44 Europe/Berlin]] Action: get_server_request_data(): , Data: {
+    "rawInput": "{\"action\":\"update_amortization_approval\",\"data\":{\"amortization_id\":9,\"approval\":\"pending\"}}"
+}
+
+[10-Apr-2025 18:27:44 Europe/Berlin] [[10-Apr-2025 18:27:44 Europe/Berlin]] Action: request: , Data: {
+    "action": "update_amortization_approval",
+    "data": {
+        "amortization_id": 9,
+        "approval": "pending"
+    }
+}
+
+[10-Apr-2025 18:27:49 Europe/Berlin] [[10-Apr-2025 18:27:49 Europe/Berlin]] Action: get_server_request_data(): , Data: {
+    "rawInput": "{\"action\":\"update_amortization_approval\",\"data\":{\"amortization_id\":9,\"approval\":\"rejected\"}}"
+}
+
+[10-Apr-2025 18:27:49 Europe/Berlin] [[10-Apr-2025 18:27:49 Europe/Berlin]] Action: request: , Data: {
+    "action": "update_amortization_approval",
+    "data": {
+        "amortization_id": 9,
+        "approval": "rejected"
+    }
+}
+
+[10-Apr-2025 18:28:03 Europe/Berlin] [[10-Apr-2025 18:28:03 Europe/Berlin]] Action: get_server_request_data(): , Data: {
+    "rawInput": "{\"action\":\"delete_amortization\",\"data\":{\"amortization_id\":9}}"
+}
+
+[10-Apr-2025 18:28:03 Europe/Berlin] [[10-Apr-2025 18:28:03 Europe/Berlin]] Action: request: , Data: {
+    "action": "delete_amortization",
+    "data": {
+        "amortization_id": 9
+    }
+}
+
+[10-Apr-2025 18:44:14 Europe/Berlin] [[10-Apr-2025 18:44:14 Europe/Berlin]] Action: get_server_request_data(): , Data: {
+    "rawInput": "{\r\n    \"action\": \"process_amortization_payment\",\r\n    \"data\": {\r\n        \"amortization_id\": 8,\r\n        \"amount\":2600,\r\n        \"payment_date\": \"2025-04-10\",\r\n        \"notes\": \"second payment\"\r\n    }\r\n}"
+}
+
+[10-Apr-2025 18:44:14 Europe/Berlin] [[10-Apr-2025 18:44:14 Europe/Berlin]] Action: request: , Data: {
+    "action": "process_amortization_payment",
+    "data": {
+        "amortization_id": 8,
+        "amount": 2600,
+        "payment_date": "2025-04-10",
+        "notes": "second payment"
+    }
+}
+
+[10-Apr-2025 18:45:44 Europe/Berlin] [[10-Apr-2025 18:45:44 Europe/Berlin]] Action: get_server_request_data(): , Data: {
+    "rawInput": "{\r\n    \"action\": \"process_amortization_payment\",\r\n    \"data\": {\r\n        \"amortization_id\": 8,\r\n        \"amount\":5200, \n        \"payment_date\": \"2025-04-10\",\r\n        \"notes\": \"second payment\"\r\n    }\r\n}"
+}
+
+[10-Apr-2025 18:45:44 Europe/Berlin] [[10-Apr-2025 18:45:44 Europe/Berlin]] Action: request: , Data: {
+    "action": "process_amortization_payment",
+    "data": {
+        "amortization_id": 8,
+        "amount": 5200,
+        "payment_date": "2025-04-10",
+        "notes": "second payment"
+    }
+}
+
+[10-Apr-2025 18:46:40 Europe/Berlin] [[10-Apr-2025 18:46:40 Europe/Berlin]] Action: get_server_request_data(): , Data: {
+    "rawInput": "{\r\n    \"action\": \"process_amortization_payment\",\r\n    \"data\": {\r\n        \"amortization_id\": 8,\r\n        \"amount\": 2600, \n        \"payment_date\": \"2025-04-10\",\r\n        \"notes\": \"4th payment\"\r\n    }\r\n}"
+}
+
+[10-Apr-2025 18:46:40 Europe/Berlin] [[10-Apr-2025 18:46:40 Europe/Berlin]] Action: request: , Data: {
+    "action": "process_amortization_payment",
+    "data": {
+        "amortization_id": 8,
+        "amount": 2600,
+        "payment_date": "2025-04-10",
+        "notes": "4th payment"
+    }
+}
+
+[10-Apr-2025 20:37:00 Europe/Berlin] [[10-Apr-2025 20:37:00 Europe/Berlin]] Action: get_server_request_data(): , Data: {
+    "rawInput": "{\r\n    \"action\": \"create_amortization\",\r\n    \"data\": {\r\n        \n        \n        \"member_id\": 34, \n        \"type_id\": 4,  \r\n        \"amount\": 30000,\r\n        \"term_months\": 12,\r\n        \"start_date\": \"2025-04-10\"\r\n    }\r\n}"
+}
+
+[10-Apr-2025 20:37:00 Europe/Berlin] [[10-Apr-2025 20:37:00 Europe/Berlin]] Action: request: , Data: {
+    "action": "create_amortization",
+    "data": {
+        "member_id": 34,
+        "type_id": 4,
+        "amount": 30000,
+        "term_months": 12,
+        "start_date": "2025-04-10"
+    }
+}
+
+[10-Apr-2025 20:37:36 Europe/Berlin] [[10-Apr-2025 20:37:36 Europe/Berlin]] Action: get_server_request_data(): , Data: {
+    "rawInput": "{\"action\":\"update_amortization_approval\",\"data\":{\"amortization_id\":10,\"approval\":\"approved\"}}"
+}
+
+[10-Apr-2025 20:37:36 Europe/Berlin] [[10-Apr-2025 20:37:36 Europe/Berlin]] Action: request: , Data: {
+    "action": "update_amortization_approval",
+    "data": {
+        "amortization_id": 10,
+        "approval": "approved"
+    }
+}
+
+[10-Apr-2025 20:40:50 Europe/Berlin] [[10-Apr-2025 20:40:50 Europe/Berlin]] Action: get_server_request_data(): , Data: {
+    "rawInput": "{\r\n    \"action\": \"process_amortization_payment\",\r\n    \"data\": {\r\n        \"amortization_id\": 8,\r\n        \"amount\": 9075, \n        \"payment_date\": \"2025-04-10\",\r\n        \"notes\": \"5th payment\"\r\n    }\r\n}"
+}
+
+[10-Apr-2025 20:40:50 Europe/Berlin] [[10-Apr-2025 20:40:50 Europe/Berlin]] Action: request: , Data: {
+    "action": "process_amortization_payment",
+    "data": {
+        "amortization_id": 8,
+        "amount": 9075,
+        "payment_date": "2025-04-10",
+        "notes": "5th payment"
+    }
+}
+
+[10-Apr-2025 21:09:59 Europe/Berlin] [[10-Apr-2025 21:09:59 Europe/Berlin]] Action: get_server_request_data(): , Data: {
+    "rawInput": "{\r\n    \"action\": \"process_amortization_payment\",\r\n    \"data\": {\r\n        \"amortization_id\": 8,\r\n        \"amount\": 9075, \r\n        \"payment_date\": \"2025-04-10\",\r\n        \"notes\": \"5th payment\"\r\n    }\r\n}"
+}
+
+[10-Apr-2025 21:09:59 Europe/Berlin] [[10-Apr-2025 21:09:59 Europe/Berlin]] Action: request: , Data: {
+    "action": "process_amortization_payment",
+    "data": {
+        "amortization_id": 8,
+        "amount": 9075,
+        "payment_date": "2025-04-10",
+        "notes": "5th payment"
+    }
+}
+
+[10-Apr-2025 21:10:44 Europe/Berlin] [[10-Apr-2025 21:10:44 Europe/Berlin]] Action: get_server_request_data(): , Data: {
+    "rawInput": "{\"action\":\"update_member_cooperative\",\"data\":{\"page_from\":\"internal\",\"role_id\":3,\"email\":\"delete.member@gmail.com\",\"username\":\"Member.delete123\/\/\",\"password\":\"\",\"confirm_password\":\"\",\"account_id\":\"35\",\"member_id\":\"33\",\"employee_id\":null,\"type_id\":6,\"first_name\":\"Kalista\",\"middle_name\":\"\",\"last_name\":\"Delca\",\"contact_number\":\"+630988291221\",\"house_address\":\"Member.delete123\/\/\",\"barangay\":\"Member\",\"municipality\":\"Member\",\"province\":\"Member\",\"region\":\"Member\"}}"
+}
+
+[10-Apr-2025 21:10:44 Europe/Berlin] [[10-Apr-2025 21:10:44 Europe/Berlin]] Action: request: , Data: {
     "action": "update_member_cooperative",
     "data": {
         "page_from": "internal",
         "role_id": 3,
-        "email": "kevin.santos@example.com",
-        "username": "kevin.santos",
+        "email": "delete.member@gmail.com",
+        "username": "Member.delete123\/\/",
         "password": "",
         "confirm_password": "",
-        "account_id": "14",
-        "member_id": "11",
+        "account_id": "35",
+        "member_id": "33",
         "employee_id": null,
-        "type_id": 4,
-        "first_name": "Kevin",
-        "middle_name": "Lopez",
-        "last_name": "Santos",
-        "contact_number": "+639301234567",
-        "house_address": "Block 9 Lot 29",
-        "barangay": "Cacarong",
-        "municipality": "Pandi",
-        "province": "Bulacan",
-        "region": "Region 3"
+        "type_id": 6,
+        "first_name": "Kalista",
+        "middle_name": "",
+        "last_name": "Delca",
+        "contact_number": "+630988291221",
+        "house_address": "Member.delete123\/\/",
+        "barangay": "Member",
+        "municipality": "Member",
+        "province": "Member",
+        "region": "Member"
     }
 }
 
-[09-Apr-2025 18:01:01 Asia/Manila] [[09-Apr-2025 18:01:01 Asia/Manila]] ERROR: Error fetching members: #0 C:\xampp\htdocs\bulsu-school\account-receivable-system-project\app\services\system\member.php(70): mysqli->query('SELECT COUNT(*)...')
-#1 C:\xampp\htdocs\bulsu-school\account-receivable-system-project\app\controllers\member.php(91): get_members(1, 100)
-#2 C:\xampp\htdocs\bulsu-school\account-receivable-system-project\app\router\api.php(178): handle_get_members(Array)
-#3 {main}
+[11-Apr-2025 03:10:44 Asia/Manila] [[11-Apr-2025 03:10:44 Asia/Manila]] Action: payload, Data: {
+    "account_id": "35",
+    "role_id": 3,
+    "email": "delete.member@gmail.com",
+    "username": "Member.delete123\/\/",
+    "password": "",
+    "confirm_password": "",
+    "member_id": "33",
+    "type_id": 6,
+    "first_name": "Kalista",
+    "middle_name": "",
+    "last_name": "Delca",
+    "contact_number": "+630988291221",
+    "house_address": "Member.delete123\/\/",
+    "barangay": "Member",
+    "municipality": "Member",
+    "province": "Member",
+    "region": "Member"
+}
 
-[09-Apr-2025 18:01:37 Asia/Manila] [[09-Apr-2025 18:01:37 Asia/Manila]] ERROR: Error fetching members: #0 C:\xampp\htdocs\bulsu-school\account-receivable-system-project\app\services\system\member.php(70): mysqli->query('SELECT COUNT(*)...')
-#1 C:\xampp\htdocs\bulsu-school\account-receivable-system-project\app\controllers\member.php(91): get_members(1, 100)
-#2 C:\xampp\htdocs\bulsu-school\account-receivable-system-project\app\router\api.php(178): handle_get_members(Array)
-#3 {main}
+[10-Apr-2025 21:32:08 Europe/Berlin] [[10-Apr-2025 21:32:08 Europe/Berlin]] Action: get_server_request_data(): , Data: {
+    "rawInput": "{\r\n    \"action\": \"process_amortization_payment\",\r\n    \"data\": {\r\n        \"amortization_id\": 10,\r\n        \"payment_method\": \"online_payment\",\r\n        \"amount\": 2687, \r\n        \"payment_date\": \"2025-04-11\",\r\n        \"notes\": \"5th payment\"\r\n    }\r\n}"
+}
+
+[10-Apr-2025 21:32:08 Europe/Berlin] [[10-Apr-2025 21:32:08 Europe/Berlin]] Action: request: , Data: {
+    "action": "process_amortization_payment",
+    "data": {
+        "amortization_id": 10,
+        "payment_method": "online_payment",
+        "amount": 2687,
+        "payment_date": "2025-04-11",
+        "notes": "5th payment"
+    }
+}
+
+[10-Apr-2025 21:44:04 Europe/Berlin] [[10-Apr-2025 21:44:04 Europe/Berlin]] Action: get_server_request_data(): , Data: {
+    "rawInput": "{\r\n    \"action\": \"process_amortization_payment\",\r\n    \"data\": {\r\n        \"amortization_id\": 10,\r\n        \"payment_method\": \"cash\",\r\n        \"amount\": 2687, \r\n        \"payment_date\": \"2025-04-11\",\r\n        \"notes\": \"2nd payment\"\r\n    }\r\n}"
+}
+
+[10-Apr-2025 21:44:04 Europe/Berlin] [[10-Apr-2025 21:44:04 Europe/Berlin]] Action: request: , Data: {
+    "action": "process_amortization_payment",
+    "data": {
+        "amortization_id": 10,
+        "payment_method": "cash",
+        "amount": 2687,
+        "payment_date": "2025-04-11",
+        "notes": "2nd payment"
+    }
+}
+
+[10-Apr-2025 21:44:37 Europe/Berlin] [[10-Apr-2025 21:44:37 Europe/Berlin]] Action: get_server_request_data(): , Data: {
+    "rawInput": "{\r\n    \"action\": \"process_amortization_payment\",\r\n    \"data\": {\r\n        \"amortization_id\": 10,\r\n        \"payment_method\": \"cash\",\r\n        \"amount\": 2687, \r\n        \"payment_date\": \"2025-04-11\",\r\n        \"notes\": \"2nd payment\"\r\n    }\r\n}"
+}
+
+[10-Apr-2025 21:44:37 Europe/Berlin] [[10-Apr-2025 21:44:37 Europe/Berlin]] Action: request: , Data: {
+    "action": "process_amortization_payment",
+    "data": {
+        "amortization_id": 10,
+        "payment_method": "cash",
+        "amount": 2687,
+        "payment_date": "2025-04-11",
+        "notes": "2nd payment"
+    }
+}
 
