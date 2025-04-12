@@ -1328,3 +1328,41 @@
     }
 }
 
+[12-Apr-2025 16:09:46 Asia/Manila] PHP Fatal error:  Uncaught Error: Undefined constant "monthly_amount" in C:\xampp\htdocs\bulsu-school\account-receivable-system-project\h.php:36
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\bulsu-school\account-receivable-system-project\h.php on line 36
+[12-Apr-2025 15:21:46 Europe/Berlin] PHP Warning:  Undefined variable $base_url in C:\xampp\htdocs\bulsu-school\account-receivable-system-project\index.php on line 16
+[12-Apr-2025 15:21:55 Europe/Berlin] [[12-Apr-2025 15:21:55 Europe/Berlin]] Action: get_server_request_data(): , Data: {
+    "rawInput": "{\"action\":\"login_account\",\"data\":{\"uid\":\"admin\",\"password\":\"admin\",\"recaptcha_response\":\"03AFcWeA47_uaa9wPLgixEXSagFBKMPSvIZLSg4nRnbLZtWvXZmPIxkfN_4tRMUbV7zZM_xkLKFaeVch8jQpQdhFf_eckESSNC8x_eKqWXTGAsaYZXdZDgftkhVMrqidurFr558wCCMtc-ZPq0qYHXUYJ5r5dKXvjOSfxLIFCc6x7kKmUo-MWD5Q12GUDUNBOqRaoMPy1i1BV6zstyZre57nYt0ElFL33vA2WIl6nSPshu4MD4oZ-xDOnFkpg2Wk2Y7fa6Sx8Ib8hPXuJ-xiyfb1LTmYS1VoAuCpb6LI0VTxO9FkqA3qj0DRx7RBStQN6rgKjYtVV1v2UwYMtUgwlx1rI7zqcPEQrFOFwkLamRxZSWhl1CcFskGrNQdGx0Yi9UEISu2j4Im-aCY4tJwaHSP7a-1ZgkbQ2bB_sM6f5cBteimxOn8m-DUofxNmy29SC7hRp1B0hW3T332OKSLC1PJpUmNvj-09pSEw3wpsv2rUTPeqgwSbqZuMA3CGYrcm_uY6Xt5MAHY0YB_BwNGTsEfcOzxjxiPIkMkIAncRo9oBmKHlUXQCQSV7RWs_E8f3o3pqYeamPXAWf0LmRPEcMhFe_WCZF9gq-CrrUSdujm5SRMuFBtF4ciAq_3qYI8VIIrnQ3bL1tU691K0CiiO2P1QtGudpM8hpn7J8jSmrOhk8Nh-JbuwaZgYjk96ejWHZLKTjY_tyyJy0hppPW1-pxZ7o4Srfm1zvO2E-gTrdQGgq-tZvFaL7UnP4_6vdy1TCX0ooW3pn5nhueJcro8i3K3uNDQqjjzQey3Ik-2FbfSmjnq2hD9KRNBC5S80BMDxBQxJMDzHgYhxnhzeD6c8sle4eQQSToKRZAmjTVaGKYKRpGNFsuA9WEvRplzEtS7EPs-DvcWJ12ArC5DmWXcVYV4hvD_zjA-BU-nyRMaW0fh3d4YegkRR7NJge0gtBjg6-23XCny0HQzgM7YAWBc2Kwqey8ey676qELynmd2mnuLNl3k7LQ0qMIr5XM\"}}"
+}
+
+[12-Apr-2025 15:21:55 Europe/Berlin] [[12-Apr-2025 15:21:55 Europe/Berlin]] Action: request: , Data: {
+    "action": "login_account",
+    "data": {
+        "uid": "admin",
+        "password": "admin",
+        "recaptcha_response": "03AFcWeA47_uaa9wPLgixEXSagFBKMPSvIZLSg4nRnbLZtWvXZmPIxkfN_4tRMUbV7zZM_xkLKFaeVch8jQpQdhFf_eckESSNC8x_eKqWXTGAsaYZXdZDgftkhVMrqidurFr558wCCMtc-ZPq0qYHXUYJ5r5dKXvjOSfxLIFCc6x7kKmUo-MWD5Q12GUDUNBOqRaoMPy1i1BV6zstyZre57nYt0ElFL33vA2WIl6nSPshu4MD4oZ-xDOnFkpg2Wk2Y7fa6Sx8Ib8hPXuJ-xiyfb1LTmYS1VoAuCpb6LI0VTxO9FkqA3qj0DRx7RBStQN6rgKjYtVV1v2UwYMtUgwlx1rI7zqcPEQrFOFwkLamRxZSWhl1CcFskGrNQdGx0Yi9UEISu2j4Im-aCY4tJwaHSP7a-1ZgkbQ2bB_sM6f5cBteimxOn8m-DUofxNmy29SC7hRp1B0hW3T332OKSLC1PJpUmNvj-09pSEw3wpsv2rUTPeqgwSbqZuMA3CGYrcm_uY6Xt5MAHY0YB_BwNGTsEfcOzxjxiPIkMkIAncRo9oBmKHlUXQCQSV7RWs_E8f3o3pqYeamPXAWf0LmRPEcMhFe_WCZF9gq-CrrUSdujm5SRMuFBtF4ciAq_3qYI8VIIrnQ3bL1tU691K0CiiO2P1QtGudpM8hpn7J8jSmrOhk8Nh-JbuwaZgYjk96ejWHZLKTjY_tyyJy0hppPW1-pxZ7o4Srfm1zvO2E-gTrdQGgq-tZvFaL7UnP4_6vdy1TCX0ooW3pn5nhueJcro8i3K3uNDQqjjzQey3Ik-2FbfSmjnq2hD9KRNBC5S80BMDxBQxJMDzHgYhxnhzeD6c8sle4eQQSToKRZAmjTVaGKYKRpGNFsuA9WEvRplzEtS7EPs-DvcWJ12ArC5DmWXcVYV4hvD_zjA-BU-nyRMaW0fh3d4YegkRR7NJge0gtBjg6-23XCny0HQzgM7YAWBc2Kwqey8ey676qELynmd2mnuLNl3k7LQ0qMIr5XM"
+    }
+}
+
+[12-Apr-2025 21:21:56 Asia/Manila] [[12-Apr-2025 21:21:56 Asia/Manila]] Action: Session Data: , Data: {
+    "ip_address": "127.0.0.1",
+    "user_agent": "Mozilla\/5.0 (Windows NT 10.0; Win64; x64; rv:137.0) Gecko\/20100101 Firefox\/137.0",
+    "session_hash": "4d4727504e54a7c8df4636b26e0c5aee98842ca5bcc03fe0d38a0aef9a360008",
+    "session_id": "9uj5k8lv6t3lniqeekp4ul47mv",
+    "account_id": 1,
+    "account_uid": "A581822",
+    "email": "jeromesavc@gmail.com",
+    "username": "admin",
+    "account_status": "active",
+    "role_name": "Administrator",
+    "employee_id": 1,
+    "first_name": "Jerome",
+    "last_name": "Avecilla",
+    "middle_name": "Sotel",
+    "full_name": "Jerome S. Avecilla",
+    "contact_number": "+639772465533"
+}
+
+[12-Apr-2025 15:21:56 Europe/Berlin] PHP Warning:  Undefined variable $base_url in C:\xampp\htdocs\bulsu-school\account-receivable-system-project\index.php on line 10

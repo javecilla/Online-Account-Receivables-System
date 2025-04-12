@@ -101,7 +101,8 @@
 }
 
 .at-time-deposit,
-.at-educational-loan {
+.at-educational-loan,
+.as-pending {
   background-color: rgba(255, 193, 7, 0.2); /* Yellow for time deposit */
   color: #ffc107;
   border: 1px solid rgba(255, 193, 7, 0.3);

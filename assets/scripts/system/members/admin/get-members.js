@@ -413,6 +413,10 @@ $(document).ready(async function () {
           render: function (data) {
             let typeClass
             let icon
+
+            if (!data) {
+              return '<span class="status-badge as-pending"><i class="fas fa-clock"></i>&nbsp;Pending</span>'
+            }
             switch (data) {
               case 'active':
                 typeClass = 'status-active'
@@ -430,7 +434,7 @@ $(document).ready(async function () {
                 typeClass = ''
                 icon = ''
             }
-            return `<span class="status-badge ${typeClass}"><i class="fas ${icon}"></i>&nbsp;${
+            return `<span class="status-badge ${typeClass}"><i class="${icon}"></i>&nbsp;${
               data.charAt(0).toUpperCase() + data.slice(1)
             }</span>`
           }
@@ -642,6 +646,7 @@ $(document).ready(async function () {
         }
 
         if (amortizations.success) {
+          console.log('amortizations', amortizations)
           displayAmortizationHistory(amortizations.data)
         }
       } catch (error) {
