@@ -11,14 +11,15 @@ const fetchAmortizationsByStatus = async (
 
     if (!response.data || !response.data.success) {
       throw new Error(
-        response.data?.message || 'Failed to fetch amotizations by status'
+        response.data?.message || 'Failed to fetch amortizations by status'
       )
     }
     return response.data
   } catch (error) {
-    console.error('Error fetching amotizations by status:', error)
+    console.error('Error fetching amortizations by status:', error)
     const errorMessage =
-      error.response?.data?.message || 'Opss! Something went wrong.'
+      error.response?.data?.message ||
+      'Something went wrong while processing request.'
     toastr.error(errorMessage)
     throw error
   }
@@ -35,14 +36,15 @@ const fetchAmortizationsByApproval = async (approval = 'pending,rejected') => {
 
     if (!response.data || !response.data.success) {
       throw new Error(
-        response.data?.message || 'Failed to fetch amotizations by approval'
+        response.data?.message || 'Failed to fetch amortizations by approval'
       )
     }
     return response.data
   } catch (error) {
-    console.error('Error fetching amotizations by approval:', error)
+    console.error('Error fetching amortizations by approval:', error)
     const errorMessage =
-      error.response?.data?.message || 'Opss! Something went wrong.'
+      error.response?.data?.message ||
+      'Something went wrong while processing request.'
     toastr.error(errorMessage)
     throw error
   }
@@ -71,7 +73,8 @@ const updateAmortizationApproval = async (amortizationId, newStatus) => {
   } catch (error) {
     console.error('Error updating approval status:', error)
     const errorMessage =
-      error.response?.data?.message || 'Oppss! Something went wrong.'
+      error.response?.data?.message ||
+      'Something went wrong while processing request.'
     toastr.error(errorMessage)
     throw error
   }
@@ -95,7 +98,8 @@ const deleteAmortization = async (amortizationId) => {
   } catch (error) {
     console.error('Error deleting amortization:', error)
     const errorMessage =
-      error.response?.data?.message || 'Oppss! Something went wrong.'
+      error.response?.data?.message ||
+      'Something went wrong while processing request.'
     toastr.error(errorMessage)
     throw error
   }
@@ -118,7 +122,8 @@ const fetchAmortizationPayments = async () => {
   } catch (error) {
     console.error('Error fetching amortization payments:', error)
     const errorMessage =
-      error.response?.data?.message || 'Oppss! Something went wrong.'
+      error.response?.data?.message ||
+      'Something went wrong while processing request.'
     toastr.error(errorMessage)
     throw error
   }

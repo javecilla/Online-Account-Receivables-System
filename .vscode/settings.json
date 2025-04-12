@@ -5,13 +5,21 @@
   "editor.formatOnType": true,
   "editor.formatOnSave": true,
   "editor.formatOnPaste": true,
-  "editor.tabSize": 4,
+  "editor.tabSize": 2,
   "editor.insertSpaces": true,
   "editor.quickSuggestions": {
     "other": true,
     "comments": false,
     "strings": true
   },
+  "workbench.colorCustomizations": {
+    "editorIndentGuide.enabled": true,
+    "editorIndentGuide.showInActiveEditor": true
+    //"editorIndentGuide.background": "#00000055"
+  },
+  //adjust font size
+  "editor.fontSize": 14,
+  "editor.renderWhitespace": "boundary",
   "editor.suggestSelection": "first",
   "editor.snippetSuggestions": "top",
   "files.autoSave": "onFocusChange",
@@ -44,4 +52,5 @@
   "php.suggest.variableImports": true,
   "php.validate.php": true,
   "php.validate.run": "onType",
+  "cSpell.words": ["Avecilla", "grecaptcha", "toastr"]
 }

@@ -221,14 +221,14 @@ function send_verification_email(string $email): array
             <p style="margin: 15px 0 10px 0; font-size: 12px; color: #000;">To complete the verification process, you can either:</p>
             
             <div style="margin: 20px 0; text-align: center; font-size: 20px; font-weight: bold; color: #000; padding: 5px; border-radius: 8px;">
-                <a href="{$verification_url}" target="_blank" style="background-color: #2191e1; color: #ffffff; padding: 12px 24px; text-decoration: none; border-radius: 5px; display: inline-block; font-family: Arial, sans-serif; font-size: 16px;">Verify My Account</a>
+                <a href="{$verification_url}" target="_blank" style="background-color: #474747; color: #ffffff; padding: 12px 24px; text-decoration: none; border-radius: 5px; display: inline-block; font-family: Arial, sans-serif; font-size: 16px;">Verify My Account</a>
             </div>
 
             <p style="text-align: center; font-size: 12px; color: #666; margin: 10px 0;">OR</p>
         
             <div style="margin: 10px 0; padding: 10px; background-color: #f5f5f5; border-radius: 5px;">
                 <p style="margin: 0 0 5px 0; font-size: 12px; color: #666;">Copy and paste this link in your browser:</p>
-                <p style="margin: 0; font-size: 11px; color: #2191e1; word-break: break-all;">{$verification_url}</p>
+                <p style="margin: 0; font-size: 11px; color: #474747; word-break: break-all;">{$verification_url}</p>
             </div>
 
             <p style="margin: 15px 0 5px 0; font-size: 12px; color: #000;">Your verification link is valid for the next <strong>10 minutes</strong>.</p>
@@ -541,10 +541,12 @@ function login_account(string $uid, string $password): array
     try {
         $conn = open_connection();
 
-        $sql = "SELECT * FROM accounts 
-            WHERE BINARY username = ? OR BINARY account_uid = ? LIMIT 1";
+        $sql = "SELECT * FROM accounts
+            WHERE BINARY username = ? OR
+                  BINARY account_uid = ? OR
+                  BINARY email = ? LIMIT 1";
         $stmt = $conn->prepare($sql);
-        $stmt->bind_param('ss', $uid, $uid);
+        $stmt->bind_param('sss', $uid, $uid, $uid);
         $stmt->execute();
         $result = $stmt->get_result();
 
@@ -555,7 +557,7 @@ function login_account(string $uid, string $password): array
 
         $account = $result->fetch_assoc();
 
-        //check password 
+        //check password
         if (!password_verify($password, $account['password'])) {
             return ['success' => false, 'message' => 'Invalid username or password. Please try again.', 'status' => 400];
         }
@@ -599,7 +601,9 @@ function login_account(string $uid, string $password): array
         $auth = get_account($account['account_id']);
         $auth_account = $auth['data'];
 
-        $_SESSION['session_id'] = generate_new_session_id();
+        begin_session();
+        generate_new_session_id();
+        $_SESSION['session_id'] = session_id();
         $_SESSION['account_id'] = $auth_account['account_id'];
         $_SESSION['account_uid'] = $auth_account['account_uid'];
         $_SESSION['email'] = $auth_account['email'];
@@ -632,7 +636,7 @@ function login_account(string $uid, string $password): array
         }
 
         log_request('Session Data: ', $_SESSION);
-        return ['success' => true, 'message' => 'Login successful', 'redirect' => '/dashboard'];
+        return ['success' => true, 'message' => 'Login successful', 'redirect' => '/dashboard', 'data' => $_SESSION];
     } catch (Exception $e) {
         log_error("Error logging in: {$e->getMessage()}");
         return ['success' => false, 'message' => "Database error occurred: {$e->getMessage()}"];

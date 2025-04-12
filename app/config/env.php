@@ -40,11 +40,13 @@ try {
         'MAIL_FROM_NAME' => 'Jerome Avecilla - BSIT 2FG2',
 
         // Google ReCAPTCHA
-        'RECAPTCHA_FRONTEND_KEY' => '',
-        'RECAPTCHA_BACKEND_KEY' => '',
+        # 6LfblxUrAAAAAMq0E2qE_nPySMkmT3OE7YIkeRjB | 6Lc0rhMrAAAAADyUbPgxPT6ePnC9D9wigiyNresR
+        'RECAPTCHA_FRONTEND_KEY' => '6Lc0rhMrAAAAADyUbPgxPT6ePnC9D9wigiyNresR',
+        # 6LfblxUrAAAAAOV6eKmHNTKuJLXW84X0gEK_iY5F | 6Lc0rhMrAAAAADb2su_7kCyBaUWfAvWKgPq4VyEF
+        'RECAPTCHA_BACKEND_KEY' => '6Lc0rhMrAAAAADb2su_7kCyBaUWfAvWKgPq4VyEF',
 
         // Google Site Verification
-        'GOOGLE_SITE_VERIFICATION' => '',
+        'GOOGLE_SITE_VERIFICATION' => 'RAw3XoeQlQcldgqkMijkj8jMucAoJTaY_Ns44cioVfM',
     ];
 
     foreach ($config as $key => $value) {

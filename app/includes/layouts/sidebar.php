@@ -1,3 +1,11 @@
+<?php
+if(is_authenticated()) {
+    handle_session_data_tempering();
+    handle_session_hijacking();
+} else {
+    force_logout();
+}
+?>
 <!-- Sidebar -->
 <aside class="sidebar">
     <div class="sidebar-brand">
@@ -7,29 +15,35 @@
     </div>
     <hr style="color:rgb(180, 180, 180)">
     <ul class="sidebar-menu">
-        <li>
+        <li class="s-admin <?= is_admin() ? 'd-block' : 'd-none'?>">
             <a href="<?= $base_url ?>/dashboard" title="Dashboard | OARMC (Avecilla)">
                 <!-- <i class="fas fa-gauge"></i> -->
                 <i class="fas fa-table-columns"></i>
                 <span>Dashboard</span>
             </a>
         </li>
-        <li>
+        <li class="s-admin <?= is_admin() ? 'd-block' : 'd-none'?>">
             <a href="<?= $base_url ?>/accounts" title="Accounts | OARMC (Avecilla)">
                 <i class="fas fa-users"></i>
                 <span>Accounts</span>
             </a>
         </li>
-        <li>
+        <li class="s-admin <?= is_admin() ? 'd-block' : 'd-none'?>">
             <a href="<?= $base_url ?>/members" title="Members | OARMC (Avecilla)">
                 <i class="fas fa-user"></i>
                 <span>Members</span>
             </a>
         </li>
-        <li>
+        <li class="s-admin <?= is_admin() ? 'd-block' : 'd-none'?>">
             <a href="<?= $base_url ?>/amortizations" title="Amortizations | OARMC (Avecilla)">
                 <i class="fas fa-credit-card"></i>
                 <span>Amortizations</span>
+            </a>
+        </li>
+        <li class="s-member <?= is_member() ? 'd-block' : 'd-none'?>">
+            <a href="<?= $base_url ?>/my-account" title="My Account | OARMC (Avecilla)">
+                <i class="fas fa-user"></i>
+                <span>My Account</span>
             </a>
         </li>
     </ul>

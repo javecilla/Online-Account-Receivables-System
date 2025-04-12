@@ -1,301 +1,1330 @@
-[10-Apr-2025 18:11:26 Europe/Berlin] [[10-Apr-2025 18:11:26 Europe/Berlin]] Action: get_server_request_data(): , Data: {
-    "rawInput": "{\r\n    \"action\": \"create_amortization\",\r\n    \"data\": {\r\n        \n        \n        \"member_id\": 34, \n        \"type_id\": 4,  \r\n        \"amount\": 30000,\r\n        \"term_months\": 12,\r\n        \"start_date\": \"2025-04-10\"\r\n    }\r\n}"
+[12-Apr-2025 04:20:51 Europe/Berlin] [[12-Apr-2025 04:20:51 Europe/Berlin]] Action: get_server_request_data(): , Data: {
+    "rawInput": "{\"action\":\"logout_account\",\"data\":{\"uid\":\"A581822\",\"session_id\":\"mu07d2bed7qvcpebht1vpi2c58\"}}"
 }
 
-[10-Apr-2025 18:11:26 Europe/Berlin] [[10-Apr-2025 18:11:26 Europe/Berlin]] Action: request: , Data: {
-    "action": "create_amortization",
+[12-Apr-2025 04:20:51 Europe/Berlin] [[12-Apr-2025 04:20:51 Europe/Berlin]] Action: request: , Data: {
+    "action": "logout_account",
     "data": {
-        "member_id": 34,
-        "type_id": 4,
-        "amount": 30000,
-        "term_months": 12,
-        "start_date": "2025-04-10"
+        "uid": "A581822",
+        "session_id": "mu07d2bed7qvcpebht1vpi2c58"
     }
 }
 
-[10-Apr-2025 18:13:13 Europe/Berlin] [[10-Apr-2025 18:13:13 Europe/Berlin]] Action: get_server_request_data(): , Data: {
-    "rawInput": "{\"action\":\"update_amortization_approval\",\"data\":{\"amortization_id\":9,\"approval\":\"rejected\"}}"
+[12-Apr-2025 04:21:16 Europe/Berlin] [[12-Apr-2025 04:21:16 Europe/Berlin]] Action: get_server_request_data(): , Data: {
+    "rawInput": "{\"action\":\"login_account\",\"data\":{\"uid\":\"admin\",\"password\":\"admin\",\"recaptcha_response\":\"03AFcWeA5A4wFp7hencxZWUalfJ0DRxORfWFiicsiaHRYDbK0spef393XIdQ2KLucVQk2rC7fBcb8aS2TqtW6wcqn-PqEi947ZgnPsVGpBUi6VMy9Eq5YlbfZZRoVWa-0WNbpmCULXqYurBhNiUdEDcabKYEAHdb-xs-Y5gp5S4OYRsRphHKAuHEbN_XQ_3bAVduBsv0bNrkYpEt8rjSNk5QiMqq5PF0MwyWSCVChpwM8xTq2BXvJ541t3UnHji-53e2AGIepkC566--s1JBns1YfKvzRtgJh4GSCqMgijDxhdh79S_3bczFgLyRzofbC11S7dgwOM-AafBB7qnwMA_idbuCeH-6x_ODPtfx92I1CKYtsjXC5KJKrjBw0WQuYw9XcDhVWtAyGpdKXINSH6wat4QcxW3wrmvbgiIOEkIbNYjZt4qoYIg4GGGDOj-2TbHxxy_4WNx2jGOptIEOmolU2iEDxKAX3ZyRmvUbWA3ItpMTW2Na-tBO6qzOFkY-ORsyleCP58vlnGL4EYsPPbck0hFo9uSJs85RO5wxJkx1FKUTfhF9jbnQGEXrNQ2FcW5yf5w6on1EaYOXFj-Gq66Wf6ph513BdRrpe8wLNcMSUOgyt6_JCZhudLJzPIOvxFYeCoOvWeDVR0DV_8rK8Jr0pgJI0RBENbZ-n23ciYGLAjLW6AslcKblkdgRmgvYsOeW7gvDs7DyOmB5treFe8Bj_EE18wQWbcyUmMtzMVpbpqwPyixQSvIxyvEMTXF6phmopK3Lugde3M2-pU8EzOyL3Mm9RFVGcUHmvH142VtgowEuvphlxJ_N_KZw1bgrktaMwDSX22Qeq9Za3xXCJ4taHMTLMSLi2LxgwiZcaXYXHx8ztrAJAAsDlvCdExy2Sa5T9jmWd6OINmfhkC3nOgtYt1b7uhAUOq4GUK2Hm8l51IO3ytDMWRLFWiEHfhtEqMiSx2GDDaL8b2emJbN4etfUbg6_jANJPcgQ\"}}"
 }
 
-[10-Apr-2025 18:13:13 Europe/Berlin] [[10-Apr-2025 18:13:13 Europe/Berlin]] Action: request: , Data: {
-    "action": "update_amortization_approval",
+[12-Apr-2025 04:21:16 Europe/Berlin] [[12-Apr-2025 04:21:16 Europe/Berlin]] Action: request: , Data: {
+    "action": "login_account",
     "data": {
-        "amortization_id": 9,
-        "approval": "rejected"
+        "uid": "admin",
+        "password": "admin",
+        "recaptcha_response": "03AFcWeA5A4wFp7hencxZWUalfJ0DRxORfWFiicsiaHRYDbK0spef393XIdQ2KLucVQk2rC7fBcb8aS2TqtW6wcqn-PqEi947ZgnPsVGpBUi6VMy9Eq5YlbfZZRoVWa-0WNbpmCULXqYurBhNiUdEDcabKYEAHdb-xs-Y5gp5S4OYRsRphHKAuHEbN_XQ_3bAVduBsv0bNrkYpEt8rjSNk5QiMqq5PF0MwyWSCVChpwM8xTq2BXvJ541t3UnHji-53e2AGIepkC566--s1JBns1YfKvzRtgJh4GSCqMgijDxhdh79S_3bczFgLyRzofbC11S7dgwOM-AafBB7qnwMA_idbuCeH-6x_ODPtfx92I1CKYtsjXC5KJKrjBw0WQuYw9XcDhVWtAyGpdKXINSH6wat4QcxW3wrmvbgiIOEkIbNYjZt4qoYIg4GGGDOj-2TbHxxy_4WNx2jGOptIEOmolU2iEDxKAX3ZyRmvUbWA3ItpMTW2Na-tBO6qzOFkY-ORsyleCP58vlnGL4EYsPPbck0hFo9uSJs85RO5wxJkx1FKUTfhF9jbnQGEXrNQ2FcW5yf5w6on1EaYOXFj-Gq66Wf6ph513BdRrpe8wLNcMSUOgyt6_JCZhudLJzPIOvxFYeCoOvWeDVR0DV_8rK8Jr0pgJI0RBENbZ-n23ciYGLAjLW6AslcKblkdgRmgvYsOeW7gvDs7DyOmB5treFe8Bj_EE18wQWbcyUmMtzMVpbpqwPyixQSvIxyvEMTXF6phmopK3Lugde3M2-pU8EzOyL3Mm9RFVGcUHmvH142VtgowEuvphlxJ_N_KZw1bgrktaMwDSX22Qeq9Za3xXCJ4taHMTLMSLi2LxgwiZcaXYXHx8ztrAJAAsDlvCdExy2Sa5T9jmWd6OINmfhkC3nOgtYt1b7uhAUOq4GUK2Hm8l51IO3ytDMWRLFWiEHfhtEqMiSx2GDDaL8b2emJbN4etfUbg6_jANJPcgQ"
     }
 }
 
-[10-Apr-2025 18:13:18 Europe/Berlin] [[10-Apr-2025 18:13:18 Europe/Berlin]] Action: get_server_request_data(): , Data: {
-    "rawInput": "{\"action\":\"update_amortization_approval\",\"data\":{\"amortization_id\":9,\"approval\":\"pending\"}}"
+[12-Apr-2025 10:21:17 Asia/Manila] [[12-Apr-2025 10:21:17 Asia/Manila]] Action: Session Data: , Data: {
+    "ip_address": "127.0.0.1",
+    "user_agent": "Mozilla\/5.0 (Windows NT 10.0; Win64; x64; rv:137.0) Gecko\/20100101 Firefox\/137.0",
+    "session_hash": "4ca78a4edeb3c59d6364c8314a79d89a9040bab24bf902a8f447f4a558334cd7",
+    "session_id": "4o12ltmb241l1neu32d8ij2ogo",
+    "account_id": 1,
+    "account_uid": "A581822",
+    "email": "jeromesavc@gmail.com",
+    "username": "admin",
+    "account_status": "active",
+    "role_name": "Administrator",
+    "employee_id": 1,
+    "first_name": "John",
+    "last_name": "Smith",
+    "middle_name": "Doe",
+    "full_name": "John D. Smith",
+    "contact_number": "+639171234567"
 }
 
-[10-Apr-2025 18:13:18 Europe/Berlin] [[10-Apr-2025 18:13:18 Europe/Berlin]] Action: request: , Data: {
-    "action": "update_amortization_approval",
+[12-Apr-2025 04:21:50 Europe/Berlin] [[12-Apr-2025 04:21:50 Europe/Berlin]] Action: get_server_request_data(): , Data: {
+    "rawInput": "{\"action\":\"logout_account\",\"data\":{\"uid\":\"A581822\",\"session_id\":\"4o12ltmb241l1neu32d8ij2ogo\"}}"
+}
+
+[12-Apr-2025 04:21:50 Europe/Berlin] [[12-Apr-2025 04:21:50 Europe/Berlin]] Action: request: , Data: {
+    "action": "logout_account",
     "data": {
-        "amortization_id": 9,
-        "approval": "pending"
+        "uid": "A581822",
+        "session_id": "4o12ltmb241l1neu32d8ij2ogo"
     }
 }
 
-[10-Apr-2025 18:13:19 Europe/Berlin] [[10-Apr-2025 18:13:19 Europe/Berlin]] Action: get_server_request_data(): , Data: {
-    "rawInput": "{\"action\":\"update_amortization_approval\",\"data\":{\"amortization_id\":9,\"approval\":\"rejected\"}}"
+[12-Apr-2025 04:23:46 Europe/Berlin] [[12-Apr-2025 04:23:46 Europe/Berlin]] Action: get_server_request_data(): , Data: {
+    "rawInput": "{\"action\":\"login_account\",\"data\":{\"uid\":\"admin\",\"password\":\"admin\",\"recaptcha_response\":\"03AFcWeA6-BToDylzcweAMVlBwl-jen0iKGwuui_229S8VEmNBo0QU-HNfmrqqCC-_GSUOBt5PUXfaemvWQmGXjO8lPk3Nl09KpaUof45eEMWgb50dl0tYt-3pMm89zqHxYbNvpcf7MR5tjHMwQS6yxPmI5NaFI5JFilfs5kvn3IjPxDhG--jKD0MNQH0KG3LW5fQsHXR8CMkMOWjGWb3sXUt1wTnkiWhD5OikHYnRn5zYCveDRv7Ef0CJFWbvNQ17K7BvgqJPWlw2K0kja6R8D4InpM-WWXzsI7mSzVix7AgNWduMCFqkNLPVcFZKODL8vjr87w1JWWEOdhXXGDFtM15hChPjHbe_bUgcdYJQJRquOXYXthsCIsH4v5Op1I_6j4YLRPdHHysD6YT8igW67J9aTxxm5qVlrCyRJfmmaDs3Wq3GZZbZEqDYAgh1HGvJev-IwfpNtaHiv3BqvDzPr6eA5rXRtv6PiyLBz1o4xfJ2g6Hd50uxdW3Vj4c6g40uKeM_EWELoMO_XuipPbd5AZgN3NTQlOifdbzEhSQxPt5gnSK_EnjAnMFjaUcXiEsU6vQqGg6VmcMy8GB1jFGIfEKYhhpYY6x4RFd7SPdGKQx1NOeJ2ONADXM2fadXdUYpJPpbFamyhLglspdpIyfgT2kKoALRZ9XzI6XpDCoEYQoh3An-j3A5RlrPELfeV-28fowYZl3YxaX4v_avN3Dz5okWwCNw6XUFHXFggxdj4So8s7rtKupNw3OJup4PLbGzgoGTEZVnLNW1pZj-0LzwOivxvEHKmZB5wrvomtwiQfZEnEGVdTBbFdKJ2k0FktkbpkW_ZRB85Lt9vwgryCzgLWiprOvojway4GnxoCjxG9TtHV0ji16Pxw2vbtTUhZcHooU-Hk5TbVg2EWMQXk3SVEr75MHNynftI8aO3Y-f4KDQoLwGhCoxSze9lBLQe07lVPYtPix3rC8lBdlcXe7VMHSfuLwBcweh6g\"}}"
 }
 
-[10-Apr-2025 18:13:19 Europe/Berlin] [[10-Apr-2025 18:13:19 Europe/Berlin]] Action: request: , Data: {
-    "action": "update_amortization_approval",
+[12-Apr-2025 04:23:46 Europe/Berlin] [[12-Apr-2025 04:23:46 Europe/Berlin]] Action: request: , Data: {
+    "action": "login_account",
     "data": {
-        "amortization_id": 9,
-        "approval": "rejected"
+        "uid": "admin",
+        "password": "admin",
+        "recaptcha_response": "03AFcWeA6-BToDylzcweAMVlBwl-jen0iKGwuui_229S8VEmNBo0QU-HNfmrqqCC-_GSUOBt5PUXfaemvWQmGXjO8lPk3Nl09KpaUof45eEMWgb50dl0tYt-3pMm89zqHxYbNvpcf7MR5tjHMwQS6yxPmI5NaFI5JFilfs5kvn3IjPxDhG--jKD0MNQH0KG3LW5fQsHXR8CMkMOWjGWb3sXUt1wTnkiWhD5OikHYnRn5zYCveDRv7Ef0CJFWbvNQ17K7BvgqJPWlw2K0kja6R8D4InpM-WWXzsI7mSzVix7AgNWduMCFqkNLPVcFZKODL8vjr87w1JWWEOdhXXGDFtM15hChPjHbe_bUgcdYJQJRquOXYXthsCIsH4v5Op1I_6j4YLRPdHHysD6YT8igW67J9aTxxm5qVlrCyRJfmmaDs3Wq3GZZbZEqDYAgh1HGvJev-IwfpNtaHiv3BqvDzPr6eA5rXRtv6PiyLBz1o4xfJ2g6Hd50uxdW3Vj4c6g40uKeM_EWELoMO_XuipPbd5AZgN3NTQlOifdbzEhSQxPt5gnSK_EnjAnMFjaUcXiEsU6vQqGg6VmcMy8GB1jFGIfEKYhhpYY6x4RFd7SPdGKQx1NOeJ2ONADXM2fadXdUYpJPpbFamyhLglspdpIyfgT2kKoALRZ9XzI6XpDCoEYQoh3An-j3A5RlrPELfeV-28fowYZl3YxaX4v_avN3Dz5okWwCNw6XUFHXFggxdj4So8s7rtKupNw3OJup4PLbGzgoGTEZVnLNW1pZj-0LzwOivxvEHKmZB5wrvomtwiQfZEnEGVdTBbFdKJ2k0FktkbpkW_ZRB85Lt9vwgryCzgLWiprOvojway4GnxoCjxG9TtHV0ji16Pxw2vbtTUhZcHooU-Hk5TbVg2EWMQXk3SVEr75MHNynftI8aO3Y-f4KDQoLwGhCoxSze9lBLQe07lVPYtPix3rC8lBdlcXe7VMHSfuLwBcweh6g"
     }
 }
 
-[10-Apr-2025 18:14:38 Europe/Berlin] [[10-Apr-2025 18:14:38 Europe/Berlin]] Action: get_server_request_data(): , Data: {
-    "rawInput": "{\"action\":\"update_amortization_approval\",\"data\":{\"amortization_id\":9,\"approval\":\"pending\"}}"
+[12-Apr-2025 10:23:46 Asia/Manila] [[12-Apr-2025 10:23:46 Asia/Manila]] Action: Session Data: , Data: {
+    "ip_address": "127.0.0.1",
+    "user_agent": "Mozilla\/5.0 (Windows NT 10.0; Win64; x64; rv:137.0) Gecko\/20100101 Firefox\/137.0",
+    "session_hash": "988842f10b7b2ca2beac8814a149b25941a2afbe8787c34bf626970bcdd33bca",
+    "session_id": "g74t8ccsb4m7g1h2md69rkj6sf",
+    "account_id": 1,
+    "account_uid": "A581822",
+    "email": "jeromesavc@gmail.com",
+    "username": "admin",
+    "account_status": "active",
+    "role_name": "Administrator",
+    "employee_id": 1,
+    "first_name": "John",
+    "last_name": "Smith",
+    "middle_name": "Doe",
+    "full_name": "John D. Smith",
+    "contact_number": "+639171234567"
 }
 
-[10-Apr-2025 18:14:38 Europe/Berlin] [[10-Apr-2025 18:14:38 Europe/Berlin]] Action: request: , Data: {
-    "action": "update_amortization_approval",
+[12-Apr-2025 04:23:55 Europe/Berlin] [[12-Apr-2025 04:23:55 Europe/Berlin]] Action: get_server_request_data(): , Data: {
+    "rawInput": "{\"action\":\"logout_account\",\"data\":{\"uid\":\"A581822\",\"session_id\":\"g74t8ccsb4m7g1h2md69rkj6sf\"}}"
+}
+
+[12-Apr-2025 04:23:55 Europe/Berlin] [[12-Apr-2025 04:23:55 Europe/Berlin]] Action: request: , Data: {
+    "action": "logout_account",
     "data": {
-        "amortization_id": 9,
-        "approval": "pending"
+        "uid": "A581822",
+        "session_id": "g74t8ccsb4m7g1h2md69rkj6sf"
     }
 }
 
-[10-Apr-2025 18:14:40 Europe/Berlin] [[10-Apr-2025 18:14:40 Europe/Berlin]] Action: get_server_request_data(): , Data: {
-    "rawInput": "{\"action\":\"update_amortization_approval\",\"data\":{\"amortization_id\":9,\"approval\":\"rejected\"}}"
+[12-Apr-2025 04:24:25 Europe/Berlin] [[12-Apr-2025 04:24:25 Europe/Berlin]] Action: get_server_request_data(): , Data: {
+    "rawInput": "{\"action\":\"login_account\",\"data\":{\"uid\":\"admin\",\"password\":\"admin\",\"recaptcha_response\":\"03AFcWeA4vyXLH2uICGmsREok-EONI2xci5BGSmZHJ3La__5fhNUkzK_EIz_nIzNfSN72uJ15XNeWOQ-pilHechf7T_cWZj_d-KogFlKjD9S2xgI7KDw0aUP9aRJ8BIZhaP1BzfSUGepqp-sb0AG5TPnBqgS0XExO54KJZcVbBWxi0Nd10cPt9sGdm2IM5pwimta5O4feJGiqhEBRhuumF8YAl0NqkBV1ZkeMg06ReOPVM3m1faCuOlr_nh6eiMRPigU1QNeEGFtNDhosM4AjNJu4NW_-tTZckalnJ9-ExZ01yPf8iN4-R_HfQGtASRTkNaf-8pW_UwT0daSB83J1zpvKpMFVTVPJ6wrqgQPyMOUupOcLxucgyHiQ7B_W_8mdEHB9O3akoUYaiav7QNpMzyKniKwz_31ZMhKmRsnG0gJC7zmdQ2Z6Q5Mjgx9KkuiGfttVXgcTYvzzo0czlgPf4_35dGz8sNdUdIdunte0hldunR_tL8NvMhIxghBSOgiu7W_8JIUvMMe7nhHbImjK_t_0KdhSkdMhJlUAH-_2uO1E5Tm3z7IOy7ZhnCn6hDbq9KJga844D8aP4t2niGqumR-LwdVi1A8E6CDPy921E4sRHiKrvluc0K7CXXCsUrzqv6K0pM6RmCVY5beGnZMZlh9WWtPo-G0ktqqs-LStzT8afTmcfNtFSQQPH3UyAhCXcLKXAWLkv5LigHeqnqnfoxvoqRhxxj4vXmTId9-kkR-p9QngafcOJ_08vEX4syLI2LllW7J4BRaLfTqEUn0JJOMpk5VL2yUxz4K7-wUCPaw2laSfZtccSjKCSdU6FAmk-G4A6qdfEruNULc0FkPrI8pmdU6MpbLcgV0skALvZxd2tf7Z5DZpGrhlLnoZtmz-hA0EVO3L5mJbIytnGL8spNye8pblnfFjTbTrwBYUdhbAZdYjH3dw--CR-mzsaTB1RuloPO6YruFbQz7ye7i3YLEgL05GAlrF-Ng\"}}"
 }
 
-[10-Apr-2025 18:14:40 Europe/Berlin] [[10-Apr-2025 18:14:40 Europe/Berlin]] Action: request: , Data: {
-    "action": "update_amortization_approval",
+[12-Apr-2025 04:24:25 Europe/Berlin] [[12-Apr-2025 04:24:25 Europe/Berlin]] Action: request: , Data: {
+    "action": "login_account",
     "data": {
-        "amortization_id": 9,
-        "approval": "rejected"
+        "uid": "admin",
+        "password": "admin",
+        "recaptcha_response": "03AFcWeA4vyXLH2uICGmsREok-EONI2xci5BGSmZHJ3La__5fhNUkzK_EIz_nIzNfSN72uJ15XNeWOQ-pilHechf7T_cWZj_d-KogFlKjD9S2xgI7KDw0aUP9aRJ8BIZhaP1BzfSUGepqp-sb0AG5TPnBqgS0XExO54KJZcVbBWxi0Nd10cPt9sGdm2IM5pwimta5O4feJGiqhEBRhuumF8YAl0NqkBV1ZkeMg06ReOPVM3m1faCuOlr_nh6eiMRPigU1QNeEGFtNDhosM4AjNJu4NW_-tTZckalnJ9-ExZ01yPf8iN4-R_HfQGtASRTkNaf-8pW_UwT0daSB83J1zpvKpMFVTVPJ6wrqgQPyMOUupOcLxucgyHiQ7B_W_8mdEHB9O3akoUYaiav7QNpMzyKniKwz_31ZMhKmRsnG0gJC7zmdQ2Z6Q5Mjgx9KkuiGfttVXgcTYvzzo0czlgPf4_35dGz8sNdUdIdunte0hldunR_tL8NvMhIxghBSOgiu7W_8JIUvMMe7nhHbImjK_t_0KdhSkdMhJlUAH-_2uO1E5Tm3z7IOy7ZhnCn6hDbq9KJga844D8aP4t2niGqumR-LwdVi1A8E6CDPy921E4sRHiKrvluc0K7CXXCsUrzqv6K0pM6RmCVY5beGnZMZlh9WWtPo-G0ktqqs-LStzT8afTmcfNtFSQQPH3UyAhCXcLKXAWLkv5LigHeqnqnfoxvoqRhxxj4vXmTId9-kkR-p9QngafcOJ_08vEX4syLI2LllW7J4BRaLfTqEUn0JJOMpk5VL2yUxz4K7-wUCPaw2laSfZtccSjKCSdU6FAmk-G4A6qdfEruNULc0FkPrI8pmdU6MpbLcgV0skALvZxd2tf7Z5DZpGrhlLnoZtmz-hA0EVO3L5mJbIytnGL8spNye8pblnfFjTbTrwBYUdhbAZdYjH3dw--CR-mzsaTB1RuloPO6YruFbQz7ye7i3YLEgL05GAlrF-Ng"
     }
 }
 
-[10-Apr-2025 18:27:44 Europe/Berlin] [[10-Apr-2025 18:27:44 Europe/Berlin]] Action: get_server_request_data(): , Data: {
-    "rawInput": "{\"action\":\"update_amortization_approval\",\"data\":{\"amortization_id\":9,\"approval\":\"pending\"}}"
+[12-Apr-2025 10:24:25 Asia/Manila] [[12-Apr-2025 10:24:25 Asia/Manila]] Action: Session Data: , Data: {
+    "ip_address": "127.0.0.1",
+    "user_agent": "Mozilla\/5.0 (Windows NT 10.0; Win64; x64; rv:137.0) Gecko\/20100101 Firefox\/137.0",
+    "session_hash": "e8cb25a7781814a6ee94258103c88eff468fdbcc21bfed9408d3fec37bfc0677",
+    "session_id": "0m5f19mba60ocbap96ek2i3h9b",
+    "account_id": 1,
+    "account_uid": "A581822",
+    "email": "jeromesavc@gmail.com",
+    "username": "admin",
+    "account_status": "active",
+    "role_name": "Administrator",
+    "employee_id": 1,
+    "first_name": "John",
+    "last_name": "Smith",
+    "middle_name": "Doe",
+    "full_name": "John D. Smith",
+    "contact_number": "+639171234567"
 }
 
-[10-Apr-2025 18:27:44 Europe/Berlin] [[10-Apr-2025 18:27:44 Europe/Berlin]] Action: request: , Data: {
-    "action": "update_amortization_approval",
+[12-Apr-2025 04:24:46 Europe/Berlin] [[12-Apr-2025 04:24:46 Europe/Berlin]] Action: get_server_request_data(): , Data: {
+    "rawInput": "{\"action\":\"logout_account\",\"data\":{\"uid\":\"A581822\",\"session_id\":\"0m5f19mba60ocbap96ek2i3h9b\"}}"
+}
+
+[12-Apr-2025 04:24:46 Europe/Berlin] [[12-Apr-2025 04:24:46 Europe/Berlin]] Action: request: , Data: {
+    "action": "logout_account",
     "data": {
-        "amortization_id": 9,
-        "approval": "pending"
+        "uid": "A581822",
+        "session_id": "0m5f19mba60ocbap96ek2i3h9b"
     }
 }
 
-[10-Apr-2025 18:27:49 Europe/Berlin] [[10-Apr-2025 18:27:49 Europe/Berlin]] Action: get_server_request_data(): , Data: {
-    "rawInput": "{\"action\":\"update_amortization_approval\",\"data\":{\"amortization_id\":9,\"approval\":\"rejected\"}}"
+[12-Apr-2025 04:28:06 Europe/Berlin] [[12-Apr-2025 04:28:06 Europe/Berlin]] Action: get_server_request_data(): , Data: {
+    "rawInput": "{\"action\":\"login_account\",\"data\":{\"uid\":\"admin\",\"password\":\"admin\",\"recaptcha_response\":\"03AFcWeA5XcIejs3ilRnxX1EIzMW0eb9-qfhYBV3pzzQQyL7epNUkM_VNMZ7LqIM26h-3URL-1S-Tf3VQTtJlumJciITh_gJUgyCL1OsJFNo_YgmNsbxE07RSHhmk5rEwJp9QinDE8g0SE3gyxiSUZ1jPLxspckWUxxVxOwmXtEkbVcF48-CHbXmvi5t9cWurZ_0ShWQ8iBsNYY8nb1lB1byoCehBBGCqbG7SgU41BlIzO0uIVVd_z5ADw-M9DFSG2HPWfUmGksAUJao0wAn23t79ezxgpIvDYrP3mMKAMtt6RAOUT7MnFGvKOcQ8z2VopxYAukFj-vtFhEYaqnJW_kAcQNiTrIITcq2II6-6cTRCDAEjm_MKElLw_PT6W4PZYVSyRPw2kHeF7ouyKQ1MPsjdto6P96Kjd5CFGQnm7Dw4ZMkoOfa02KUmdn-MI6wDQof-iFVoNdmLO81mZELRaD0m9WNH9buzSdJxwBDO57NBrMJnxXp5yRkVqQ8OHKnG70srMCoHo7ozK1q6ZKJ1vsnF9Fp2VL_c9VKxn-i9lvS84t0vAZL7kFVPvVryTQdMcrcebQlnUbp2xkBHlSnbAtj8JRBc72wCZZBg1yxKe7MfCy9nQ8FYPkulp8pP4ji1ciCh7ZAhW0Rj8WclnfDhs4NqKDdgAmq4Kqd5tn4HYyhGYcFXRww04WQsepz6i7FyX-6lvYkVPqtbyYsONsJaRVz0aZfbRFUUkeDmAxVMZ51DOeZj3hVAY4l7RJENnBBQTaTstjkIQ7GM3jcWhv53Sr9d9STKoiC8JXEm7HSNwJsv3hKRRIXRzUbSLPxMOzE0nmU6kzZVJ9pA7GFieKkH2h-o3AGFovKWP_0JGjHc-u6PAMz7WyNPyC1pxGJvesqQoQp_FXz6qUtkSXBRAcNOE5qOtpTpaRmr2cBQmarsZjxITcqUk4PUU3XjPlVwhZJ0j_z15Avfo_EdbpUPxhcyG_eCfNGahaCJaJA\"}}"
 }
 
-[10-Apr-2025 18:27:49 Europe/Berlin] [[10-Apr-2025 18:27:49 Europe/Berlin]] Action: request: , Data: {
-    "action": "update_amortization_approval",
+[12-Apr-2025 04:28:06 Europe/Berlin] [[12-Apr-2025 04:28:06 Europe/Berlin]] Action: request: , Data: {
+    "action": "login_account",
     "data": {
-        "amortization_id": 9,
-        "approval": "rejected"
+        "uid": "admin",
+        "password": "admin",
+        "recaptcha_response": "03AFcWeA5XcIejs3ilRnxX1EIzMW0eb9-qfhYBV3pzzQQyL7epNUkM_VNMZ7LqIM26h-3URL-1S-Tf3VQTtJlumJciITh_gJUgyCL1OsJFNo_YgmNsbxE07RSHhmk5rEwJp9QinDE8g0SE3gyxiSUZ1jPLxspckWUxxVxOwmXtEkbVcF48-CHbXmvi5t9cWurZ_0ShWQ8iBsNYY8nb1lB1byoCehBBGCqbG7SgU41BlIzO0uIVVd_z5ADw-M9DFSG2HPWfUmGksAUJao0wAn23t79ezxgpIvDYrP3mMKAMtt6RAOUT7MnFGvKOcQ8z2VopxYAukFj-vtFhEYaqnJW_kAcQNiTrIITcq2II6-6cTRCDAEjm_MKElLw_PT6W4PZYVSyRPw2kHeF7ouyKQ1MPsjdto6P96Kjd5CFGQnm7Dw4ZMkoOfa02KUmdn-MI6wDQof-iFVoNdmLO81mZELRaD0m9WNH9buzSdJxwBDO57NBrMJnxXp5yRkVqQ8OHKnG70srMCoHo7ozK1q6ZKJ1vsnF9Fp2VL_c9VKxn-i9lvS84t0vAZL7kFVPvVryTQdMcrcebQlnUbp2xkBHlSnbAtj8JRBc72wCZZBg1yxKe7MfCy9nQ8FYPkulp8pP4ji1ciCh7ZAhW0Rj8WclnfDhs4NqKDdgAmq4Kqd5tn4HYyhGYcFXRww04WQsepz6i7FyX-6lvYkVPqtbyYsONsJaRVz0aZfbRFUUkeDmAxVMZ51DOeZj3hVAY4l7RJENnBBQTaTstjkIQ7GM3jcWhv53Sr9d9STKoiC8JXEm7HSNwJsv3hKRRIXRzUbSLPxMOzE0nmU6kzZVJ9pA7GFieKkH2h-o3AGFovKWP_0JGjHc-u6PAMz7WyNPyC1pxGJvesqQoQp_FXz6qUtkSXBRAcNOE5qOtpTpaRmr2cBQmarsZjxITcqUk4PUU3XjPlVwhZJ0j_z15Avfo_EdbpUPxhcyG_eCfNGahaCJaJA"
     }
 }
 
-[10-Apr-2025 18:28:03 Europe/Berlin] [[10-Apr-2025 18:28:03 Europe/Berlin]] Action: get_server_request_data(): , Data: {
-    "rawInput": "{\"action\":\"delete_amortization\",\"data\":{\"amortization_id\":9}}"
+[12-Apr-2025 10:28:06 Asia/Manila] [[12-Apr-2025 10:28:06 Asia/Manila]] Action: Session Data: , Data: {
+    "ip_address": "127.0.0.1",
+    "user_agent": "Mozilla\/5.0 (Windows NT 10.0; Win64; x64; rv:137.0) Gecko\/20100101 Firefox\/137.0",
+    "session_hash": "398215b80396899b0f76469a99b672290acbe78c83485eb44bd0b2555a5860ba",
+    "session_id": "elkon4e9gp70p3gd9qepon79gt",
+    "account_id": 1,
+    "account_uid": "A581822",
+    "email": "jeromesavc@gmail.com",
+    "username": "admin",
+    "account_status": "active",
+    "role_name": "Administrator",
+    "employee_id": 1,
+    "first_name": "John",
+    "last_name": "Smith",
+    "middle_name": "Doe",
+    "full_name": "John D. Smith",
+    "contact_number": "+639171234567"
 }
 
-[10-Apr-2025 18:28:03 Europe/Berlin] [[10-Apr-2025 18:28:03 Europe/Berlin]] Action: request: , Data: {
-    "action": "delete_amortization",
+[12-Apr-2025 04:28:44 Europe/Berlin] [[12-Apr-2025 04:28:44 Europe/Berlin]] Action: get_server_request_data(): , Data: {
+    "rawInput": "{\"action\":\"logout_account\",\"data\":{\"uid\":\"A581822\",\"session_id\":\"elkon4e9gp70p3gd9qepon79gt\"}}"
+}
+
+[12-Apr-2025 04:28:44 Europe/Berlin] [[12-Apr-2025 04:28:44 Europe/Berlin]] Action: request: , Data: {
+    "action": "logout_account",
     "data": {
-        "amortization_id": 9
+        "uid": "A581822",
+        "session_id": "elkon4e9gp70p3gd9qepon79gt"
     }
 }
 
-[10-Apr-2025 18:44:14 Europe/Berlin] [[10-Apr-2025 18:44:14 Europe/Berlin]] Action: get_server_request_data(): , Data: {
-    "rawInput": "{\r\n    \"action\": \"process_amortization_payment\",\r\n    \"data\": {\r\n        \"amortization_id\": 8,\r\n        \"amount\":2600,\r\n        \"payment_date\": \"2025-04-10\",\r\n        \"notes\": \"second payment\"\r\n    }\r\n}"
+[12-Apr-2025 07:50:19 Europe/Berlin] [[12-Apr-2025 07:50:19 Europe/Berlin]] Action: get_server_request_data(): , Data: {
+    "rawInput": "{\"action\":\"create_member_cooperative\",\"data\":{\"membership_type\":\"5\",\"first_name\":\"Robert\",\"last_name\":\"Lara\",\"middle_name\":\"\",\"contact_number\":\"9798413212\",\"house_address\":\"test 123\",\"barangay\":\"test\",\"municipality\":\"test\",\"province\":\"test\",\"region\":\"test\",\"account_role\":3,\"username\":\"robert123\",\"email\":\"robert@gmail.com\",\"password\":\"ef>9K3UaQdp])]>\",\"page_from\":\"external\",\"recaptcha_response\":\"03AFcWeA6W7POznXdH4DllcdHSxtLijAvoRmG35f3qz9m0yfFTFG-wPhBChUK_9K8S5Nir15A4kiJPAQFD1RtZXmhu0IKwCw4kpGgi5y_soHu4fpOqycIrlbAi3j6NC96S4qm_IoAdcit7HkmUP8CpKGvnubHtACCJrLIoXIOmI1SJacPKzqYmetZLBwyajSJU_O4ATizYRSeW4YDfV-wzOQ_wVwZztytMUv19unjG4RXGsYfL6RkdtprYjt5UPZ1oiq2bW7FTE5XssBtzH9bemfhdfsjuFwrlSYj77_xjdIhv5UrHUPVnqMWUr46kufJ4RUkUGrJ0M_o5L_kAAPPJ1m-8PuMaCc7fWKHGAywDCWMVFbiRDaGP9fsgCjCJxPfv9aQ1kS69pi3bcXj8Y_EIIgRBzXtt_Nrm-Weci6uG96Xe1795-TOGiMcgJI4GzBHlIGckGYZHHUKoMmewY5HVNjehVGC0P1rT-z7xATQsIoxZLX9kl90QjS5Y078J0m-is_6kFyPE9Vo4buPkb1UBo5kbOx0IOFpj6gnPK56yZ-L7iOkjGmyH5eOE5L2P15sUlVvn4Lj6EjnZjBJs7-2oKkyJ0kapMZXyxpUz5PDtZhlxHxyBmUbrAiNiliJe8-DLBroYPf2d9ex0y4pt5Sy1E5ech4hsMhia7BDEo3x0CFdgNpT71zanRsBU9mXww0xF36Jtv6-QRzqfsjkwO313okn5Rqv44nvuS3u_pl14vF1QfhsQUyDBmxrGKfYvnuYKvCAwojL160OJRBwrkZCBevAVBfzeSwYoxWJ3oOh9zomxhCyWbsQ0LJA4RxSKS871xR0H1uusXOAeH9Mz8eP0XXnx4I7vfPFFrdL3GOBMy1GWT92fOJSyK64XibaAVJxB4D2aZsumbGg0pBCbnGuLFp0A4tZFT8xPgnGhVFj2C7SJ_32axu6PV6RQpIlH0-2U2WPv9o9F_TTszUdulXnkUNaA0DvCQtPPsA\"}}"
 }
 
-[10-Apr-2025 18:44:14 Europe/Berlin] [[10-Apr-2025 18:44:14 Europe/Berlin]] Action: request: , Data: {
-    "action": "process_amortization_payment",
+[12-Apr-2025 07:50:19 Europe/Berlin] [[12-Apr-2025 07:50:19 Europe/Berlin]] Action: request: , Data: {
+    "action": "create_member_cooperative",
     "data": {
-        "amortization_id": 8,
-        "amount": 2600,
-        "payment_date": "2025-04-10",
-        "notes": "second payment"
-    }
-}
-
-[10-Apr-2025 18:45:44 Europe/Berlin] [[10-Apr-2025 18:45:44 Europe/Berlin]] Action: get_server_request_data(): , Data: {
-    "rawInput": "{\r\n    \"action\": \"process_amortization_payment\",\r\n    \"data\": {\r\n        \"amortization_id\": 8,\r\n        \"amount\":5200, \n        \"payment_date\": \"2025-04-10\",\r\n        \"notes\": \"second payment\"\r\n    }\r\n}"
-}
-
-[10-Apr-2025 18:45:44 Europe/Berlin] [[10-Apr-2025 18:45:44 Europe/Berlin]] Action: request: , Data: {
-    "action": "process_amortization_payment",
-    "data": {
-        "amortization_id": 8,
-        "amount": 5200,
-        "payment_date": "2025-04-10",
-        "notes": "second payment"
-    }
-}
-
-[10-Apr-2025 18:46:40 Europe/Berlin] [[10-Apr-2025 18:46:40 Europe/Berlin]] Action: get_server_request_data(): , Data: {
-    "rawInput": "{\r\n    \"action\": \"process_amortization_payment\",\r\n    \"data\": {\r\n        \"amortization_id\": 8,\r\n        \"amount\": 2600, \n        \"payment_date\": \"2025-04-10\",\r\n        \"notes\": \"4th payment\"\r\n    }\r\n}"
-}
-
-[10-Apr-2025 18:46:40 Europe/Berlin] [[10-Apr-2025 18:46:40 Europe/Berlin]] Action: request: , Data: {
-    "action": "process_amortization_payment",
-    "data": {
-        "amortization_id": 8,
-        "amount": 2600,
-        "payment_date": "2025-04-10",
-        "notes": "4th payment"
-    }
-}
-
-[10-Apr-2025 20:37:00 Europe/Berlin] [[10-Apr-2025 20:37:00 Europe/Berlin]] Action: get_server_request_data(): , Data: {
-    "rawInput": "{\r\n    \"action\": \"create_amortization\",\r\n    \"data\": {\r\n        \n        \n        \"member_id\": 34, \n        \"type_id\": 4,  \r\n        \"amount\": 30000,\r\n        \"term_months\": 12,\r\n        \"start_date\": \"2025-04-10\"\r\n    }\r\n}"
-}
-
-[10-Apr-2025 20:37:00 Europe/Berlin] [[10-Apr-2025 20:37:00 Europe/Berlin]] Action: request: , Data: {
-    "action": "create_amortization",
-    "data": {
-        "member_id": 34,
-        "type_id": 4,
-        "amount": 30000,
-        "term_months": 12,
-        "start_date": "2025-04-10"
-    }
-}
-
-[10-Apr-2025 20:37:36 Europe/Berlin] [[10-Apr-2025 20:37:36 Europe/Berlin]] Action: get_server_request_data(): , Data: {
-    "rawInput": "{\"action\":\"update_amortization_approval\",\"data\":{\"amortization_id\":10,\"approval\":\"approved\"}}"
-}
-
-[10-Apr-2025 20:37:36 Europe/Berlin] [[10-Apr-2025 20:37:36 Europe/Berlin]] Action: request: , Data: {
-    "action": "update_amortization_approval",
-    "data": {
-        "amortization_id": 10,
-        "approval": "approved"
-    }
-}
-
-[10-Apr-2025 20:40:50 Europe/Berlin] [[10-Apr-2025 20:40:50 Europe/Berlin]] Action: get_server_request_data(): , Data: {
-    "rawInput": "{\r\n    \"action\": \"process_amortization_payment\",\r\n    \"data\": {\r\n        \"amortization_id\": 8,\r\n        \"amount\": 9075, \n        \"payment_date\": \"2025-04-10\",\r\n        \"notes\": \"5th payment\"\r\n    }\r\n}"
-}
-
-[10-Apr-2025 20:40:50 Europe/Berlin] [[10-Apr-2025 20:40:50 Europe/Berlin]] Action: request: , Data: {
-    "action": "process_amortization_payment",
-    "data": {
-        "amortization_id": 8,
-        "amount": 9075,
-        "payment_date": "2025-04-10",
-        "notes": "5th payment"
-    }
-}
-
-[10-Apr-2025 21:09:59 Europe/Berlin] [[10-Apr-2025 21:09:59 Europe/Berlin]] Action: get_server_request_data(): , Data: {
-    "rawInput": "{\r\n    \"action\": \"process_amortization_payment\",\r\n    \"data\": {\r\n        \"amortization_id\": 8,\r\n        \"amount\": 9075, \r\n        \"payment_date\": \"2025-04-10\",\r\n        \"notes\": \"5th payment\"\r\n    }\r\n}"
-}
-
-[10-Apr-2025 21:09:59 Europe/Berlin] [[10-Apr-2025 21:09:59 Europe/Berlin]] Action: request: , Data: {
-    "action": "process_amortization_payment",
-    "data": {
-        "amortization_id": 8,
-        "amount": 9075,
-        "payment_date": "2025-04-10",
-        "notes": "5th payment"
-    }
-}
-
-[10-Apr-2025 21:10:44 Europe/Berlin] [[10-Apr-2025 21:10:44 Europe/Berlin]] Action: get_server_request_data(): , Data: {
-    "rawInput": "{\"action\":\"update_member_cooperative\",\"data\":{\"page_from\":\"internal\",\"role_id\":3,\"email\":\"delete.member@gmail.com\",\"username\":\"Member.delete123\/\/\",\"password\":\"\",\"confirm_password\":\"\",\"account_id\":\"35\",\"member_id\":\"33\",\"employee_id\":null,\"type_id\":6,\"first_name\":\"Kalista\",\"middle_name\":\"\",\"last_name\":\"Delca\",\"contact_number\":\"+630988291221\",\"house_address\":\"Member.delete123\/\/\",\"barangay\":\"Member\",\"municipality\":\"Member\",\"province\":\"Member\",\"region\":\"Member\"}}"
-}
-
-[10-Apr-2025 21:10:44 Europe/Berlin] [[10-Apr-2025 21:10:44 Europe/Berlin]] Action: request: , Data: {
-    "action": "update_member_cooperative",
-    "data": {
-        "page_from": "internal",
-        "role_id": 3,
-        "email": "delete.member@gmail.com",
-        "username": "Member.delete123\/\/",
-        "password": "",
-        "confirm_password": "",
-        "account_id": "35",
-        "member_id": "33",
-        "employee_id": null,
-        "type_id": 6,
-        "first_name": "Kalista",
+        "membership_type": "5",
+        "first_name": "Robert",
+        "last_name": "Lara",
         "middle_name": "",
-        "last_name": "Delca",
-        "contact_number": "+630988291221",
-        "house_address": "Member.delete123\/\/",
-        "barangay": "Member",
-        "municipality": "Member",
-        "province": "Member",
-        "region": "Member"
+        "contact_number": "9798413212",
+        "house_address": "test 123",
+        "barangay": "test",
+        "municipality": "test",
+        "province": "test",
+        "region": "test",
+        "account_role": 3,
+        "username": "robert123",
+        "email": "robert@gmail.com",
+        "password": "ef>9K3UaQdp])]>",
+        "page_from": "external",
+        "recaptcha_response": "03AFcWeA6W7POznXdH4DllcdHSxtLijAvoRmG35f3qz9m0yfFTFG-wPhBChUK_9K8S5Nir15A4kiJPAQFD1RtZXmhu0IKwCw4kpGgi5y_soHu4fpOqycIrlbAi3j6NC96S4qm_IoAdcit7HkmUP8CpKGvnubHtACCJrLIoXIOmI1SJacPKzqYmetZLBwyajSJU_O4ATizYRSeW4YDfV-wzOQ_wVwZztytMUv19unjG4RXGsYfL6RkdtprYjt5UPZ1oiq2bW7FTE5XssBtzH9bemfhdfsjuFwrlSYj77_xjdIhv5UrHUPVnqMWUr46kufJ4RUkUGrJ0M_o5L_kAAPPJ1m-8PuMaCc7fWKHGAywDCWMVFbiRDaGP9fsgCjCJxPfv9aQ1kS69pi3bcXj8Y_EIIgRBzXtt_Nrm-Weci6uG96Xe1795-TOGiMcgJI4GzBHlIGckGYZHHUKoMmewY5HVNjehVGC0P1rT-z7xATQsIoxZLX9kl90QjS5Y078J0m-is_6kFyPE9Vo4buPkb1UBo5kbOx0IOFpj6gnPK56yZ-L7iOkjGmyH5eOE5L2P15sUlVvn4Lj6EjnZjBJs7-2oKkyJ0kapMZXyxpUz5PDtZhlxHxyBmUbrAiNiliJe8-DLBroYPf2d9ex0y4pt5Sy1E5ech4hsMhia7BDEo3x0CFdgNpT71zanRsBU9mXww0xF36Jtv6-QRzqfsjkwO313okn5Rqv44nvuS3u_pl14vF1QfhsQUyDBmxrGKfYvnuYKvCAwojL160OJRBwrkZCBevAVBfzeSwYoxWJ3oOh9zomxhCyWbsQ0LJA4RxSKS871xR0H1uusXOAeH9Mz8eP0XXnx4I7vfPFFrdL3GOBMy1GWT92fOJSyK64XibaAVJxB4D2aZsumbGg0pBCbnGuLFp0A4tZFT8xPgnGhVFj2C7SJ_32axu6PV6RQpIlH0-2U2WPv9o9F_TTszUdulXnkUNaA0DvCQtPPsA"
     }
 }
 
-[11-Apr-2025 03:10:44 Asia/Manila] [[11-Apr-2025 03:10:44 Asia/Manila]] Action: payload, Data: {
-    "account_id": "35",
-    "role_id": 3,
-    "email": "delete.member@gmail.com",
-    "username": "Member.delete123\/\/",
-    "password": "",
-    "confirm_password": "",
-    "member_id": "33",
-    "type_id": 6,
-    "first_name": "Kalista",
-    "middle_name": "",
-    "last_name": "Delca",
-    "contact_number": "+630988291221",
-    "house_address": "Member.delete123\/\/",
-    "barangay": "Member",
-    "municipality": "Member",
-    "province": "Member",
-    "region": "Member"
+[12-Apr-2025 07:53:02 Europe/Berlin] [[12-Apr-2025 07:53:02 Europe/Berlin]] Action: get_server_request_data(): , Data: {
+    "rawInput": "{\"action\":\"create_member_cooperative\",\"data\":{\"membership_type\":\"4\",\"first_name\":\"Robert\",\"last_name\":\"Lara\",\"middle_name\":\"\",\"contact_number\":\"9882721233\",\"house_address\":\"test 123\",\"barangay\":\"test\",\"municipality\":\"test\",\"province\":\"test\",\"region\":\"test\",\"account_role\":3,\"username\":\"robert123\",\"email\":\"robert@gmail.com\",\"password\":\"ef>9K3UaQdp])]>\",\"page_from\":\"external\",\"recaptcha_response\":\"03AFcWeA4UQPfNeS2HmWGJPzUCWrKwvFVtRXgGOz4UP693Qm-XsJfHGTMarpshDS5D-GT7E-MTqCKqi5YvTINe9BYzWsfKi6jkd0FgKvgqV1NriYCkUTZvvoxmGe7NmyiNgkfznPMBAyMYJQePrO8qfjvTfiK47WS2Zk0Xzxv9xJlny1HM7F3ekQMfPw3sIzuVSM3_S5cy_tq15Aagg_nU1qvJ9hRrEfFC-WeU1vgV1LGydcfOGWpiLHyq_9ZQrt8HYKDsAOtjoLm67HdRYNxczFDkd3MKRyGUol6vhXHMCYAtrIzEscyeQuCvpmobKmFpi8_Lf4XGJhmGvCPjI2OnOX61vJS5UdCLLFVirCYU3Qqr_ylJ1_TE-o9Gf2eS4AYZeaA3s53oEFbO0idJH8RjUbkNyGephK3CXrvhjR9mN5Lggu08xXDgpxMLwKaJJ7Jiwj_BUee12XaB6wpulx7N-rzp9_zP7uQX4cJnB_GxaPShPQzuK_tm9HVryrNCpdb20rHaCGbSbBf7c7XNpGrExAW9k-nQS5KRKxW0mGHPxznkBuEJAKUmzG2mPb9FUmwRhvwi1EkziOlIKSb19f3sKXVEFkRIQ2nLXDk0uEos7EWkc9xRj3MOdLcrVaxnes6UCDKLPtUOHOF0iBkW2jZKR3uLjKM4D0ibzmNNwLvLYoq1eeKW4_pIdoX1vITF7J84ccgX9001QAQJQxOT1eVyo35wX3Zqsm05kSp8sOfxgMREpZurgIbsN4BU63DUQf-no_9XCqnU7gs4ktcnvKb--yUQzFEZwy_Nqf0QpF0fQ63rsWoTRBFLyzJqMerz8AulPc6NLplwkfA7aZwuFzmhHYZgw7qF3QUACePkStlK9aUA9HihBfVyflspGN7s63nad83KwTBOQWHyUprsetdCSPdC0u51ImhGC_27tRMeYftbyVGBiTWvM-OrfpCYJKqhqNajS7k9V2qmOjIMjiQW1x5TD7cnSDIhBw\"}}"
 }
 
-[10-Apr-2025 21:32:08 Europe/Berlin] [[10-Apr-2025 21:32:08 Europe/Berlin]] Action: get_server_request_data(): , Data: {
-    "rawInput": "{\r\n    \"action\": \"process_amortization_payment\",\r\n    \"data\": {\r\n        \"amortization_id\": 10,\r\n        \"payment_method\": \"online_payment\",\r\n        \"amount\": 2687, \r\n        \"payment_date\": \"2025-04-11\",\r\n        \"notes\": \"5th payment\"\r\n    }\r\n}"
-}
-
-[10-Apr-2025 21:32:08 Europe/Berlin] [[10-Apr-2025 21:32:08 Europe/Berlin]] Action: request: , Data: {
-    "action": "process_amortization_payment",
+[12-Apr-2025 07:53:02 Europe/Berlin] [[12-Apr-2025 07:53:02 Europe/Berlin]] Action: request: , Data: {
+    "action": "create_member_cooperative",
     "data": {
-        "amortization_id": 10,
-        "payment_method": "online_payment",
-        "amount": 2687,
-        "payment_date": "2025-04-11",
-        "notes": "5th payment"
+        "membership_type": "4",
+        "first_name": "Robert",
+        "last_name": "Lara",
+        "middle_name": "",
+        "contact_number": "9882721233",
+        "house_address": "test 123",
+        "barangay": "test",
+        "municipality": "test",
+        "province": "test",
+        "region": "test",
+        "account_role": 3,
+        "username": "robert123",
+        "email": "robert@gmail.com",
+        "password": "ef>9K3UaQdp])]>",
+        "page_from": "external",
+        "recaptcha_response": "03AFcWeA4UQPfNeS2HmWGJPzUCWrKwvFVtRXgGOz4UP693Qm-XsJfHGTMarpshDS5D-GT7E-MTqCKqi5YvTINe9BYzWsfKi6jkd0FgKvgqV1NriYCkUTZvvoxmGe7NmyiNgkfznPMBAyMYJQePrO8qfjvTfiK47WS2Zk0Xzxv9xJlny1HM7F3ekQMfPw3sIzuVSM3_S5cy_tq15Aagg_nU1qvJ9hRrEfFC-WeU1vgV1LGydcfOGWpiLHyq_9ZQrt8HYKDsAOtjoLm67HdRYNxczFDkd3MKRyGUol6vhXHMCYAtrIzEscyeQuCvpmobKmFpi8_Lf4XGJhmGvCPjI2OnOX61vJS5UdCLLFVirCYU3Qqr_ylJ1_TE-o9Gf2eS4AYZeaA3s53oEFbO0idJH8RjUbkNyGephK3CXrvhjR9mN5Lggu08xXDgpxMLwKaJJ7Jiwj_BUee12XaB6wpulx7N-rzp9_zP7uQX4cJnB_GxaPShPQzuK_tm9HVryrNCpdb20rHaCGbSbBf7c7XNpGrExAW9k-nQS5KRKxW0mGHPxznkBuEJAKUmzG2mPb9FUmwRhvwi1EkziOlIKSb19f3sKXVEFkRIQ2nLXDk0uEos7EWkc9xRj3MOdLcrVaxnes6UCDKLPtUOHOF0iBkW2jZKR3uLjKM4D0ibzmNNwLvLYoq1eeKW4_pIdoX1vITF7J84ccgX9001QAQJQxOT1eVyo35wX3Zqsm05kSp8sOfxgMREpZurgIbsN4BU63DUQf-no_9XCqnU7gs4ktcnvKb--yUQzFEZwy_Nqf0QpF0fQ63rsWoTRBFLyzJqMerz8AulPc6NLplwkfA7aZwuFzmhHYZgw7qF3QUACePkStlK9aUA9HihBfVyflspGN7s63nad83KwTBOQWHyUprsetdCSPdC0u51ImhGC_27tRMeYftbyVGBiTWvM-OrfpCYJKqhqNajS7k9V2qmOjIMjiQW1x5TD7cnSDIhBw"
     }
 }
 
-[10-Apr-2025 21:44:04 Europe/Berlin] [[10-Apr-2025 21:44:04 Europe/Berlin]] Action: get_server_request_data(): , Data: {
-    "rawInput": "{\r\n    \"action\": \"process_amortization_payment\",\r\n    \"data\": {\r\n        \"amortization_id\": 10,\r\n        \"payment_method\": \"cash\",\r\n        \"amount\": 2687, \r\n        \"payment_date\": \"2025-04-11\",\r\n        \"notes\": \"2nd payment\"\r\n    }\r\n}"
+[12-Apr-2025 07:54:46 Europe/Berlin] [[12-Apr-2025 07:54:46 Europe/Berlin]] Action: get_server_request_data(): , Data: {
+    "rawInput": "{\"action\":\"create_member_cooperative\",\"data\":{\"membership_type\":\"4\",\"first_name\":\"Robert\",\"last_name\":\"Laracast\",\"middle_name\":\"\",\"contact_number\":\"9882721132\",\"house_address\":\"test 123\",\"barangay\":\"test\",\"municipality\":\"test\",\"province\":\"test\",\"region\":\"test\",\"role_id\":3,\"username\":\"robertesting123\",\"email\":\"robert@gmail.com\",\"password\":\"ef>9K3UaQdp])]>\",\"page_from\":\"external\",\"recaptcha_response\":\"03AFcWeA5E2wYlPPU138rTTgAaJ4fu7J0Xopo4WYlp1UwS7hRlNVgo8FoL0Q5bY0GFkIr3e9R4jkbEONNCBh4RWi9vHyN7w9K92-_czrZ7rEyIxsXYg--a76A5t9FfZyoybzMxMl_vonT5kQUJGzQ-phwjG3krWaXvJUMcGsZTbXtcAh7ZfVjHBR-8bhaB7VtCXf4GCGAKULypwML0_B0ZOWLg-etn0YxcBhA0PJV3hx57adsp6oUUUFyfGR6Ly2W_mz8r1RxYs2V3cIOwD9zbuXgJjOvUUgEovwJ7qyPWjZELcCuzIRSJY3ip-mjQTvjrgApzDV302qqC_2VOsOLeFsvvWSvZBy_GQalXRQBEhfyf8Ttl1B3YSNx6LkWxo--8sSdyy55dNAT8qActSSIhiaHXJgU_yrYAK1kLx6ywIcUhDThP2SYFTl5DiNd_pHBYueByMQIykxyRZ2dT48gYApTODQxSo-zZelh827wCldjwWTfE8oXTWU30BNHX09Azmc_dPDbbeMHrkmjSbfMiuJxhVca9fUbklPTP9WXlV8OAq5yBhv5gy0I9atiKku9frQhX0sORW6bxnEYbC_0MLAQAum76KkTAz4hiRBSDVsUVd7XIOQZQFs2Jxkp5vp-Z6ti71KSzvn-CpccyvSfWBNibVvs-V7dwM3V9hHB56PO-ZqC_OHUD0PtszCxNpmnZsALcRu66pIUsuZ3vBPrb_GrHhij7Hb25hwgxCySmeW0DcjhxRCXE9ODTJhYjHZMX2DgA2dvSBQkKMKx1VMDQKLcDizIBAQXIM5QudpKQQNuRyPmIVBKPCt0RKSsQRZFTcdPqNZXXSrgRbnH3gmAE9O-LLNCQuPvALpDI8C6RwXLoh9EwX4TtLQ-e-d-xjKx3p0AeiAr933yonHpBDUnnZ4egcXvWZW2LANuXNcnb0YeGZUnbibp1WHV5kAG4RboeYvB4Jgz7u25NqVH07WIHlwSCKdu9Lo-ykg\"}}"
 }
 
-[10-Apr-2025 21:44:04 Europe/Berlin] [[10-Apr-2025 21:44:04 Europe/Berlin]] Action: request: , Data: {
-    "action": "process_amortization_payment",
+[12-Apr-2025 07:54:46 Europe/Berlin] [[12-Apr-2025 07:54:46 Europe/Berlin]] Action: request: , Data: {
+    "action": "create_member_cooperative",
     "data": {
-        "amortization_id": 10,
-        "payment_method": "cash",
-        "amount": 2687,
-        "payment_date": "2025-04-11",
-        "notes": "2nd payment"
+        "membership_type": "4",
+        "first_name": "Robert",
+        "last_name": "Laracast",
+        "middle_name": "",
+        "contact_number": "9882721132",
+        "house_address": "test 123",
+        "barangay": "test",
+        "municipality": "test",
+        "province": "test",
+        "region": "test",
+        "role_id": 3,
+        "username": "robertesting123",
+        "email": "robert@gmail.com",
+        "password": "ef>9K3UaQdp])]>",
+        "page_from": "external",
+        "recaptcha_response": "03AFcWeA5E2wYlPPU138rTTgAaJ4fu7J0Xopo4WYlp1UwS7hRlNVgo8FoL0Q5bY0GFkIr3e9R4jkbEONNCBh4RWi9vHyN7w9K92-_czrZ7rEyIxsXYg--a76A5t9FfZyoybzMxMl_vonT5kQUJGzQ-phwjG3krWaXvJUMcGsZTbXtcAh7ZfVjHBR-8bhaB7VtCXf4GCGAKULypwML0_B0ZOWLg-etn0YxcBhA0PJV3hx57adsp6oUUUFyfGR6Ly2W_mz8r1RxYs2V3cIOwD9zbuXgJjOvUUgEovwJ7qyPWjZELcCuzIRSJY3ip-mjQTvjrgApzDV302qqC_2VOsOLeFsvvWSvZBy_GQalXRQBEhfyf8Ttl1B3YSNx6LkWxo--8sSdyy55dNAT8qActSSIhiaHXJgU_yrYAK1kLx6ywIcUhDThP2SYFTl5DiNd_pHBYueByMQIykxyRZ2dT48gYApTODQxSo-zZelh827wCldjwWTfE8oXTWU30BNHX09Azmc_dPDbbeMHrkmjSbfMiuJxhVca9fUbklPTP9WXlV8OAq5yBhv5gy0I9atiKku9frQhX0sORW6bxnEYbC_0MLAQAum76KkTAz4hiRBSDVsUVd7XIOQZQFs2Jxkp5vp-Z6ti71KSzvn-CpccyvSfWBNibVvs-V7dwM3V9hHB56PO-ZqC_OHUD0PtszCxNpmnZsALcRu66pIUsuZ3vBPrb_GrHhij7Hb25hwgxCySmeW0DcjhxRCXE9ODTJhYjHZMX2DgA2dvSBQkKMKx1VMDQKLcDizIBAQXIM5QudpKQQNuRyPmIVBKPCt0RKSsQRZFTcdPqNZXXSrgRbnH3gmAE9O-LLNCQuPvALpDI8C6RwXLoh9EwX4TtLQ-e-d-xjKx3p0AeiAr933yonHpBDUnnZ4egcXvWZW2LANuXNcnb0YeGZUnbibp1WHV5kAG4RboeYvB4Jgz7u25NqVH07WIHlwSCKdu9Lo-ykg"
     }
 }
 
-[10-Apr-2025 21:44:37 Europe/Berlin] [[10-Apr-2025 21:44:37 Europe/Berlin]] Action: get_server_request_data(): , Data: {
-    "rawInput": "{\r\n    \"action\": \"process_amortization_payment\",\r\n    \"data\": {\r\n        \"amortization_id\": 10,\r\n        \"payment_method\": \"cash\",\r\n        \"amount\": 2687, \r\n        \"payment_date\": \"2025-04-11\",\r\n        \"notes\": \"2nd payment\"\r\n    }\r\n}"
+[12-Apr-2025 07:56:41 Europe/Berlin] [[12-Apr-2025 07:56:41 Europe/Berlin]] Action: get_server_request_data(): , Data: {
+    "rawInput": "{\"action\":\"create_member_cooperative\",\"data\":{\"membership_type\":\"2\",\"first_name\":\"Robert\",\"last_name\":\"Laracast\",\"middle_name\":\"\",\"contact_number\":\"9882912441\",\"house_address\":\"test123\",\"barangay\":\"test\",\"municipality\":\"test\",\"province\":\"test\",\"region\":\"test\",\"role_id\":3,\"username\":\"robertesting123\",\"email\":\"robert@gmail.com\",\"password\":\"ef>9K3UaQdp])]>\",\"confirm_password\":\"ef>9K3UaQdp])]>\",\"page_from\":\"external\",\"recaptcha_response\":\"03AFcWeA6nr-YX-IqDNsLJVPvJItEKxNpOiiZ13Eyo_lqwjLrRBkK4Wi3Q0AM6M4sdWjQmqrsdpOMgikCO1UNn7s1vq0j9zcF5aTDOABldqLh1JgMFZNNSLdtvy1L9xMgcjkNLzUAZvkmmKQEi4b3JcpC4--xkCZswbsFIO5YqEWyx0pDCMWq8ZiC7LUwAk2oBTtnw4LItXSkMweMVRH3CQ4_YwWK-1xWxbsq26h-NqqGFhxuGA-j7fgzNhAgTKaWm2Uvex2J6q-VRJhi9GxijV3irnpgyFUHFJQ3rjQgffRCWtOxIPs4J_WRJUrRUwXmfmttLsAUJJUReAocqZd7Lw95s92UX38dD75ppjtSt5rCnPLRaJC1Kc0qHZFo8xContnZn_pEu5KwOLBldhH7FiRDqa97cO33LKPz_tFeUMwiPDAqPi7flZlKI3qTYrMhILAcUR2zM52rkY6aB7irqggEz5B1D0HhxpMV7EZsOmhzTfrEgypfHf6F6iB7FXxMUYF2XLvhn3PgKBgJ8hpjJqDIysny23cssHqswrTQFQ4gmpP3WEOHeI9SczhiSvR-288dnWpqI0n3x-A_LaAVXM1E--DGEMkWLNpGDVvBepbuWsqOw-_TJj19iUk0mXoDICCPJ2X-A6cBAb_gCsf0gVSvtynUPu-DzQFZQVS_65R7hbtIAiILSWmJwDjV1TIj8NQd9-ZhLtOzj2_kF-1ZpLA707RilHOBIYDMcGEkVGR9ZmzRV0mL2fB2Zn7JjNxW0NZS0eeaGNpMAMMg-ySa_OoaDxf6-zMyJzxCClxVRI_w3RXyemsmwF8ZEx5WuoG_jfpbxJGpFb8UyebXyDr_DReJjopGzf8d_jXioq_d5pAdl_4oYAlqoAv31Xn3lbAwjURhqVkJqGGqYZmmU6bs0m8bsy8hiKYufq5pj9UhVrOaO2UBRYaVQqCwSwlDHk8QMPgxRcvOosP9V4G_bqlnLCj-BlYxi8e1s3w\"}}"
 }
 
-[10-Apr-2025 21:44:37 Europe/Berlin] [[10-Apr-2025 21:44:37 Europe/Berlin]] Action: request: , Data: {
-    "action": "process_amortization_payment",
+[12-Apr-2025 07:56:41 Europe/Berlin] [[12-Apr-2025 07:56:41 Europe/Berlin]] Action: request: , Data: {
+    "action": "create_member_cooperative",
     "data": {
-        "amortization_id": 10,
-        "payment_method": "cash",
-        "amount": 2687,
-        "payment_date": "2025-04-11",
-        "notes": "2nd payment"
+        "membership_type": "2",
+        "first_name": "Robert",
+        "last_name": "Laracast",
+        "middle_name": "",
+        "contact_number": "9882912441",
+        "house_address": "test123",
+        "barangay": "test",
+        "municipality": "test",
+        "province": "test",
+        "region": "test",
+        "role_id": 3,
+        "username": "robertesting123",
+        "email": "robert@gmail.com",
+        "password": "ef>9K3UaQdp])]>",
+        "confirm_password": "ef>9K3UaQdp])]>",
+        "page_from": "external",
+        "recaptcha_response": "03AFcWeA6nr-YX-IqDNsLJVPvJItEKxNpOiiZ13Eyo_lqwjLrRBkK4Wi3Q0AM6M4sdWjQmqrsdpOMgikCO1UNn7s1vq0j9zcF5aTDOABldqLh1JgMFZNNSLdtvy1L9xMgcjkNLzUAZvkmmKQEi4b3JcpC4--xkCZswbsFIO5YqEWyx0pDCMWq8ZiC7LUwAk2oBTtnw4LItXSkMweMVRH3CQ4_YwWK-1xWxbsq26h-NqqGFhxuGA-j7fgzNhAgTKaWm2Uvex2J6q-VRJhi9GxijV3irnpgyFUHFJQ3rjQgffRCWtOxIPs4J_WRJUrRUwXmfmttLsAUJJUReAocqZd7Lw95s92UX38dD75ppjtSt5rCnPLRaJC1Kc0qHZFo8xContnZn_pEu5KwOLBldhH7FiRDqa97cO33LKPz_tFeUMwiPDAqPi7flZlKI3qTYrMhILAcUR2zM52rkY6aB7irqggEz5B1D0HhxpMV7EZsOmhzTfrEgypfHf6F6iB7FXxMUYF2XLvhn3PgKBgJ8hpjJqDIysny23cssHqswrTQFQ4gmpP3WEOHeI9SczhiSvR-288dnWpqI0n3x-A_LaAVXM1E--DGEMkWLNpGDVvBepbuWsqOw-_TJj19iUk0mXoDICCPJ2X-A6cBAb_gCsf0gVSvtynUPu-DzQFZQVS_65R7hbtIAiILSWmJwDjV1TIj8NQd9-ZhLtOzj2_kF-1ZpLA707RilHOBIYDMcGEkVGR9ZmzRV0mL2fB2Zn7JjNxW0NZS0eeaGNpMAMMg-ySa_OoaDxf6-zMyJzxCClxVRI_w3RXyemsmwF8ZEx5WuoG_jfpbxJGpFb8UyebXyDr_DReJjopGzf8d_jXioq_d5pAdl_4oYAlqoAv31Xn3lbAwjURhqVkJqGGqYZmmU6bs0m8bsy8hiKYufq5pj9UhVrOaO2UBRYaVQqCwSwlDHk8QMPgxRcvOosP9V4G_bqlnLCj-BlYxi8e1s3w"
+    }
+}
+
+[12-Apr-2025 07:58:13 Europe/Berlin] [[12-Apr-2025 07:58:13 Europe/Berlin]] Action: get_server_request_data(): , Data: {
+    "rawInput": "{\"action\":\"create_member_cooperative\",\"data\":{\"type_id\":\"3\",\"first_name\":\"Robert\",\"last_name\":\"Laracast\",\"middle_name\":\"\",\"contact_number\":\"9882912211\",\"house_address\":\"test 123\",\"barangay\":\"test\",\"municipality\":\"test\",\"province\":\"test\",\"region\":\"test\",\"role_id\":3,\"username\":\"robertesting123\",\"email\":\"robert@gmail.com\",\"password\":\"ef>9K3UaQdp])]>\",\"confirm_password\":\"ef>9K3UaQdp])]>\",\"page_from\":\"external\",\"recaptcha_response\":\"03AFcWeA7n8X-XzEGS8fxbHyaSJBQVJ-9HYqvRVUzce-3V3jmJts3G-Om7IbbVgtOuqc7OXOTSfG9zH0j4jt9_E1l1tqUe6EJNLutGll7mucuEBAQFFDl4Mj_BP7Y6FR3FDDIwy3abfN2QbpVbJMe9c-DGBcrRr53FgyoZYx3LpowMdJoM2KeDyYy1-UhDsDhzYIH-HA10fR2Fymm1ISHTR1Yb3OnH_ktDmBJow_1H-FfdwwW14nnTby0UIB3Ii56y8--_Qn0aAOjvboQi9ggXz_KDFCwqgs7f8nKUg5QG1-mb2WKz3DmSzC5Au1qZXIes4oLctKO6389A3p7xHK9s8mcf7tibn4dETmf3d1lbH7xwMfbzOH9eFFB_FNBHjJ0oHKxhsjThn47zLnViDo55VkhlogAD-j70kNhzj4Ve7nAl6OPLY7CzB5Wx3WJIKTGAUfB24XatjwyuWMN7stGr7-yGbsSEYGEoZB4TU7a0Hm3cPIR6vhmrPMomvrjBZMvkiIthmRvAYftEKph6gwOWbDLmtDCkkuYt_GEyf8HMVpFmtMu9K3cCO6fIqhyXYpadtWNMU74EVDLDjMEnGnS0nNrRNSfznQKR2RLel4zP_7DuMIM201DfIOfKrXQOKLK8rvO_KtDGZlBDxMw-OEvels301A7ClV-IbMoAO6yOEEtM1JG7muqK7Yg_E870bR46BoH7D38-AutzIAD93aczZ1IxJGhCm9YIwqhTFRnB_MfA0jF1rN93gLmEGMWtvxcNbLZgyUIL32ZfT_HPo88iYoFeNdp5a_h92fmkU00MBdP5857JXjjSaUhi3DiSEzwd_ntX0L51A9vuxYtcddxWBZ8kNemyOXYjjCRWyv867pskq6pohmRMi1qO3FpjSPQz8Ne3czqppcU95TbzqxAoKSkPLyymsFelDch-LXjmWc3M3chmxYkNx4IBEMaVcVPVg21kopEzwACn0jsGPSikihZXOkjtSPU-Kw\"}}"
+}
+
+[12-Apr-2025 07:58:13 Europe/Berlin] [[12-Apr-2025 07:58:13 Europe/Berlin]] Action: request: , Data: {
+    "action": "create_member_cooperative",
+    "data": {
+        "type_id": "3",
+        "first_name": "Robert",
+        "last_name": "Laracast",
+        "middle_name": "",
+        "contact_number": "9882912211",
+        "house_address": "test 123",
+        "barangay": "test",
+        "municipality": "test",
+        "province": "test",
+        "region": "test",
+        "role_id": 3,
+        "username": "robertesting123",
+        "email": "robert@gmail.com",
+        "password": "ef>9K3UaQdp])]>",
+        "confirm_password": "ef>9K3UaQdp])]>",
+        "page_from": "external",
+        "recaptcha_response": "03AFcWeA7n8X-XzEGS8fxbHyaSJBQVJ-9HYqvRVUzce-3V3jmJts3G-Om7IbbVgtOuqc7OXOTSfG9zH0j4jt9_E1l1tqUe6EJNLutGll7mucuEBAQFFDl4Mj_BP7Y6FR3FDDIwy3abfN2QbpVbJMe9c-DGBcrRr53FgyoZYx3LpowMdJoM2KeDyYy1-UhDsDhzYIH-HA10fR2Fymm1ISHTR1Yb3OnH_ktDmBJow_1H-FfdwwW14nnTby0UIB3Ii56y8--_Qn0aAOjvboQi9ggXz_KDFCwqgs7f8nKUg5QG1-mb2WKz3DmSzC5Au1qZXIes4oLctKO6389A3p7xHK9s8mcf7tibn4dETmf3d1lbH7xwMfbzOH9eFFB_FNBHjJ0oHKxhsjThn47zLnViDo55VkhlogAD-j70kNhzj4Ve7nAl6OPLY7CzB5Wx3WJIKTGAUfB24XatjwyuWMN7stGr7-yGbsSEYGEoZB4TU7a0Hm3cPIR6vhmrPMomvrjBZMvkiIthmRvAYftEKph6gwOWbDLmtDCkkuYt_GEyf8HMVpFmtMu9K3cCO6fIqhyXYpadtWNMU74EVDLDjMEnGnS0nNrRNSfznQKR2RLel4zP_7DuMIM201DfIOfKrXQOKLK8rvO_KtDGZlBDxMw-OEvels301A7ClV-IbMoAO6yOEEtM1JG7muqK7Yg_E870bR46BoH7D38-AutzIAD93aczZ1IxJGhCm9YIwqhTFRnB_MfA0jF1rN93gLmEGMWtvxcNbLZgyUIL32ZfT_HPo88iYoFeNdp5a_h92fmkU00MBdP5857JXjjSaUhi3DiSEzwd_ntX0L51A9vuxYtcddxWBZ8kNemyOXYjjCRWyv867pskq6pohmRMi1qO3FpjSPQz8Ne3czqppcU95TbzqxAoKSkPLyymsFelDch-LXjmWc3M3chmxYkNx4IBEMaVcVPVg21kopEzwACn0jsGPSikihZXOkjtSPU-Kw"
+    }
+}
+
+[12-Apr-2025 07:59:40 Europe/Berlin] [[12-Apr-2025 07:59:40 Europe/Berlin]] Action: get_server_request_data(): , Data: {
+    "rawInput": "{\"action\":\"create_member_cooperative\",\"data\":{\"type_id\":\"3\",\"first_name\":\"Robert\",\"last_name\":\"Laracast\",\"middle_name\":\"\",\"contact_number\":\"+639882712231\",\"house_address\":\"test 123\",\"barangay\":\"test\",\"municipality\":\"test\",\"province\":\"test\",\"region\":\"test\",\"role_id\":3,\"username\":\"robert123\",\"email\":\"robert@gmail.com\",\"password\":\"ef>9K3UaQdp])]>\",\"confirm_password\":\"ef>9K3UaQdp])]>\",\"page_from\":\"external\",\"recaptcha_response\":\"03AFcWeA5gGV-dxu94GrX29QcBKwj8DOlAZ4TJVj2HHBh8MdgAcqz3YKdZGVXpqFxH_2617-s6GawHjXRtvesVHnBiOCIrQmkMIxBDGvr-XTWeR0wQB_nM0uAB3Wx9tFs62JiLTJTA79zDqiCmEkoQD4UQy9wsCOlDolyHIrEQWHHrVuGyi9-zX1Se9RqoyXA-ANMFdvr1mFNWH1BX31bk9chuhDKO1DdH2fNgbLOcLYcTSkwjHpxagde4taEA_TBMSVOi73hfM3jqJ5nwMMBmzcyBOlVWbgVICB4wJyE3_fqTjHSH8PqX-buRofNHQpbkGTOk9vYSStOPiZO5EiCo-YAOkaHNndKeSLTWo6SC3uwCiPR4Oq-rHFy8H7lGnGt5kjnXzCxeuS1QyRDv4JSEAuVa_hFmwnz5lL2oPKsaJp2cCcsLHlHBaGZlsvSnPKCGjWjBmiTpBFaHVsnJOqh0PoVcXR-PGH5MUF3vKr0Q8SXRg4tKl1rIx7QuWpy-HdGyCmQPnG8NMioOxlXsQnro8wJloL0K2LLyOY-i3dhqjiA6ML2_WbfYGya1oUGDh0jgPDUKXeB3-7L0nphajOkRkotGYYsRARRVCSmVcNFCcyeo8G315UKqXW9FaCgguceXPslPgWp1ourSo1XDjLdcZZTe6pIzZIvjMx1YMeWt38CM5FXAhBVjyuxTV9i1zYU0yl8rbXO54QZCcV1kaEzem4_qpK9DzArf28ltijSJVjcoZQd3NR_Y0ygdfse1EnBdby5Ovb-TFrVjLzKnwnH0H3Zacc4L7zCtsShsY3Afs0q9bicpKJyI6nqzqeD1d-byo_J-4M2y_D7iBNnjg1lSilml5DrVsHBnRwuoR7ruAsPZZPEHk06k4KSNV_cKOrKfeOHcN7K-bbOlELoPjJl7K1YhPHIKBlOkHdBBXBPjvFErW0jIEbEEc7OcCY2BG_mxNGGWiwMLW7sPK5RqJkFxjYGQqTJHMi4H7g\"}}"
+}
+
+[12-Apr-2025 07:59:40 Europe/Berlin] [[12-Apr-2025 07:59:40 Europe/Berlin]] Action: request: , Data: {
+    "action": "create_member_cooperative",
+    "data": {
+        "type_id": "3",
+        "first_name": "Robert",
+        "last_name": "Laracast",
+        "middle_name": "",
+        "contact_number": "+639882712231",
+        "house_address": "test 123",
+        "barangay": "test",
+        "municipality": "test",
+        "province": "test",
+        "region": "test",
+        "role_id": 3,
+        "username": "robert123",
+        "email": "robert@gmail.com",
+        "password": "ef>9K3UaQdp])]>",
+        "confirm_password": "ef>9K3UaQdp])]>",
+        "page_from": "external",
+        "recaptcha_response": "03AFcWeA5gGV-dxu94GrX29QcBKwj8DOlAZ4TJVj2HHBh8MdgAcqz3YKdZGVXpqFxH_2617-s6GawHjXRtvesVHnBiOCIrQmkMIxBDGvr-XTWeR0wQB_nM0uAB3Wx9tFs62JiLTJTA79zDqiCmEkoQD4UQy9wsCOlDolyHIrEQWHHrVuGyi9-zX1Se9RqoyXA-ANMFdvr1mFNWH1BX31bk9chuhDKO1DdH2fNgbLOcLYcTSkwjHpxagde4taEA_TBMSVOi73hfM3jqJ5nwMMBmzcyBOlVWbgVICB4wJyE3_fqTjHSH8PqX-buRofNHQpbkGTOk9vYSStOPiZO5EiCo-YAOkaHNndKeSLTWo6SC3uwCiPR4Oq-rHFy8H7lGnGt5kjnXzCxeuS1QyRDv4JSEAuVa_hFmwnz5lL2oPKsaJp2cCcsLHlHBaGZlsvSnPKCGjWjBmiTpBFaHVsnJOqh0PoVcXR-PGH5MUF3vKr0Q8SXRg4tKl1rIx7QuWpy-HdGyCmQPnG8NMioOxlXsQnro8wJloL0K2LLyOY-i3dhqjiA6ML2_WbfYGya1oUGDh0jgPDUKXeB3-7L0nphajOkRkotGYYsRARRVCSmVcNFCcyeo8G315UKqXW9FaCgguceXPslPgWp1ourSo1XDjLdcZZTe6pIzZIvjMx1YMeWt38CM5FXAhBVjyuxTV9i1zYU0yl8rbXO54QZCcV1kaEzem4_qpK9DzArf28ltijSJVjcoZQd3NR_Y0ygdfse1EnBdby5Ovb-TFrVjLzKnwnH0H3Zacc4L7zCtsShsY3Afs0q9bicpKJyI6nqzqeD1d-byo_J-4M2y_D7iBNnjg1lSilml5DrVsHBnRwuoR7ruAsPZZPEHk06k4KSNV_cKOrKfeOHcN7K-bbOlELoPjJl7K1YhPHIKBlOkHdBBXBPjvFErW0jIEbEEc7OcCY2BG_mxNGGWiwMLW7sPK5RqJkFxjYGQqTJHMi4H7g"
+    }
+}
+
+[12-Apr-2025 13:59:41 Asia/Manila] [[12-Apr-2025 13:59:41 Asia/Manila]] ERROR: PHPMailer Debug: SERVER -> CLIENT: 220 smtp.gmail.com ESMTP d2e1a72fcca58-73bd22f0f3fsm2687431b3a.115 - gsmtp
+
+
+[12-Apr-2025 13:59:41 Asia/Manila] [[12-Apr-2025 13:59:41 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: EHLO jerome-avecilla-preview.infinityfreeapp.test
+
+
+[12-Apr-2025 13:59:41 Asia/Manila] [[12-Apr-2025 13:59:41 Asia/Manila]] ERROR: PHPMailer Debug: SERVER -> CLIENT: 250-smtp.gmail.com at your service, [119.94.139.5]
+250-SIZE 35882577
+250-8BITMIME
+250-STARTTLS
+250-ENHANCEDSTATUSCODES
+250-PIPELINING
+250-CHUNKING
+250 SMTPUTF8
+
+
+[12-Apr-2025 13:59:41 Asia/Manila] [[12-Apr-2025 13:59:41 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: STARTTLS
+
+
+[12-Apr-2025 13:59:42 Asia/Manila] [[12-Apr-2025 13:59:42 Asia/Manila]] ERROR: PHPMailer Debug: SERVER -> CLIENT: 220 2.0.0 Ready to start TLS
+
+
+[12-Apr-2025 13:59:42 Asia/Manila] [[12-Apr-2025 13:59:42 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: EHLO jerome-avecilla-preview.infinityfreeapp.test
+
+
+[12-Apr-2025 13:59:43 Asia/Manila] [[12-Apr-2025 13:59:43 Asia/Manila]] ERROR: PHPMailer Debug: SERVER -> CLIENT: 250-smtp.gmail.com at your service, [119.94.139.5]
+250-SIZE 35882577
+250-8BITMIME
+250-AUTH LOGIN PLAIN XOAUTH2 PLAIN-CLIENTTOKEN OAUTHBEARER XOAUTH
+250-ENHANCEDSTATUSCODES
+250-PIPELINING
+250-CHUNKING
+250 SMTPUTF8
+
+
+[12-Apr-2025 13:59:43 Asia/Manila] [[12-Apr-2025 13:59:43 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: AUTH LOGIN
+
+
+[12-Apr-2025 13:59:43 Asia/Manila] [[12-Apr-2025 13:59:43 Asia/Manila]] ERROR: PHPMailer Debug: SERVER -> CLIENT: 334 VXNlcm5hbWU6
+
+
+[12-Apr-2025 13:59:43 Asia/Manila] [[12-Apr-2025 13:59:43 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: [credentials hidden]
+
+[12-Apr-2025 13:59:43 Asia/Manila] [[12-Apr-2025 13:59:43 Asia/Manila]] ERROR: PHPMailer Debug: SERVER -> CLIENT: 334 UGFzc3dvcmQ6
+
+
+[12-Apr-2025 13:59:43 Asia/Manila] [[12-Apr-2025 13:59:43 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: [credentials hidden]
+
+[12-Apr-2025 13:59:44 Asia/Manila] [[12-Apr-2025 13:59:44 Asia/Manila]] ERROR: PHPMailer Debug: SERVER -> CLIENT: 235 2.7.0 Accepted
+
+
+[12-Apr-2025 13:59:44 Asia/Manila] [[12-Apr-2025 13:59:44 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: MAIL FROM:<jeromesavc@gmail.com>
+
+
+[12-Apr-2025 13:59:44 Asia/Manila] [[12-Apr-2025 13:59:44 Asia/Manila]] ERROR: PHPMailer Debug: SERVER -> CLIENT: 250 2.1.0 OK d2e1a72fcca58-73bd22f0f3fsm2687431b3a.115 - gsmtp
+
+
+[12-Apr-2025 13:59:44 Asia/Manila] [[12-Apr-2025 13:59:44 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: RCPT TO:<robert@gmail.com>
+
+
+[12-Apr-2025 13:59:44 Asia/Manila] [[12-Apr-2025 13:59:44 Asia/Manila]] ERROR: PHPMailer Debug: SERVER -> CLIENT: 250 2.1.5 OK d2e1a72fcca58-73bd22f0f3fsm2687431b3a.115 - gsmtp
+
+
+[12-Apr-2025 13:59:44 Asia/Manila] [[12-Apr-2025 13:59:44 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: DATA
+
+
+[12-Apr-2025 13:59:44 Asia/Manila] [[12-Apr-2025 13:59:44 Asia/Manila]] ERROR: PHPMailer Debug: SERVER -> CLIENT: 354 Go ahead d2e1a72fcca58-73bd22f0f3fsm2687431b3a.115 - gsmtp
+
+
+[12-Apr-2025 13:59:44 Asia/Manila] [[12-Apr-2025 13:59:44 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: Date: Sat, 12 Apr 2025 13:59:40 +0800
+
+
+[12-Apr-2025 13:59:44 Asia/Manila] [[12-Apr-2025 13:59:44 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: To: robert@gmail.com
+
+
+[12-Apr-2025 13:59:44 Asia/Manila] [[12-Apr-2025 13:59:44 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: From: "<no-reply>Jerome Avecilla - BSIT 2FG2" <jeromesavc@gmail.com>
+
+
+[12-Apr-2025 13:59:44 Asia/Manila] [[12-Apr-2025 13:59:44 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: Subject: Verify Your Account - Action Required
+
+
+[12-Apr-2025 13:59:44 Asia/Manila] [[12-Apr-2025 13:59:44 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: Message-ID: <7OagBrK0kTF02SLxp93LeeLq0wu2azI4c5mrAfFT4@jerome-avecilla-preview.infinityfreeapp.test>
+
+
+[12-Apr-2025 13:59:44 Asia/Manila] [[12-Apr-2025 13:59:44 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: X-Mailer: PHPMailer 6.9.3 (https://github.com/PHPMailer/PHPMailer)
+
+
+[12-Apr-2025 13:59:44 Asia/Manila] [[12-Apr-2025 13:59:44 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: MIME-Version: 1.0
+
+
+[12-Apr-2025 13:59:44 Asia/Manila] [[12-Apr-2025 13:59:44 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: Content-Type: text/html; charset=iso-8859-1
+
+
+[12-Apr-2025 13:59:44 Asia/Manila] [[12-Apr-2025 13:59:44 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: 
+
+
+[12-Apr-2025 13:59:44 Asia/Manila] [[12-Apr-2025 13:59:44 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: <!DOCTYPE html>
+
+
+[12-Apr-2025 13:59:44 Asia/Manila] [[12-Apr-2025 13:59:44 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: <html>
+
+
+[12-Apr-2025 13:59:44 Asia/Manila] [[12-Apr-2025 13:59:44 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: <head></head>
+
+
+[12-Apr-2025 13:59:44 Asia/Manila] [[12-Apr-2025 13:59:44 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:     <meta charset="UTF-8">
+
+
+[12-Apr-2025 13:59:44 Asia/Manila] [[12-Apr-2025 13:59:44 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: </head>
+
+
+[12-Apr-2025 13:59:44 Asia/Manila] [[12-Apr-2025 13:59:44 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: <body>
+
+
+[12-Apr-2025 13:59:44 Asia/Manila] [[12-Apr-2025 13:59:44 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:     <div style="font-family: Arial, sans-serif; background-color: #f8f8f8; padding: 0px; line-height: 1.2; color: #000;">
+
+
+[12-Apr-2025 13:59:44 Asia/Manila] [[12-Apr-2025 13:59:44 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:         <div style="width: 100%; margin: 0; background-color: #ffffff; overflow: hidden; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);">
+
+
+[12-Apr-2025 13:59:44 Asia/Manila] [[12-Apr-2025 13:59:44 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:             <!-- Header Section -->
+
+
+[12-Apr-2025 13:59:44 Asia/Manila] [[12-Apr-2025 13:59:44 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:             <div style="text-align: center; padding: 0;">
+
+
+[12-Apr-2025 13:59:44 Asia/Manila] [[12-Apr-2025 13:59:44 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:                 <img src="https://avecilla-project-multipurpose.infinityfreeapp.com/assets/images/email-banner.png" alt="Header Banner" style="width: 100%; height: auto;" />
+
+
+[12-Apr-2025 13:59:45 Asia/Manila] [[12-Apr-2025 13:59:45 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:             </div>
+
+
+[12-Apr-2025 13:59:45 Asia/Manila] [[12-Apr-2025 13:59:45 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:             <!-- Body Section -->
+
+
+[12-Apr-2025 13:59:45 Asia/Manila] [[12-Apr-2025 13:59:45 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:             <div style="padding: 15px; color: #000;"> 
+
+
+[12-Apr-2025 13:59:45 Asia/Manila] [[12-Apr-2025 13:59:45 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:                     <p style="margin: 0; font-size: 12px; font-weight: bold; color: #000;">Good day, Ka-ITech,</p>
+
+
+[12-Apr-2025 13:59:45 Asia/Manila] [[12-Apr-2025 13:59:45 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:     <p style="margin: 5px 0; font-size: 12px; color: #000;">You're receiving this email because we've received a request to verify the account associated with this email address: <strong style="text-decoration: none; color: #000;">robert@gmail.com</strong>.</p>
+
+
+[12-Apr-2025 13:59:45 Asia/Manila] [[12-Apr-2025 13:59:45 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:     <p style="margin: 15px 0 10px 0; font-size: 12px; color: #000;">To complete the verification process, you can either:</p>
+
+
+[12-Apr-2025 13:59:45 Asia/Manila] [[12-Apr-2025 13:59:45 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:     
+
+
+[12-Apr-2025 13:59:45 Asia/Manila] [[12-Apr-2025 13:59:45 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:     <div style="margin: 20px 0; text-align: center; font-size: 20px; font-weight: bold; color: #000; padding: 5px; border-radius: 8px;">
+
+
+[12-Apr-2025 13:59:45 Asia/Manila] [[12-Apr-2025 13:59:45 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:         <a href="http://jerome-avecilla-preview.infinityfreeapp.test/auth/account-verification?key=ktpOTOijHccOvRf4WQkhdnf5Fvldjecr&email=robert%40gmail.com&code=394465&purpose=verify#external" target="_blank" style="background-color: #474747; color: #ffffff; padding: 12px 24px; text-decoration: none; border-radius: 5px; display: inline-block; font-family: Arial, sans-serif; font-size: 16px;">Verify My Account</a>
+
+
+[12-Apr-2025 13:59:45 Asia/Manila] [[12-Apr-2025 13:59:45 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:     </div>
+
+
+[12-Apr-2025 13:59:45 Asia/Manila] [[12-Apr-2025 13:59:45 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: 
+
+
+[12-Apr-2025 13:59:45 Asia/Manila] [[12-Apr-2025 13:59:45 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:     <p style="text-align: center; font-size: 12px; color: #666; margin: 10px 0;">OR</p>
+
+
+[12-Apr-2025 13:59:45 Asia/Manila] [[12-Apr-2025 13:59:45 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: 
+
+
+[12-Apr-2025 13:59:45 Asia/Manila] [[12-Apr-2025 13:59:45 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:     <div style="margin: 10px 0; padding: 10px; background-color: #f5f5f5; border-radius: 5px;">
+
+
+[12-Apr-2025 13:59:45 Asia/Manila] [[12-Apr-2025 13:59:45 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:         <p style="margin: 0 0 5px 0; font-size: 12px; color: #666;">Copy and paste this link in your browser:</p>
+
+
+[12-Apr-2025 13:59:45 Asia/Manila] [[12-Apr-2025 13:59:45 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:         <p style="margin: 0; font-size: 11px; color: #474747; word-break: break-all;">http://jerome-avecilla-preview.infinityfreeapp.test/auth/account-verification?key=ktpOTOijHccOvRf4WQkhdnf5Fvldjecr&email=robert%40gmail.com&code=394465&purpose=verify#external</p>
+
+
+[12-Apr-2025 13:59:45 Asia/Manila] [[12-Apr-2025 13:59:45 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:     </div>
+
+
+[12-Apr-2025 13:59:45 Asia/Manila] [[12-Apr-2025 13:59:45 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: 
+
+
+[12-Apr-2025 13:59:45 Asia/Manila] [[12-Apr-2025 13:59:45 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:     <p style="margin: 15px 0 5px 0; font-size: 12px; color: #000;">Your verification link is valid for the next <strong>10 minutes</strong>.</p>
+
+
+[12-Apr-2025 13:59:45 Asia/Manila] [[12-Apr-2025 13:59:45 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:     <p style="margin: 5px 0; font-size: 12px; color: #000;">If you did not initiate this request, you can safely ignore this email.</p>
+
+
+[12-Apr-2025 13:59:45 Asia/Manila] [[12-Apr-2025 13:59:45 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:             </div>
+
+
+[12-Apr-2025 13:59:45 Asia/Manila] [[12-Apr-2025 13:59:45 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:             <!-- Footer Section -->
+
+
+[12-Apr-2025 13:59:45 Asia/Manila] [[12-Apr-2025 13:59:45 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:             <div style="text-align: center; background-color: #f3f3f3; padding: 20px 0 20px 0; font-size: 10px; color: #000;">
+
+
+[12-Apr-2025 13:59:45 Asia/Manila] [[12-Apr-2025 13:59:45 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:                 <p style="margin: 0; color: #000;">Created by: <a href="https://jerome-avecilla.vercel.app/" target="_blank">Jerome Avecilla</a></p>
+
+
+[12-Apr-2025 13:59:45 Asia/Manila] [[12-Apr-2025 13:59:45 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:                 <p style="margin: 0; color: #000;">Section: BSIT 2F-G2</p>
+
+
+[12-Apr-2025 13:59:45 Asia/Manila] [[12-Apr-2025 13:59:45 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:                 <p style="margin: 0; color: #000;">Subject: IT211 - Web System Technologies</p>
+
+
+[12-Apr-2025 13:59:45 Asia/Manila] [[12-Apr-2025 13:59:45 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:             </div>
+
+
+[12-Apr-2025 13:59:45 Asia/Manila] [[12-Apr-2025 13:59:45 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:         </div>
+
+
+[12-Apr-2025 13:59:45 Asia/Manila] [[12-Apr-2025 13:59:45 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:     </div>
+
+
+[12-Apr-2025 13:59:45 Asia/Manila] [[12-Apr-2025 13:59:45 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: </body>
+
+
+[12-Apr-2025 13:59:45 Asia/Manila] [[12-Apr-2025 13:59:45 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: </html>
+
+
+[12-Apr-2025 13:59:45 Asia/Manila] [[12-Apr-2025 13:59:45 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: 
+
+
+[12-Apr-2025 13:59:45 Asia/Manila] [[12-Apr-2025 13:59:45 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: .
+
+
+[12-Apr-2025 13:59:45 Asia/Manila] [[12-Apr-2025 13:59:45 Asia/Manila]] ERROR: PHPMailer Debug: SERVER -> CLIENT: 250 2.0.0 OK  1744437587 d2e1a72fcca58-73bd22f0f3fsm2687431b3a.115 - gsmtp
+
+
+[12-Apr-2025 13:59:45 Asia/Manila] [[12-Apr-2025 13:59:45 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: QUIT
+
+
+[12-Apr-2025 13:59:45 Asia/Manila] [[12-Apr-2025 13:59:45 Asia/Manila]] ERROR: PHPMailer Debug: SERVER -> CLIENT: 221 2.0.0 closing connection d2e1a72fcca58-73bd22f0f3fsm2687431b3a.115 - gsmtp
+
+
+[12-Apr-2025 08:03:37 Europe/Berlin] [[12-Apr-2025 08:03:37 Europe/Berlin]] Action: get_server_request_data(): , Data: {
+    "rawInput": "{\"action\":\"create_member_cooperative\",\"data\":{\"type_id\":\"5\",\"first_name\":\"Kalina\",\"last_name\":\"Vuex\",\"middle_name\":\"\",\"contact_number\":\"+639882741122\",\"house_address\":\"test 123\",\"barangay\":\"test\",\"municipality\":\"test\",\"province\":\"test\",\"region\":\"test\",\"role_id\":3,\"username\":\"kalina123\",\"email\":\"kalina@gmail.com\",\"password\":\"ef>9K3UaQdp])]>\",\"confirm_password\":\"ef>9K3UaQdp])]>\",\"page_from\":\"external\",\"recaptcha_response\":\"03AFcWeA6PZoT0mLIWe2bp_59dVL7Oym_YR1n695T6SyjT8KOTmICokDb_J1-u1moHSnlS19xn-yMMaPkz-M3HXL6hgtuWEyXri1JF-ExKB4rF_-w5szWoK52RVLiprsOYw85Wy29SY8Os3Pg0ccBAgq3oegDDDTXbq0iEsPkdV8AZ7eXnQ4i7fySdRFTikXEsN0m1uzydAODWpNyOUgOA10mNtulLdeqXUIupxP-KH1Dqe5pWSyfX7v2moPc19bjlgrfUm-6PPlRmcNjC4Z1Qj_KKbsSYM7Ty0r3GTXjuR8sVlGcqLC9Os2_zTQyyJMixYkkqEm2m4qCdT2ZoY0SHeVdmPGFBcFUfI4SHFCDu9h3sG5sayVMbjeOdrq_UeBp4Vy0Z2rdhMrII0KiElGBR38pdnJX3vAtibhKIoutZJND4MObe7JBcEI45qa4hl1PC10i6Wh92-L9S8QPCkM8QBcJZ9VNNdREcx8FP4rdz7jebyr9fr38Vi28jAB-bmyTT2JRYEBxBjDjGbMUpi97QZfbFRrAIHxepzUndA-a3Ee9kuXNFQqqbIEfO6CKmz36EvPhE13duOXhbiZWwmhwaqNm3Lz3WNB8GUzb_0yElROdGs4YuGGN_Q4_kUASDTCCxi0Mc9TdZ2nxcGv-q5l0PvTP9D5bqgd1SgyIs0tTBA60mPJjJMwGhjbVziMSInwopNTE0Jadw0oKIshUhcxRSzPbutc66pPCg-QrrG_ZvdOMLxq82Mkp_WfMwCZGHYj5EtUVY4YJijWjWf6dDhBv2xbzVpVSFxR891U-PeN1RzZfURRkj1qFK2--Rkiqb7DJhH7Q2WdWPGnwt-_L5z2vxbmK2zBerqaswDk0fWVDK0jn0trcN2dvP42kSLOQs78ZGXVQpkEkgErIKuj1AZwGGxtZhJPntS6GY234P_a2JdYurQ_NkyWiIqLLkW9fDF3NaK1tFk05HB2jO-9ORxav71dSXLY_ifmltTw\"}}"
+}
+
+[12-Apr-2025 08:03:37 Europe/Berlin] [[12-Apr-2025 08:03:37 Europe/Berlin]] Action: request: , Data: {
+    "action": "create_member_cooperative",
+    "data": {
+        "type_id": "5",
+        "first_name": "Kalina",
+        "last_name": "Vuex",
+        "middle_name": "",
+        "contact_number": "+639882741122",
+        "house_address": "test 123",
+        "barangay": "test",
+        "municipality": "test",
+        "province": "test",
+        "region": "test",
+        "role_id": 3,
+        "username": "kalina123",
+        "email": "kalina@gmail.com",
+        "password": "ef>9K3UaQdp])]>",
+        "confirm_password": "ef>9K3UaQdp])]>",
+        "page_from": "external",
+        "recaptcha_response": "03AFcWeA6PZoT0mLIWe2bp_59dVL7Oym_YR1n695T6SyjT8KOTmICokDb_J1-u1moHSnlS19xn-yMMaPkz-M3HXL6hgtuWEyXri1JF-ExKB4rF_-w5szWoK52RVLiprsOYw85Wy29SY8Os3Pg0ccBAgq3oegDDDTXbq0iEsPkdV8AZ7eXnQ4i7fySdRFTikXEsN0m1uzydAODWpNyOUgOA10mNtulLdeqXUIupxP-KH1Dqe5pWSyfX7v2moPc19bjlgrfUm-6PPlRmcNjC4Z1Qj_KKbsSYM7Ty0r3GTXjuR8sVlGcqLC9Os2_zTQyyJMixYkkqEm2m4qCdT2ZoY0SHeVdmPGFBcFUfI4SHFCDu9h3sG5sayVMbjeOdrq_UeBp4Vy0Z2rdhMrII0KiElGBR38pdnJX3vAtibhKIoutZJND4MObe7JBcEI45qa4hl1PC10i6Wh92-L9S8QPCkM8QBcJZ9VNNdREcx8FP4rdz7jebyr9fr38Vi28jAB-bmyTT2JRYEBxBjDjGbMUpi97QZfbFRrAIHxepzUndA-a3Ee9kuXNFQqqbIEfO6CKmz36EvPhE13duOXhbiZWwmhwaqNm3Lz3WNB8GUzb_0yElROdGs4YuGGN_Q4_kUASDTCCxi0Mc9TdZ2nxcGv-q5l0PvTP9D5bqgd1SgyIs0tTBA60mPJjJMwGhjbVziMSInwopNTE0Jadw0oKIshUhcxRSzPbutc66pPCg-QrrG_ZvdOMLxq82Mkp_WfMwCZGHYj5EtUVY4YJijWjWf6dDhBv2xbzVpVSFxR891U-PeN1RzZfURRkj1qFK2--Rkiqb7DJhH7Q2WdWPGnwt-_L5z2vxbmK2zBerqaswDk0fWVDK0jn0trcN2dvP42kSLOQs78ZGXVQpkEkgErIKuj1AZwGGxtZhJPntS6GY234P_a2JdYurQ_NkyWiIqLLkW9fDF3NaK1tFk05HB2jO-9ORxav71dSXLY_ifmltTw"
+    }
+}
+
+[12-Apr-2025 14:03:38 Asia/Manila] [[12-Apr-2025 14:03:38 Asia/Manila]] ERROR: PHPMailer Debug: SERVER -> CLIENT: 220 smtp.gmail.com ESMTP d9443c01a7336-22ac7b65a88sm60845775ad.37 - gsmtp
+
+
+[12-Apr-2025 14:03:38 Asia/Manila] [[12-Apr-2025 14:03:38 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: EHLO jerome-avecilla-preview.infinityfreeapp.test
+
+
+[12-Apr-2025 14:03:39 Asia/Manila] [[12-Apr-2025 14:03:39 Asia/Manila]] ERROR: PHPMailer Debug: SERVER -> CLIENT: 250-smtp.gmail.com at your service, [119.94.139.5]
+250-SIZE 35882577
+250-8BITMIME
+250-STARTTLS
+250-ENHANCEDSTATUSCODES
+250-PIPELINING
+250-CHUNKING
+250 SMTPUTF8
+
+
+[12-Apr-2025 14:03:39 Asia/Manila] [[12-Apr-2025 14:03:39 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: STARTTLS
+
+
+[12-Apr-2025 14:03:39 Asia/Manila] [[12-Apr-2025 14:03:39 Asia/Manila]] ERROR: PHPMailer Debug: SERVER -> CLIENT: 220 2.0.0 Ready to start TLS
+
+
+[12-Apr-2025 14:03:40 Asia/Manila] [[12-Apr-2025 14:03:40 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: EHLO jerome-avecilla-preview.infinityfreeapp.test
+
+
+[12-Apr-2025 14:03:40 Asia/Manila] [[12-Apr-2025 14:03:40 Asia/Manila]] ERROR: PHPMailer Debug: SERVER -> CLIENT: 250-smtp.gmail.com at your service, [119.94.139.5]
+250-SIZE 35882577
+250-8BITMIME
+250-AUTH LOGIN PLAIN XOAUTH2 PLAIN-CLIENTTOKEN OAUTHBEARER XOAUTH
+250-ENHANCEDSTATUSCODES
+250-PIPELINING
+250-CHUNKING
+250 SMTPUTF8
+
+
+[12-Apr-2025 14:03:40 Asia/Manila] [[12-Apr-2025 14:03:40 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: AUTH LOGIN
+
+
+[12-Apr-2025 14:03:40 Asia/Manila] [[12-Apr-2025 14:03:40 Asia/Manila]] ERROR: PHPMailer Debug: SERVER -> CLIENT: 334 VXNlcm5hbWU6
+
+
+[12-Apr-2025 14:03:40 Asia/Manila] [[12-Apr-2025 14:03:40 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: [credentials hidden]
+
+[12-Apr-2025 14:03:40 Asia/Manila] [[12-Apr-2025 14:03:40 Asia/Manila]] ERROR: PHPMailer Debug: SERVER -> CLIENT: 334 UGFzc3dvcmQ6
+
+
+[12-Apr-2025 14:03:40 Asia/Manila] [[12-Apr-2025 14:03:40 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: [credentials hidden]
+
+[12-Apr-2025 14:03:41 Asia/Manila] [[12-Apr-2025 14:03:41 Asia/Manila]] ERROR: PHPMailer Debug: SERVER -> CLIENT: 235 2.7.0 Accepted
+
+
+[12-Apr-2025 14:03:41 Asia/Manila] [[12-Apr-2025 14:03:41 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: MAIL FROM:<jeromesavc@gmail.com>
+
+
+[12-Apr-2025 14:03:41 Asia/Manila] [[12-Apr-2025 14:03:41 Asia/Manila]] ERROR: PHPMailer Debug: SERVER -> CLIENT: 250 2.1.0 OK d9443c01a7336-22ac7b65a88sm60845775ad.37 - gsmtp
+
+
+[12-Apr-2025 14:03:41 Asia/Manila] [[12-Apr-2025 14:03:41 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: RCPT TO:<kalina@gmail.com>
+
+
+[12-Apr-2025 14:03:41 Asia/Manila] [[12-Apr-2025 14:03:41 Asia/Manila]] ERROR: PHPMailer Debug: SERVER -> CLIENT: 250 2.1.5 OK d9443c01a7336-22ac7b65a88sm60845775ad.37 - gsmtp
+
+
+[12-Apr-2025 14:03:41 Asia/Manila] [[12-Apr-2025 14:03:41 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: DATA
+
+
+[12-Apr-2025 14:03:42 Asia/Manila] [[12-Apr-2025 14:03:42 Asia/Manila]] ERROR: PHPMailer Debug: SERVER -> CLIENT: 354 Go ahead d9443c01a7336-22ac7b65a88sm60845775ad.37 - gsmtp
+
+
+[12-Apr-2025 14:03:42 Asia/Manila] [[12-Apr-2025 14:03:42 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: Date: Sat, 12 Apr 2025 14:03:37 +0800
+
+
+[12-Apr-2025 14:03:42 Asia/Manila] [[12-Apr-2025 14:03:42 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: To: kalina@gmail.com
+
+
+[12-Apr-2025 14:03:42 Asia/Manila] [[12-Apr-2025 14:03:42 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: From: "<no-reply>Jerome Avecilla - BSIT 2FG2" <jeromesavc@gmail.com>
+
+
+[12-Apr-2025 14:03:42 Asia/Manila] [[12-Apr-2025 14:03:42 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: Subject: Verify Your Account - Action Required
+
+
+[12-Apr-2025 14:03:42 Asia/Manila] [[12-Apr-2025 14:03:42 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: Message-ID: <MNcmyHOB2kJttPCzaH2PtNOVE8moYY6CVDeVyuN6i4@jerome-avecilla-preview.infinityfreeapp.test>
+
+
+[12-Apr-2025 14:03:42 Asia/Manila] [[12-Apr-2025 14:03:42 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: X-Mailer: PHPMailer 6.9.3 (https://github.com/PHPMailer/PHPMailer)
+
+
+[12-Apr-2025 14:03:42 Asia/Manila] [[12-Apr-2025 14:03:42 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: MIME-Version: 1.0
+
+
+[12-Apr-2025 14:03:42 Asia/Manila] [[12-Apr-2025 14:03:42 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: Content-Type: text/html; charset=iso-8859-1
+
+
+[12-Apr-2025 14:03:42 Asia/Manila] [[12-Apr-2025 14:03:42 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: 
+
+
+[12-Apr-2025 14:03:42 Asia/Manila] [[12-Apr-2025 14:03:42 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: <!DOCTYPE html>
+
+
+[12-Apr-2025 14:03:42 Asia/Manila] [[12-Apr-2025 14:03:42 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: <html>
+
+
+[12-Apr-2025 14:03:42 Asia/Manila] [[12-Apr-2025 14:03:42 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: <head></head>
+
+
+[12-Apr-2025 14:03:42 Asia/Manila] [[12-Apr-2025 14:03:42 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:     <meta charset="UTF-8">
+
+
+[12-Apr-2025 14:03:42 Asia/Manila] [[12-Apr-2025 14:03:42 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: </head>
+
+
+[12-Apr-2025 14:03:42 Asia/Manila] [[12-Apr-2025 14:03:42 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: <body>
+
+
+[12-Apr-2025 14:03:42 Asia/Manila] [[12-Apr-2025 14:03:42 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:     <div style="font-family: Arial, sans-serif; background-color: #f8f8f8; padding: 0px; line-height: 1.2; color: #000;">
+
+
+[12-Apr-2025 14:03:42 Asia/Manila] [[12-Apr-2025 14:03:42 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:         <div style="width: 100%; margin: 0; background-color: #ffffff; overflow: hidden; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);">
+
+
+[12-Apr-2025 14:03:42 Asia/Manila] [[12-Apr-2025 14:03:42 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:             <!-- Header Section -->
+
+
+[12-Apr-2025 14:03:42 Asia/Manila] [[12-Apr-2025 14:03:42 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:             <div style="text-align: center; padding: 0;">
+
+
+[12-Apr-2025 14:03:42 Asia/Manila] [[12-Apr-2025 14:03:42 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:                 <img src="https://avecilla-project-multipurpose.infinityfreeapp.com/assets/images/email-banner.png" alt="Header Banner" style="width: 100%; height: auto;" />
+
+
+[12-Apr-2025 14:03:42 Asia/Manila] [[12-Apr-2025 14:03:42 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:             </div>
+
+
+[12-Apr-2025 14:03:42 Asia/Manila] [[12-Apr-2025 14:03:42 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:             <!-- Body Section -->
+
+
+[12-Apr-2025 14:03:42 Asia/Manila] [[12-Apr-2025 14:03:42 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:             <div style="padding: 15px; color: #000;"> 
+
+
+[12-Apr-2025 14:03:42 Asia/Manila] [[12-Apr-2025 14:03:42 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:                     <p style="margin: 0; font-size: 12px; font-weight: bold; color: #000;">Good day, Ka-ITech,</p>
+
+
+[12-Apr-2025 14:03:42 Asia/Manila] [[12-Apr-2025 14:03:42 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:     <p style="margin: 5px 0; font-size: 12px; color: #000;">You're receiving this email because we've received a request to verify the account associated with this email address: <strong style="text-decoration: none; color: #000;">kalina@gmail.com</strong>.</p>
+
+
+[12-Apr-2025 14:03:42 Asia/Manila] [[12-Apr-2025 14:03:42 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:     <p style="margin: 15px 0 10px 0; font-size: 12px; color: #000;">To complete the verification process, you can either:</p>
+
+
+[12-Apr-2025 14:03:42 Asia/Manila] [[12-Apr-2025 14:03:42 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:     
+
+
+[12-Apr-2025 14:03:42 Asia/Manila] [[12-Apr-2025 14:03:42 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:     <div style="margin: 20px 0; text-align: center; font-size: 20px; font-weight: bold; color: #000; padding: 5px; border-radius: 8px;">
+
+
+[12-Apr-2025 14:03:42 Asia/Manila] [[12-Apr-2025 14:03:42 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:         <a href="http://jerome-avecilla-preview.infinityfreeapp.test/auth/account-verification?key=zFdWUtuyy0Ct0u9kTB5afKfAwnsJ4UJd&email=kalina%40gmail.com&code=333929&purpose=verify#external" target="_blank" style="background-color: #474747; color: #ffffff; padding: 12px 24px; text-decoration: none; border-radius: 5px; display: inline-block; font-family: Arial, sans-serif; font-size: 16px;">Verify My Account</a>
+
+
+[12-Apr-2025 14:03:42 Asia/Manila] [[12-Apr-2025 14:03:42 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:     </div>
+
+
+[12-Apr-2025 14:03:42 Asia/Manila] [[12-Apr-2025 14:03:42 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: 
+
+
+[12-Apr-2025 14:03:42 Asia/Manila] [[12-Apr-2025 14:03:42 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:     <p style="text-align: center; font-size: 12px; color: #666; margin: 10px 0;">OR</p>
+
+
+[12-Apr-2025 14:03:42 Asia/Manila] [[12-Apr-2025 14:03:42 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: 
+
+
+[12-Apr-2025 14:03:42 Asia/Manila] [[12-Apr-2025 14:03:42 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:     <div style="margin: 10px 0; padding: 10px; background-color: #f5f5f5; border-radius: 5px;">
+
+
+[12-Apr-2025 14:03:42 Asia/Manila] [[12-Apr-2025 14:03:42 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:         <p style="margin: 0 0 5px 0; font-size: 12px; color: #666;">Copy and paste this link in your browser:</p>
+
+
+[12-Apr-2025 14:03:42 Asia/Manila] [[12-Apr-2025 14:03:42 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:         <p style="margin: 0; font-size: 11px; color: #474747; word-break: break-all;">http://jerome-avecilla-preview.infinityfreeapp.test/auth/account-verification?key=zFdWUtuyy0Ct0u9kTB5afKfAwnsJ4UJd&email=kalina%40gmail.com&code=333929&purpose=verify#external</p>
+
+
+[12-Apr-2025 14:03:42 Asia/Manila] [[12-Apr-2025 14:03:42 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:     </div>
+
+
+[12-Apr-2025 14:03:42 Asia/Manila] [[12-Apr-2025 14:03:42 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: 
+
+
+[12-Apr-2025 14:03:42 Asia/Manila] [[12-Apr-2025 14:03:42 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:     <p style="margin: 15px 0 5px 0; font-size: 12px; color: #000;">Your verification link is valid for the next <strong>10 minutes</strong>.</p>
+
+
+[12-Apr-2025 14:03:42 Asia/Manila] [[12-Apr-2025 14:03:42 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:     <p style="margin: 5px 0; font-size: 12px; color: #000;">If you did not initiate this request, you can safely ignore this email.</p>
+
+
+[12-Apr-2025 14:03:42 Asia/Manila] [[12-Apr-2025 14:03:42 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:             </div>
+
+
+[12-Apr-2025 14:03:42 Asia/Manila] [[12-Apr-2025 14:03:42 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:             <!-- Footer Section -->
+
+
+[12-Apr-2025 14:03:42 Asia/Manila] [[12-Apr-2025 14:03:42 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:             <div style="text-align: center; background-color: #f3f3f3; padding: 20px 0 20px 0; font-size: 10px; color: #000;">
+
+
+[12-Apr-2025 14:03:42 Asia/Manila] [[12-Apr-2025 14:03:42 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:                 <p style="margin: 0; color: #000;">Created by: <a href="https://jerome-avecilla.vercel.app/" target="_blank">Jerome Avecilla</a></p>
+
+
+[12-Apr-2025 14:03:42 Asia/Manila] [[12-Apr-2025 14:03:42 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:                 <p style="margin: 0; color: #000;">Section: BSIT 2F-G2</p>
+
+
+[12-Apr-2025 14:03:42 Asia/Manila] [[12-Apr-2025 14:03:42 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:                 <p style="margin: 0; color: #000;">Subject: IT211 - Web System Technologies</p>
+
+
+[12-Apr-2025 14:03:42 Asia/Manila] [[12-Apr-2025 14:03:42 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:             </div>
+
+
+[12-Apr-2025 14:03:42 Asia/Manila] [[12-Apr-2025 14:03:42 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:         </div>
+
+
+[12-Apr-2025 14:03:42 Asia/Manila] [[12-Apr-2025 14:03:42 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:     </div>
+
+
+[12-Apr-2025 14:03:42 Asia/Manila] [[12-Apr-2025 14:03:42 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: </body>
+
+
+[12-Apr-2025 14:03:42 Asia/Manila] [[12-Apr-2025 14:03:42 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: </html>
+
+
+[12-Apr-2025 14:03:42 Asia/Manila] [[12-Apr-2025 14:03:42 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: 
+
+
+[12-Apr-2025 14:03:42 Asia/Manila] [[12-Apr-2025 14:03:42 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: .
+
+
+[12-Apr-2025 14:03:43 Asia/Manila] [[12-Apr-2025 14:03:43 Asia/Manila]] ERROR: PHPMailer Debug: SERVER -> CLIENT: 250 2.0.0 OK  1744437824 d9443c01a7336-22ac7b65a88sm60845775ad.37 - gsmtp
+
+
+[12-Apr-2025 14:03:43 Asia/Manila] [[12-Apr-2025 14:03:43 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: QUIT
+
+
+[12-Apr-2025 14:03:43 Asia/Manila] [[12-Apr-2025 14:03:43 Asia/Manila]] ERROR: PHPMailer Debug: SERVER -> CLIENT: 221 2.0.0 closing connection d9443c01a7336-22ac7b65a88sm60845775ad.37 - gsmtp
+
+
+[12-Apr-2025 08:04:53 Europe/Berlin] [[12-Apr-2025 08:04:53 Europe/Berlin]] Action: get_server_request_data(): , Data: {
+    "rawInput": "{\"action\":\"login_account\",\"data\":{\"uid\":\"kalina123\",\"password\":\"ef>9K3UaQdp])]>\",\"recaptcha_response\":\"03AFcWeA5aK9LxZ-Ro0CMF9jzHPekUFddedGVHqWrFSI8Dh1lFEyayVEOwa86PHKofKI44sXrH0SMFS-9D32itI1k1xDqdcMCwXAze45CvFaHnJIkPB9Fc4gvtRtY3hENVYxH_R6tV2nOrAkZcURGWry7kTHdhXuay4sSXj89L2Jnns7xgi-KCBlzzDdXHXaNVTOCvNAxkNiQ-7KiHAwyHdsE-3LdQTnrCYWVoBaCqarTfJiv9p-_5D3HB2FIEEHQP1cqpV346wwmrLmzzgFJQ_aHlxginw7OwqNaKA4p9h65I1bNa07uGiPjUi2b_AG7_Zpm2WIeVzgEJtZBlsdle7OAnDhKtAHXs0uia9Rt_Wg5IR0ve7HZ201gDRQ67H1hMV2vHzPxThvYi2kPgRdT-qEZ2r-3Lx9rKX2VPxy6uAmvEW5N3IR-ELXvqaoILgWwHqXxxphPcT1vKyxZP2MiifmTbuJPBouvi7zE8I8PKv8b3QbSx95vtbuG9-62BaTGr3E0IgBxmZJhH5jO9MiPV_oyft_8DrX7ZVIt449Q2Lz73Jjdfc5YBkpLlPCbegUGOTvIZpdMsbLWGnjaIMo3V6lF9c-Ff1duqXwcR2w4xWWz2PCZtiTxFpSt-4GIODqdm_4wEcPkJQ7JEuZoel01R_Mx01cpJblKDkXXpc2CaDeJ6x6rn4iZOs-9nZtFvDcY9WB3VCEyNrw14Hjd8AYBMNcrLeHf28N6o5GH9EsRTHfSRsXFvczvxFXF1OEvmVK0L0MT3R_K0PX2t0nuWKEKuYnkldqNtGeQTy6TjQQVArXxL4WaxvKl1tAWQ4W9w8sD7gWVsAU0LnhVkC9HNhx_ZvMz4qcpY0tH2j2xnUZ6aoS2kdnXPMupTc4cKyakkA5zmyrAk9VC4OSpU_9EScpaE-qw1jL1vm_O8z4g6WV6qIWYQkWWALx9GrsXo6dipMz7LJ4awUlB0ckzm9EqYdfIlu3-wjROvo-jzyg\"}}"
+}
+
+[12-Apr-2025 08:04:53 Europe/Berlin] [[12-Apr-2025 08:04:53 Europe/Berlin]] Action: request: , Data: {
+    "action": "login_account",
+    "data": {
+        "uid": "kalina123",
+        "password": "ef>9K3UaQdp])]>",
+        "recaptcha_response": "03AFcWeA5aK9LxZ-Ro0CMF9jzHPekUFddedGVHqWrFSI8Dh1lFEyayVEOwa86PHKofKI44sXrH0SMFS-9D32itI1k1xDqdcMCwXAze45CvFaHnJIkPB9Fc4gvtRtY3hENVYxH_R6tV2nOrAkZcURGWry7kTHdhXuay4sSXj89L2Jnns7xgi-KCBlzzDdXHXaNVTOCvNAxkNiQ-7KiHAwyHdsE-3LdQTnrCYWVoBaCqarTfJiv9p-_5D3HB2FIEEHQP1cqpV346wwmrLmzzgFJQ_aHlxginw7OwqNaKA4p9h65I1bNa07uGiPjUi2b_AG7_Zpm2WIeVzgEJtZBlsdle7OAnDhKtAHXs0uia9Rt_Wg5IR0ve7HZ201gDRQ67H1hMV2vHzPxThvYi2kPgRdT-qEZ2r-3Lx9rKX2VPxy6uAmvEW5N3IR-ELXvqaoILgWwHqXxxphPcT1vKyxZP2MiifmTbuJPBouvi7zE8I8PKv8b3QbSx95vtbuG9-62BaTGr3E0IgBxmZJhH5jO9MiPV_oyft_8DrX7ZVIt449Q2Lz73Jjdfc5YBkpLlPCbegUGOTvIZpdMsbLWGnjaIMo3V6lF9c-Ff1duqXwcR2w4xWWz2PCZtiTxFpSt-4GIODqdm_4wEcPkJQ7JEuZoel01R_Mx01cpJblKDkXXpc2CaDeJ6x6rn4iZOs-9nZtFvDcY9WB3VCEyNrw14Hjd8AYBMNcrLeHf28N6o5GH9EsRTHfSRsXFvczvxFXF1OEvmVK0L0MT3R_K0PX2t0nuWKEKuYnkldqNtGeQTy6TjQQVArXxL4WaxvKl1tAWQ4W9w8sD7gWVsAU0LnhVkC9HNhx_ZvMz4qcpY0tH2j2xnUZ6aoS2kdnXPMupTc4cKyakkA5zmyrAk9VC4OSpU_9EScpaE-qw1jL1vm_O8z4g6WV6qIWYQkWWALx9GrsXo6dipMz7LJ4awUlB0ckzm9EqYdfIlu3-wjROvo-jzyg"
+    }
+}
+
+[12-Apr-2025 08:05:08 Europe/Berlin] [[12-Apr-2025 08:05:08 Europe/Berlin]] Action: get_server_request_data(): , Data: {
+    "rawInput": "{\"action\":\"login_account\",\"data\":{\"uid\":\"kalina123\",\"password\":\"ef>9K3UaQdp])]>\",\"recaptcha_response\":\"03AFcWeA7zJs9kkrfo_HioOPL_INlYzV2LvWV-OPXk_IvZ15y1JGnW49KVybwuctoC67bGo7CJYAGahosi97Pdwo2eHm426Wker3QRiRcP2ia-itPrnnk6Z0yA0ECt085xh1aXF2MRMeQz-J2X6jKxK-Z_-SDBFDZRcytGXgNu9_-lFlqmg-xNGVY_2qiK9-Yeckg6CJPJXVQsUz_lQPrIxkkBU50790hjptpahp7KnuuABU0oJJG1BgzGIAtMDPnNSR2X7CylmTWwCnjegq79jUZmEOaFNKjwjnSAVFlzj1ooelbKbEeuE19XIDOsqpA5qmv2KKqgwuYy2UA3c5HGnWDIeZ6tiiMMlfn-fuD-jPFmEhQmWtnEE1-UJYErH0lPuspW9gql86uB6Kc8pk6G-OeMwJtz4GUFRZ_WTzsX1opFGymbPirNgLEOlWpL6GEapwZmNUZ91HSrd7T2JPXUnpFix1Kz8qhpnU3AOauBkF7RuIK9sUBv4a_l3T1QghjZHFmLIRG7XGzrt8ALuHj74r72uz2cFhnct-Of_PLPGKZyI9puTrELRC95aGJFZ5iYRzQRlIHjqn864de9XeC1nFEEUqvF8D1y6C2Uq4wjM46_QyYKiZ7obCDXw8nJvtTYWKFsJk3s0G2DUwzvFPX9ALLOq335yFvnz9pmIRkBIb073_MtavF-z6K5I8nnhhtFhDgz6_iWG8-3_9L4jmHY1oEr_Spdf-jj_7JvZT9YWafFtOEVp-7YV-3CwCCqVtgmCDYOaaeEKV5Y28YMLpRKua0PmLxkjXw75OEwx-JsNKFf8dMMirzDWviFSQmKBeI0wMHxvpa3Z5p3Yi5LYnD9NYumzLpAIcq9BxLjKZ8SwNbCySFg9Epc33IdCs7bfDvJseXPnoDOglKcEggylBJH9jxzpa9pnRYnEfCxRgGmd0ix2sLhKU2-grD-rX-_rx1fOOWipNGotvSoa3Z_5jtUQd2J_IfvVrKOYQ\"}}"
+}
+
+[12-Apr-2025 08:05:08 Europe/Berlin] [[12-Apr-2025 08:05:08 Europe/Berlin]] Action: request: , Data: {
+    "action": "login_account",
+    "data": {
+        "uid": "kalina123",
+        "password": "ef>9K3UaQdp])]>",
+        "recaptcha_response": "03AFcWeA7zJs9kkrfo_HioOPL_INlYzV2LvWV-OPXk_IvZ15y1JGnW49KVybwuctoC67bGo7CJYAGahosi97Pdwo2eHm426Wker3QRiRcP2ia-itPrnnk6Z0yA0ECt085xh1aXF2MRMeQz-J2X6jKxK-Z_-SDBFDZRcytGXgNu9_-lFlqmg-xNGVY_2qiK9-Yeckg6CJPJXVQsUz_lQPrIxkkBU50790hjptpahp7KnuuABU0oJJG1BgzGIAtMDPnNSR2X7CylmTWwCnjegq79jUZmEOaFNKjwjnSAVFlzj1ooelbKbEeuE19XIDOsqpA5qmv2KKqgwuYy2UA3c5HGnWDIeZ6tiiMMlfn-fuD-jPFmEhQmWtnEE1-UJYErH0lPuspW9gql86uB6Kc8pk6G-OeMwJtz4GUFRZ_WTzsX1opFGymbPirNgLEOlWpL6GEapwZmNUZ91HSrd7T2JPXUnpFix1Kz8qhpnU3AOauBkF7RuIK9sUBv4a_l3T1QghjZHFmLIRG7XGzrt8ALuHj74r72uz2cFhnct-Of_PLPGKZyI9puTrELRC95aGJFZ5iYRzQRlIHjqn864de9XeC1nFEEUqvF8D1y6C2Uq4wjM46_QyYKiZ7obCDXw8nJvtTYWKFsJk3s0G2DUwzvFPX9ALLOq335yFvnz9pmIRkBIb073_MtavF-z6K5I8nnhhtFhDgz6_iWG8-3_9L4jmHY1oEr_Spdf-jj_7JvZT9YWafFtOEVp-7YV-3CwCCqVtgmCDYOaaeEKV5Y28YMLpRKua0PmLxkjXw75OEwx-JsNKFf8dMMirzDWviFSQmKBeI0wMHxvpa3Z5p3Yi5LYnD9NYumzLpAIcq9BxLjKZ8SwNbCySFg9Epc33IdCs7bfDvJseXPnoDOglKcEggylBJH9jxzpa9pnRYnEfCxRgGmd0ix2sLhKU2-grD-rX-_rx1fOOWipNGotvSoa3Z_5jtUQd2J_IfvVrKOYQ"
+    }
+}
+
+[12-Apr-2025 08:05:28 Europe/Berlin] [[12-Apr-2025 08:05:28 Europe/Berlin]] Action: get_server_request_data(): , Data: {
+    "rawInput": "{\"action\":\"login_account\",\"data\":{\"uid\":\"admin\",\"password\":\"admin\",\"recaptcha_response\":\"03AFcWeA5zxku5yVRikah4b0WPKEnz1IQcIxH_SB_atessqjBSTC7Hvh4Z-LT3kktPN9bVGr1VkUyTD0iQMN0b2BL9GRLXVRXdsLr6Q1I9mUHW91k99I2saFhxB85eBwK3mVkn3OA7dMR_02bRKabYIpyWL-bmtqGEIBwfROdF8FhNHSLDpanmLeF7aOI30cY2xo7uR9mkH-UsqNVXFaxiCd8qH3suM7vzJ-f7GgaVmb8m5ycfDnRXJnoF9MkCaa8oSX-Xz_XXJo2yYPCiOAOiA6MR4nq0b_XQUpTQiD7vmwQDxsblgZat3nForkNBacAcQplLZbt932BefT7YCJuZxEbLApediqh9_bd6bChNE9w2Id5zDWvQ4I3K1WqlP7jeFF1VArrfO8Dch9GBccxIwT6R9l_k_FWf7Bphvit8Pq75JosRr1nfgWHHag4B4u65XucjAOY2mcZocH1lBMZRNSM1RDLiftycnXuZ0X_ItLFGSuIXmeox3-D30lEjSDkL_sgQFblAyNSOZP-3eiKCltlH6XlTBv3IOocAIb0BkDT9TSgl4eYDQWpIrv5IfcdQt36kx0IlLVljb61Yvqov9_HKENdk7rm7zCrcQ_bC-5_yz0m-Y_FlIGRdGZdqPVpI6kyTCMj14XGRqnf0qoVGBKb-tRLRwWBdQGzdINcwCrb-9UZa544NcR_UwSKscN9k1N8Kt5idNT_E_JBuLfuAds393hq8-vXAXD2f-oDYOIvdNBqi5vy610LFq-iSCHjZDHFCOULdCyvNCAABlf6hfZ_lIcSoxhXvTiarRo8qxIWP7DVtF7_DnXptrK_mLju3WIp-VDrf8bCGM_w8AHJfjQsgRyVAKq7dU_qDThHydGDX38aVDtnxhftxmDlnS2vchiLJjsQ001g2qmL2APx9ANg_P839Wqkhc_MSWrE5t9xoWcn2ZzmcdYmVMIa3Vsen86yJlJYTauPRSSG1jfZr9daoDGWTOcU7Fg\"}}"
+}
+
+[12-Apr-2025 08:05:28 Europe/Berlin] [[12-Apr-2025 08:05:28 Europe/Berlin]] Action: request: , Data: {
+    "action": "login_account",
+    "data": {
+        "uid": "admin",
+        "password": "admin",
+        "recaptcha_response": "03AFcWeA5zxku5yVRikah4b0WPKEnz1IQcIxH_SB_atessqjBSTC7Hvh4Z-LT3kktPN9bVGr1VkUyTD0iQMN0b2BL9GRLXVRXdsLr6Q1I9mUHW91k99I2saFhxB85eBwK3mVkn3OA7dMR_02bRKabYIpyWL-bmtqGEIBwfROdF8FhNHSLDpanmLeF7aOI30cY2xo7uR9mkH-UsqNVXFaxiCd8qH3suM7vzJ-f7GgaVmb8m5ycfDnRXJnoF9MkCaa8oSX-Xz_XXJo2yYPCiOAOiA6MR4nq0b_XQUpTQiD7vmwQDxsblgZat3nForkNBacAcQplLZbt932BefT7YCJuZxEbLApediqh9_bd6bChNE9w2Id5zDWvQ4I3K1WqlP7jeFF1VArrfO8Dch9GBccxIwT6R9l_k_FWf7Bphvit8Pq75JosRr1nfgWHHag4B4u65XucjAOY2mcZocH1lBMZRNSM1RDLiftycnXuZ0X_ItLFGSuIXmeox3-D30lEjSDkL_sgQFblAyNSOZP-3eiKCltlH6XlTBv3IOocAIb0BkDT9TSgl4eYDQWpIrv5IfcdQt36kx0IlLVljb61Yvqov9_HKENdk7rm7zCrcQ_bC-5_yz0m-Y_FlIGRdGZdqPVpI6kyTCMj14XGRqnf0qoVGBKb-tRLRwWBdQGzdINcwCrb-9UZa544NcR_UwSKscN9k1N8Kt5idNT_E_JBuLfuAds393hq8-vXAXD2f-oDYOIvdNBqi5vy610LFq-iSCHjZDHFCOULdCyvNCAABlf6hfZ_lIcSoxhXvTiarRo8qxIWP7DVtF7_DnXptrK_mLju3WIp-VDrf8bCGM_w8AHJfjQsgRyVAKq7dU_qDThHydGDX38aVDtnxhftxmDlnS2vchiLJjsQ001g2qmL2APx9ANg_P839Wqkhc_MSWrE5t9xoWcn2ZzmcdYmVMIa3Vsen86yJlJYTauPRSSG1jfZr9daoDGWTOcU7Fg"
+    }
+}
+
+[12-Apr-2025 14:05:29 Asia/Manila] [[12-Apr-2025 14:05:29 Asia/Manila]] Action: Session Data: , Data: {
+    "ip_address": "127.0.0.1",
+    "user_agent": "Mozilla\/5.0 (Windows NT 10.0; Win64; x64; rv:137.0) Gecko\/20100101 Firefox\/137.0",
+    "session_hash": "77e8a1dc128f463ae18de03eaf04b218197f27df3b26c4dbd16be885bce17843",
+    "session_id": "8jajfjncasaqodru36jt876jk4",
+    "account_id": 1,
+    "account_uid": "A581822",
+    "email": "jeromesavc@gmail.com",
+    "username": "admin",
+    "account_status": "active",
+    "role_name": "Administrator",
+    "employee_id": 1,
+    "first_name": "John",
+    "last_name": "Smith",
+    "middle_name": "Doe",
+    "full_name": "John D. Smith",
+    "contact_number": "+639171234567"
+}
+
+[12-Apr-2025 08:06:07 Europe/Berlin] [[12-Apr-2025 08:06:07 Europe/Berlin]] Action: get_server_request_data(): , Data: {
+    "rawInput": "{\"action\":\"logout_account\",\"data\":{\"uid\":\"A581822\",\"session_id\":\"8jajfjncasaqodru36jt876jk4\"}}"
+}
+
+[12-Apr-2025 08:06:07 Europe/Berlin] [[12-Apr-2025 08:06:07 Europe/Berlin]] Action: request: , Data: {
+    "action": "logout_account",
+    "data": {
+        "uid": "A581822",
+        "session_id": "8jajfjncasaqodru36jt876jk4"
+    }
+}
+
+[12-Apr-2025 08:06:24 Europe/Berlin] [[12-Apr-2025 08:06:24 Europe/Berlin]] Action: get_server_request_data(): , Data: {
+    "rawInput": "{\"action\":\"logout_account\",\"data\":{}}"
+}
+
+[12-Apr-2025 08:06:24 Europe/Berlin] [[12-Apr-2025 08:06:24 Europe/Berlin]] Action: request: , Data: {
+    "action": "logout_account",
+    "data": []
+}
+
+[12-Apr-2025 08:11:13 Europe/Berlin] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\bulsu-school\account-receivable-system-project\app\includes\layouts\begin.php:128) in C:\xampp\htdocs\bulsu-school\account-receivable-system-project\dashboard.php on line 11
+[12-Apr-2025 08:12:15 Europe/Berlin] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\bulsu-school\account-receivable-system-project\app\includes\layouts\begin.php:128) in C:\xampp\htdocs\bulsu-school\account-receivable-system-project\app\config\session.php on line 111
+[12-Apr-2025 08:12:16 Europe/Berlin] PHP Warning:  Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\bulsu-school\account-receivable-system-project\app\includes\layouts\begin.php:128) in C:\xampp\htdocs\bulsu-school\account-receivable-system-project\app\config\session.php on line 111
+[12-Apr-2025 08:15:02 Europe/Berlin] [[12-Apr-2025 08:15:02 Europe/Berlin]] Action: get_server_request_data(): , Data: {
+    "rawInput": "{\"action\":\"login_account\",\"data\":{\"uid\":\"admin\",\"password\":\"admin\",\"recaptcha_response\":\"03AFcWeA74n-3HCorDTbYXnJs2boiEr8hZRgGD5L-NDVkLKZLNk_ybqr2Wns16Gidj_vvgh5gOVmRgeSGvEkV-7QCs12uZ6pia-xjFGu3m66NNsPd_-ol9JZh3mYjotCLx6M_j-4yfXgO8iIiOgq083IQCI7MZ84rizzpZj1ndA103x6ZYiJQiCOyNdGvM60VMoDf0B3X9qpC21n5YtY-yM0Crg14KoW9ov6hK4nGjO1XqBrU38-JhPf09twZD9OvZAipxQOLewNvDMqZ-FRnvuzJkb8rHQ4r7z0QwJP6o9j26f8y4jco4BryLkoevXVSnv9-IVZafOxZ_9yyDRzbHb5dbbpIScvDxqU78DisExdK-3J-KGm2VZF2gNjonS1MtAD9ivn7KbJpZHeQi8HigCkPOtVxpAqbCSU6FsiQ_LqcvpfY9OVQ5tObBUDVfLJjYHcwt2Xpq1Bihv9OX4QSNuvCglNKqkK2uGqyV3RZ1xlZc_zSnFlMcGd49St4kYatKZgqVqMXemuTnj0YYuKKW7UTGyZNEDutLM76EUTxUT86TJTZODS2E-qRLrH9J_FmbJCkrAVORlE11PNqZt0gXp8y4fMV5vLkas2VQEUClhvKbY1YIUOCc5wFoVrArWYzD6wW4NJM2hJGUFm5RawC7yQX_oigMOlDo3ZrlqoDXlQ46lWfNI9-fQoVwgycBmYB5uxFgaF0x4AyUxqacaqfMtq0h_yBQouSTUoyUNJ_hjjWSIUd1ZTv95x6pFo6XcyQqPBtSzuB040ifTqGrzj2MkeQ9IXA5s3vUH-DRuZmbr6NZ6G3Gwhhg_iXv-X0LuTzr4kia1mgWv8OLyh_nfl1Rdf2jagMZDmlhRZbfwGvCtRiCX9VURvtmqY63JcCu3QRMe7fUxKQW0liSXjcw8wcjQJFNQIASCgVuwHcZN135PelajlBM3ZCWTWyFdh9sb0o5YT9D-HV1coaH7DOzAzn_Fxb4zo6oiUajp4qYEp0wKXjDdwlivkIFNGM\"}}"
+}
+
+[12-Apr-2025 08:15:02 Europe/Berlin] [[12-Apr-2025 08:15:02 Europe/Berlin]] Action: request: , Data: {
+    "action": "login_account",
+    "data": {
+        "uid": "admin",
+        "password": "admin",
+        "recaptcha_response": "03AFcWeA74n-3HCorDTbYXnJs2boiEr8hZRgGD5L-NDVkLKZLNk_ybqr2Wns16Gidj_vvgh5gOVmRgeSGvEkV-7QCs12uZ6pia-xjFGu3m66NNsPd_-ol9JZh3mYjotCLx6M_j-4yfXgO8iIiOgq083IQCI7MZ84rizzpZj1ndA103x6ZYiJQiCOyNdGvM60VMoDf0B3X9qpC21n5YtY-yM0Crg14KoW9ov6hK4nGjO1XqBrU38-JhPf09twZD9OvZAipxQOLewNvDMqZ-FRnvuzJkb8rHQ4r7z0QwJP6o9j26f8y4jco4BryLkoevXVSnv9-IVZafOxZ_9yyDRzbHb5dbbpIScvDxqU78DisExdK-3J-KGm2VZF2gNjonS1MtAD9ivn7KbJpZHeQi8HigCkPOtVxpAqbCSU6FsiQ_LqcvpfY9OVQ5tObBUDVfLJjYHcwt2Xpq1Bihv9OX4QSNuvCglNKqkK2uGqyV3RZ1xlZc_zSnFlMcGd49St4kYatKZgqVqMXemuTnj0YYuKKW7UTGyZNEDutLM76EUTxUT86TJTZODS2E-qRLrH9J_FmbJCkrAVORlE11PNqZt0gXp8y4fMV5vLkas2VQEUClhvKbY1YIUOCc5wFoVrArWYzD6wW4NJM2hJGUFm5RawC7yQX_oigMOlDo3ZrlqoDXlQ46lWfNI9-fQoVwgycBmYB5uxFgaF0x4AyUxqacaqfMtq0h_yBQouSTUoyUNJ_hjjWSIUd1ZTv95x6pFo6XcyQqPBtSzuB040ifTqGrzj2MkeQ9IXA5s3vUH-DRuZmbr6NZ6G3Gwhhg_iXv-X0LuTzr4kia1mgWv8OLyh_nfl1Rdf2jagMZDmlhRZbfwGvCtRiCX9VURvtmqY63JcCu3QRMe7fUxKQW0liSXjcw8wcjQJFNQIASCgVuwHcZN135PelajlBM3ZCWTWyFdh9sb0o5YT9D-HV1coaH7DOzAzn_Fxb4zo6oiUajp4qYEp0wKXjDdwlivkIFNGM"
+    }
+}
+
+[12-Apr-2025 14:15:03 Asia/Manila] [[12-Apr-2025 14:15:03 Asia/Manila]] Action: Session Data: , Data: {
+    "ip_address": "127.0.0.1",
+    "user_agent": "Mozilla\/5.0 (Windows NT 10.0; Win64; x64; rv:137.0) Gecko\/20100101 Firefox\/137.0",
+    "session_hash": "44cb816283dd9f7f6f86ac965dd18cab34a05272643686ca6ddcf62546718c4a",
+    "session_id": "e8u46osji87c5m94pr7u3lhh4r",
+    "account_id": 1,
+    "account_uid": "A581822",
+    "email": "jeromesavc@gmail.com",
+    "username": "admin",
+    "account_status": "active",
+    "role_name": "Administrator",
+    "employee_id": 1,
+    "first_name": "John",
+    "last_name": "Smith",
+    "middle_name": "Doe",
+    "full_name": "John D. Smith",
+    "contact_number": "+639171234567"
+}
+
+[12-Apr-2025 08:18:25 Europe/Berlin] [[12-Apr-2025 08:18:25 Europe/Berlin]] Action: get_server_request_data(): , Data: {
+    "rawInput": "{\"action\":\"logout_account\",\"data\":{\"uid\":\"A581822\",\"session_id\":\"e8u46osji87c5m94pr7u3lhh4r\"}}"
+}
+
+[12-Apr-2025 08:18:25 Europe/Berlin] [[12-Apr-2025 08:18:25 Europe/Berlin]] Action: request: , Data: {
+    "action": "logout_account",
+    "data": {
+        "uid": "A581822",
+        "session_id": "e8u46osji87c5m94pr7u3lhh4r"
+    }
+}
+
+[12-Apr-2025 08:18:33 Europe/Berlin] [[12-Apr-2025 08:18:33 Europe/Berlin]] Action: get_server_request_data(): , Data: {
+    "rawInput": "{\"action\":\"login_account\",\"data\":{\"uid\":\"admin\",\"password\":\"admin\",\"recaptcha_response\":\"03AFcWeA6E3X_ZMOI9XPeeHwmRkx4imAGi9SxZWKT9ijoaWE6l6ZKMuRBLAkd45_T2CmPUIrsKN5y92K3a55QmgpEIvpkokJJBQuqXD7BQ3KroV0APCvSTSHj3McVQ7bvAlx__HRq253kl2czAf7ZyBRS7uxNVhsuiSKqYT7u47Y2YtlziIVKxC3FAiJH9CEMH0chaAt1R0HOzu5OvExZ5muyVsnFEtqgTHQhdvEC6He3e5WaKd_MYyy01eTBtkZBWZAtyMfaYdpHIO9KTsBK_vwTsx47MBttdsTErRp5h8R8GJ40rxqaPULCFR_F7wqtaTKdKG3l7iwnNrRjqUjcfMJhhWXepHdaBTF7T-1S0Km549Fv8q10w63bDroKEJPXKglvmgqkI-skuGBqejOsbqXD0TpW0LGQB0jsFkcp2fvffMe0JHroYhimT7ToZR9vAlbFpr-ZqxV-6jNxK5qEbhZAUVWrUdNAAv4DnSgJnkjciX_BpGsA3SmTDVDSEK3DVIwqN7jpGhPHyd8QzKGlxMBjz12e7iyvTiQ1V6R2Bo2J8DkL2dPYStGeJfe2zO7VeyQmGnGEPbQtnuJcyZiUvuQphJvyBjbzEUjQtBllH8xgLv9NE4xshjlbg5ODGLlJIzy23QuB26rGHQha_vq_b1Bk_ffbDB9z0B4GPsaULQh28lxxw-VWB8MRSFOqE9tQi9Jjt2vwae2gJI5UZfbO0CWgphzuu5UacDNW7b4TjNkrAIyKZS8Hix9EyR1i168rTeV0O3y3Ds7KEj6pH1wSRNG-mARaVHNq1JoNvuBy_5GQplmCwwMXFaB5mwa7a7VJJL6sh4N3xAEQK6-5ckZOIRB47bIPQtdfvEK54v_i59PKlz4P9ZeKEkByJBadC8GTh9ymMhXI_MpTPN7Fy9Yx1gliCzhcuqWfGEXXvN4NaCGsfXOZ7QgQw4EsnS1Mltgvro0PNSuw7DOtZzyY1GB0k0Faz-HJ3JPnJbpvT-vqBffqlDz2ZjvmuPtE\"}}"
+}
+
+[12-Apr-2025 08:18:33 Europe/Berlin] [[12-Apr-2025 08:18:33 Europe/Berlin]] Action: request: , Data: {
+    "action": "login_account",
+    "data": {
+        "uid": "admin",
+        "password": "admin",
+        "recaptcha_response": "03AFcWeA6E3X_ZMOI9XPeeHwmRkx4imAGi9SxZWKT9ijoaWE6l6ZKMuRBLAkd45_T2CmPUIrsKN5y92K3a55QmgpEIvpkokJJBQuqXD7BQ3KroV0APCvSTSHj3McVQ7bvAlx__HRq253kl2czAf7ZyBRS7uxNVhsuiSKqYT7u47Y2YtlziIVKxC3FAiJH9CEMH0chaAt1R0HOzu5OvExZ5muyVsnFEtqgTHQhdvEC6He3e5WaKd_MYyy01eTBtkZBWZAtyMfaYdpHIO9KTsBK_vwTsx47MBttdsTErRp5h8R8GJ40rxqaPULCFR_F7wqtaTKdKG3l7iwnNrRjqUjcfMJhhWXepHdaBTF7T-1S0Km549Fv8q10w63bDroKEJPXKglvmgqkI-skuGBqejOsbqXD0TpW0LGQB0jsFkcp2fvffMe0JHroYhimT7ToZR9vAlbFpr-ZqxV-6jNxK5qEbhZAUVWrUdNAAv4DnSgJnkjciX_BpGsA3SmTDVDSEK3DVIwqN7jpGhPHyd8QzKGlxMBjz12e7iyvTiQ1V6R2Bo2J8DkL2dPYStGeJfe2zO7VeyQmGnGEPbQtnuJcyZiUvuQphJvyBjbzEUjQtBllH8xgLv9NE4xshjlbg5ODGLlJIzy23QuB26rGHQha_vq_b1Bk_ffbDB9z0B4GPsaULQh28lxxw-VWB8MRSFOqE9tQi9Jjt2vwae2gJI5UZfbO0CWgphzuu5UacDNW7b4TjNkrAIyKZS8Hix9EyR1i168rTeV0O3y3Ds7KEj6pH1wSRNG-mARaVHNq1JoNvuBy_5GQplmCwwMXFaB5mwa7a7VJJL6sh4N3xAEQK6-5ckZOIRB47bIPQtdfvEK54v_i59PKlz4P9ZeKEkByJBadC8GTh9ymMhXI_MpTPN7Fy9Yx1gliCzhcuqWfGEXXvN4NaCGsfXOZ7QgQw4EsnS1Mltgvro0PNSuw7DOtZzyY1GB0k0Faz-HJ3JPnJbpvT-vqBffqlDz2ZjvmuPtE"
+    }
+}
+
+[12-Apr-2025 14:18:33 Asia/Manila] [[12-Apr-2025 14:18:33 Asia/Manila]] Action: Session Data: , Data: {
+    "ip_address": "127.0.0.1",
+    "user_agent": "Mozilla\/5.0 (Windows NT 10.0; Win64; x64; rv:137.0) Gecko\/20100101 Firefox\/137.0",
+    "session_hash": "e902e4bfe06295dbace1bb165316f3bd62dfd2331da3feb9d20e2f4a62dbec92",
+    "session_id": "gnshd8o5fj3fvihg01sj3akqnn",
+    "account_id": 1,
+    "account_uid": "A581822",
+    "email": "jeromesavc@gmail.com",
+    "username": "admin",
+    "account_status": "active",
+    "role_name": "Administrator",
+    "employee_id": 1,
+    "first_name": "Jerome",
+    "last_name": "Avecilla",
+    "middle_name": "Sotel",
+    "full_name": "Jerome S. Avecilla",
+    "contact_number": "+639772465533"
+}
+
+[12-Apr-2025 08:23:09 Europe/Berlin] [[12-Apr-2025 08:23:09 Europe/Berlin]] Action: get_server_request_data(): , Data: {
+    "rawInput": "{\"action\":\"logout_account\",\"data\":{\"uid\":\"A581822\",\"session_id\":\"gnshd8o5fj3fvihg01sj3akqnn\"}}"
+}
+
+[12-Apr-2025 08:23:09 Europe/Berlin] [[12-Apr-2025 08:23:09 Europe/Berlin]] Action: request: , Data: {
+    "action": "logout_account",
+    "data": {
+        "uid": "A581822",
+        "session_id": "gnshd8o5fj3fvihg01sj3akqnn"
+    }
+}
+
+[12-Apr-2025 08:25:20 Europe/Berlin] [[12-Apr-2025 08:25:20 Europe/Berlin]] Action: get_server_request_data(): , Data: {
+    "rawInput": "{\"action\":\"login_account\",\"data\":{\"uid\":\"member\",\"password\":\"member\",\"recaptcha_response\":\"03AFcWeA4isS_K-3f37m8fpWNQj-Esmf9tE_7tgycOwdQx68EcgEEvT10OjSh115uN4Gt9GuqLBp0zjKGl19iLo6fj6TqFRntcyk4krKTlR2q57ZuDRDV3fSxIZ6iRHM6KqaJ3mG9-ndjEv0p0wWl13TOnwo_fMv8Ump6iXy7JDVNtAI55dlEBq5bU92_NRBZe3w7tsAKeibknYOe4CRaGDKKmTSHGEPVoqQ9n6OJlEmKmpXP4-D2spXCubzUyb6i9MpRwUpbgY0rq-MvTAh2dVJnjywxPGQ1-OGBbxBI8zTVfIQbTBxhL1aM9HLaRjew-z0DmqqqQaiMYRQwaUzC7sswFbUAjb0Rx5JkkfWOsy3hx2PI9VMey0aMtwc37cV2qJLwS1drWym3EGl5gPKk-Hm1gRHHusaCgqibPg7O76Ifi67CP66JHRNSziBXL5ERzryxCZQHW3w6MpGkTV_EGba2jcCKKTdTZ5iGMLK6x_EeOQvL60U9v9cMbFri-yMZh74XK5PiPp8_RKc7AZUpmkAL96zyMMa-zNON2v7i8qHqCBuVAHdE9OCsGsrt47EFyvhEO8-6YjFN5onTfVGqIpPvhtyn6CLpyLzplWqZ_ba7baDBk9HK9_zUA4oEn_tqPT_q1EjN_FL-4EiwgiB7CUzce7095Hv4waWoqUnDSa2Ty8CdWUg8wgGkVWKAL_M4WDt1PsMikGbcII162hZoekj68f6JJOdoqXg6B2ztDvbOS-2ltyUoj3sPiySuGJwsC2Ps_aDhLA704RXn_TaiKItI8ZOGi7m3nvIhXNnGc53g38hgAiy3AZWX6VQvX3Elm8GBkiOaTxbgv1_USBZrEaBYRmdXBP6kIEmFLE4QnNhjpafXp86-FG0-D9ULn2VVHN8RpNZSDR8t6lcfE3jayF6TMAKec_MJoDqmlKd2Hemt5Bk-0ZWiSEfIU2LnsO7nnbq9u5OHk-E4_z9y6HAQM2Z5VIQIBIG1L6g\"}}"
+}
+
+[12-Apr-2025 08:25:20 Europe/Berlin] [[12-Apr-2025 08:25:20 Europe/Berlin]] Action: request: , Data: {
+    "action": "login_account",
+    "data": {
+        "uid": "member",
+        "password": "member",
+        "recaptcha_response": "03AFcWeA4isS_K-3f37m8fpWNQj-Esmf9tE_7tgycOwdQx68EcgEEvT10OjSh115uN4Gt9GuqLBp0zjKGl19iLo6fj6TqFRntcyk4krKTlR2q57ZuDRDV3fSxIZ6iRHM6KqaJ3mG9-ndjEv0p0wWl13TOnwo_fMv8Ump6iXy7JDVNtAI55dlEBq5bU92_NRBZe3w7tsAKeibknYOe4CRaGDKKmTSHGEPVoqQ9n6OJlEmKmpXP4-D2spXCubzUyb6i9MpRwUpbgY0rq-MvTAh2dVJnjywxPGQ1-OGBbxBI8zTVfIQbTBxhL1aM9HLaRjew-z0DmqqqQaiMYRQwaUzC7sswFbUAjb0Rx5JkkfWOsy3hx2PI9VMey0aMtwc37cV2qJLwS1drWym3EGl5gPKk-Hm1gRHHusaCgqibPg7O76Ifi67CP66JHRNSziBXL5ERzryxCZQHW3w6MpGkTV_EGba2jcCKKTdTZ5iGMLK6x_EeOQvL60U9v9cMbFri-yMZh74XK5PiPp8_RKc7AZUpmkAL96zyMMa-zNON2v7i8qHqCBuVAHdE9OCsGsrt47EFyvhEO8-6YjFN5onTfVGqIpPvhtyn6CLpyLzplWqZ_ba7baDBk9HK9_zUA4oEn_tqPT_q1EjN_FL-4EiwgiB7CUzce7095Hv4waWoqUnDSa2Ty8CdWUg8wgGkVWKAL_M4WDt1PsMikGbcII162hZoekj68f6JJOdoqXg6B2ztDvbOS-2ltyUoj3sPiySuGJwsC2Ps_aDhLA704RXn_TaiKItI8ZOGi7m3nvIhXNnGc53g38hgAiy3AZWX6VQvX3Elm8GBkiOaTxbgv1_USBZrEaBYRmdXBP6kIEmFLE4QnNhjpafXp86-FG0-D9ULn2VVHN8RpNZSDR8t6lcfE3jayF6TMAKec_MJoDqmlKd2Hemt5Bk-0ZWiSEfIU2LnsO7nnbq9u5OHk-E4_z9y6HAQM2Z5VIQIBIG1L6g"
+    }
+}
+
+[12-Apr-2025 14:25:21 Asia/Manila] [[12-Apr-2025 14:25:21 Asia/Manila]] Action: Session Data: , Data: {
+    "ip_address": "127.0.0.1",
+    "user_agent": "Mozilla\/5.0 (Windows NT 10.0; Win64; x64; rv:137.0) Gecko\/20100101 Firefox\/137.0",
+    "session_hash": "da12309b0fa3bf892ba821a0dc6e4b2468629eaee6a242ced2f64021d58235cc",
+    "session_id": "auf5af7hivlnjffc08vqd9upk7",
+    "account_id": 18,
+    "account_uid": "A839109",
+    "email": "member@gmail.com",
+    "username": "member",
+    "account_status": "active",
+    "role_name": "Member",
+    "member_id": 16,
+    "first_name": "John",
+    "last_name": "Doe",
+    "middle_name": "Smith",
+    "full_name": "John S. Doe",
+    "contact_number": "+639772465533",
+    "full_address": "Ph7, Blk3, Lot24, Residence III, Brgy. Mapulang Lupa, Pandi, Bulacan, Region 3"
+}
+
+[12-Apr-2025 08:25:21 Europe/Berlin] PHP Warning:  Undefined array key "employee_id" in C:\xampp\htdocs\bulsu-school\account-receivable-system-project\app\includes\layouts\begin.php on line 95
+[12-Apr-2025 08:26:19 Europe/Berlin] PHP Warning:  Undefined array key "employee_id" in C:\xampp\htdocs\bulsu-school\account-receivable-system-project\app\includes\layouts\begin.php on line 95
+[12-Apr-2025 08:26:26 Europe/Berlin] PHP Warning:  Undefined array key "employee_id" in C:\xampp\htdocs\bulsu-school\account-receivable-system-project\app\includes\layouts\begin.php on line 95
+[12-Apr-2025 08:27:03 Europe/Berlin] PHP Warning:  Undefined array key "employee_id" in C:\xampp\htdocs\bulsu-school\account-receivable-system-project\app\includes\layouts\begin.php on line 95
+[12-Apr-2025 08:35:12 Europe/Berlin] [[12-Apr-2025 08:35:12 Europe/Berlin]] Action: get_server_request_data(): , Data: {
+    "rawInput": "{\"action\":\"logout_account\",\"data\":{\"uid\":\"A839109\",\"session_id\":\"auf5af7hivlnjffc08vqd9upk7\"}}"
+}
+
+[12-Apr-2025 08:35:12 Europe/Berlin] [[12-Apr-2025 08:35:12 Europe/Berlin]] Action: request: , Data: {
+    "action": "logout_account",
+    "data": {
+        "uid": "A839109",
+        "session_id": "auf5af7hivlnjffc08vqd9upk7"
+    }
+}
+
+[12-Apr-2025 08:35:39 Europe/Berlin] [[12-Apr-2025 08:35:39 Europe/Berlin]] Action: get_server_request_data(): , Data: {
+    "rawInput": "{\"action\":\"login_account\",\"data\":{\"uid\":\"member\",\"password\":\"member\",\"recaptcha_response\":\"03AFcWeA5MmdVJVttCFTXknQWYEzKH21wOASCW4jFtS83_7Sx7qr_6HR4xcuIhQyaGTRaoOZyW7haghzsRU0anL2ZJ236ZKTL1FR9pF597CSlcn9IebedRVLRpwz4wlaMJd_DvbFAOMW_TPzprhep6MoSsXsrnvZP9rJ6SiGqE13wX9U_ksHWxnZVikKB880kmKZn4L6mIM3bW89tPx3AEeMbGkOOUKFj49_-BJ2uLDJWiqj8PoxjJB481uK1_vC4xr1ckEwPloF40_qQ09d0rRsmuhzl3KR86GclLpDKQRFMqzhmKdnijCYcajn1WeTZxxvYSAmgopJyAIrMmsfLyjGxO6uVCiNUw1wJ2qkx6fJHILmLYhUQWKDk1IDFnzIN0UQd85CiG-7Z1cJ2HrkfL4xAOJ_d5Zph44eUF9Hn0TQuYjAPDNEuETSVwR42ltPjjiLfCbvB2HO71e5ug3QGUTbvHo9u19G4MZsx-SC0J4nPX_iyC3-V-E1UxezRdLM24ngNy4Fu2xq4j1ECYQrjrVuGtJmt1ocEEeYebEnfp9Z0UivmN10d9MVK-HUEBQW9j83XvOsVgVx_9Kc3yk9cPL5Uo0cWOSqsS4qOXdIw1hPVo49Y6WZJXITyk6zSyOvz_908x8R1nPm1k_lgEFNJshPVg7YpNgIY5ZdjRnwPh4xTHMYAs2nsVKBuEBGouIqDOIytd04TsG55A3eNONoQTO5HalX1hGx1C1tI-DvH9r7p0iQ9VcB3Z02cwRnEdbTB8wbxxYP1Pdp6ibZrjbi4b9QyI72RQQ0rZ5Ct2JWzuxrcKQsX5vxYz0Bm5x-IB7LqOME3QLSzbWZnjS6864X6SNkYfdjpabI9us9V_Ncbeye51kPOWErXoCxtIh1QM0hkyT7tJdB2tJUf1uMFyhEGFYUH1ebNUbujvu_XuHb6UkzPg7VUfJKqyfPzuS9w9bR6sTBtrM3nBW-VlNG5i60S47MWHnAlet7lR74SWNHn3FKWeAQNHzkHV6Fs\"}}"
+}
+
+[12-Apr-2025 08:35:39 Europe/Berlin] [[12-Apr-2025 08:35:39 Europe/Berlin]] Action: request: , Data: {
+    "action": "login_account",
+    "data": {
+        "uid": "member",
+        "password": "member",
+        "recaptcha_response": "03AFcWeA5MmdVJVttCFTXknQWYEzKH21wOASCW4jFtS83_7Sx7qr_6HR4xcuIhQyaGTRaoOZyW7haghzsRU0anL2ZJ236ZKTL1FR9pF597CSlcn9IebedRVLRpwz4wlaMJd_DvbFAOMW_TPzprhep6MoSsXsrnvZP9rJ6SiGqE13wX9U_ksHWxnZVikKB880kmKZn4L6mIM3bW89tPx3AEeMbGkOOUKFj49_-BJ2uLDJWiqj8PoxjJB481uK1_vC4xr1ckEwPloF40_qQ09d0rRsmuhzl3KR86GclLpDKQRFMqzhmKdnijCYcajn1WeTZxxvYSAmgopJyAIrMmsfLyjGxO6uVCiNUw1wJ2qkx6fJHILmLYhUQWKDk1IDFnzIN0UQd85CiG-7Z1cJ2HrkfL4xAOJ_d5Zph44eUF9Hn0TQuYjAPDNEuETSVwR42ltPjjiLfCbvB2HO71e5ug3QGUTbvHo9u19G4MZsx-SC0J4nPX_iyC3-V-E1UxezRdLM24ngNy4Fu2xq4j1ECYQrjrVuGtJmt1ocEEeYebEnfp9Z0UivmN10d9MVK-HUEBQW9j83XvOsVgVx_9Kc3yk9cPL5Uo0cWOSqsS4qOXdIw1hPVo49Y6WZJXITyk6zSyOvz_908x8R1nPm1k_lgEFNJshPVg7YpNgIY5ZdjRnwPh4xTHMYAs2nsVKBuEBGouIqDOIytd04TsG55A3eNONoQTO5HalX1hGx1C1tI-DvH9r7p0iQ9VcB3Z02cwRnEdbTB8wbxxYP1Pdp6ibZrjbi4b9QyI72RQQ0rZ5Ct2JWzuxrcKQsX5vxYz0Bm5x-IB7LqOME3QLSzbWZnjS6864X6SNkYfdjpabI9us9V_Ncbeye51kPOWErXoCxtIh1QM0hkyT7tJdB2tJUf1uMFyhEGFYUH1ebNUbujvu_XuHb6UkzPg7VUfJKqyfPzuS9w9bR6sTBtrM3nBW-VlNG5i60S47MWHnAlet7lR74SWNHn3FKWeAQNHzkHV6Fs"
+    }
+}
+
+[12-Apr-2025 14:35:39 Asia/Manila] [[12-Apr-2025 14:35:39 Asia/Manila]] Action: Session Data: , Data: {
+    "ip_address": "127.0.0.1",
+    "user_agent": "Mozilla\/5.0 (Windows NT 10.0; Win64; x64; rv:137.0) Gecko\/20100101 Firefox\/137.0",
+    "session_hash": "5fd061ae8ebed84e16f3dbe9897016b3a355358fca6e9278b73b1303ad788c68",
+    "session_id": "rqfvcmhcv5cjkbm75elk3lil45",
+    "account_id": 18,
+    "account_uid": "A839109",
+    "email": "member@gmail.com",
+    "username": "member",
+    "account_status": "active",
+    "role_name": "Member",
+    "member_id": 16,
+    "first_name": "John",
+    "last_name": "Doe",
+    "middle_name": "Smith",
+    "full_name": "John S. Doe",
+    "contact_number": "+639772465533",
+    "full_address": "Ph7, Blk3, Lot24, Residence III, Brgy. Mapulang Lupa, Pandi, Bulacan, Region 3"
+}
+
+[12-Apr-2025 08:50:18 Europe/Berlin] [[12-Apr-2025 08:50:18 Europe/Berlin]] Action: get_server_request_data(): , Data: {
+    "rawInput": "{\"action\":\"logout_account\",\"data\":{\"uid\":\"A839109\",\"session_id\":\"rqfvcmhcv5cjkbm75elk3lil45\"}}"
+}
+
+[12-Apr-2025 08:50:18 Europe/Berlin] [[12-Apr-2025 08:50:18 Europe/Berlin]] Action: request: , Data: {
+    "action": "logout_account",
+    "data": {
+        "uid": "A839109",
+        "session_id": "rqfvcmhcv5cjkbm75elk3lil45"
+    }
+}
+
+[12-Apr-2025 08:52:43 Europe/Berlin] PHP Warning:  Undefined variable $base_url in C:\xampp\htdocs\bulsu-school\account-receivable-system-project\index.php on line 13
+[12-Apr-2025 08:53:16 Europe/Berlin] [[12-Apr-2025 08:53:16 Europe/Berlin]] Action: get_server_request_data(): , Data: {
+    "rawInput": "{\"action\":\"login_account\",\"data\":{\"uid\":\"admin\",\"password\":\"admin\",\"recaptcha_response\":\"03AFcWeA7x2O84vrJxSArbvtIdmb65AvYs0j110hutwXLcY7DmLenqLz2w95pNT1EQ__Lx95ZPkWA9e-4ic0SBY4CHoiWifLXLAWedkO__o3R6Op7wIJJF6yy2hU52yzgd9OJ5ESeGNhP7hTW-5sWLN-bZk0jolUf3nBrGGxlAkoGoHyqcw_-28QmLQAyWIOU5p9Rd_9xwJjWjiH9PL_QB-Xjmg9uH_Wh6sGVbrmsnw7-bT3a0qzmoTff6Y-x-l8vfqia6kHgx0EOiU-TgIWFMl_4MLj7rnHxLLC-Il_9XsW63GX9cvc42B50W7rSxpOQn-VLaZ4HfNi9cHBpfwuoENsd7-2ZzIa0huqBu9duFqdRzpSlEpFzB2YE45WOADMmPHP68XprqVWhnJwxh_7sf_6Kk8Wvl_Qq3nLSZya3V8_kE0HAH6HUwvbo7YbLYJWxaiGDoC8CIkoF55vh2k8wBXSr883qCG5OkM8kKeFQRChUUuMY7kMR0XcamhB88Z0U6COERBBQbw0AZbtC9wxuWxR-M0wrZ6WuibMKH--q3CFu_XpyAUN6D2edWT4R0hh0RXIVkKc1ZT7MvTuFuFY9i-RcpoNPENqXXcEQAhoANyEi04N6hGk_W3YGW5sxYot7VFDwPE6lNPTHeaGnldW_pP35c7_F8diZjt9In2-_Yy81OEbu-ITSx7FTvakhRIUmBOcw3B5tnp88pnv4uefdtEzpBHurVzMEJSpJD3VNiEKE60nuiqY-HKy9Y8lentqx6waFFX6e2dSy56sTtMEIALRcSv9ZAKrzIDGhXQrc4K576UhVxSzui_tJYgLcJ5WEdiOVKFpDMbUq7v6-7tvgURGeWChjMkpHPAL0uwhmnWtFYMMCHb4kQc68liU5Qa3eDHvK2fQjk3wNl7HIochcdHXpmom3G8t-C2ZKMMNOlYqpli5f6gEi1qcz_WhtXtL-glvdQ94a85sxbkGtdaZLqSxnl8Juzp739JZfXCKSZzhAbmyyVfbyclwA\"}}"
+}
+
+[12-Apr-2025 08:53:16 Europe/Berlin] [[12-Apr-2025 08:53:16 Europe/Berlin]] Action: request: , Data: {
+    "action": "login_account",
+    "data": {
+        "uid": "admin",
+        "password": "admin",
+        "recaptcha_response": "03AFcWeA7x2O84vrJxSArbvtIdmb65AvYs0j110hutwXLcY7DmLenqLz2w95pNT1EQ__Lx95ZPkWA9e-4ic0SBY4CHoiWifLXLAWedkO__o3R6Op7wIJJF6yy2hU52yzgd9OJ5ESeGNhP7hTW-5sWLN-bZk0jolUf3nBrGGxlAkoGoHyqcw_-28QmLQAyWIOU5p9Rd_9xwJjWjiH9PL_QB-Xjmg9uH_Wh6sGVbrmsnw7-bT3a0qzmoTff6Y-x-l8vfqia6kHgx0EOiU-TgIWFMl_4MLj7rnHxLLC-Il_9XsW63GX9cvc42B50W7rSxpOQn-VLaZ4HfNi9cHBpfwuoENsd7-2ZzIa0huqBu9duFqdRzpSlEpFzB2YE45WOADMmPHP68XprqVWhnJwxh_7sf_6Kk8Wvl_Qq3nLSZya3V8_kE0HAH6HUwvbo7YbLYJWxaiGDoC8CIkoF55vh2k8wBXSr883qCG5OkM8kKeFQRChUUuMY7kMR0XcamhB88Z0U6COERBBQbw0AZbtC9wxuWxR-M0wrZ6WuibMKH--q3CFu_XpyAUN6D2edWT4R0hh0RXIVkKc1ZT7MvTuFuFY9i-RcpoNPENqXXcEQAhoANyEi04N6hGk_W3YGW5sxYot7VFDwPE6lNPTHeaGnldW_pP35c7_F8diZjt9In2-_Yy81OEbu-ITSx7FTvakhRIUmBOcw3B5tnp88pnv4uefdtEzpBHurVzMEJSpJD3VNiEKE60nuiqY-HKy9Y8lentqx6waFFX6e2dSy56sTtMEIALRcSv9ZAKrzIDGhXQrc4K576UhVxSzui_tJYgLcJ5WEdiOVKFpDMbUq7v6-7tvgURGeWChjMkpHPAL0uwhmnWtFYMMCHb4kQc68liU5Qa3eDHvK2fQjk3wNl7HIochcdHXpmom3G8t-C2ZKMMNOlYqpli5f6gEi1qcz_WhtXtL-glvdQ94a85sxbkGtdaZLqSxnl8Juzp739JZfXCKSZzhAbmyyVfbyclwA"
+    }
+}
+
+[12-Apr-2025 14:53:16 Asia/Manila] [[12-Apr-2025 14:53:16 Asia/Manila]] Action: Session Data: , Data: {
+    "ip_address": "127.0.0.1",
+    "user_agent": "Mozilla\/5.0 (Windows NT 10.0; Win64; x64; rv:137.0) Gecko\/20100101 Firefox\/137.0",
+    "session_hash": "f525370c97f91085f21c8b5789d6734f5bc9f28365335200b26d62bbfee381c8",
+    "session_id": "6uadk0q7v67rfvqh1eh3m04q5i",
+    "account_id": 1,
+    "account_uid": "A581822",
+    "email": "jeromesavc@gmail.com",
+    "username": "admin",
+    "account_status": "active",
+    "role_name": "Administrator",
+    "employee_id": 1,
+    "first_name": "Jerome",
+    "last_name": "Avecilla",
+    "middle_name": "Sotel",
+    "full_name": "Jerome S. Avecilla",
+    "contact_number": "+639772465533"
+}
+
+[12-Apr-2025 08:53:20 Europe/Berlin] PHP Warning:  Undefined variable $base_url in C:\xampp\htdocs\bulsu-school\account-receivable-system-project\index.php on line 13
+[12-Apr-2025 08:54:04 Europe/Berlin] PHP Warning:  Undefined variable $base_url in C:\xampp\htdocs\bulsu-school\account-receivable-system-project\index.php on line 13
+[12-Apr-2025 08:54:26 Europe/Berlin] [[12-Apr-2025 08:54:26 Europe/Berlin]] Action: get_server_request_data(): , Data: {
+    "rawInput": "{\"action\":\"login_account\",\"data\":{\"uid\":\"admin\",\"password\":\"admin\",\"recaptcha_response\":\"03AFcWeA7DJbYbhswZXMP3jrRKWkB2bZIMCZLVXHhAJN6NEdAUzOF_glGqPJ7jBHhdfQM1QCF1nXiBnGa1nYI0NClFFWk9tHQpHlwaYrBMveLUtUeQhzuPacxcQzUsduHmFqJ08a_0DBzoc-_rjYTLgztng-girs2nSwsPjOOBNhvL4dQ_grnhRKJINRu38ViMr_ErTDIClBTnZMSJh5b3G3UswsOG2kI7NwSX8pATJXEsJiOtwCO82bWo7DGBroMDeP0erJ0hFnqi4FZaVNkOha6niSS8EkyZNf2PybMLMJwHis7HXu87WTLhH4RrxC7JyThpGzErTQXkHqjfL5AXaYaIQktN0C1IKlieQFuXw9Nh5T-SXsjIUTYswbUC-tsH4ioStYjL4Yt1RsDDnAsASmjyuxE7n2jVFbzUjLMILTLbpWu4Kos13JvTzmuZiEHF1kUEVFfWDQABEAqH9Fxfu_C-EFuJqtby9K6-1KtbVyKAo_-ZCenek1c9DkcAXnrTp2frv2riikDA74KIABsdn-nnPW4PKpbQdFT2UuJdafpFcOXB4IOTsMF10HSZ8qCV3gGX5gjHbRlbMQQDacr5qBtOUenv8i5Z0EucBdyqs_T9X2mu7sesACHIbG5mgt_w99rnclKwDz7ww_lqUAlNPC8SQeevjClpPqn3PeKyTKImMrRPb37lBs1bDMJaTJP2fQf9RQIhQNXisGDzLCvEviBb19ZAzUoFQAcCgVclugmCZ8h_OSghQsdQOU-mA_WwBs7mSGGRB9FmPIg3POQRd0QwOI0X0eTgxJgIO8bZNP6rHgD15GAS4daS3gnlMTh4Ur_6N1p8vYKBuUk3X47fvxQRDY4MrmJyQAsMr4Pe1qriiwYgu804EwDO5l0lhbgy5dDXgdZjcVdr1zgEWV2x0DZYZj1Z92qGBbJrjR1VQfpedQXACKaiP0nSQ_Vl9giO3x7tnBlRoAMdElMECSSqnBZVNaSFQ8ZwOXa_cimTMxjSlt4r-KOpkRo\"}}"
+}
+
+[12-Apr-2025 08:54:26 Europe/Berlin] [[12-Apr-2025 08:54:26 Europe/Berlin]] Action: request: , Data: {
+    "action": "login_account",
+    "data": {
+        "uid": "admin",
+        "password": "admin",
+        "recaptcha_response": "03AFcWeA7DJbYbhswZXMP3jrRKWkB2bZIMCZLVXHhAJN6NEdAUzOF_glGqPJ7jBHhdfQM1QCF1nXiBnGa1nYI0NClFFWk9tHQpHlwaYrBMveLUtUeQhzuPacxcQzUsduHmFqJ08a_0DBzoc-_rjYTLgztng-girs2nSwsPjOOBNhvL4dQ_grnhRKJINRu38ViMr_ErTDIClBTnZMSJh5b3G3UswsOG2kI7NwSX8pATJXEsJiOtwCO82bWo7DGBroMDeP0erJ0hFnqi4FZaVNkOha6niSS8EkyZNf2PybMLMJwHis7HXu87WTLhH4RrxC7JyThpGzErTQXkHqjfL5AXaYaIQktN0C1IKlieQFuXw9Nh5T-SXsjIUTYswbUC-tsH4ioStYjL4Yt1RsDDnAsASmjyuxE7n2jVFbzUjLMILTLbpWu4Kos13JvTzmuZiEHF1kUEVFfWDQABEAqH9Fxfu_C-EFuJqtby9K6-1KtbVyKAo_-ZCenek1c9DkcAXnrTp2frv2riikDA74KIABsdn-nnPW4PKpbQdFT2UuJdafpFcOXB4IOTsMF10HSZ8qCV3gGX5gjHbRlbMQQDacr5qBtOUenv8i5Z0EucBdyqs_T9X2mu7sesACHIbG5mgt_w99rnclKwDz7ww_lqUAlNPC8SQeevjClpPqn3PeKyTKImMrRPb37lBs1bDMJaTJP2fQf9RQIhQNXisGDzLCvEviBb19ZAzUoFQAcCgVclugmCZ8h_OSghQsdQOU-mA_WwBs7mSGGRB9FmPIg3POQRd0QwOI0X0eTgxJgIO8bZNP6rHgD15GAS4daS3gnlMTh4Ur_6N1p8vYKBuUk3X47fvxQRDY4MrmJyQAsMr4Pe1qriiwYgu804EwDO5l0lhbgy5dDXgdZjcVdr1zgEWV2x0DZYZj1Z92qGBbJrjR1VQfpedQXACKaiP0nSQ_Vl9giO3x7tnBlRoAMdElMECSSqnBZVNaSFQ8ZwOXa_cimTMxjSlt4r-KOpkRo"
+    }
+}
+
+[12-Apr-2025 14:54:27 Asia/Manila] [[12-Apr-2025 14:54:27 Asia/Manila]] Action: Session Data: , Data: {
+    "ip_address": "127.0.0.1",
+    "user_agent": "Mozilla\/5.0 (Windows NT 10.0; Win64; x64; rv:137.0) Gecko\/20100101 Firefox\/137.0",
+    "session_hash": "f525370c97f91085f21c8b5789d6734f5bc9f28365335200b26d62bbfee381c8",
+    "session_id": "6uadk0q7v67rfvqh1eh3m04q5i",
+    "account_id": 1,
+    "account_uid": "A581822",
+    "email": "jeromesavc@gmail.com",
+    "username": "admin",
+    "account_status": "active",
+    "role_name": "Administrator",
+    "employee_id": 1,
+    "first_name": "Jerome",
+    "last_name": "Avecilla",
+    "middle_name": "Sotel",
+    "full_name": "Jerome S. Avecilla",
+    "contact_number": "+639772465533"
+}
+
+[12-Apr-2025 08:54:33 Europe/Berlin] PHP Warning:  Undefined variable $base_url in C:\xampp\htdocs\bulsu-school\account-receivable-system-project\index.php on line 13
+[12-Apr-2025 08:55:35 Europe/Berlin] [[12-Apr-2025 08:55:35 Europe/Berlin]] Action: get_server_request_data(): , Data: {
+    "rawInput": "{\"action\":\"login_account\",\"data\":{\"uid\":\"admin\",\"password\":\"admin\",\"recaptcha_response\":\"03AFcWeA5cj7NQZfqOXryapTugQTB1aHhad3X2S9GypuA5HWg8J_6x-1o6DFOCWX-r6Mk63HnR1iJ8VcYDPE0LU6GP4XvYxSEEL4WROxx_B56voe_iKBR-RZCvb6T09SOOpWT3tgk2j0VL5EEkQ6IQyghsYVm_GgHhHpQMwb5uh7JESO_ggg7SVNgCQW3lpaDKtD68-RKcT98ER_rp2lZHKbEOxXOlpImFxqaAVqsRYtZeVfZm6KRUxfhdBTTEy2lLBn91yzEtkmHfBqpJtZme8LnUCN72LgnY--NGuEUP4izfP0fbADvf2Tw6pxYj4tOmz3sNiKmGdv_RlS6mS26zyyGxGegim6czlB9VIuzN60qwl89_h84xqQXwNTlWAuMdXu65Knazifecegyo-Yk2g61CmAq20u2e0EOwoA6EvXbLOVrxGyEjVQWkYe1cZAS6362UhnLqB938SjaHhTp2janVlxzEEEy2uj3LKvBQX-hysL-W2JrUO5GeeqCyxbiT5HumB8T5ak6DvyIOMyGKO-NTEt2YK8zrIZUPD6zK9RYNQzz7Ve04S932c4_uGPxaa9sKp_pvk_3BJrON4EeKNOO9my80omy3bMBZDCCv1kjB0zm72jmxXiJQTq-0_WUZxyjXr9HpMj1q0QU2dhqcctImYQtIiPFdKTbO5hku7ULlQC-tByB8S7E0mk1yMTGrtJ-eS108eYKACLJZC3mZnp3Gn5jzbDfEeP3QKBj4Bf4B8hMf3oLdijmh6DS8LoYWtrWiYBAk2wHWV3XvF2y5UagmFfzpi-AjhNfWZpZALpdbnBGcPGkLy49HYc3w1_sf6xopmAwBTaoH0FSQu738zYT4ZlaCGpleenLK-ba-aFE6UZXT4LKnJHeZ9bix6PLmHMHzLWiJVq5kA4Sfc_gq1libemhW8_m6qDKbM25Y63l0N9PXrosYSogHmXlZmZtCOrrutGwAvkfmSLjgM1etYXuXLyFjT5zkpsEiMGTIaZpLwmJNtNYgG7I\"}}"
+}
+
+[12-Apr-2025 08:55:35 Europe/Berlin] [[12-Apr-2025 08:55:35 Europe/Berlin]] Action: request: , Data: {
+    "action": "login_account",
+    "data": {
+        "uid": "admin",
+        "password": "admin",
+        "recaptcha_response": "03AFcWeA5cj7NQZfqOXryapTugQTB1aHhad3X2S9GypuA5HWg8J_6x-1o6DFOCWX-r6Mk63HnR1iJ8VcYDPE0LU6GP4XvYxSEEL4WROxx_B56voe_iKBR-RZCvb6T09SOOpWT3tgk2j0VL5EEkQ6IQyghsYVm_GgHhHpQMwb5uh7JESO_ggg7SVNgCQW3lpaDKtD68-RKcT98ER_rp2lZHKbEOxXOlpImFxqaAVqsRYtZeVfZm6KRUxfhdBTTEy2lLBn91yzEtkmHfBqpJtZme8LnUCN72LgnY--NGuEUP4izfP0fbADvf2Tw6pxYj4tOmz3sNiKmGdv_RlS6mS26zyyGxGegim6czlB9VIuzN60qwl89_h84xqQXwNTlWAuMdXu65Knazifecegyo-Yk2g61CmAq20u2e0EOwoA6EvXbLOVrxGyEjVQWkYe1cZAS6362UhnLqB938SjaHhTp2janVlxzEEEy2uj3LKvBQX-hysL-W2JrUO5GeeqCyxbiT5HumB8T5ak6DvyIOMyGKO-NTEt2YK8zrIZUPD6zK9RYNQzz7Ve04S932c4_uGPxaa9sKp_pvk_3BJrON4EeKNOO9my80omy3bMBZDCCv1kjB0zm72jmxXiJQTq-0_WUZxyjXr9HpMj1q0QU2dhqcctImYQtIiPFdKTbO5hku7ULlQC-tByB8S7E0mk1yMTGrtJ-eS108eYKACLJZC3mZnp3Gn5jzbDfEeP3QKBj4Bf4B8hMf3oLdijmh6DS8LoYWtrWiYBAk2wHWV3XvF2y5UagmFfzpi-AjhNfWZpZALpdbnBGcPGkLy49HYc3w1_sf6xopmAwBTaoH0FSQu738zYT4ZlaCGpleenLK-ba-aFE6UZXT4LKnJHeZ9bix6PLmHMHzLWiJVq5kA4Sfc_gq1libemhW8_m6qDKbM25Y63l0N9PXrosYSogHmXlZmZtCOrrutGwAvkfmSLjgM1etYXuXLyFjT5zkpsEiMGTIaZpLwmJNtNYgG7I"
+    }
+}
+
+[12-Apr-2025 14:55:35 Asia/Manila] [[12-Apr-2025 14:55:35 Asia/Manila]] Action: Session Data: , Data: {
+    "ip_address": "127.0.0.1",
+    "user_agent": "Mozilla\/5.0 (Windows NT 10.0; Win64; x64; rv:137.0) Gecko\/20100101 Firefox\/137.0",
+    "session_hash": "f525370c97f91085f21c8b5789d6734f5bc9f28365335200b26d62bbfee381c8",
+    "session_id": "6uadk0q7v67rfvqh1eh3m04q5i",
+    "account_id": 1,
+    "account_uid": "A581822",
+    "email": "jeromesavc@gmail.com",
+    "username": "admin",
+    "account_status": "active",
+    "role_name": "Administrator",
+    "employee_id": 1,
+    "first_name": "Jerome",
+    "last_name": "Avecilla",
+    "middle_name": "Sotel",
+    "full_name": "Jerome S. Avecilla",
+    "contact_number": "+639772465533"
+}
+
+[12-Apr-2025 08:55:49 Europe/Berlin] PHP Warning:  Undefined variable $base_url in C:\xampp\htdocs\bulsu-school\account-receivable-system-project\index.php on line 9
+[12-Apr-2025 08:56:12 Europe/Berlin] PHP Warning:  Undefined variable $base_url in C:\xampp\htdocs\bulsu-school\account-receivable-system-project\index.php on line 10
+[12-Apr-2025 08:56:28 Europe/Berlin] [[12-Apr-2025 08:56:29 Europe/Berlin]] Action: get_server_request_data(): , Data: {
+    "rawInput": "{\"action\":\"logout_account\",\"data\":{\"uid\":\"A581822\",\"session_id\":\"6uadk0q7v67rfvqh1eh3m04q5i\"}}"
+}
+
+[12-Apr-2025 08:56:28 Europe/Berlin] [[12-Apr-2025 08:56:29 Europe/Berlin]] Action: request: , Data: {
+    "action": "logout_account",
+    "data": {
+        "uid": "A581822",
+        "session_id": "6uadk0q7v67rfvqh1eh3m04q5i"
+    }
+}
+
+[12-Apr-2025 08:58:18 Europe/Berlin] [[12-Apr-2025 08:58:18 Europe/Berlin]] Action: get_server_request_data(): , Data: {
+    "rawInput": "{\"action\":\"login_account\",\"data\":{\"uid\":\"admin\",\"password\":\"admin\",\"recaptcha_response\":\"03AFcWeA5oeKHFM7sBGs_AqTLTvV5l4w8xcB0CtNy6kGyeQs4NqGgowKoRrA8fr-eHVWQmUoeWnI5aHddkt6hO4C9S51xNOis40CAyiGAwjt5wewx5CyvvP-nmeYy_8vP4rkNonUY9KySRXr3iehiHJyGwzxxEH7Ls5QIVfV49l_es4tJjtJPfP9Et7qSCUtexLPrFv2m1KbEULvYljI8PLWKblHmCwoswEVLV3bSM2yqV_QkThPKhpYro06iDtlp-gIHML-RWqN0nUFeIdKyYIaThI7kglj4H_th-_PvxnVubD8T4W5noeISpcBEFyn8WfTwxAmkVpAxHHnodEracq83IO4xGpob4AqqG55RLIHCYBONgfQaMrIClf9eMcrmYEV6u7WlV0q5JGvMCD2f2F6SG0MnyrOhBWx3noFkILzz_AbjAt2Bp0q8W-u8SUUkkSlnV07PUZSe4EQ5Mur15ECK9BckDizpBoNZo9F3gHB00Bcl_PfkURlXyzxmFy2tAIGINHrc5y4qlMrOuGDWlCxqzB8A2f4pJxtg4ejyTsRADCUyJD3O-J_nyA6PAFgLjaIV6v39CxcnQBdN8x_i5s5lVxu5Sv9TWqun_7ix0hpKtvUOfAV0t1bXZuPM6AQXx_fpHimHje5p4ZBPfGGc9YBfJVlZbAldhMKYFYMFvHhzPwSN-qYixf9MGtRgIvZZn2JDVEX7sRAxPtQVl6OLKWUnOBaJts6SljIF1L8XW-FFAaKpTcg4Yy_ZP-tMHjr6JiKzj9UudNxfdyMdl8-WxAKSKzut5OmhVTjtb84kK0mg9TyJ-aR-q8drHK2sxeRuPZjfzBGU2VXYn8OtDIS9RErBEBHOl6MF0cgZaWbsNHHSxIWWdvbxejdq1rC220Xl9yVy5E3I3Msa_QdLYPkt9pf3NNWT2QG2e-xT8ex_wkF5o796DS3KoWyiqaYlVCA_CsDl2bZg298uYJHNw04r3iLiXWWVUypKEXg\"}}"
+}
+
+[12-Apr-2025 08:58:18 Europe/Berlin] [[12-Apr-2025 08:58:18 Europe/Berlin]] Action: request: , Data: {
+    "action": "login_account",
+    "data": {
+        "uid": "admin",
+        "password": "admin",
+        "recaptcha_response": "03AFcWeA5oeKHFM7sBGs_AqTLTvV5l4w8xcB0CtNy6kGyeQs4NqGgowKoRrA8fr-eHVWQmUoeWnI5aHddkt6hO4C9S51xNOis40CAyiGAwjt5wewx5CyvvP-nmeYy_8vP4rkNonUY9KySRXr3iehiHJyGwzxxEH7Ls5QIVfV49l_es4tJjtJPfP9Et7qSCUtexLPrFv2m1KbEULvYljI8PLWKblHmCwoswEVLV3bSM2yqV_QkThPKhpYro06iDtlp-gIHML-RWqN0nUFeIdKyYIaThI7kglj4H_th-_PvxnVubD8T4W5noeISpcBEFyn8WfTwxAmkVpAxHHnodEracq83IO4xGpob4AqqG55RLIHCYBONgfQaMrIClf9eMcrmYEV6u7WlV0q5JGvMCD2f2F6SG0MnyrOhBWx3noFkILzz_AbjAt2Bp0q8W-u8SUUkkSlnV07PUZSe4EQ5Mur15ECK9BckDizpBoNZo9F3gHB00Bcl_PfkURlXyzxmFy2tAIGINHrc5y4qlMrOuGDWlCxqzB8A2f4pJxtg4ejyTsRADCUyJD3O-J_nyA6PAFgLjaIV6v39CxcnQBdN8x_i5s5lVxu5Sv9TWqun_7ix0hpKtvUOfAV0t1bXZuPM6AQXx_fpHimHje5p4ZBPfGGc9YBfJVlZbAldhMKYFYMFvHhzPwSN-qYixf9MGtRgIvZZn2JDVEX7sRAxPtQVl6OLKWUnOBaJts6SljIF1L8XW-FFAaKpTcg4Yy_ZP-tMHjr6JiKzj9UudNxfdyMdl8-WxAKSKzut5OmhVTjtb84kK0mg9TyJ-aR-q8drHK2sxeRuPZjfzBGU2VXYn8OtDIS9RErBEBHOl6MF0cgZaWbsNHHSxIWWdvbxejdq1rC220Xl9yVy5E3I3Msa_QdLYPkt9pf3NNWT2QG2e-xT8ex_wkF5o796DS3KoWyiqaYlVCA_CsDl2bZg298uYJHNw04r3iLiXWWVUypKEXg"
+    }
+}
+
+[12-Apr-2025 14:58:18 Asia/Manila] [[12-Apr-2025 14:58:18 Asia/Manila]] Action: Session Data: , Data: {
+    "ip_address": "127.0.0.1",
+    "user_agent": "Mozilla\/5.0 (Windows NT 10.0; Win64; x64; rv:137.0) Gecko\/20100101 Firefox\/137.0",
+    "session_hash": "1d9259eeb5cf7cc6d7c0eaffc417e104c161337d137bebce2f62bae9ec01b91d",
+    "session_id": "pfbug1dr03fp8a5nemte5nd9qo",
+    "account_id": 1,
+    "account_uid": "A581822",
+    "email": "jeromesavc@gmail.com",
+    "username": "admin",
+    "account_status": "active",
+    "role_name": "Administrator",
+    "employee_id": 1,
+    "first_name": "Jerome",
+    "last_name": "Avecilla",
+    "middle_name": "Sotel",
+    "full_name": "Jerome S. Avecilla",
+    "contact_number": "+639772465533"
+}
+
+[12-Apr-2025 08:58:18 Europe/Berlin] PHP Warning:  Undefined variable $base_url in C:\xampp\htdocs\bulsu-school\account-receivable-system-project\index.php on line 10
+[12-Apr-2025 08:58:46 Europe/Berlin] PHP Warning:  Undefined variable $base_url in C:\xampp\htdocs\bulsu-school\account-receivable-system-project\index.php on line 10
+[12-Apr-2025 08:58:55 Europe/Berlin] [[12-Apr-2025 08:58:55 Europe/Berlin]] Action: get_server_request_data(): , Data: {
+    "rawInput": "{\"action\":\"logout_account\",\"data\":{\"uid\":\"A581822\",\"session_id\":\"pfbug1dr03fp8a5nemte5nd9qo\"}}"
+}
+
+[12-Apr-2025 08:58:55 Europe/Berlin] [[12-Apr-2025 08:58:55 Europe/Berlin]] Action: request: , Data: {
+    "action": "logout_account",
+    "data": {
+        "uid": "A581822",
+        "session_id": "pfbug1dr03fp8a5nemte5nd9qo"
+    }
+}
+
+[12-Apr-2025 08:59:11 Europe/Berlin] [[12-Apr-2025 08:59:11 Europe/Berlin]] Action: get_server_request_data(): , Data: {
+    "rawInput": "{\"action\":\"login_account\",\"data\":{\"uid\":\"member\",\"password\":\"member\",\"recaptcha_response\":\"03AFcWeA7EiAX6ME5TGa2Esjnd0tzDXc-kQ9fSXHYnyrg6S8QSzgv2PSNqQBM_KWFZqYqh7gxNMiZgV_jZB_wpBxq-rR_umCse6bjrxqfZ8rtdbEJi4v7WbxL5GSyvV-SLzPjUE6vvqcplSCwKZouBvCtd22qHURLkbALOlY4ER_TwkdGtu6PrEz_BvCLKPluMG5oSyjLrvb3kJTAWQ9ZbF40SI7Z1-Q34v7uShtJJK1vGJ_qvQiAR_OUdp2NdxB9CDawtK4tbYlLm8kLhz0fNKd0Nomd1XiuFFEeANrHRo3emftpewf3ZUHIuK06R9SCipUu-LMypr1c61fV4i3SVn0v8bqc_XQbhcPhi1QSmEgswDdF7hPggA5lK1kLLxKhNgWtD2Q7RAoSt6e7dA0U-6Ui6kRn8MWkDS1otm6q6PSaRV75he-JmnM3uo2MBi0TfgttPNAa_YnTWvy1a9ztZHzb_O6fnHFN-y_ko1gzO-Hm9Rs1s3Y9xgLh0yneKpiy0DRz7hPYWZQVu0kKrfm4WWtJBNxq6nXRgYoMQYligE5vSBxLyPSWl4IY4-ZLo9NriemTpqShPo_zjNsDUUctf_o5a-nT11RAnUxXHZEGGaPFfVwGuXYdhG7yQnVQb7xnAFgOXpvVV75DG-XeNiq4HW7g1fcJJktxwlw39s5V4l_jLTpUKYYr8RyiyHpySnryLyGvbrYddtBjkDS2DXGUk5Z3xoKD49cnTP0-T6pPB1FfukIqXpDe7Nc-6MDI2IEwWr6r5PcIH4-b_Chr8LjXa54oXMpuUkwnW5QHKSUXlPSea1aY0ipMPgXruWCEm3xnNKCcpWvzxJD2SfOJmMff_-f2WBHr-m19jvhY8M-FOcKsXVAQVzF-snjhp0oS3WVNdS9WC8gmh7a-lhJ7lZyRF2SiJEU1rdfx3Ut0n5Jaxq9KyvuY3QJx1QaLfXfMJphtpk9Mq7FYo8YAOECzwbbqaHeMGb-uZxMmRlAAmwdM9oBpGzQXl121ZulM\"}}"
+}
+
+[12-Apr-2025 08:59:11 Europe/Berlin] [[12-Apr-2025 08:59:11 Europe/Berlin]] Action: request: , Data: {
+    "action": "login_account",
+    "data": {
+        "uid": "member",
+        "password": "member",
+        "recaptcha_response": "03AFcWeA7EiAX6ME5TGa2Esjnd0tzDXc-kQ9fSXHYnyrg6S8QSzgv2PSNqQBM_KWFZqYqh7gxNMiZgV_jZB_wpBxq-rR_umCse6bjrxqfZ8rtdbEJi4v7WbxL5GSyvV-SLzPjUE6vvqcplSCwKZouBvCtd22qHURLkbALOlY4ER_TwkdGtu6PrEz_BvCLKPluMG5oSyjLrvb3kJTAWQ9ZbF40SI7Z1-Q34v7uShtJJK1vGJ_qvQiAR_OUdp2NdxB9CDawtK4tbYlLm8kLhz0fNKd0Nomd1XiuFFEeANrHRo3emftpewf3ZUHIuK06R9SCipUu-LMypr1c61fV4i3SVn0v8bqc_XQbhcPhi1QSmEgswDdF7hPggA5lK1kLLxKhNgWtD2Q7RAoSt6e7dA0U-6Ui6kRn8MWkDS1otm6q6PSaRV75he-JmnM3uo2MBi0TfgttPNAa_YnTWvy1a9ztZHzb_O6fnHFN-y_ko1gzO-Hm9Rs1s3Y9xgLh0yneKpiy0DRz7hPYWZQVu0kKrfm4WWtJBNxq6nXRgYoMQYligE5vSBxLyPSWl4IY4-ZLo9NriemTpqShPo_zjNsDUUctf_o5a-nT11RAnUxXHZEGGaPFfVwGuXYdhG7yQnVQb7xnAFgOXpvVV75DG-XeNiq4HW7g1fcJJktxwlw39s5V4l_jLTpUKYYr8RyiyHpySnryLyGvbrYddtBjkDS2DXGUk5Z3xoKD49cnTP0-T6pPB1FfukIqXpDe7Nc-6MDI2IEwWr6r5PcIH4-b_Chr8LjXa54oXMpuUkwnW5QHKSUXlPSea1aY0ipMPgXruWCEm3xnNKCcpWvzxJD2SfOJmMff_-f2WBHr-m19jvhY8M-FOcKsXVAQVzF-snjhp0oS3WVNdS9WC8gmh7a-lhJ7lZyRF2SiJEU1rdfx3Ut0n5Jaxq9KyvuY3QJx1QaLfXfMJphtpk9Mq7FYo8YAOECzwbbqaHeMGb-uZxMmRlAAmwdM9oBpGzQXl121ZulM"
+    }
+}
+
+[12-Apr-2025 14:59:12 Asia/Manila] [[12-Apr-2025 14:59:12 Asia/Manila]] Action: Session Data: , Data: {
+    "ip_address": "127.0.0.1",
+    "user_agent": "Mozilla\/5.0 (Windows NT 10.0; Win64; x64; rv:137.0) Gecko\/20100101 Firefox\/137.0",
+    "session_hash": "b8e064a91b69c7fd0e34414f9fa06e32a3c11c7e3b5bbfe229ed196cc1ad6a70",
+    "session_id": "gpl9jdg4t6okopjlmac7oklaut",
+    "account_id": 18,
+    "account_uid": "A839109",
+    "email": "member@gmail.com",
+    "username": "member",
+    "account_status": "active",
+    "role_name": "Member",
+    "member_id": 16,
+    "first_name": "John",
+    "last_name": "Doe",
+    "middle_name": "Smith",
+    "full_name": "John S. Doe",
+    "contact_number": "+639772465533",
+    "full_address": "Ph7, Blk3, Lot24, Residence III, Brgy. Mapulang Lupa, Pandi, Bulacan, Region 3"
+}
+
+[12-Apr-2025 08:59:12 Europe/Berlin] PHP Warning:  Undefined variable $base_url in C:\xampp\htdocs\bulsu-school\account-receivable-system-project\index.php on line 12
+[12-Apr-2025 08:59:34 Europe/Berlin] [[12-Apr-2025 08:59:34 Europe/Berlin]] Action: get_server_request_data(): , Data: {
+    "rawInput": "{\"action\":\"logout_account\",\"data\":{\"uid\":\"A839109\",\"session_id\":\"gpl9jdg4t6okopjlmac7oklaut\"}}"
+}
+
+[12-Apr-2025 08:59:34 Europe/Berlin] [[12-Apr-2025 08:59:34 Europe/Berlin]] Action: request: , Data: {
+    "action": "logout_account",
+    "data": {
+        "uid": "A839109",
+        "session_id": "gpl9jdg4t6okopjlmac7oklaut"
+    }
+}
+
+[12-Apr-2025 09:28:11 Europe/Berlin] [[12-Apr-2025 09:28:11 Europe/Berlin]] Action: get_server_request_data(): , Data: {
+    "rawInput": "{\"action\":\"request_account_verification\",\"data\":{\"email\":\"wala@gmail.com\",\"recaptcha_response\":\"03AFcWeA7sX5YT2S6hhVV0d1W7i-VvknGiqWtPU6ZJhNWmpn98PVRlFmqmEz4NWdtszKy6EV4lKwQEdyq5RrpUH9pG5cNGU0kbCKFIPBYNGVEUMdAFCisDE_y5TovWqkZeVPMZ3yog35iaQbZJpwAAU-qV1j4RbHXruGDYdvqby-KgBmBMtZvL7enkvGd_XxtTMi46lIMUt7NI8bmabxx8ygoYIQaqEAuNsQDxoErzE9fUFudtL7cmQc3X1RpiXgb0S6rbuY0WWzktk7Pu9_3mHYfqJkj6YpA3NSptsrfntfYxCzp935ZQyQf4TUjFWJHnlXMHz3x1sIFwvp-kMxZ2PzE0on9oe0MUosZVVymroRTew3xrVw-O25K_Zu8Vu4hyFeidL9k5LCToFbrYfZOXkLKiG9290o3YTyavqc6T76rvPup-gF6QXqtV2ABCRfWlu3QEwWkHJyzMVduW81sLWWUodaFuQR22l-uqVMEcQvRvPpT4H49p7YU_LdM7LRkKBRu3uANyfK6blgLrAB-9KR02LsdzQIhZjg59t2uHEGUWdq3-0VB1vNwvSnl_zVm-BV4JSNUKYRhmOq769E44DF3t3nmKxG6CGhkz6Jxmnsx_db6NFfCDLSDiik3Clx_dp91Mrn4V7hZ6DTNUCO4qUEVBPcFANAfzbJBPHyvKXaC289cFuomU88GcoHlSgXhDV0nEFBD1yml-3wXAtdJ5aQG7mQ69IIcn3Np5rPDukiQ1CvQlFkY3dwcEFLkdCEj_ni495Yl1qYtQAl6teFIoQaQBY5kPRd0ODObZUxeapK4Ux8RG-TLrD09ZmUrdOIu8RvCMK-mvK4adkM0xEVTJFZPAAt74FKdTEBZ5HqvF2-8Afec2QtO3a50NKdCKwH-flfolU1OxKrXyudZG0H7cLLOlcc_L9e7m5X84kQZ8mMwaoadY-Yf0VQB3elPyZ9kP0PGkV9IC6YGH7gFFKixTjE6Fe5LSrvNb6tL_evz2FXkpp6XdFJflZ90\"}}"
+}
+
+[12-Apr-2025 09:28:11 Europe/Berlin] [[12-Apr-2025 09:28:11 Europe/Berlin]] Action: request: , Data: {
+    "action": "request_account_verification",
+    "data": {
+        "email": "wala@gmail.com",
+        "recaptcha_response": "03AFcWeA7sX5YT2S6hhVV0d1W7i-VvknGiqWtPU6ZJhNWmpn98PVRlFmqmEz4NWdtszKy6EV4lKwQEdyq5RrpUH9pG5cNGU0kbCKFIPBYNGVEUMdAFCisDE_y5TovWqkZeVPMZ3yog35iaQbZJpwAAU-qV1j4RbHXruGDYdvqby-KgBmBMtZvL7enkvGd_XxtTMi46lIMUt7NI8bmabxx8ygoYIQaqEAuNsQDxoErzE9fUFudtL7cmQc3X1RpiXgb0S6rbuY0WWzktk7Pu9_3mHYfqJkj6YpA3NSptsrfntfYxCzp935ZQyQf4TUjFWJHnlXMHz3x1sIFwvp-kMxZ2PzE0on9oe0MUosZVVymroRTew3xrVw-O25K_Zu8Vu4hyFeidL9k5LCToFbrYfZOXkLKiG9290o3YTyavqc6T76rvPup-gF6QXqtV2ABCRfWlu3QEwWkHJyzMVduW81sLWWUodaFuQR22l-uqVMEcQvRvPpT4H49p7YU_LdM7LRkKBRu3uANyfK6blgLrAB-9KR02LsdzQIhZjg59t2uHEGUWdq3-0VB1vNwvSnl_zVm-BV4JSNUKYRhmOq769E44DF3t3nmKxG6CGhkz6Jxmnsx_db6NFfCDLSDiik3Clx_dp91Mrn4V7hZ6DTNUCO4qUEVBPcFANAfzbJBPHyvKXaC289cFuomU88GcoHlSgXhDV0nEFBD1yml-3wXAtdJ5aQG7mQ69IIcn3Np5rPDukiQ1CvQlFkY3dwcEFLkdCEj_ni495Yl1qYtQAl6teFIoQaQBY5kPRd0ODObZUxeapK4Ux8RG-TLrD09ZmUrdOIu8RvCMK-mvK4adkM0xEVTJFZPAAt74FKdTEBZ5HqvF2-8Afec2QtO3a50NKdCKwH-flfolU1OxKrXyudZG0H7cLLOlcc_L9e7m5X84kQZ8mMwaoadY-Yf0VQB3elPyZ9kP0PGkV9IC6YGH7gFFKixTjE6Fe5LSrvNb6tL_evz2FXkpp6XdFJflZ90"
     }
 }
 

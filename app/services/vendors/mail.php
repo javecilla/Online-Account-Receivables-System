@@ -26,7 +26,7 @@ function send_email(string $to, string $subject, string $body, string $altBody =
                 <div style="width: 100%; margin: 0; background-color: #ffffff; overflow: hidden; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);">
                     <!-- Header Section -->
                     <div style="text-align: center; padding: 0;">
-                        <img src="https://jerome-avecilla.infinityfreeapp.com/assets/images/email-banner.png" alt="Header Banner" style="width: 100%; height: auto;" />
+                        <img src="https://avecilla-project-multipurpose.infinityfreeapp.com/assets/images/email-banner.png" alt="Header Banner" style="width: 100%; height: auto;" />
                     </div>
                     <!-- Body Section -->
                     <div style="padding: 15px; color: #000;"> 

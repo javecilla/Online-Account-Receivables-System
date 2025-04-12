@@ -27,7 +27,19 @@
 <script type="text/javascript" src="<?= $base_url ?>/assets/scripts/system/employee/services.js" loading="lazy"></script>
 <script type="text/javascript" src="<?= $base_url ?>/assets/scripts/system/amortizations/services.js" loading="lazy"></script>
 <?php
-if ($request_file_name === 'dashboard.php') {
+if ($request_file_name === 'login.php') {
+    echo <<<HTML
+          <script type="text/javascript" src="{$base_url}/assets/scripts/client/login.js" loading="lazy"></script>
+          HTML;
+} else if ($request_file_name === 'account-verification.php') {
+    echo <<<HTML
+          <script type="text/javascript" src="{$base_url}/assets/scripts/client/account-verification.js" loading="lazy"></script>
+          HTML;
+}  else if ($request_file_name === 'account-request.php') {
+    echo <<<HTML
+          <script type="text/javascript" src="{$base_url}/assets/scripts/client/account-request.js" loading="lazy"></script>
+          HTML;
+} else if ($request_file_name === 'dashboard.php') {
     echo <<<HTML
         <script type="text/javascript" src="{$base_url}/assets/scripts/system/dashboard/admin/daily-transactions.js" loading="lazy"></script>
         <script type="text/javascript" src="{$base_url}/assets/scripts/system/dashboard/admin/summary-metrics.js" loading="lazy"></script>

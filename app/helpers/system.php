@@ -79,6 +79,11 @@ function get_request_file_name(): string
     return basename($_SERVER['PHP_SELF']);
 }
 
+function get_client_ip(): string
+{
+    return $_SERVER['REMOTE_ADDR'];
+}
+
 // function generate_member_id(int $role_id): string
 // {
 //     $prefix = match ($role_id) {

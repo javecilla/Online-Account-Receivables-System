@@ -67,10 +67,10 @@
         <!-- user profile dropdown -->
         <div class="dropdown profile-dropdown">
             <button class="profile-btn" id="profileDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                <img src="<?= get_base_url() ?>/assets/images/jerome-profile.png" class="round-circle" width="40" height="40" alt="profile" loading="lazy" />
+                <img src="<?= $base_url ?>/assets/images/<?= $_SESSION['role_name'] == 'Administrator' ? 'jerome-profile' : 'default-profile'?>.png" class="round-circle" width="40" height="40" alt="profile" loading="lazy" />
                 <div class="text-container">
-                    <span class="profile-name">Jerome S. Avecilla</span>
-                    <span class="user-role">Administrator</span>
+                    <span class="profile-name"><?= $_SESSION['full_name'] ?></span>
+                    <span class="user-role"><?= $_SESSION['role_name'] ?></span>
                 </div>
                 <i class="fas fa-chevron-down"></i>
             </button>
@@ -80,7 +80,7 @@
                 <li>
                     <hr class="dropdown-divider">
                 </li>
-                <li><a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                <li><a class="dropdown-item" href="#logout" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
             </ul>
         </div>
     </div>

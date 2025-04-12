@@ -44,7 +44,7 @@ function begin_session(): void
     }
 
     // Check if session is not started yet and then start it
-    if (session_status() === PHP_SESSION_NONE || session_status() !== PHP_SESSION_ACTIVE) {
+    if (session_status() === PHP_SESSION_NONE) {
         session_start($session_options);
     }
 
@@ -65,8 +65,7 @@ function begin_session(): void
 
 function generate_new_session_id(): void
 {
-    // Regenerate session ID to prevent session fixation attacks
-    if (session_status() === PHP_SESSION_NONE || session_status() !== PHP_SESSION_ACTIVE) {
+    if (session_status() === PHP_SESSION_NONE) {
         session_regenerate_id(true); // true to delete the old session
     }
 }
@@ -94,9 +93,36 @@ function handle_session_hijacking(): void
     }
 }
 
+function is_authenticated(): bool
+{
+    return isset($_SESSION['session_id']) && !is_null($_SESSION['session_id']);
+}
+
 function terminate_session(): void
 {
     session_unset();    // Unset all session variables
     session_destroy();  // Destroy the session
     clearstatcache();   // Clear the file stat cache
+}
+
+function force_logout(): void
+{
+    terminate_session();
+    echo "<script>window.location.href = '/auth/login';</script>";
+    exit();
+}
+
+function is_admin(): bool
+{
+    return isset($_SESSION['role_name']) && $_SESSION['role_name'] === 'Administrator';
+}
+
+function is_member(): bool
+{
+    return isset($_SESSION['role_name']) && $_SESSION['role_name'] === 'Member';
+}
+
+function is_employee(): bool
+{
+    return isset($_SESSION['role_name']) && ($_SESSION['role_name'] === 'Administrator' || $_SESSION['role_name'] === 'Accountant');
 }

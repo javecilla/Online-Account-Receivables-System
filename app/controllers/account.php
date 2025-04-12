@@ -94,7 +94,7 @@ function handle_verify_account(mixed $payload): void
     ]);
 
     $email = $validated['data']['email'];
-    $code = $validated['data']['code'];
+    $code = (int)$validated['data']['code'];
     $verified = verify_account($email, $code);
     return_response($verified);
 }
@@ -103,7 +103,13 @@ function handle_request_account_verification(mixed $payload): void
 {
     $validated = validate_data($payload, [
         'email' => 'required|email|check:is_email_exist',
+        'recaptcha_response' => 'required'
     ]);
+
+    $verified = verify_recaptcha($validated['data']['recaptcha_response'], get_client_ip());
+    if(!$verified['success']) {
+        return_response($verified);
+    }
 
     $email = $validated['data']['email'];
     $mailed = send_verification_email($email);
@@ -129,7 +135,7 @@ function handle_verify_otp(mixed $payload): void
     ]);
 
     $email = $validated['data']['email'];
-    $code = $validated['data']['code'];
+    $code = (int)$validated['data']['code'];
     $verified = verify_otp($email, $code);
     return_response($verified);
 }
@@ -176,8 +182,16 @@ function handle_login_account(mixed $payload): void
 {
     $validated = validate_data($payload, [
         'uid' => 'required',
-        'password' => 'required'
+        'password' => 'required',
+        'recaptcha_response' => 'required'
     ]);
+
+    $verified = verify_recaptcha($validated['data']['recaptcha_response'], get_client_ip());
+    if(!$verified['success']) {
+        return_response($verified);
+    }
+
+    //return_response(['success' => true, 'message' => 'login success testtt']);
 
     $uid = trim(htmlspecialchars($validated['data']['uid']));
     $password = trim(htmlspecialchars($validated['data']['password']));

@@ -3,7 +3,6 @@
 <?php require_once __DIR__ . '/app/includes/layouts/header.php' ?>
 <?php // require_once __DIR__ . '/app/includes/layouts/breadcrumb.php' 
 ?>
-
 <!-- Main Content -->
 <main class="main-content">
     <div class="container-fluid">
