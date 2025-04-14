@@ -4,12 +4,10 @@
 <div class="login-container">
   <div class="login-card">
     <div class="login-content">
-      <!-- Left side - Hero Image -->
       <div class="login-hero-side">
         <img src="<?= $base_url ?>/assets/images/hero.png" class="login-hero-image" alt="hero" loading="lazy" />
       </div>
 
-      <!-- Right side - Login Form -->
       <div class="login-form-side">
         <div class="login-header">
           <h2>Welcome back!</h2>
@@ -46,15 +44,13 @@
             </div>
 
             <div class="form-group login-buttons">
-              <!-- left -->
               <button type="button" class="btn action-btn request-btn" onclick="window.location.href='account-request?reg=true#external'">Account Request</button>
-              <!-- right -->
               <button type="button" class="btn action-btn login-btn">Login</button>
             </div>
 
             <div class="form-group links">
               <p>Existing account but not yet verified? <a href="account-verification?purpose=request#external">click here</a> to verify your account.</p>
-              <p>Forgot Password? No worries, please <a href="password-reset?mode=findEmail&step=1" style="cursor: no-drop">click here</a> to reset your password.</p>
+              <p>Forgot Password? No worries, please <a href="javascript:void(0)" style="cursor: no-drop">click here</a> to reset your password.</p>
             </div>
           </form>
           <div id="otpForm" style="display: none">
@@ -81,9 +77,7 @@
               </div>
             </div>
             <div class="form-group login-buttons">
-              <!-- left -->
               <button type="button" class="btn action-btn" id="backtoLoginBtn">Back</button>
-              <!-- right -->
               <button type="button" class="btn action-btn" id="verifyOTPBtn">Verify</button>
             </div>
 
@@ -94,7 +88,7 @@
         </div>
 
         <div class="login-footer">
-          <p>Submitted by: <strong>Jerome Avecilla</strong> - IT211 (Project) Web System Technologies </p>
+          <p>Submitted by: <strong><a href="https://jerome-avecilla.vercel.app/" target="_blank" style="text-decoration: none; color: #f8f9fa">Jerome Avecilla</a></strong> - IT211 (Project) Web System Technologies </p>
         </div>
       </div>
     </div>

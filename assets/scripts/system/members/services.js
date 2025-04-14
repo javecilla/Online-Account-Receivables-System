@@ -173,3 +173,24 @@ const deleteMember = async (memberId) => {
     throw error
   }
 }
+
+const fetchMemberAmortizationPayments = async (amortizationId) => {
+  try {
+    const response = await axios.get(
+      `${API_URL}?action=get_member_amortization_payments&amortization_id=${amortizationId}`,
+      {
+        headers: HEADERS
+      }
+    )
+    if (!response.data || !response.data.success) {
+      throw new Error(
+        response.data?.message || 'Failed to fetch members transactions history'
+      )
+    }
+    return response.data
+  } catch (error) {
+    console.error('Error fetching members transactions history:', error)
+    const errorMessage =
+      error.response?.data?.message || 'Opss! Something went wrong.'
+  }
+}

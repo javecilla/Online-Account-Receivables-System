@@ -395,6 +395,25 @@ function get_amortization_payments(): array
     }
 }
 
+function get_member_amortization_payments(int $amortization_id): array
+{
+    try {
+        $conn = open_connection();
+
+        $sql = vw_amortization_payments_details(). " WHERE ap.amortization_id = ?";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param('i', $amortization_id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $payments = $result->num_rows > 0? $result->fetch_all(MYSQLI_ASSOC) : [];
+
+        return ['success' => true,'message' => 'Retrieved successfully', 'data' => $payments];
+    } catch (Exception $e) {
+        log_error("Error fetching amortization payments: {$e->getTraceAsString()}");
+        return ['success' => false,'message' => "Database error: {$e->getMessage()}"];
+    }
+}
+
 /**
  * Helpers
  */

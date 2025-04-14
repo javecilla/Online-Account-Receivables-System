@@ -116,6 +116,30 @@ function get_account(int $account_id): array
     }
 }
 
+function get_account_by_email(string $email): array
+{
+    try {
+        $conn = open_connection();
+
+        $base_query = vw_account_details();
+        $sql = $base_query . " WHERE a.email = ? LIMIT 1";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param('s', $email);
+        $stmt->execute();
+
+        $result = $stmt->get_result();
+
+        if ($result->num_rows === 0) {
+            return ['success' => false, 'message' => "Account with email {$email} is not found.", 'status' => 404];
+        }
+
+        return ['success' => true, 'message' => 'Retrieved successfully', 'data' => $result->fetch_assoc()];
+    } catch (Exception $e) {
+        log_error("Error fetching account: {$e->getTraceAsString()}");
+        return ['success' => false, 'message' => "Database error occurred: {$e->getMessage()}"];
+    }
+}
+
 //TODO: add profile image upload
 //TODO: make the updation dynamic, only update those fields is naka set
 function update_account(int $account_id, array $data): array
@@ -379,8 +403,8 @@ function verify_otp(string $email, int $code): array
         $conn->begin_transaction();
 
         //mark otp code as used
-        $aoc_sql = "UPDATE account_otp_codes 
-            SET used_at = NOW() 
+        $aoc_sql = "UPDATE account_otp_codes
+            SET used_at = NOW()
             WHERE aoc_id = ? AND used_at IS NULL LIMIT 1";
         $aoc_stmt = $conn->prepare($aoc_sql);
         $aoc_stmt->bind_param('i', $otp['aoc_id']);
@@ -391,9 +415,8 @@ function verify_otp(string $email, int $code): array
         }
 
         //update account status to active and first login datetime
-        $a_sql = "UPDATE accounts 
-                SET account_status = 'active',
-                    first_login_at = NOW() 
+        $a_sql = "UPDATE accounts
+                SET account_status = 'active', first_login_at = NOW()
                 WHERE email = ? AND `first_login_at` IS NULL LIMIT 1";
         $a_stmt = $conn->prepare($a_sql);
         $a_stmt->bind_param('s', $email);
@@ -404,6 +427,11 @@ function verify_otp(string $email, int $code): array
         }
 
         $conn->commit();
+
+        $auth = get_account_by_email($email);
+        $auth_account = $auth['data'];
+
+        set_authenticated_account($auth_account);
         return ['success' => true, 'message' => 'OTP verified successfully', 'redirect' => '/dashboard'];
     } catch (Exception $e) {
         $conn->rollback();
@@ -601,41 +629,7 @@ function login_account(string $uid, string $password): array
         $auth = get_account($account['account_id']);
         $auth_account = $auth['data'];
 
-        begin_session();
-        generate_new_session_id();
-        $_SESSION['session_id'] = session_id();
-        $_SESSION['account_id'] = $auth_account['account_id'];
-        $_SESSION['account_uid'] = $auth_account['account_uid'];
-        $_SESSION['email'] = $auth_account['email'];
-        $_SESSION['username'] = $auth_account['username'];
-        $_SESSION['account_status'] = $auth_account['account_status'];
-        $_SESSION['role_name'] = $auth_account['role_name'];
-
-        //retrieve specific data base on the user role
-        if ($auth_account['role_name'] === ADMINISTRATOR || $auth_account['role_name'] === ACCOUNTANT) {
-            $e_result = get_employee_by_account($auth_account['account_id']);
-            $employee = $e_result['data'];
-
-            $_SESSION['employee_id'] = $employee['employee_id'];
-            $_SESSION['first_name'] = $employee['first_name'];
-            $_SESSION['last_name'] = $employee['last_name'];
-            $_SESSION['middle_name'] = $employee['middle_name'];
-            $_SESSION['full_name'] = $employee['full_name'];
-            $_SESSION['contact_number'] = $employee['contact_number'];
-        } else if ($auth_account['role_name'] === MEMBER) {
-            $m_result = get_member_by_account($auth_account['account_id']);
-            $member = $m_result['data'];
-
-            $_SESSION['member_id'] = $member['member_id'];
-            $_SESSION['first_name'] = $member['first_name'];
-            $_SESSION['last_name'] = $member['last_name'];
-            $_SESSION['middle_name'] = $member['middle_name'];
-            $_SESSION['full_name'] = $member['full_name'];
-            $_SESSION['contact_number'] = $member['contact_number'];
-            $_SESSION['full_address'] = $member['full_address'];
-        }
-
-        log_request('Session Data: ', $_SESSION);
+        set_authenticated_account($auth_account);
         return ['success' => true, 'message' => 'Login successful', 'redirect' => '/dashboard', 'data' => $_SESSION];
     } catch (Exception $e) {
         log_error("Error logging in: {$e->getMessage()}");
@@ -711,4 +705,42 @@ function is_username_exist(string $username, ?int $account_id = null): bool
         log_error("Error checking username existence: {$e->getMessage()}");
         return false;
     }
+}
+
+function set_authenticated_account(array $auth_account): void {
+    begin_session();
+    generate_new_session_id();
+    $_SESSION['session_id'] = session_id();
+    $_SESSION['account_id'] = $auth_account['account_id'];
+    $_SESSION['account_uid'] = $auth_account['account_uid'];
+    $_SESSION['email'] = $auth_account['email'];
+    $_SESSION['username'] = $auth_account['username'];
+    $_SESSION['account_status'] = $auth_account['account_status'];
+    $_SESSION['role_name'] = $auth_account['role_name'];
+
+    //retrieve specific data base on the user role
+    if ($auth_account['role_name'] === ADMINISTRATOR || $auth_account['role_name'] === ACCOUNTANT) {
+        $e_result = get_employee_by_account($auth_account['account_id']);
+        $employee = $e_result['data'];
+
+        $_SESSION['employee_id'] = $employee['employee_id'];
+        $_SESSION['first_name'] = $employee['first_name'];
+        $_SESSION['last_name'] = $employee['last_name'];
+        $_SESSION['middle_name'] = $employee['middle_name'];
+        $_SESSION['full_name'] = $employee['full_name'];
+        $_SESSION['contact_number'] = $employee['contact_number'];
+    } else if ($auth_account['role_name'] === MEMBER) {
+        $m_result = get_member_by_account($auth_account['account_id']);
+        $member = $m_result['data'];
+
+        $_SESSION['member_id'] = $member['member_id'];
+        $_SESSION['first_name'] = $member['first_name'];
+        $_SESSION['last_name'] = $member['last_name'];
+        $_SESSION['middle_name'] = $member['middle_name'];
+        $_SESSION['full_name'] = $member['full_name'];
+        $_SESSION['contact_number'] = $member['contact_number'];
+        $_SESSION['full_address'] = $member['full_address'];
+    }
+
+    log_request('Session Data: ', $_SESSION);
 }

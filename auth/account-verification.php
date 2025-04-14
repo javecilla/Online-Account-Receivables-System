@@ -39,8 +39,8 @@
             </div>
 
             <div class="form-group links">
-              <p>Don't have an account yet? <a href="account-request?reg=true#external" style="cursor: no-drop">register here</a>.</p>
-              <p>Forgot Password? No worries, please <a href="password-reset?mode=findEmail&step=1" style="cursor: no-drop">click here</a> to reset your password.</p>
+              <p>Don't have an account yet? <a href="account-request?reg=true#external">register here</a>.</p>
+              <p>Forgot Password? No worries, please <a href="javascript:void(0)" style="cursor: no-drop">click here</a> to reset your password.</p>
             </div>
           </form>
           <div id="avLoadVerifying" class="d-none">

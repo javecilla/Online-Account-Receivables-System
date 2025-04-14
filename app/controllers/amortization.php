@@ -175,6 +175,16 @@ function handle_get_amortization_payments(mixed $payload): void
     return_response($payments);
 }
 
+function handle_get_member_amortization_payments(mixed $payload): void
+{
+    $validated = validate_data($payload, [
+        'amortization_id' => 'required|numeric|min:1|check:amortization_model'
+    ]);
+
+    $payments = get_member_amortization_payments((int)$validated['data']['amortization_id']);
+    return_response($payments);
+}
+
 
 
 /**

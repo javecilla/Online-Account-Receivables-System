@@ -221,37 +221,47 @@ $(document).ready(async function () {
     // console.log(key)
     // console.log(email)
     // console.log(activeHashFragment)
+    LoadingManager.show($('.login-container'))
 
-    const checkExistingCooldown = () => {
-      const cooldownData = localStorage.getItem('otpCooldown')
-      const resendButton = $('#resendOTPBtn')
-      const email = getURLParams('email')
+    //check if recaptcha is loaded
+    if (window.grecaptcha) {
+      const checkExistingCooldown = () => {
+        const cooldownData = localStorage.getItem('otpCooldown')
+        const resendButton = $('#resendOTPBtn')
+        const email = getURLParams('email')
 
-      if (cooldownData) {
-        const { endTime, storedEmail } = JSON.parse(cooldownData)
-        const now = Date.now()
-        if (storedEmail === email && endTime > now) {
-          startResendCooldown(resendButton, Math.ceil((endTime - now) / 1000))
-        } else if (endTime <= now || storedEmail !== email) {
-          localStorage.removeItem('otpCooldown')
+        if (cooldownData) {
+          const { endTime, storedEmail } = JSON.parse(cooldownData)
+          const now = Date.now()
+          if (storedEmail === email && endTime > now) {
+            startResendCooldown(resendButton, Math.ceil((endTime - now) / 1000))
+          } else if (endTime <= now || storedEmail !== email) {
+            localStorage.removeItem('otpCooldown')
+          }
         }
+      }
+
+      if (checkpoint && checkpoint == 'true') {
+        $('.login-header h2').text('OTP Verification')
+        $('.login-header p').text(
+          `We notice this is your first time login. A one-time password (OTP) has been sent to your registered email address, ${email}. Please enter the OTP below to complete the verification process. Note that the OTP is valid for 5 minutes.`
+        )
+        $('#loginForm').hide()
+        $('#otpForm').show()
+        checkExistingCooldown()
+      } else {
+        $('.login-header h2').text('Welcome back!')
+        $('.login-header p').text(
+          'Enter your credentials to access your account'
+        )
+        $('#loginForm').show()
+        $('#otpForm').hide()
       }
     }
 
-    if (checkpoint && checkpoint == 'true') {
-      $('.login-header h2').text('OTP Verification')
-      $('.login-header p').text(
-        `We notice this is your first time login. A one-time password (OTP) has been sent to your registered email address, ${email}. Please enter the OTP below to complete the verification process. Note that the OTP is valid for 5 minutes.`
-      )
-      $('#loginForm').hide()
-      $('#otpForm').show()
-      checkExistingCooldown()
-    } else {
-      $('.login-header h2').text('Welcome back!')
-      $('.login-header p').text('Enter your credentials to access your account')
-      $('#loginForm').show()
-      $('#otpForm').hide()
-    }
+    setTimeout(() => {
+      LoadingManager.hide($('.login-container'))
+    }, 500)
   }
 
   await handlePageContent()

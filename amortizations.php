@@ -17,11 +17,11 @@
                                     <div class="d-flex justify-content-between align-items-center mb-4">
                                         <h4 class="module-title">Amortizations Management <span class="text-secondary" id="modeBreadCrumb">/ </span> <span class="text-secondary" id="forAccountBreadCrumb"></span></h4>
                                         <div class="tableContainerContent">
-                                            <button class="btn action-btn">
-                                                Export
+                                            <button class="btn action-btn" style="cursor: no-drop">
+                                               <i class=" fas fa-file-csv me-2"></i>Export
                                             </button>
                                             <button class="btn action-btn" id="viewPaymentsLogsBtn">
-                                                <i class=" fas fa-eye me-2"></i>View Payments
+                                                <i class=" fas fa-history me-2"></i>View Amortization Payments
                                             </button>
                                         </div>
                                         <div class="formContainerContent hidden">
@@ -43,7 +43,12 @@
                                         </li>
                                         <li class="nav-item" role="presentation">
                                             <button class="nav-link" id="loan-requests-tab" data-bs-toggle="tab" data-bs-target="#loan-requests" type="button" role="tab" aria-controls="loan-requests" aria-selected="false">
-                                                <i class="fas fa-calculator me-2"></i> Loan Requests
+                                                <i class="fas fa-calculator me-2"></i> Requests
+                                            </button>
+                                        </li>
+                                        <li class="nav-item" role="presentation">
+                                            <button class="nav-link" id="invoices-tab" data-bs-toggle="tab" data-bs-target="#invoices" type="button" role="tab" aria-controls="invoices" aria-selected="false">
+                                                <i class="fas fa-file me-2"></i> Invoices
                                             </button>
                                         </li>
                                     </ul>
@@ -54,7 +59,7 @@
                                             <div class="amortizationContent">
                                                 <table id="amortizationsTable" class="table table-striped table-hover">
                                                     <thead>
-                                                        <tr title="Transaction Note">
+                                                        <tr>
                                                             <th>Amortization Type</th>
                                                             <th>Member Name</th>
                                                             <th>Remaining Balance</th>
@@ -90,6 +95,11 @@
                                                         <!-- Data will be loaded dynamically -->
                                                     </tbody>
                                                 </table>
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane fade" id="invoices" role="tabpanel" aria-labelledby="invoices-tab">
+                                            <div class="invoicesContent">
+                                                <span>Todo: Invoices records...</span>
                                             </div>
                                         </div>
                                     </div>

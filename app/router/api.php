@@ -210,6 +210,10 @@ try {
                 handle_get_amortization_payments($payload);
                 break;
 
+            case 'get_member_amortization_payments':
+                handle_get_member_amortization_payments($payload);
+                break;
+
             // Analytics endpoints
             case 'get_daily_transaction_stats':
                 handle_get_daily_transaction_stats($payload);

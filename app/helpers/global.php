@@ -22,7 +22,7 @@ function return_response(array $response): void
 
 function is_valid_string(string $value): bool
 {
-    return preg_match('/^[a-zA-Z]+$/', $value) === 1;
+    return preg_match('/^[a-zA-Z\s]+$/', $value) === 1;
 }
 
 function format_readable_time(string $time): string

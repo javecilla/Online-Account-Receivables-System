@@ -17,11 +17,11 @@
                                     <div class="d-flex justify-content-between align-items-center mb-4">
                                         <h4 class="module-title">Members Management <span class="text-secondary" id="modeBreadCrumb">/ </span> <span class="text-secondary" id="forMemberBreadCrumb"></span></h4>
                                         <div class="tableContainerContent">
-                                            <button class="btn action-btn">
-                                                Export
+                                            <button class="btn action-btn" style="cursor: no-drop">
+                                                <i class="fas fa-file-csv"></i> Export
                                             </button>
                                             <button class="btn action-btn" id="viewMembersTransactionsLogsBtn">
-                                                <i class="fas fa-file me-2"></i>View Transaction Logs
+                                                <i class="fas fa-history me-2"></i> View Transaction Logs
                                             </button>
                                         </div>
                                         <div class="formContainerContent hidden">
@@ -61,12 +61,12 @@
                                     </li>
                                     <li class="nav-item" role="presentation">
                                         <button class="nav-link" id="amortilization-tab" data-bs-toggle="tab" data-bs-target="#amortilization" type="button" role="tab" aria-controls="amortilization" aria-selected="false">
-                                            <i class="fas fa-credit-card me-2"></i> Amortilization
+                                            <i class="fas fa-credit-card me-2"></i> Amortizations
                                         </button>
                                     </li>
                                     <li class="nav-item" role="presentation">
                                         <button class="nav-link" id="transaction-history-tab" data-bs-toggle="tab" data-bs-target="#transaction-history" type="button" role="tab" aria-controls="transaction-history" aria-selected="false">
-                                            <i class="fas fa-history me-2"></i>Transaction History
+                                            <i class="fas fa-history me-2"></i>Transactions History
                                         </button>
                                     </li>
                                 </ul>
@@ -211,29 +211,67 @@
                                     </div>
                                     <div class="tab-pane fade" id="amortilization" role="tabpanel" aria-labelledby="amortilization-tab">
                                         <div class="amortilizationContent">
-                                            <table id="memberAmortilizationTable" class="table table-striped table-hover">
-                                                <thead>
-                                                    <tr title="Transaction Note">
-                                                        <th>Amortization Type</th>
-                                                        <th>Status</th>
-                                                        <th>Remaining Balance</th> <!-- Remaining balance that members need to repaid-->
-                                                        <th>Total Paid</th> <!-- total amount that members already paid-->
-                                                        <th>Balance Due</th>
-                                                        <th>Start Date</th>
-                                                        <th>End Date</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <!-- Data will be loaded dynamically -->
-                                                </tbody>
-                                            </table>
+                                            <div class="mb-4">
+                                                <div class="col-12">
+                                                    <div class="d-flex justify-content-between align-items-center mb-4">
+                                                        <h4 class="module-title memberAmortilizationTitle"></h4>
+                                                        <div class="memberAmortilizationPaymentsAction hidden">
+                                                            <button class="btn action-btn" style="cursor: no-drop">
+                                                                <i class="fa-solid fa-file-pdf me-2"></i>Print
+                                                            </button>
+                                                            <button class="btn action-btn" style="cursor: no-drop">
+                                                                <i class="fa-solid fa-file-csv me-2"></i>Export
+                                                            </button>
+                                                            <button class="btn action-btn" id="backtoMemberAmortizationsListContentBtn">
+                                                                <i class="fa-solid fa-chevron-left me-2"></i>Back Amortizations List
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div id="memberAmortizationsListContent" class="table-responsive">
+                                                <table id="memberAmortilizationTable" class="table table-striped table-hover">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Amortization Type</th>
+                                                            <th>Status</th>
+                                                            <th>Remaining Balance</th> <!-- Remaining balance that members need to repaid-->
+                                                            <th>Total Paid</th> <!-- total amount that members already paid-->
+                                                            <th>Balance Due</th>
+                                                            <th>Start Date</th>
+                                                            <th>End Date</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <!-- Data will be loaded dynamically -->
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <div id="memberAmortilizationPaymentsContent" class="table-responsive hidden">
+                                                <table id="paymentsTable" class="table table-striped table-hover">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Notes</th>
+                                                            <th>Reference Number</th>
+                                                            <th>Payment By</th>
+                                                            <th>Payment Method</th>
+                                                            <th>Amount</th>
+                                                            <th>Payment Date</th>
+                                                            <th>Processed By</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <!-- Data will be loaded dynamically -->
+                                                    </tbody>
+                                                </table>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="tab-pane fade" id="transaction-history" role="tabpanel" aria-labelledby="transaction-history-tab">
                                         <div class="transactionHistoryContent">
                                             <table id="memberTransactionsTable" class="table table-striped table-hover">
                                                 <thead>
-                                                    <tr title="Transaction Note">
+                                                    <tr>
                                                         <th>Transaction ID</th>
                                                         <th>Reference Number</th>
                                                         <th>Transaction Type</th>
@@ -255,7 +293,7 @@
                                 <div>
                                     <table id="membersTransactionLogsTable" class="table table-striped table-hover">
                                         <thead>
-                                            <tr title="Transaction Note">
+                                            <tr>
                                                 <th>Reference Number</th>
                                                 <th>Name</th>
                                                 <th>Transaction Type</th>

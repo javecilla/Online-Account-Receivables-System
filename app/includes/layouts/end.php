@@ -55,6 +55,7 @@ if ($request_file_name === 'login.php') {
     HTML;
 } else if ($request_file_name === 'members.php') {
     echo <<<HTML
+        <script type="text/javascript" src="{$base_url}/assets/scripts/system/members/data-tables.js" loading="lazy"></script>
         <script type="text/javascript" src="{$base_url}/assets/scripts/system/members/admin/update-member.js" loading="lazy"></script>
         <script type="text/javascript" src="{$base_url}/assets/scripts/system/members/admin/get-members.js" loading="lazy"></script>
         <script type="text/javascript" src="{$base_url}/assets/scripts/system/members/admin/members.js" loading="lazy"></script>
@@ -62,6 +63,7 @@ if ($request_file_name === 'login.php') {
     HTML;
 } else if ($request_file_name === 'amortizations.php') {
     echo <<<HTML
+        <script type="text/javascript" src="{$base_url}/assets/scripts/system/amortizations/data-tables.js" loading="lazy"></script>
         <script type="text/javascript" src="{$base_url}/assets/scripts/system/amortizations/admin/get-amortizations.js" loading="lazy"></script>
         <script type="text/javascript" src="{$base_url}/assets/scripts/system/amortizations/admin/amortizations.js" loading="lazy"></script>
         <script type="text/javascript" src="{$base_url}/assets/scripts/system/amortizations/amortization-tabs.js" loading="lazy"></script>
