@@ -271,6 +271,14 @@ try {
                 handle_get_amortizations_by_approval($payload);
                 break;
 
+            case 'get_member_approved_amortizations':
+                handle_get_member_approved_amortizations($payload);
+                break;
+
+            case 'get_member_request_amortizations':
+                handle_get_member_request_amortizations($payload);
+                break;
+
             default:
                 throw new Exception('Bad Request! Invalid action.', 400);
                 break;

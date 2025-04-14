@@ -128,3 +128,60 @@ const fetchAmortizationPayments = async () => {
     throw error
   }
 }
+
+const fetchMemberApprovedAmortizations = async (
+  memberId,
+  status = 'active,completed,defaulted'
+) => {
+  try {
+    const response = await axios.get(
+      `${API_URL}?action=get_member_approved_amortizations&status=${status}&member_id=${memberId}`,
+      {
+        headers: HEADERS
+      }
+    )
+
+    if (!response.data || !response.data.success) {
+      throw new Error(
+        response.data?.message ||
+          'Failed to fetch member approved amortizations'
+      )
+    }
+    return response.data
+  } catch (error) {
+    console.error('Error fetching member approved amortization:', error)
+    const errorMessage =
+      error.response?.data?.message ||
+      'Something went wrong while processing request.'
+    toastr.error(errorMessage)
+    throw error
+  }
+}
+
+const fetchMemberRequestAmortizations = async (
+  memberId,
+  approval = 'pending,rejected'
+) => {
+  try {
+    const response = await axios.get(
+      `${API_URL}?action=get_member_request_amortizations&approval=${approval}&member_id=${memberId}`,
+      {
+        headers: HEADERS
+      }
+    )
+
+    if (!response.data || !response.data.success) {
+      throw new Error(
+        response.data?.message || 'Failed to fetch member request amortizations'
+      )
+    }
+    return response.data
+  } catch (error) {
+    console.error('Error fetching member request amortization:', error)
+    const errorMessage =
+      error.response?.data?.message ||
+      'Something went wrong while processing request.'
+    toastr.error(errorMessage)
+    throw error
+  }
+}

@@ -68,6 +68,15 @@ if ($request_file_name === 'login.php') {
         <script type="text/javascript" src="{$base_url}/assets/scripts/system/amortizations/admin/amortizations.js" loading="lazy"></script>
         <script type="text/javascript" src="{$base_url}/assets/scripts/system/amortizations/amortization-tabs.js" loading="lazy"></script>
     HTML;
+} else if ($request_file_name === 'my-account.php') {
+    echo <<<HTML
+        <script type="text/javascript" src="{$base_url}/assets/scripts/client/common-vars.js" loading="eager"></script>
+        <script type="text/javascript" src="{$base_url}/assets/scripts/client/data-tables.js" loading="lazy"></script>
+        <script type="text/javascript" src="{$base_url}/assets/scripts/client/amortizations.js" loading="lazy"></script>
+        <script type="text/javascript" src="{$base_url}/assets/scripts/client/transactions.js" loading="lazy"></script>
+        <script type="text/javascript" src="{$base_url}/assets/scripts/client/my-account.js" loading="lazy"></script>
+        <script type="text/javascript" src="{$base_url}/assets/scripts/client/load-balancer.js" loading="lazy"></script>
+    HTML;
 }
 ?>
 </body>

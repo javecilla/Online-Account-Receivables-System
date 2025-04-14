@@ -52,5 +52,12 @@
   "php.suggest.variableImports": true,
   "php.validate.php": true,
   "php.validate.run": "onType",
-  "cSpell.words": ["Amortilization", "Avecilla", "grecaptcha", "swal", "toastr"]
+  "cSpell.words": [
+    "Amortilization",
+    "Avecilla",
+    "grecaptcha",
+    "labelledby",
+    "swal",
+    "toastr"
+  ]
 }

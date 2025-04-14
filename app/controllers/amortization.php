@@ -79,6 +79,32 @@ function handle_get_amortizations_by_status(mixed $payload): void
     return_response($amortizations);
 }
 
+function handle_get_member_approved_amortizations(mixed $payload): void
+{
+    log_request('data:', $payload); 
+    $validated = validate_data($payload, [
+        'member_id' => 'required|numeric|min:1|check:member_model',
+        'status' => 'required', //in:active,completed,defaulted,
+    ]);
+
+    $status_array = array_map('trim', explode(',', $validated['data']['status']));
+    foreach ($status_array as $status) {
+        if (!in_array($status, AMORTIZATION_STATUS)) {
+            return_response([
+                'success' => false,
+                'message' => "Invalid status value: {$status}",
+                'status' => 400
+            ]);
+        }
+    }
+
+    $amortizations = get_member_approved_amortizations(
+        (int)$validated['data']['member_id'],
+        $status_array
+    );
+    return_response($amortizations);
+}
+
 function handle_get_amortizations_by_approval(mixed $payload): void
 {
     //paylaod: status=pending,approved,rejected
@@ -99,6 +125,29 @@ function handle_get_amortizations_by_approval(mixed $payload): void
     }
 
     $amortizations = get_amortizations_by_approval($approval_array);
+    return_response($amortizations);
+}
+
+function handle_get_member_request_amortizations(mixed $payload): void
+{
+    //log_request('data:', $payload);
+    $validated = validate_data($payload, [
+        'member_id' =>'required|numeric|min:1|check:member_model',
+        'approval' => 'required'
+    ]);
+
+    $approval_array = array_map('trim', explode(',', $validated['data']['approval']));
+    foreach ($approval_array as $approval) {
+        if (!in_array($approval, AMORTIZATION_APPROVAL_STATUS)) {
+            return_response([
+                'success' => false,
+                'message' => "Invalid approval value: {$approval}",
+                'status' => 400
+            ]);
+        }
+    }
+
+    $amortizations = get_member_request_amortizations((int)$validated['data']['member_id'], $approval_array);
     return_response($amortizations);
 }
 

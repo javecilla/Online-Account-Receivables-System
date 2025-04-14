@@ -119,6 +119,49 @@ function get_amortizations_by_status(array $statuses): array
     }
 }
 
+function get_member_approved_amortizations(int $member_id, array $statuses): array
+{
+    try {
+        $conn = open_connection();
+
+        $placeholders = str_repeat('?,', count($statuses) - 1) . '?';
+        $sql = vw_amortization_details() . " WHERE m.member_id = ? AND ma.status IN ({$placeholders}) AND ma.approval = 'approved' ORDER BY ma.updated_at DESC";
+        $stmt = $conn->prepare($sql);
+
+        $types = 'i' . str_repeat('s', count($statuses));
+        $stmt->bind_param($types, $member_id, ...$statuses);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $amortizations = $result->num_rows > 0 ? $result->fetch_all(MYSQLI_ASSOC) : [];
+
+        return ['success' => true, 'message' => 'Retrieved successfully', 'data' => $amortizations];
+    } catch (Exception $e) {
+        log_error("Error fetching member approved amortizations: {$e->getTraceAsString()}");
+        return ['success' => false, 'message' => "Database error occurred: {$e->getMessage()}"];
+    }
+}
+
+function get_member_request_amortizations(int $member_id, $approvals): array {
+    try {
+        $conn = open_connection();
+
+        $placeholders = str_repeat('?,', count($approvals) - 1) . '?';
+        $sql = vw_amortization_details() . " WHERE m.member_id = ? AND ma.approval IN ({$placeholders}) AND ma.status IS NULL ORDER BY ma.updated_at DESC";
+        $stmt = $conn->prepare($sql);
+
+        $types = 'i' . str_repeat('s', count($approvals));
+        $stmt->bind_param($types, $member_id, ...$approvals);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $amortizations = $result->num_rows > 0 ? $result->fetch_all(MYSQLI_ASSOC) : [];
+
+        return ['success' => true, 'message' => 'Retrieved successfully', 'data' => $amortizations];
+    } catch (Exception $e) {
+        log_error("Error fetching member request amortizations: {$e->getTraceAsString()}");
+        return ['success' => false, 'message' => "Database error occurred: {$e->getMessage()}"];
+    }
+}
+
 function get_amortizations_by_approval(array $approvals): array
 {
     try {
