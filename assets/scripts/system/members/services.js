@@ -194,3 +194,54 @@ const fetchMemberAmortizationPayments = async (amortizationId) => {
       error.response?.data?.message || 'Opss! Something went wrong.'
   }
 }
+
+const createMemberAmortization = async (data) => {
+  try {
+    const payload = {
+      action: 'create_amortization',
+      data: data
+    }
+    const response = await axios.post(`${API_URL}`, payload, {
+      headers: HEADERS
+    })
+    if (!response.data || !response.data.success) {
+      throw new Error(
+        response.data?.message || 'Failed to create member amortization'
+      )
+    }
+    return response.data
+  } catch (error) {
+    console.error('Error creating member amortization:', error)
+    const errorMessage =
+      error.response?.data?.message || 'Opss! Something went wrong.'
+    toastr.error(errorMessage)
+    throw error
+  }
+}
+
+const updateMemberAmortization = async (amortizationId, newData) => {
+  try {
+    const payload = {
+      action: 'update_amortization',
+      data: {
+        amortization_id: amortizationId,
+        ...newData
+      }
+    }
+    const response = await axios.post(`${API_URL}`, payload, {
+      headers: HEADERS
+    })
+    if (!response.data || !response.data.success) {
+      throw new Error(
+        response.data?.message || 'Failed to create member amortization'
+      )
+    }
+    return response.data
+  } catch (error) {
+    console.error('Error updating member amortization:', error)
+    const errorMessage =
+      error.response?.data?.message || 'Opss! Something went wrong.'
+    toastr.error(errorMessage)
+    throw error
+  }
+}

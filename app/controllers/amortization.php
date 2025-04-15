@@ -8,29 +8,106 @@ declare(strict_types=1);
 
 function handle_create_amortization(mixed $payload): void
 {
+    // log_request('data:', $payload);
+    // return_response(['success' => true,'message' => 'test']);
     $validated = validate_data($payload, [
         'member_id' => 'required|numeric|min:1|check:member_model',
         'type_id' => 'required|numeric|min:1|check:amortization_type_model',
-        'amount' => 'required|numeric|min:1000',
-        'term_months' => 'required|numeric|min:1',
-        'start_date' => 'required|date:YYYY-MM-DD'
+        //'amount' => 'required|numeric|min:1000',
+        'principal_amount' => 'required|numeric|min:1',
+        'monthly_amount' => 'required|numeric|min:1',
+        'remaining_balance' => 'required|numeric|min:1', //total repayment amount
+        'term_months' => 'required|numeric|min:1', //beta not sure pa
+        'start_date' => 'required|date:YYYY-MM-DD',
+        'end_date' => 'required|date:YYYY-MM-DD'
     ]);
 
-    //check if this member has existing active amortizations
-    $active_check = check_active_amortizations($validated['data']['member_id']);
+    layer_two_amortization_validation($validated);
+
+    // log_request('data:', $validated['data']);
+    // return_response(['success' => true,'message' => 'test']);
+    $amortization = create_amortization($validated['data']);
+    //TODO: send email notification to admin that a new amortization request has been created
+    //TODO: send email notification to member that their amortization request has been created
+    return_response($amortization);
+}
+
+function layer_two_amortization_validation(mixed $validated): void {
+        $type = get_amortization_type((int)$validated['data']['type_id']);
+    if(!$type['success']) {
+        return_response($type);
+    }
+    $amortization_type = $type['data'];
+
+    $minTermMonths = 3;
+    $maxTermMonths = $amortization_type['term_months'];
+
+    if($validated['data']['term_months'] < $minTermMonths || $validated['data']['term_months'] > $maxTermMonths) {
+        return_response([
+           'success' => false,
+           'message' => "Term months for {$amortization_type['type_name']} must be between {$minTermMonths} and {$maxTermMonths}",
+           'status' => 400
+        ]);
+    }
+
+    $minAmount = $amortization_type['minimum_amount'];
+    $maxAmount = $amortization_type['maximum_amount'];
+
+    if($validated['data']['principal_amount'] < $minAmount || $validated['data']['principal_amount'] > $maxAmount) {
+        return_response([
+          'success' => false,
+          'message' => "Principal amount for {$amortization_type['type_name']} must be between {$minAmount} and {$maxAmount}",
+          'status' => 400
+        ]);
+    }
+    
+    //check if this member has 3 existing active amortizations
+    $active_check = check_active_amortizations((int)$validated['data']['member_id']);
     if (!$active_check['success']) {
         return_response($active_check);
     }
 
-    if ($active_check['has_active']) {
+    //if ($active_check['has_active']) {
+    if ($active_check['active_count'] >= 3) {
         return_response([
             'success' => false,
-            'message' => "Member already has {$active_check['active_count']} active amortization(s). Please complete or update existing amortizations first.",
+            //Member already has {$active_check['active_count']} active amortization(s). Please complete or update existing amortizations first.
+            'message' => "You have {$active_check['active_count']} active amortization(s). Please complete or update existing amortizations first.",
             'status' => 400
         ]);
     }
+}
 
-    $amortization = create_amortization($validated['data']);
+function handle_update_amortization(mixed $payload): void
+{
+    $validated = validate_data($payload, [
+        'amortization_id' =>'required|numeric|min:1|check:amortization_model',
+        'member_id' => 'required|numeric|min:1|check:member_model',
+        'type_id' => 'required|numeric|min:1|check:amortization_type_model',
+        'principal_amount' => 'required|numeric|min:1',
+        'monthly_amount' => 'required|numeric|min:1',
+        'remaining_balance' => 'required|numeric|min:1',
+        'term_months' => 'required|numeric|min:1',
+        'start_date' => 'required|date:YYYY-MM-DD',
+        'end_date' => 'required|date:YYYY-MM-DD'
+    ]);
+
+    layer_two_amortization_validation($validated);
+
+    // log_request('data:', $validated['data']);
+    // return_response(['success' => true,'message' => 'test']);
+
+    $updated = update_amortization((int)$validated['data']['amortization_id'], $validated['data']);
+    return_response($updated);
+}
+
+function handle_get_amortization(mixed $payload): void
+{
+    $validated = validate_data($payload, [
+        'amortization_id' =>'required|numeric|min:1|check:amortization_model'
+    ]);
+
+    $amortization = get_amortization((int)$validated['data']['amortization_id']);
     return_response($amortization);
 }
 
@@ -346,4 +423,20 @@ function handle_get_monthly_overdue_metrics(mixed $payload): void
         $validated['data']['end_date'] ?? null
     );
     return_response($metrics);
+}
+
+function handle_get_amortization_types(mixed $payload): void
+{
+    $types = get_amortization_types();
+    return_response($types);
+}
+
+function handle_get_amortization_type(mixed $payload): void
+{
+    $validated = validate_data($payload, [
+        'type_id' =>'required|numeric|min:1|check:amortization_type_model'
+    ]);
+
+    $types = get_amortization_type((int)$validated['data']['type_id']);
+    return_response($types);
 }

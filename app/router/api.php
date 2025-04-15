@@ -116,6 +116,10 @@ try {
                 handle_update_amortization_approval($payload);
                 break;
 
+            case 'update_amortization':
+                handle_update_amortization($payload);
+                break;
+
             /* TRANSACTIONS */
             case 'deposit':
                 handle_deposit_transaction($payload);
@@ -279,6 +283,18 @@ try {
                 handle_get_member_request_amortizations($payload);
                 break;
 
+            case 'get_amortization_types':
+                handle_get_amortization_types($payload);
+                break;
+            
+            case 'get_amortization_type':
+                handle_get_amortization_type($payload);
+                break;
+
+            case 'get_amortization':
+                handle_get_amortization($payload);
+                break;
+
             default:
                 throw new Exception('Bad Request! Invalid action.', 400);
                 break;
@@ -324,6 +340,10 @@ try {
 
             case 'update_amortization_approval':
                 handle_update_amortization_approval($payload);
+                break;
+
+            case 'update_amortization':
+                handle_update_amortization($payload);
                 break;
 
             default:

@@ -1,565 +1,63 @@
-[14-Apr-2025 11:08:17 Europe/Berlin] [[14-Apr-2025 11:08:17 Europe/Berlin]] Action: data:, Data: {
-    "status": "active,completed,defaulted",
-    "member_id": "16"
-}
-
-[14-Apr-2025 11:08:30 Europe/Berlin] [[14-Apr-2025 11:08:30 Europe/Berlin]] Action: data:, Data: {
-    "status": "active,completed,defaulted",
-    "member_id": "16"
-}
-
-[14-Apr-2025 11:08:46 Europe/Berlin] [[14-Apr-2025 11:08:46 Europe/Berlin]] Action: data:, Data: {
-    "status": "active,completed,defaulted",
-    "member_id": "16"
-}
-
-[14-Apr-2025 11:24:13 Europe/Berlin] [[14-Apr-2025 11:24:13 Europe/Berlin]] Action: data:, Data: {
-    "status": "active,completed,defaulted",
-    "member_id": "16"
-}
-
-[14-Apr-2025 11:24:46 Europe/Berlin] [[14-Apr-2025 11:24:46 Europe/Berlin]] Action: data:, Data: {
-    "status": "active,completed,defaulted",
-    "member_id": "16"
-}
-
-[14-Apr-2025 11:26:52 Europe/Berlin] [[14-Apr-2025 11:26:52 Europe/Berlin]] Action: data:, Data: {
-    "status": "active,completed,defaulted",
-    "member_id": "16"
-}
-
-[14-Apr-2025 11:27:08 Europe/Berlin] [[14-Apr-2025 11:27:08 Europe/Berlin]] Action: data:, Data: {
-    "status": "active,completed,defaulted",
-    "member_id": "16"
-}
-
-[14-Apr-2025 11:28:34 Europe/Berlin] [[14-Apr-2025 11:28:34 Europe/Berlin]] Action: data:, Data: {
-    "status": "active,completed,defaulted",
-    "member_id": "16"
-}
-
-[14-Apr-2025 11:29:02 Europe/Berlin] [[14-Apr-2025 11:29:02 Europe/Berlin]] Action: data:, Data: {
-    "status": "active,completed,defaulted",
-    "member_id": "16"
-}
-
-[14-Apr-2025 11:29:24 Europe/Berlin] [[14-Apr-2025 11:29:24 Europe/Berlin]] Action: data:, Data: {
-    "status": "active,completed,defaulted",
-    "member_id": "16"
-}
-
-[14-Apr-2025 11:29:40 Europe/Berlin] [[14-Apr-2025 11:29:40 Europe/Berlin]] Action: data:, Data: {
-    "status": "active,completed,defaulted",
-    "member_id": "16"
-}
-
-[14-Apr-2025 11:34:52 Europe/Berlin] [[14-Apr-2025 11:34:52 Europe/Berlin]] Action: data:, Data: {
-    "status": "active,completed,defaulted",
-    "member_id": "16"
-}
-
-[14-Apr-2025 11:35:02 Europe/Berlin] [[14-Apr-2025 11:35:02 Europe/Berlin]] Action: data:, Data: {
-    "status": "active,completed,defaulted",
-    "member_id": "16"
-}
-
-[14-Apr-2025 11:55:30 Europe/Berlin] [[14-Apr-2025 11:55:30 Europe/Berlin]] Action: data:, Data: {
-    "status": "active,completed,defaulted",
-    "member_id": "16"
-}
-
-[14-Apr-2025 12:02:09 Europe/Berlin] [[14-Apr-2025 12:02:09 Europe/Berlin]] Action: data:, Data: {
-    "status": "active,completed,defaulted",
-    "member_id": "16"
-}
-
-[14-Apr-2025 12:08:19 Europe/Berlin] [[14-Apr-2025 12:08:19 Europe/Berlin]] Action: data:, Data: {
-    "status": "active,completed,defaulted",
-    "member_id": "16"
-}
-
-[14-Apr-2025 12:09:10 Europe/Berlin] [[14-Apr-2025 12:09:10 Europe/Berlin]] Action: data:, Data: {
-    "status": "active,completed,defaulted",
-    "member_id": "16"
-}
-
-[14-Apr-2025 12:09:42 Europe/Berlin] [[14-Apr-2025 12:09:42 Europe/Berlin]] Action: data:, Data: {
-    "status": "active,completed,defaulted",
-    "member_id": "16"
-}
-
-[14-Apr-2025 12:11:43 Europe/Berlin] [[14-Apr-2025 12:11:43 Europe/Berlin]] Action: data:, Data: {
-    "status": "active,completed,defaulted",
-    "member_id": "16"
-}
-
-[14-Apr-2025 12:14:11 Europe/Berlin] [[14-Apr-2025 12:14:11 Europe/Berlin]] Action: data:, Data: {
-    "status": "active,completed,defaulted",
-    "member_id": "16"
-}
-
-[14-Apr-2025 12:17:42 Europe/Berlin] [[14-Apr-2025 12:17:42 Europe/Berlin]] Action: data:, Data: {
-    "status": "active,completed,defaulted",
-    "member_id": "16"
-}
-
-[14-Apr-2025 12:18:04 Europe/Berlin] [[14-Apr-2025 12:18:04 Europe/Berlin]] Action: data:, Data: {
-    "status": "active,completed,defaulted",
-    "member_id": "16"
-}
-
-[14-Apr-2025 12:22:53 Europe/Berlin] [[14-Apr-2025 12:22:53 Europe/Berlin]] Action: data:, Data: {
-    "status": "active,completed,defaulted",
-    "member_id": "16"
-}
-
-[14-Apr-2025 12:23:25 Europe/Berlin] [[14-Apr-2025 12:23:25 Europe/Berlin]] Action: data:, Data: {
-    "status": "active,completed,defaulted",
-    "member_id": "16"
-}
-
-[14-Apr-2025 12:23:39 Europe/Berlin] [[14-Apr-2025 12:23:39 Europe/Berlin]] Action: data:, Data: {
-    "status": "active,completed,defaulted",
-    "member_id": "16"
-}
-
-[14-Apr-2025 12:26:32 Europe/Berlin] [[14-Apr-2025 12:26:32 Europe/Berlin]] Action: data:, Data: {
-    "status": "active,completed,defaulted",
-    "member_id": "16"
-}
-
-[14-Apr-2025 12:27:10 Europe/Berlin] [[14-Apr-2025 12:27:10 Europe/Berlin]] Action: data:, Data: {
-    "status": "active,completed,defaulted",
-    "member_id": "16"
-}
-
-[14-Apr-2025 12:27:58 Europe/Berlin] [[14-Apr-2025 12:27:58 Europe/Berlin]] Action: data:, Data: {
-    "status": "active,completed,defaulted",
-    "member_id": "16"
-}
-
-[14-Apr-2025 12:30:09 Europe/Berlin] [[14-Apr-2025 12:30:09 Europe/Berlin]] Action: data:, Data: {
-    "status": "active,completed,defaulted",
-    "member_id": "16"
-}
-
-[14-Apr-2025 12:30:42 Europe/Berlin] [[14-Apr-2025 12:30:42 Europe/Berlin]] Action: data:, Data: {
-    "status": "active,completed,defaulted",
-    "member_id": "16"
-}
-
-[14-Apr-2025 12:30:53 Europe/Berlin] [[14-Apr-2025 12:30:53 Europe/Berlin]] Action: data:, Data: {
-    "status": "active,completed,defaulted",
-    "member_id": "16"
-}
-
-[14-Apr-2025 12:32:37 Europe/Berlin] [[14-Apr-2025 12:32:38 Europe/Berlin]] Action: data:, Data: {
-    "status": "active,completed,defaulted",
-    "member_id": "16"
-}
-
-[14-Apr-2025 12:33:11 Europe/Berlin] [[14-Apr-2025 12:33:11 Europe/Berlin]] Action: data:, Data: {
-    "status": "active,completed,defaulted",
-    "member_id": "16"
-}
-
-[14-Apr-2025 12:38:24 Europe/Berlin] [[14-Apr-2025 12:38:24 Europe/Berlin]] Action: data:, Data: {
-    "status": "active,completed,defaulted",
-    "member_id": "16"
-}
-
-[14-Apr-2025 12:41:42 Europe/Berlin] [[14-Apr-2025 12:41:42 Europe/Berlin]] Action: data:, Data: {
-    "status": "active,completed,defaulted",
-    "member_id": "16"
-}
-
-[14-Apr-2025 12:43:31 Europe/Berlin] [[14-Apr-2025 12:43:31 Europe/Berlin]] Action: data:, Data: {
-    "status": "active,completed,defaulted",
-    "member_id": "16"
-}
-
-[14-Apr-2025 12:44:15 Europe/Berlin] [[14-Apr-2025 12:44:15 Europe/Berlin]] Action: data:, Data: {
-    "status": "active,completed,defaulted",
-    "member_id": "16"
-}
-
-[14-Apr-2025 12:44:53 Europe/Berlin] [[14-Apr-2025 12:44:53 Europe/Berlin]] Action: data:, Data: {
-    "status": "active,completed,defaulted",
-    "member_id": "16"
-}
-
-[14-Apr-2025 12:49:15 Europe/Berlin] [[14-Apr-2025 12:49:15 Europe/Berlin]] Action: data:, Data: {
-    "status": "active,completed,defaulted",
-    "member_id": "16"
-}
-
-[14-Apr-2025 12:49:30 Europe/Berlin] [[14-Apr-2025 12:49:30 Europe/Berlin]] Action: data:, Data: {
-    "status": "active,completed,defaulted",
-    "member_id": "16"
-}
-
-[14-Apr-2025 12:54:09 Europe/Berlin] [[14-Apr-2025 12:54:09 Europe/Berlin]] Action: data:, Data: {
-    "status": "active,completed,defaulted",
-    "member_id": "16"
-}
-
-[14-Apr-2025 13:03:14 Europe/Berlin] [[14-Apr-2025 13:03:14 Europe/Berlin]] Action: data:, Data: {
-    "status": "active,completed,defaulted",
-    "member_id": "16"
-}
-
-[14-Apr-2025 13:05:53 Europe/Berlin] [[14-Apr-2025 13:05:53 Europe/Berlin]] Action: data:, Data: {
-    "status": "active,completed,defaulted",
-    "member_id": "16"
-}
-
-[14-Apr-2025 13:08:39 Europe/Berlin] [[14-Apr-2025 13:08:39 Europe/Berlin]] Action: data:, Data: {
-    "status": "active,completed,defaulted",
-    "member_id": "16"
-}
-
-[14-Apr-2025 13:11:34 Europe/Berlin] [[14-Apr-2025 13:11:34 Europe/Berlin]] Action: data:, Data: {
-    "status": "active,completed,defaulted",
-    "member_id": "16"
-}
-
-[14-Apr-2025 13:14:41 Europe/Berlin] [[14-Apr-2025 13:14:41 Europe/Berlin]] Action: data:, Data: {
-    "status": "active,completed,defaulted",
-    "member_id": "16"
-}
-
-[14-Apr-2025 13:15:26 Europe/Berlin] [[14-Apr-2025 13:15:26 Europe/Berlin]] Action: data:, Data: {
-    "status": "active,completed,defaulted",
-    "member_id": "16"
-}
-
-[14-Apr-2025 13:15:42 Europe/Berlin] [[14-Apr-2025 13:15:42 Europe/Berlin]] Action: data:, Data: {
-    "status": "active,completed,defaulted",
-    "member_id": "16"
-}
-
-[14-Apr-2025 13:20:29 Europe/Berlin] [[14-Apr-2025 13:20:29 Europe/Berlin]] Action: data:, Data: {
-    "status": "active,completed,defaulted",
-    "member_id": "16"
-}
-
-[14-Apr-2025 13:21:09 Europe/Berlin] [[14-Apr-2025 13:21:09 Europe/Berlin]] Action: data:, Data: {
-    "status": "active,completed,defaulted",
-    "member_id": "16"
-}
-
-[14-Apr-2025 13:25:10 Europe/Berlin] [[14-Apr-2025 13:25:10 Europe/Berlin]] Action: data:, Data: {
-    "status": "active,completed,defaulted",
-    "member_id": "16"
-}
-
-[14-Apr-2025 13:25:47 Europe/Berlin] [[14-Apr-2025 13:25:47 Europe/Berlin]] Action: data:, Data: {
-    "status": "active,completed,defaulted",
-    "member_id": "16"
-}
-
-[14-Apr-2025 13:26:03 Europe/Berlin] [[14-Apr-2025 13:26:03 Europe/Berlin]] Action: data:, Data: {
-    "status": "active,completed,defaulted",
-    "member_id": "16"
-}
-
-[14-Apr-2025 13:28:04 Europe/Berlin] [[14-Apr-2025 13:28:04 Europe/Berlin]] Action: data:, Data: {
-    "status": "active,completed,defaulted",
-    "member_id": "16"
-}
-
-[14-Apr-2025 13:28:28 Europe/Berlin] [[14-Apr-2025 13:28:28 Europe/Berlin]] Action: data:, Data: {
-    "status": "active,completed,defaulted",
-    "member_id": "16"
-}
-
-[14-Apr-2025 13:29:09 Europe/Berlin] [[14-Apr-2025 13:29:09 Europe/Berlin]] Action: data:, Data: {
-    "status": "active,completed,defaulted",
-    "member_id": "16"
-}
-
-[14-Apr-2025 13:31:09 Europe/Berlin] [[14-Apr-2025 13:31:09 Europe/Berlin]] Action: data:, Data: {
-    "status": "active,completed,defaulted",
-    "member_id": "16"
-}
-
-[14-Apr-2025 13:32:02 Europe/Berlin] [[14-Apr-2025 13:32:02 Europe/Berlin]] Action: data:, Data: {
-    "status": "active,completed,defaulted",
-    "member_id": "16"
-}
-
-[14-Apr-2025 13:42:12 Europe/Berlin] [[14-Apr-2025 13:42:12 Europe/Berlin]] Action: data:, Data: {
-    "status": "active,completed,defaulted",
-    "member_id": "16"
-}
-
-[14-Apr-2025 13:46:44 Europe/Berlin] [[14-Apr-2025 13:46:44 Europe/Berlin]] Action: data:, Data: {
-    "status": "active,completed,defaulted",
-    "member_id": "16"
-}
-
-[14-Apr-2025 13:48:00 Europe/Berlin] [[14-Apr-2025 13:48:00 Europe/Berlin]] Action: data:, Data: {
-    "status": "active,completed,defaulted",
-    "member_id": "16"
-}
-
-[14-Apr-2025 13:48:44 Europe/Berlin] [[14-Apr-2025 13:48:44 Europe/Berlin]] Action: data:, Data: {
-    "status": "active,completed,defaulted",
-    "member_id": "16"
-}
-
-[14-Apr-2025 13:58:17 Europe/Berlin] [[14-Apr-2025 13:58:17 Europe/Berlin]] Action: data:, Data: {
-    "status": "active,completed,defaulted",
-    "member_id": "16"
-}
-
-[14-Apr-2025 14:00:20 Europe/Berlin] [[14-Apr-2025 14:00:20 Europe/Berlin]] Action: data:, Data: {
-    "status": "active,completed,defaulted",
-    "member_id": "16"
-}
-
-[14-Apr-2025 14:00:31 Europe/Berlin] [[14-Apr-2025 14:00:31 Europe/Berlin]] Action: data:, Data: {
-    "status": "active,completed,defaulted",
-    "member_id": "16"
-}
-
-[14-Apr-2025 14:11:30 Europe/Berlin] [[14-Apr-2025 14:11:30 Europe/Berlin]] Action: data:, Data: {
-    "status": "active,completed,defaulted",
-    "member_id": "16"
-}
-
-[14-Apr-2025 14:16:32 Europe/Berlin] [[14-Apr-2025 14:16:32 Europe/Berlin]] Action: data:, Data: {
-    "status": "active,completed,defaulted",
-    "member_id": "16"
-}
-
-[14-Apr-2025 14:16:59 Europe/Berlin] [[14-Apr-2025 14:16:59 Europe/Berlin]] Action: data:, Data: {
-    "status": "active,completed,defaulted",
-    "member_id": "16"
-}
-
-[14-Apr-2025 14:17:35 Europe/Berlin] [[14-Apr-2025 14:17:35 Europe/Berlin]] Action: data:, Data: {
-    "status": "active,completed,defaulted",
-    "member_id": "16"
-}
-
-[14-Apr-2025 14:18:11 Europe/Berlin] [[14-Apr-2025 14:18:11 Europe/Berlin]] Action: data:, Data: {
-    "status": "active,completed,defaulted",
-    "member_id": "16"
-}
-
-[14-Apr-2025 14:23:18 Europe/Berlin] [[14-Apr-2025 14:23:18 Europe/Berlin]] Action: data:, Data: {
-    "status": "active,completed,defaulted",
-    "member_id": "16"
-}
-
-[14-Apr-2025 14:24:43 Europe/Berlin] [[14-Apr-2025 14:24:43 Europe/Berlin]] Action: data:, Data: {
-    "status": "active,completed,defaulted",
-    "member_id": "16"
-}
-
-[14-Apr-2025 14:25:00 Europe/Berlin] [[14-Apr-2025 14:25:00 Europe/Berlin]] Action: data:, Data: {
-    "status": "active,completed,defaulted",
-    "member_id": "16"
-}
-
-[14-Apr-2025 14:25:14 Europe/Berlin] [[14-Apr-2025 14:25:14 Europe/Berlin]] Action: data:, Data: {
-    "status": "active,completed,defaulted",
-    "member_id": "16"
-}
-
-[14-Apr-2025 14:25:18 Europe/Berlin] [[14-Apr-2025 14:25:18 Europe/Berlin]] Action: data:, Data: {
-    "status": "active,completed,defaulted",
-    "member_id": "16"
-}
-
-[14-Apr-2025 14:26:54 Europe/Berlin] [[14-Apr-2025 14:26:54 Europe/Berlin]] Action: data:, Data: {
-    "status": "active,completed,defaulted",
-    "member_id": "16"
-}
-
-[14-Apr-2025 14:28:27 Europe/Berlin] [[14-Apr-2025 14:28:27 Europe/Berlin]] Action: data:, Data: {
-    "status": "active,completed,defaulted",
-    "member_id": "16"
-}
-
-[14-Apr-2025 14:28:40 Europe/Berlin] [[14-Apr-2025 14:28:40 Europe/Berlin]] Action: data:, Data: {
-    "status": "active,completed,defaulted",
-    "member_id": "16"
-}
-
-[14-Apr-2025 14:28:52 Europe/Berlin] [[14-Apr-2025 14:28:52 Europe/Berlin]] Action: data:, Data: {
-    "status": "active,completed,defaulted",
-    "member_id": "16"
-}
-
-[14-Apr-2025 14:28:59 Europe/Berlin] [[14-Apr-2025 14:28:59 Europe/Berlin]] Action: data:, Data: {
-    "status": "active,completed,defaulted",
-    "member_id": "16"
-}
-
-[14-Apr-2025 14:29:26 Europe/Berlin] [[14-Apr-2025 14:29:26 Europe/Berlin]] Action: data:, Data: {
-    "status": "active,completed,defaulted",
-    "member_id": "16"
-}
-
-[14-Apr-2025 14:30:25 Europe/Berlin] [[14-Apr-2025 14:30:25 Europe/Berlin]] Action: data:, Data: {
-    "status": "active,completed,defaulted",
-    "member_id": "16"
-}
-
-[14-Apr-2025 14:31:11 Europe/Berlin] [[14-Apr-2025 14:31:11 Europe/Berlin]] Action: data:, Data: {
-    "status": "active,completed,defaulted",
-    "member_id": "16"
-}
-
-[14-Apr-2025 14:31:27 Europe/Berlin] [[14-Apr-2025 14:31:27 Europe/Berlin]] Action: data:, Data: {
-    "status": "active,completed,defaulted",
-    "member_id": "16"
-}
-
-[14-Apr-2025 14:31:47 Europe/Berlin] [[14-Apr-2025 14:31:47 Europe/Berlin]] Action: data:, Data: {
-    "status": "active,completed,defaulted",
-    "member_id": "16"
-}
-
-[14-Apr-2025 14:31:57 Europe/Berlin] [[14-Apr-2025 14:31:57 Europe/Berlin]] Action: data:, Data: {
-    "status": "active,completed,defaulted",
-    "member_id": "16"
-}
-
-[14-Apr-2025 14:32:07 Europe/Berlin] [[14-Apr-2025 14:32:07 Europe/Berlin]] Action: data:, Data: {
-    "status": "active,completed,defaulted",
-    "member_id": "16"
-}
-
-[14-Apr-2025 14:32:20 Europe/Berlin] [[14-Apr-2025 14:32:20 Europe/Berlin]] Action: data:, Data: {
-    "status": "active,completed,defaulted",
-    "member_id": "16"
-}
-
-[14-Apr-2025 14:32:37 Europe/Berlin] [[14-Apr-2025 14:32:37 Europe/Berlin]] Action: data:, Data: {
-    "status": "active,completed,defaulted",
-    "member_id": "16"
-}
-
-[14-Apr-2025 14:32:55 Europe/Berlin] [[14-Apr-2025 14:32:55 Europe/Berlin]] Action: data:, Data: {
-    "status": "active,completed,defaulted",
-    "member_id": "16"
-}
-
-[14-Apr-2025 14:33:07 Europe/Berlin] [[14-Apr-2025 14:33:07 Europe/Berlin]] Action: data:, Data: {
-    "status": "active,completed,defaulted",
-    "member_id": "16"
-}
-
-[14-Apr-2025 14:33:25 Europe/Berlin] [[14-Apr-2025 14:33:25 Europe/Berlin]] Action: data:, Data: {
-    "status": "active,completed,defaulted",
-    "member_id": "16"
-}
-
-[14-Apr-2025 14:33:33 Europe/Berlin] [[14-Apr-2025 14:33:33 Europe/Berlin]] Action: data:, Data: {
-    "status": "active,completed,defaulted",
-    "member_id": "16"
-}
-
-[14-Apr-2025 14:33:42 Europe/Berlin] [[14-Apr-2025 14:33:42 Europe/Berlin]] Action: data:, Data: {
-    "status": "active,completed,defaulted",
-    "member_id": "16"
-}
-
-[14-Apr-2025 14:34:09 Europe/Berlin] [[14-Apr-2025 14:34:09 Europe/Berlin]] Action: data:, Data: {
-    "status": "active,completed,defaulted",
-    "member_id": "16"
-}
-
-[14-Apr-2025 14:34:17 Europe/Berlin] [[14-Apr-2025 14:34:17 Europe/Berlin]] Action: data:, Data: {
-    "status": "active,completed,defaulted",
-    "member_id": "16"
-}
-
-[14-Apr-2025 14:35:56 Europe/Berlin] [[14-Apr-2025 14:35:56 Europe/Berlin]] Action: data:, Data: {
-    "status": "active,completed,defaulted",
-    "member_id": "16"
-}
-
-[14-Apr-2025 14:36:10 Europe/Berlin] [[14-Apr-2025 14:36:10 Europe/Berlin]] Action: data:, Data: {
-    "status": "active,completed,defaulted",
-    "member_id": "16"
-}
-
-[14-Apr-2025 14:36:57 Europe/Berlin] [[14-Apr-2025 14:36:57 Europe/Berlin]] Action: data:, Data: {
-    "status": "active,completed,defaulted",
-    "member_id": "16"
-}
-
-[14-Apr-2025 14:38:58 Europe/Berlin] [[14-Apr-2025 14:38:58 Europe/Berlin]] Action: data:, Data: {
-    "status": "active,completed,defaulted",
-    "member_id": "16"
-}
-
-[14-Apr-2025 14:39:11 Europe/Berlin] [[14-Apr-2025 14:39:11 Europe/Berlin]] Action: data:, Data: {
-    "status": "active,completed,defaulted",
-    "member_id": "16"
-}
-
-[14-Apr-2025 14:40:06 Europe/Berlin] [[14-Apr-2025 14:40:06 Europe/Berlin]] Action: data:, Data: {
-    "status": "active,completed,defaulted",
-    "member_id": "16"
+[15-Apr-2025 22:21:34 Europe/Berlin] [[15-Apr-2025 22:21:34 Europe/Berlin]] Action: get_server_request_data(): , Data: {
+    "rawInput": "{\"action\":\"logout_account\",\"data\":{\"uid\":\"A839109\",\"session_id\":\"8thmchonf46rakhufh0imll6u2\"}}"
 }
 
-[14-Apr-2025 14:40:54 Europe/Berlin] [[14-Apr-2025 14:40:54 Europe/Berlin]] Action: data:, Data: {
-    "status": "active,completed,defaulted",
-    "member_id": "16"
-}
-
-[14-Apr-2025 14:41:32 Europe/Berlin] [[14-Apr-2025 14:41:32 Europe/Berlin]] Action: data:, Data: {
-    "status": "active,completed,defaulted",
-    "member_id": "16"
-}
-
-[14-Apr-2025 14:42:04 Europe/Berlin] [[14-Apr-2025 14:42:04 Europe/Berlin]] Action: data:, Data: {
-    "status": "active,completed,defaulted",
-    "member_id": "16"
-}
-
-[14-Apr-2025 14:42:27 Europe/Berlin] [[14-Apr-2025 14:42:27 Europe/Berlin]] Action: data:, Data: {
-    "status": "active,completed,defaulted",
-    "member_id": "16"
+[15-Apr-2025 22:21:34 Europe/Berlin] [[15-Apr-2025 22:21:34 Europe/Berlin]] Action: request: , Data: {
+    "action": "logout_account",
+    "data": {
+        "uid": "A839109",
+        "session_id": "8thmchonf46rakhufh0imll6u2"
+    }
 }
 
-[14-Apr-2025 14:42:37 Europe/Berlin] [[14-Apr-2025 14:42:37 Europe/Berlin]] Action: data:, Data: {
-    "status": "active,completed,defaulted",
-    "member_id": "16"
-}
-
-[14-Apr-2025 14:42:45 Europe/Berlin] [[14-Apr-2025 14:42:45 Europe/Berlin]] Action: data:, Data: {
-    "status": "active,completed,defaulted",
-    "member_id": "16"
+[15-Apr-2025 22:21:41 Europe/Berlin] [[15-Apr-2025 22:21:41 Europe/Berlin]] Action: get_server_request_data(): , Data: {
+    "rawInput": "{\"action\":\"login_account\",\"data\":{\"uid\":\"member\",\"password\":\"member\",\"recaptcha_response\":\"03AFcWeA5URMgwEv-TfLj1vUKYjtHd9Lctg2renjDfpwQGCZv6tp41Nbl_T3P8s2ZzEVu29sPUa8ntbTVcOzXXVi5tJIWIsZEObpdUUnbWKN0Pb8R2ZmAbZGeawu2I0Ld4TLJKK7o6URVDCSzdguzwQlDx9i8neFhtrjNPeZpX_ksuKGX4DTporNwukOEn34gFMtOS6Xio1P0W-4hetoRD1X7b9KGjFSRpfdRxSCFWBxOLXOeJGrdKDhvi_OKx05NPlnwgXjE1H3nhLOnx5F3ie3Ax0z-6qLzS8LRYEDtJlkqczEKumkZYHFopp2Q7UyUXAp1DPgDTKH0LsDJe649TUlhy2l64ft5h4rWxH5ESQZzLxy9TrKJRYxz2uz4C85m3gKSB2cX5toaVV28ait2jsIebT8yee-hTOffADHjaeZKXxZjEdDIBoUh34zfRIcJrsv_JXVp61U43tv9y7hZvtil70L3bwT1-UQURma_Vc0nbuoe-roD-g-Qc5JMbDJuVVRkQNNnqDNSXvbya1BGWUp2561yIHol6uwrc-HDJ0CFIvKIDACeV71kNwc_6olUS6B7X5Ossi31EIHBim9oR7sBbtEO4kmoHAgoC9i72nao3nao7Ps1Fya8xc3Xxa4gI56W1W6GytM-6smpA8qEWXTPZoBYJKS2TFa2n-uPUjhj_oKLi93HZrnKVShtaUscefZnkjMwqxI3vQeazzRIAfD4x7snEJWNs0Gbya_yMLCZwI3qmQgc3F9B1MeN9QWt50gWSxgA4LYru2kaqs0JAJWjtugjk-CjT41HRayInpIPVTkzdB1sgMcII2R-rQsjollC9Vy3OYjpEMmzEAoE9OTOAX_rb0qaLtscpowVoO2ev2fPPMdfpAiRQZ5Q55uQRVgzjvb5Oc4LCxUFdVujoo8lDvSsVujFBMax2xAYcjeHlMCpVx0tl_cudROOObMG0HRpE6oatr04UOi-DBvo5CIbo5JN3_N5MgGgR1rsZRQssCdF1XlLS3B8\"}}"
 }
 
-[14-Apr-2025 14:43:17 Europe/Berlin] [[14-Apr-2025 14:43:17 Europe/Berlin]] Action: data:, Data: {
-    "status": "active,completed,defaulted",
-    "member_id": "16"
+[15-Apr-2025 22:21:41 Europe/Berlin] [[15-Apr-2025 22:21:41 Europe/Berlin]] Action: request: , Data: {
+    "action": "login_account",
+    "data": {
+        "uid": "member",
+        "password": "member",
+        "recaptcha_response": "03AFcWeA5URMgwEv-TfLj1vUKYjtHd9Lctg2renjDfpwQGCZv6tp41Nbl_T3P8s2ZzEVu29sPUa8ntbTVcOzXXVi5tJIWIsZEObpdUUnbWKN0Pb8R2ZmAbZGeawu2I0Ld4TLJKK7o6URVDCSzdguzwQlDx9i8neFhtrjNPeZpX_ksuKGX4DTporNwukOEn34gFMtOS6Xio1P0W-4hetoRD1X7b9KGjFSRpfdRxSCFWBxOLXOeJGrdKDhvi_OKx05NPlnwgXjE1H3nhLOnx5F3ie3Ax0z-6qLzS8LRYEDtJlkqczEKumkZYHFopp2Q7UyUXAp1DPgDTKH0LsDJe649TUlhy2l64ft5h4rWxH5ESQZzLxy9TrKJRYxz2uz4C85m3gKSB2cX5toaVV28ait2jsIebT8yee-hTOffADHjaeZKXxZjEdDIBoUh34zfRIcJrsv_JXVp61U43tv9y7hZvtil70L3bwT1-UQURma_Vc0nbuoe-roD-g-Qc5JMbDJuVVRkQNNnqDNSXvbya1BGWUp2561yIHol6uwrc-HDJ0CFIvKIDACeV71kNwc_6olUS6B7X5Ossi31EIHBim9oR7sBbtEO4kmoHAgoC9i72nao3nao7Ps1Fya8xc3Xxa4gI56W1W6GytM-6smpA8qEWXTPZoBYJKS2TFa2n-uPUjhj_oKLi93HZrnKVShtaUscefZnkjMwqxI3vQeazzRIAfD4x7snEJWNs0Gbya_yMLCZwI3qmQgc3F9B1MeN9QWt50gWSxgA4LYru2kaqs0JAJWjtugjk-CjT41HRayInpIPVTkzdB1sgMcII2R-rQsjollC9Vy3OYjpEMmzEAoE9OTOAX_rb0qaLtscpowVoO2ev2fPPMdfpAiRQZ5Q55uQRVgzjvb5Oc4LCxUFdVujoo8lDvSsVujFBMax2xAYcjeHlMCpVx0tl_cudROOObMG0HRpE6oatr04UOi-DBvo5CIbo5JN3_N5MgGgR1rsZRQssCdF1XlLS3B8"
+    }
 }
 
-[14-Apr-2025 14:43:25 Europe/Berlin] [[14-Apr-2025 14:43:25 Europe/Berlin]] Action: data:, Data: {
-    "status": "active,completed,defaulted",
-    "member_id": "16"
+[16-Apr-2025 04:21:41 Asia/Manila] [[16-Apr-2025 04:21:41 Asia/Manila]] Action: Session Data: , Data: {
+    "ip_address": "127.0.0.1",
+    "user_agent": "Mozilla\/5.0 (Windows NT 10.0; Win64; x64; rv:137.0) Gecko\/20100101 Firefox\/137.0",
+    "session_hash": "f4b99342b2d9a4a974ea65a68a78446baee87015fe8446564359a2f8b8226583",
+    "session_id": "ka5f3vga6ga6eqptln5kc3g8fg",
+    "account_id": 18,
+    "account_uid": "A839109",
+    "email": "member@gmail.com",
+    "username": "member",
+    "account_status": "active",
+    "role_name": "Member",
+    "member_id": 16,
+    "first_name": "John",
+    "last_name": "Doe",
+    "middle_name": "Smith",
+    "full_name": "John S. Doe",
+    "contact_number": "+639772465533",
+    "full_address": "Ph7, Blk3, Lot24, Residence III, Brgy. Mapulang Lupa, Pandi, Bulacan, Region 3"
 }
 
-[14-Apr-2025 14:43:36 Europe/Berlin] [[14-Apr-2025 14:43:36 Europe/Berlin]] Action: data:, Data: {
+[15-Apr-2025 22:21:42 Europe/Berlin] PHP Warning:  Undefined variable $base_url in C:\xampp\htdocs\bulsu-school\account-receivable-system-project\index.php on line 12
+[15-Apr-2025 22:21:43 Europe/Berlin] [[15-Apr-2025 22:21:43 Europe/Berlin]] Action: data:, Data: {
     "status": "active,completed,defaulted",
     "member_id": "16"
 }
 
-[14-Apr-2025 14:44:05 Europe/Berlin] [[14-Apr-2025 14:44:05 Europe/Berlin]] Action: data:, Data: {
-    "status": "active,completed,defaulted",
-    "member_id": "16"
+[15-Apr-2025 22:21:47 Europe/Berlin] [[15-Apr-2025 22:21:47 Europe/Berlin]] Action: get_server_request_data(): , Data: {
+    "rawInput": "{\"action\":\"logout_account\",\"data\":{\"uid\":\"A839109\",\"session_id\":\"ka5f3vga6ga6eqptln5kc3g8fg\"}}"
 }
 
-[14-Apr-2025 14:55:36 Europe/Berlin] [[14-Apr-2025 14:55:36 Europe/Berlin]] Action: data:, Data: {
-    "status": "active,completed,defaulted",
-    "member_id": "16"
+[15-Apr-2025 22:21:47 Europe/Berlin] [[15-Apr-2025 22:21:47 Europe/Berlin]] Action: request: , Data: {
+    "action": "logout_account",
+    "data": {
+        "uid": "A839109",
+        "session_id": "ka5f3vga6ga6eqptln5kc3g8fg"
+    }
 }
 

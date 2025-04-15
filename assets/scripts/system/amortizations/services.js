@@ -185,3 +185,73 @@ const fetchMemberRequestAmortizations = async (
     throw error
   }
 }
+
+const fetchAmortizationTypes = async () => {
+  try {
+    const response = await axios.get(
+      `${API_URL}?action=get_amortization_types`,
+      {
+        headers: HEADERS
+      }
+    )
+    if (!response.data || !response.data.success) {
+      throw new Error(
+        response.data?.message || 'Failed to fetch amortization types'
+      )
+    }
+    return response.data
+  } catch (error) {
+    console.error('Error fetching amortization types:', error)
+    const errorMessage =
+      error.response?.data?.message ||
+      'Something went wrong while processing request.'
+    toastr.error(errorMessage)
+    throw error
+  }
+}
+
+const fetchAmortizationType = async (typeId) => {
+  try {
+    const response = await axios.get(
+      `${API_URL}?action=get_amortization_type&type_id=${typeId}`,
+      {
+        headers: HEADERS
+      }
+    )
+    if (!response.data || !response.data.success) {
+      throw new Error(
+        response.data?.message || 'Failed to fetch amortization type'
+      )
+    }
+    return response.data
+  } catch (error) {
+    console.error('Error fetching amortization type:', error)
+    const errorMessage =
+      error.response?.data?.message ||
+      'Something went wrong while processing request.'
+    toastr.error(errorMessage)
+    throw error
+  }
+}
+
+const fetchAmortization = async (amortizationId) => {
+  try {
+    const response = await axios.get(
+      `${API_URL}?action=get_amortization&amortization_id=${amortizationId}`,
+      {
+        headers: HEADERS
+      }
+    )
+    if (!response.data || !response.data.success) {
+      throw new Error(response.data?.message || 'Failed to fetch amortization')
+    }
+    return response.data
+  } catch (error) {
+    console.error('Error fetching amortization:', error)
+    const errorMessage =
+      error.response?.data?.message ||
+      'Something went wrong while processing request.'
+    toastr.error(errorMessage)
+    throw error
+  }
+}

@@ -188,7 +188,7 @@ $(document).ready(async function () {
 
     try {
       $(this).text('Processing...').prop('disabled', true)
-
+      LoadingManager.show($('.login-content'))
       const response = await loginAccount(
         username.val().trim(),
         password.val().trim(),
@@ -209,6 +209,7 @@ $(document).ready(async function () {
       password.val('').focus()
       grecaptcha.reset()
       $(this).text('Login').prop('disabled', false)
+      LoadingManager.hide($('.login-content'))
     }
   })
 

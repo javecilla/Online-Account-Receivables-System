@@ -255,8 +255,15 @@ window.DataTableMemberRequestAmortizations = function (
         }
       },
       {
+        data: 'monthly_amount',
+        title: 'Monthly Amount',
+        render: function (data) {
+          return `&#8369;${parseFloat(data).toFixed(2)}`
+        }
+      },
+      {
         data: 'remaining_balance',
-        title: 'Balance Due',
+        title: 'Total Repayment',
         render: function (data) {
           return `&#8369;${parseFloat(data).toFixed(2)}`
         }
@@ -311,12 +318,12 @@ window.DataTableMemberRequestAmortizations = function (
           let actionButtons = ''
 
           if (data.approval === 'pending') {
-            actionButtons += `<li><a class="dropdown-item" href="javascript:void(0)" data-id="${data.amortization_id}"><i class="fas fa-edit"></i> Edit Request</a></li>
+            actionButtons += `<li><a class="dropdown-item edit-btn" href="javascript:void(0)" data-id="${data.amortization_id}"><i class="fas fa-edit"></i> Edit Request</a></li>
               <li><hr class="dropdown-divider"></li>
             `
           }
 
-          actionButtons += `<li><a class="dropdown-item" href="javascript:void(0)" data-id="${data.amortization_id}"><i class="fas fa-trash"></i> Cancel / Delete</a></li>`
+          actionButtons += `<li><a class="dropdown-item delete-btn" href="javascript:void(0)" data-id="${data.amortization_id}"><i class="fas fa-trash"></i> Cancel / Delete</a></li>`
           return `
             <div class="dropdown" id="requestAmortizationActionDropdown">
               <button class="action-btn" data-bs-toggle="dropdown" aria-expanded="false">
@@ -334,7 +341,7 @@ window.DataTableMemberRequestAmortizations = function (
         visible: false
       }
     ],
-    order: [[8, 'desc']]
+    order: [[9, 'desc']]
   })
 
   return amortizationsDataTable

@@ -1,6 +1,6 @@
 SET FOREIGN_KEY_CHECKS = 0;
 
-TRUNCATE TABLE account_registration;
+TRUNCATE TABLE school_year;
 TRUNCATE TABLE adviser;
 TRUNCATE TABLE alumni;
 TRUNCATE TABLE branches;

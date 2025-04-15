@@ -12,24 +12,24 @@ function create_amortization(array $data): array
         $conn = open_connection();
         $conn->begin_transaction();
 
-        $type = get_amortization_type($data['type_id']);
-        $interest_rate = $type['data']['interest_rate'];
+        // $type = get_amortization_type($data['type_id']);
+        // $interest_rate = $type['data']['interest_rate'];
 
-        //calculate amortization details
-        $principal = $data['amount'];
-        $term_months = $data['term_months'];
+        #calculate amortization details
+        // $principal = $data['amount'];
+        // $term_months = $data['term_months'];
 
-        //calculate total interest for the loan period
-        $total_interest = $principal * (($interest_rate / 100) * ($term_months / 12));
+        #calculate total interest for the loan period
+        //$total_interest = $principal * (($interest_rate / 100) * ($term_months / 12));
 
-        //Calculate total amount to be repaid (this will be the initial remaining_balance)
-        $total_repayment = $principal + $total_interest;
+        #Calculate total amount to be repaid (this will be the initial remaining_balance)
+        //$total_repayment = $principal + $total_interest;
 
-        //clculate fixed monthly payment
-        $monthly_amount = $total_repayment / $term_months;
+        #calculate fixed monthly payment
+        //$monthly_amount = $total_repayment / $term_months;
 
-        $start_date = $data['start_date'];
-        $end_date = date('Y-m-d', strtotime($start_date . " +{$term_months} months"));
+        // $start_date = $data['start_date'];
+        // $end_date = date('Y-m-d', strtotime($start_date . " +{$term_months} months"));
 
         $sql = "INSERT INTO member_amortizations (
             member_id, `type_id`, principal_amount, monthly_amount,
@@ -41,11 +41,11 @@ function create_amortization(array $data): array
             'iidddss',
             $data['member_id'],
             $data['type_id'],
-            $principal,
-            $monthly_amount,
-            $total_repayment, //initial remaining_balance is the total amount to be repaid
-            $start_date,
-            $end_date
+            $data['principal_amount'],
+            $data['monthly_amount'],
+            $data['remaining_balance'],
+            $data['start_date'],
+            $data['end_date']
         );
         $created = $stmt->execute();
         if (!$created) {
@@ -57,20 +57,57 @@ function create_amortization(array $data): array
         return [
             'success' => true,
             'message' => 'Amortization created successfully',
-            'data' => [
-                'principal_amount' => $principal,
-                'total_interest' => $total_interest,
-                'total_repayment' => $total_repayment,
-                'monthly_amount' => $monthly_amount,
-                'term_months' => $term_months,
-                'start_date' => $start_date,
-                'end_date' => $end_date
-            ]
+            // 'data' => [
+            //     'principal_amount' => $principal,
+            //     'total_interest' => $total_interest,
+            //     'total_repayment' => $total_repayment,
+            //     'monthly_amount' => $monthly_amount,
+            //     'term_months' => $term_months,
+            //     'start_date' => $start_date,
+            //     'end_date' => $end_date
+            // ]
         ];
     } catch (Exception $e) {
         $conn->rollback();
         log_error("Error creating amortization: {$e->getTraceAsString()}");
         return ['success' => false, 'message' => "Error: {$e->getMessage()}"];
+    }
+}
+
+function update_amortization(int $amortization_id, array $data): array
+{
+    try {
+        $conn = open_connection();
+        $conn->begin_transaction();
+
+        $sql = "UPDATE member_amortizations
+                SET `type_id` =?, principal_amount =?, monthly_amount =?, remaining_balance =?,
+                    `start_date` =?, end_date =?
+                WHERE amortization_id =? LIMIT 1";
+
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param(
+            'idddssi',
+            $data['type_id'],
+            $data['principal_amount'],
+            $data['monthly_amount'],
+            $data['remaining_balance'],
+            $data['start_date'],
+            $data['end_date'],
+            $amortization_id
+        );
+        $updated = $stmt->execute();
+        if (!$updated) {
+            $conn->rollback();
+            return ['success' => false,'message' => 'Failed to update amortization'];
+        }
+
+        $conn->commit();
+        return ['success' => true,'message' => 'Amortization updated successfully'];
+    } catch (Exception $e) {
+        $conn->rollback();
+        log_error("Error updating amortization: {$e->getTraceAsString()}");
+        return ['success' => false,'message' => "Error updating amortization: {$e->getMessage()}"];
     }
 }
 
@@ -404,7 +441,7 @@ function delete_amortization(int $amortization_id): array
 
         $conn->begin_transaction();
 
-        $sql = "DELETE FROM member_amortizations WHERE amortization_id = ? AND `status` IS NULL AND approval = 'rejected' LIMIT 1";
+        $sql = "DELETE FROM member_amortizations WHERE amortization_id = ? /*AND `status` IS NULL AND approval = 'rejected'*/ LIMIT 1";
         $stmt = $conn->prepare($sql);
         $stmt->bind_param('i', $amortization_id);
         $deleted = $stmt->execute();
