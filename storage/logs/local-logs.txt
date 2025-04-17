@@ -1,33 +1,62 @@
-[15-Apr-2025 22:21:34 Europe/Berlin] [[15-Apr-2025 22:21:34 Europe/Berlin]] Action: get_server_request_data(): , Data: {
-    "rawInput": "{\"action\":\"logout_account\",\"data\":{\"uid\":\"A839109\",\"session_id\":\"8thmchonf46rakhufh0imll6u2\"}}"
+[17-Apr-2025 17:57:10 Europe/Berlin] [[17-Apr-2025 17:57:10 Europe/Berlin]] Action: get_server_request_data(): , Data: {
+    "rawInput": "{\"action\":\"update_amortization_approval\",\"data\":{\"amortization_id\":14,\"approval\":\"approved\"}}"
 }
 
-[15-Apr-2025 22:21:34 Europe/Berlin] [[15-Apr-2025 22:21:34 Europe/Berlin]] Action: request: , Data: {
-    "action": "logout_account",
+[17-Apr-2025 17:57:10 Europe/Berlin] [[17-Apr-2025 17:57:10 Europe/Berlin]] Action: request: , Data: {
+    "action": "update_amortization_approval",
     "data": {
-        "uid": "A839109",
-        "session_id": "8thmchonf46rakhufh0imll6u2"
+        "amortization_id": 14,
+        "approval": "approved"
     }
 }
 
-[15-Apr-2025 22:21:41 Europe/Berlin] [[15-Apr-2025 22:21:41 Europe/Berlin]] Action: get_server_request_data(): , Data: {
-    "rawInput": "{\"action\":\"login_account\",\"data\":{\"uid\":\"member\",\"password\":\"member\",\"recaptcha_response\":\"03AFcWeA5URMgwEv-TfLj1vUKYjtHd9Lctg2renjDfpwQGCZv6tp41Nbl_T3P8s2ZzEVu29sPUa8ntbTVcOzXXVi5tJIWIsZEObpdUUnbWKN0Pb8R2ZmAbZGeawu2I0Ld4TLJKK7o6URVDCSzdguzwQlDx9i8neFhtrjNPeZpX_ksuKGX4DTporNwukOEn34gFMtOS6Xio1P0W-4hetoRD1X7b9KGjFSRpfdRxSCFWBxOLXOeJGrdKDhvi_OKx05NPlnwgXjE1H3nhLOnx5F3ie3Ax0z-6qLzS8LRYEDtJlkqczEKumkZYHFopp2Q7UyUXAp1DPgDTKH0LsDJe649TUlhy2l64ft5h4rWxH5ESQZzLxy9TrKJRYxz2uz4C85m3gKSB2cX5toaVV28ait2jsIebT8yee-hTOffADHjaeZKXxZjEdDIBoUh34zfRIcJrsv_JXVp61U43tv9y7hZvtil70L3bwT1-UQURma_Vc0nbuoe-roD-g-Qc5JMbDJuVVRkQNNnqDNSXvbya1BGWUp2561yIHol6uwrc-HDJ0CFIvKIDACeV71kNwc_6olUS6B7X5Ossi31EIHBim9oR7sBbtEO4kmoHAgoC9i72nao3nao7Ps1Fya8xc3Xxa4gI56W1W6GytM-6smpA8qEWXTPZoBYJKS2TFa2n-uPUjhj_oKLi93HZrnKVShtaUscefZnkjMwqxI3vQeazzRIAfD4x7snEJWNs0Gbya_yMLCZwI3qmQgc3F9B1MeN9QWt50gWSxgA4LYru2kaqs0JAJWjtugjk-CjT41HRayInpIPVTkzdB1sgMcII2R-rQsjollC9Vy3OYjpEMmzEAoE9OTOAX_rb0qaLtscpowVoO2ev2fPPMdfpAiRQZ5Q55uQRVgzjvb5Oc4LCxUFdVujoo8lDvSsVujFBMax2xAYcjeHlMCpVx0tl_cudROOObMG0HRpE6oatr04UOi-DBvo5CIbo5JN3_N5MgGgR1rsZRQssCdF1XlLS3B8\"}}"
+[17-Apr-2025 23:57:10 Asia/Manila] [[17-Apr-2025 23:57:10 Asia/Manila]] ERROR: Error updating amortization status: #0 C:\xampp\htdocs\bulsu-school\account-receivable-system-project\app\services\system\amortization.php(481): mysqli_stmt->execute()
+#1 C:\xampp\htdocs\bulsu-school\account-receivable-system-project\app\controllers\amortization.php(315): update_amortization_status(14, 'active')
+#2 C:\xampp\htdocs\bulsu-school\account-receivable-system-project\app\router\api.php(116): handle_update_amortization_approval(Array)
+#3 {main}
+
+[17-Apr-2025 18:00:47 Europe/Berlin] [[17-Apr-2025 18:00:47 Europe/Berlin]] Action: get_server_request_data(): , Data: {
+    "rawInput": "{\"action\":\"update_amortization_approval\",\"data\":{\"amortization_id\":14,\"approval\":\"approved\"}}"
 }
 
-[15-Apr-2025 22:21:41 Europe/Berlin] [[15-Apr-2025 22:21:41 Europe/Berlin]] Action: request: , Data: {
+[17-Apr-2025 18:00:47 Europe/Berlin] [[17-Apr-2025 18:00:47 Europe/Berlin]] Action: request: , Data: {
+    "action": "update_amortization_approval",
+    "data": {
+        "amortization_id": 14,
+        "approval": "approved"
+    }
+}
+
+[17-Apr-2025 18:05:18 Europe/Berlin] [[17-Apr-2025 18:05:18 Europe/Berlin]] Action: get_server_request_data(): , Data: {
+    "rawInput": "{\"action\":\"logout_account\",\"data\":{\"uid\":\"A581841\",\"session_id\":\"32t69o24a9ti21mt4r8o7qamuj\"}}"
+}
+
+[17-Apr-2025 18:05:18 Europe/Berlin] [[17-Apr-2025 18:05:18 Europe/Berlin]] Action: request: , Data: {
+    "action": "logout_account",
+    "data": {
+        "uid": "A581841",
+        "session_id": "32t69o24a9ti21mt4r8o7qamuj"
+    }
+}
+
+[17-Apr-2025 18:05:28 Europe/Berlin] [[17-Apr-2025 18:05:28 Europe/Berlin]] Action: get_server_request_data(): , Data: {
+    "rawInput": "{\"action\":\"login_account\",\"data\":{\"uid\":\"member\",\"password\":\"member\",\"recaptcha_response\":\"03AFcWeA5GKfo8vGBzL2DDglJewfNyw3d3aL9N1MwNduAiGJzthRiuMeUkuBrDRRs3N-FDb3gkKOUNDdqQQ0lAKxesgYpu2xK2UBT0eoh7_oOf4EwDT6BNSkouYoyN1Yr1SLH3pol37JbVKMTWjN6wcW2gOLmto-e0Q419twq0GvPQHMItm07evKJ_1oY7Ij-y7Z8HOYePXzc05Ks4ZiaIXHpYuczgUjiCBm0stXOX0Gmo-hqa2JaZASQjA37XGTj_fNksJKhuu16QHGuIbpA-foRGiOIamC7JoHkZQf0yOeIyX310qXMBsMX9gIq0tAT765Tx-BR6F0H2l6lRvshP3nuejV7Po37gHqfJbfHQO7v4-_NDSEQl4VaJ3WZ-DAHrWQy_Z53oS8cDdXPnhqHWAvbvzOW9kclS2vEqu5MKh3lNud4iTQx1qOp141_YDltGqQk6SFLcKtIg_-IGeW5WVWbLzK5m_winNC1kjg9aLhUiMejcUCIdSVVaKMt2pxI0xVPoTmcEmxKgMZJUl6VTGflE7NwrDkLiWVlh9j3EZLVrW0WfHBYFksP0PKUei1ShbW-pp_5bn7r4FQZ1IaqXC23RqwY3OXxLwzBaNwKxO6rOAHbOeem53anfQpnzfj28f8js-G4UUlHEUL0hgzMGxe4nqFS1lWeyz82Cb8PXBwzVNSY7k33gWiG2QlmTbvnUV4-o75LDeZju3S8PbL7wDtGkHQSZgHiNO7738L-RvoWRA80suVbKgyvashWkDZCeDa6fVjRi60BvHTfhAXDbcFXjnBY0O2zB1O6uzeElNjMItEiiJgdieH4bexQrhOXXEDiwHqX7ms9k-PhviFpEBtU6W74ZeKDDLUxdQ3UE05RYNz6gmS4nCiySC53rqFhuxuQqYqcrT7s4JiswBiS_XjSqkWGF4PjnvCYoxGRvvnVTfcWB41_AKOdORfzSSXIvypZ_F963QYAK\"}}"
+}
+
+[17-Apr-2025 18:05:28 Europe/Berlin] [[17-Apr-2025 18:05:28 Europe/Berlin]] Action: request: , Data: {
     "action": "login_account",
     "data": {
         "uid": "member",
         "password": "member",
-        "recaptcha_response": "03AFcWeA5URMgwEv-TfLj1vUKYjtHd9Lctg2renjDfpwQGCZv6tp41Nbl_T3P8s2ZzEVu29sPUa8ntbTVcOzXXVi5tJIWIsZEObpdUUnbWKN0Pb8R2ZmAbZGeawu2I0Ld4TLJKK7o6URVDCSzdguzwQlDx9i8neFhtrjNPeZpX_ksuKGX4DTporNwukOEn34gFMtOS6Xio1P0W-4hetoRD1X7b9KGjFSRpfdRxSCFWBxOLXOeJGrdKDhvi_OKx05NPlnwgXjE1H3nhLOnx5F3ie3Ax0z-6qLzS8LRYEDtJlkqczEKumkZYHFopp2Q7UyUXAp1DPgDTKH0LsDJe649TUlhy2l64ft5h4rWxH5ESQZzLxy9TrKJRYxz2uz4C85m3gKSB2cX5toaVV28ait2jsIebT8yee-hTOffADHjaeZKXxZjEdDIBoUh34zfRIcJrsv_JXVp61U43tv9y7hZvtil70L3bwT1-UQURma_Vc0nbuoe-roD-g-Qc5JMbDJuVVRkQNNnqDNSXvbya1BGWUp2561yIHol6uwrc-HDJ0CFIvKIDACeV71kNwc_6olUS6B7X5Ossi31EIHBim9oR7sBbtEO4kmoHAgoC9i72nao3nao7Ps1Fya8xc3Xxa4gI56W1W6GytM-6smpA8qEWXTPZoBYJKS2TFa2n-uPUjhj_oKLi93HZrnKVShtaUscefZnkjMwqxI3vQeazzRIAfD4x7snEJWNs0Gbya_yMLCZwI3qmQgc3F9B1MeN9QWt50gWSxgA4LYru2kaqs0JAJWjtugjk-CjT41HRayInpIPVTkzdB1sgMcII2R-rQsjollC9Vy3OYjpEMmzEAoE9OTOAX_rb0qaLtscpowVoO2ev2fPPMdfpAiRQZ5Q55uQRVgzjvb5Oc4LCxUFdVujoo8lDvSsVujFBMax2xAYcjeHlMCpVx0tl_cudROOObMG0HRpE6oatr04UOi-DBvo5CIbo5JN3_N5MgGgR1rsZRQssCdF1XlLS3B8"
+        "recaptcha_response": "03AFcWeA5GKfo8vGBzL2DDglJewfNyw3d3aL9N1MwNduAiGJzthRiuMeUkuBrDRRs3N-FDb3gkKOUNDdqQQ0lAKxesgYpu2xK2UBT0eoh7_oOf4EwDT6BNSkouYoyN1Yr1SLH3pol37JbVKMTWjN6wcW2gOLmto-e0Q419twq0GvPQHMItm07evKJ_1oY7Ij-y7Z8HOYePXzc05Ks4ZiaIXHpYuczgUjiCBm0stXOX0Gmo-hqa2JaZASQjA37XGTj_fNksJKhuu16QHGuIbpA-foRGiOIamC7JoHkZQf0yOeIyX310qXMBsMX9gIq0tAT765Tx-BR6F0H2l6lRvshP3nuejV7Po37gHqfJbfHQO7v4-_NDSEQl4VaJ3WZ-DAHrWQy_Z53oS8cDdXPnhqHWAvbvzOW9kclS2vEqu5MKh3lNud4iTQx1qOp141_YDltGqQk6SFLcKtIg_-IGeW5WVWbLzK5m_winNC1kjg9aLhUiMejcUCIdSVVaKMt2pxI0xVPoTmcEmxKgMZJUl6VTGflE7NwrDkLiWVlh9j3EZLVrW0WfHBYFksP0PKUei1ShbW-pp_5bn7r4FQZ1IaqXC23RqwY3OXxLwzBaNwKxO6rOAHbOeem53anfQpnzfj28f8js-G4UUlHEUL0hgzMGxe4nqFS1lWeyz82Cb8PXBwzVNSY7k33gWiG2QlmTbvnUV4-o75LDeZju3S8PbL7wDtGkHQSZgHiNO7738L-RvoWRA80suVbKgyvashWkDZCeDa6fVjRi60BvHTfhAXDbcFXjnBY0O2zB1O6uzeElNjMItEiiJgdieH4bexQrhOXXEDiwHqX7ms9k-PhviFpEBtU6W74ZeKDDLUxdQ3UE05RYNz6gmS4nCiySC53rqFhuxuQqYqcrT7s4JiswBiS_XjSqkWGF4PjnvCYoxGRvvnVTfcWB41_AKOdORfzSSXIvypZ_F963QYAK"
     }
 }
 
-[16-Apr-2025 04:21:41 Asia/Manila] [[16-Apr-2025 04:21:41 Asia/Manila]] Action: Session Data: , Data: {
+[18-Apr-2025 00:05:29 Asia/Manila] [[18-Apr-2025 00:05:29 Asia/Manila]] Action: Session Data: , Data: {
     "ip_address": "127.0.0.1",
     "user_agent": "Mozilla\/5.0 (Windows NT 10.0; Win64; x64; rv:137.0) Gecko\/20100101 Firefox\/137.0",
-    "session_hash": "f4b99342b2d9a4a974ea65a68a78446baee87015fe8446564359a2f8b8226583",
-    "session_id": "ka5f3vga6ga6eqptln5kc3g8fg",
+    "session_hash": "472531f5a0e43f5491a27455082cad5022a7e49a038302a373ffdae8b28dbcc1",
+    "session_id": "cvhrm2pmkl8i2gmpg22r8opglh",
     "account_id": 18,
     "account_uid": "A839109",
     "email": "member@gmail.com",
@@ -43,21 +72,223 @@
     "full_address": "Ph7, Blk3, Lot24, Residence III, Brgy. Mapulang Lupa, Pandi, Bulacan, Region 3"
 }
 
-[15-Apr-2025 22:21:42 Europe/Berlin] PHP Warning:  Undefined variable $base_url in C:\xampp\htdocs\bulsu-school\account-receivable-system-project\index.php on line 12
-[15-Apr-2025 22:21:43 Europe/Berlin] [[15-Apr-2025 22:21:43 Europe/Berlin]] Action: data:, Data: {
-    "status": "active,completed,defaulted",
+[17-Apr-2025 18:05:29 Europe/Berlin] PHP Warning:  Undefined variable $base_url in C:\xampp\htdocs\bulsu-school\account-receivable-system-project\index.php on line 12
+[17-Apr-2025 18:05:30 Europe/Berlin] [[17-Apr-2025 18:05:30 Europe/Berlin]] Action: data:, Data: {
+    "status": "paid,pending,overdue",
     "member_id": "16"
 }
 
-[15-Apr-2025 22:21:47 Europe/Berlin] [[15-Apr-2025 22:21:47 Europe/Berlin]] Action: get_server_request_data(): , Data: {
-    "rawInput": "{\"action\":\"logout_account\",\"data\":{\"uid\":\"A839109\",\"session_id\":\"ka5f3vga6ga6eqptln5kc3g8fg\"}}"
+[17-Apr-2025 18:20:13 Europe/Berlin] [[17-Apr-2025 18:20:13 Europe/Berlin]] Action: get_server_request_data(): , Data: {
+    "rawInput": "{\"action\":\"update_amortization_approval\",\"data\":{\"amortization_id\":12,\"approval\":\"approved\"}}"
 }
 
-[15-Apr-2025 22:21:47 Europe/Berlin] [[15-Apr-2025 22:21:47 Europe/Berlin]] Action: request: , Data: {
+[17-Apr-2025 18:20:13 Europe/Berlin] [[17-Apr-2025 18:20:13 Europe/Berlin]] Action: request: , Data: {
+    "action": "update_amortization_approval",
+    "data": {
+        "amortization_id": 12,
+        "approval": "approved"
+    }
+}
+
+[17-Apr-2025 18:20:33 Europe/Berlin] [[17-Apr-2025 18:20:33 Europe/Berlin]] Action: get_server_request_data(): , Data: {
+    "rawInput": "{\"action\":\"update_amortization_approval\",\"data\":{\"amortization_id\":12,\"approval\":\"approved\"}}"
+}
+
+[17-Apr-2025 18:20:33 Europe/Berlin] [[17-Apr-2025 18:20:33 Europe/Berlin]] Action: request: , Data: {
+    "action": "update_amortization_approval",
+    "data": {
+        "amortization_id": 12,
+        "approval": "approved"
+    }
+}
+
+[17-Apr-2025 18:21:57 Europe/Berlin] [[17-Apr-2025 18:21:57 Europe/Berlin]] Action: get_server_request_data(): , Data: {
+    "rawInput": "{\"action\":\"update_amortization_approval\",\"data\":{\"amortization_id\":12,\"approval\":\"approved\"}}"
+}
+
+[17-Apr-2025 18:21:57 Europe/Berlin] [[17-Apr-2025 18:21:57 Europe/Berlin]] Action: request: , Data: {
+    "action": "update_amortization_approval",
+    "data": {
+        "amortization_id": 12,
+        "approval": "approved"
+    }
+}
+
+[17-Apr-2025 18:29:28 Europe/Berlin] [[17-Apr-2025 18:29:28 Europe/Berlin]] Action: get_server_request_data(): , Data: {
+    "rawInput": "{\"action\":\"update_amortization_approval\",\"data\":{\"amortization_id\":12,\"approval\":\"rejected\"}}"
+}
+
+[17-Apr-2025 18:29:28 Europe/Berlin] [[17-Apr-2025 18:29:28 Europe/Berlin]] Action: request: , Data: {
+    "action": "update_amortization_approval",
+    "data": {
+        "amortization_id": 12,
+        "approval": "rejected"
+    }
+}
+
+[17-Apr-2025 18:30:22 Europe/Berlin] [[17-Apr-2025 18:30:22 Europe/Berlin]] Action: get_server_request_data(): , Data: {
+    "rawInput": "{\"action\":\"update_amortization_approval\",\"data\":{\"amortization_id\":12,\"approval\":\"approved\"}}"
+}
+
+[17-Apr-2025 18:30:22 Europe/Berlin] [[17-Apr-2025 18:30:22 Europe/Berlin]] Action: request: , Data: {
+    "action": "update_amortization_approval",
+    "data": {
+        "amortization_id": 12,
+        "approval": "approved"
+    }
+}
+
+[17-Apr-2025 18:30:24 Europe/Berlin] [[17-Apr-2025 18:30:24 Europe/Berlin]] Action: get_server_request_data(): , Data: {
+    "rawInput": "{\"action\":\"update_amortization_approval\",\"data\":{\"amortization_id\":12,\"approval\":\"rejected\"}}"
+}
+
+[17-Apr-2025 18:30:24 Europe/Berlin] [[17-Apr-2025 18:30:24 Europe/Berlin]] Action: request: , Data: {
+    "action": "update_amortization_approval",
+    "data": {
+        "amortization_id": 12,
+        "approval": "rejected"
+    }
+}
+
+[17-Apr-2025 18:30:35 Europe/Berlin] [[17-Apr-2025 18:30:35 Europe/Berlin]] Action: get_server_request_data(): , Data: {
+    "rawInput": "{\"action\":\"update_amortization_approval\",\"data\":{\"amortization_id\":12,\"approval\":\"pending\"}}"
+}
+
+[17-Apr-2025 18:30:35 Europe/Berlin] [[17-Apr-2025 18:30:35 Europe/Berlin]] Action: request: , Data: {
+    "action": "update_amortization_approval",
+    "data": {
+        "amortization_id": 12,
+        "approval": "pending"
+    }
+}
+
+[17-Apr-2025 18:30:37 Europe/Berlin] [[17-Apr-2025 18:30:37 Europe/Berlin]] Action: get_server_request_data(): , Data: {
+    "rawInput": "{\"action\":\"update_amortization_approval\",\"data\":{\"amortization_id\":12,\"approval\":\"approved\"}}"
+}
+
+[17-Apr-2025 18:30:37 Europe/Berlin] [[17-Apr-2025 18:30:37 Europe/Berlin]] Action: request: , Data: {
+    "action": "update_amortization_approval",
+    "data": {
+        "amortization_id": 12,
+        "approval": "approved"
+    }
+}
+
+[17-Apr-2025 18:30:39 Europe/Berlin] [[17-Apr-2025 18:30:39 Europe/Berlin]] Action: get_server_request_data(): , Data: {
+    "rawInput": "{\"action\":\"update_amortization_approval\",\"data\":{\"amortization_id\":12,\"approval\":\"rejected\"}}"
+}
+
+[17-Apr-2025 18:30:39 Europe/Berlin] [[17-Apr-2025 18:30:39 Europe/Berlin]] Action: request: , Data: {
+    "action": "update_amortization_approval",
+    "data": {
+        "amortization_id": 12,
+        "approval": "rejected"
+    }
+}
+
+[17-Apr-2025 18:30:56 Europe/Berlin] [[17-Apr-2025 18:30:56 Europe/Berlin]] Action: data:, Data: {
+    "status": "paid,pending,overdue",
+    "member_id": "16"
+}
+
+[17-Apr-2025 19:07:56 Europe/Berlin] [[17-Apr-2025 19:07:56 Europe/Berlin]] Action: get_server_request_data(): , Data: {
+    "rawInput": "{\"action\":\"logout_account\",\"data\":{\"uid\":\"A581822\",\"session_id\":\"oj9allec81qj31o4b5k6de7cuo\"}}"
+}
+
+[17-Apr-2025 19:07:56 Europe/Berlin] [[17-Apr-2025 19:07:56 Europe/Berlin]] Action: request: , Data: {
     "action": "logout_account",
     "data": {
-        "uid": "A839109",
-        "session_id": "ka5f3vga6ga6eqptln5kc3g8fg"
+        "uid": "A581822",
+        "session_id": "oj9allec81qj31o4b5k6de7cuo"
     }
+}
+
+[17-Apr-2025 19:08:08 Europe/Berlin] [[17-Apr-2025 19:08:08 Europe/Berlin]] Action: get_server_request_data(): , Data: {
+    "rawInput": "{\"action\":\"login_account\",\"data\":{\"uid\":\"member\",\"password\":\"member\",\"recaptcha_response\":\"03AFcWeA7UfpCL7pIn9JVBDA3QTiWZPocnhEw73w5kA70aSuzlUzIvnd_DGUiZRoY6hnJC_gMmao28oCW8QS8fkdehnfG-V0EeENLZ0G0uRkxCRzA5NIDe5CGrQNqozc4zoBs9wiFKG34hy33m5pXtaUbY_67ihI4grS2FyJBG1Cb-GgB_uazLyQtVmHR9NxnxaAuE0hqYXT4smi1QCwGIJ5H5vvVU2TQf3hluPOmXldMQ_tITPyQIVbicWGSaYj_lE_Bcaf_0iORkUHMCJd8OzzDJdV2f8-fl95BuNbkNqtwm2w3K-4WxH0-fPEL98-TLT_gQNRx5fndNKXSZthVtQkz58f5cl959_XE5EP_n7W0mIC-r6Qr8jNazjJM4NZZAfARJxEyuBQmRA2md6ruGHte9gWDqdFopjs7f-oCuPCOY_AoiP1bvsq2ACEyRT4nHAVUY99Q1CtiDmhzs0Sq5IZxBDKP4K6hDiTj3w16Yqudujl4ZquKKRTlJ0RBaFxpKW6N3I6vGWWsVBp1wPdSD863BAcsddu1FURaFvZrPV3bEYsHebx0pIHhrqB73DsEoO4pZIbW1g4ebFQR9eS3Yvfe98L5DzHAIazASC7gZuaw_oPZu4qpHyapND9umDIgq0PNx52Q6SWqPan9RmNEQTOhSPSRvJ6snVuST5femZpGQ434Cs2MVBae64MPMT3DwmczIhB7Fl3sLRuzzRWfWI9pWQH8WTDYPhagoQw0bDYichm2yxRPBvwbCR9GyQG37PoNpijU6MN5mdDhFYuVRp0y5SCZc-oI8ECGgC1v8MZwnoDc78eX_CIz8GV0nqELRXKgKuXRg3I3a2KsD4ifVROoir-rZUzRNiC9y-oqjVPoip2yfmVry-gue0Ok4jvZ0gLq-3HVufRlA8EAKi39RG1F0PbBy9BqAgjIG_uSdSkn87ZpxvNVNvB1bmzJ8BrXTK807ZNTqYoHoIq5yuQ1NFYYeHmPSVMxkXQ\"}}"
+}
+
+[17-Apr-2025 19:08:08 Europe/Berlin] [[17-Apr-2025 19:08:08 Europe/Berlin]] Action: request: , Data: {
+    "action": "login_account",
+    "data": {
+        "uid": "member",
+        "password": "member",
+        "recaptcha_response": "03AFcWeA7UfpCL7pIn9JVBDA3QTiWZPocnhEw73w5kA70aSuzlUzIvnd_DGUiZRoY6hnJC_gMmao28oCW8QS8fkdehnfG-V0EeENLZ0G0uRkxCRzA5NIDe5CGrQNqozc4zoBs9wiFKG34hy33m5pXtaUbY_67ihI4grS2FyJBG1Cb-GgB_uazLyQtVmHR9NxnxaAuE0hqYXT4smi1QCwGIJ5H5vvVU2TQf3hluPOmXldMQ_tITPyQIVbicWGSaYj_lE_Bcaf_0iORkUHMCJd8OzzDJdV2f8-fl95BuNbkNqtwm2w3K-4WxH0-fPEL98-TLT_gQNRx5fndNKXSZthVtQkz58f5cl959_XE5EP_n7W0mIC-r6Qr8jNazjJM4NZZAfARJxEyuBQmRA2md6ruGHte9gWDqdFopjs7f-oCuPCOY_AoiP1bvsq2ACEyRT4nHAVUY99Q1CtiDmhzs0Sq5IZxBDKP4K6hDiTj3w16Yqudujl4ZquKKRTlJ0RBaFxpKW6N3I6vGWWsVBp1wPdSD863BAcsddu1FURaFvZrPV3bEYsHebx0pIHhrqB73DsEoO4pZIbW1g4ebFQR9eS3Yvfe98L5DzHAIazASC7gZuaw_oPZu4qpHyapND9umDIgq0PNx52Q6SWqPan9RmNEQTOhSPSRvJ6snVuST5femZpGQ434Cs2MVBae64MPMT3DwmczIhB7Fl3sLRuzzRWfWI9pWQH8WTDYPhagoQw0bDYichm2yxRPBvwbCR9GyQG37PoNpijU6MN5mdDhFYuVRp0y5SCZc-oI8ECGgC1v8MZwnoDc78eX_CIz8GV0nqELRXKgKuXRg3I3a2KsD4ifVROoir-rZUzRNiC9y-oqjVPoip2yfmVry-gue0Ok4jvZ0gLq-3HVufRlA8EAKi39RG1F0PbBy9BqAgjIG_uSdSkn87ZpxvNVNvB1bmzJ8BrXTK807ZNTqYoHoIq5yuQ1NFYYeHmPSVMxkXQ"
+    }
+}
+
+[18-Apr-2025 01:08:09 Asia/Manila] [[18-Apr-2025 01:08:09 Asia/Manila]] Action: Session Data: , Data: {
+    "ip_address": "127.0.0.1",
+    "user_agent": "Mozilla\/5.0 (Windows NT 10.0; Win64; x64; rv:137.0) Gecko\/20100101 Firefox\/137.0",
+    "session_hash": "233876b74d2ddf9ce8120a467b8377f976a2f335b400585d97e18978848b6cd7",
+    "session_id": "tg0r766kjq0ff306cqmuf1hfr2",
+    "account_id": 18,
+    "account_uid": "A839109",
+    "email": "member@gmail.com",
+    "username": "member",
+    "account_status": "active",
+    "role_name": "Member",
+    "member_id": 16,
+    "first_name": "John",
+    "last_name": "Doe",
+    "middle_name": "Smith",
+    "full_name": "John S. Doe",
+    "contact_number": "+639772465533",
+    "full_address": "Ph7, Blk3, Lot24, Residence III, Brgy. Mapulang Lupa, Pandi, Bulacan, Region 3"
+}
+
+[17-Apr-2025 19:08:09 Europe/Berlin] PHP Warning:  Undefined variable $base_url in C:\xampp\htdocs\bulsu-school\account-receivable-system-project\index.php on line 12
+[17-Apr-2025 19:08:10 Europe/Berlin] [[17-Apr-2025 19:08:10 Europe/Berlin]] Action: data:, Data: {
+    "status": "paid,pending,overdue",
+    "member_id": "16"
+}
+
+[17-Apr-2025 19:10:14 Europe/Berlin] [[17-Apr-2025 19:10:14 Europe/Berlin]] Action: data:, Data: {
+    "status": "paid,pending,overdue",
+    "member_id": "16"
+}
+
+[17-Apr-2025 19:10:41 Europe/Berlin] [[17-Apr-2025 19:10:41 Europe/Berlin]] Action: data:, Data: {
+    "status": "paid,pending,overdue",
+    "member_id": "16"
+}
+
+[17-Apr-2025 19:11:59 Europe/Berlin] [[17-Apr-2025 19:11:59 Europe/Berlin]] Action: data:, Data: {
+    "status": "paid,pending,overdue",
+    "member_id": "16"
+}
+
+[17-Apr-2025 19:12:10 Europe/Berlin] [[17-Apr-2025 19:12:10 Europe/Berlin]] Action: data:, Data: {
+    "status": "paid,pending,overdue",
+    "member_id": "16"
+}
+
+[17-Apr-2025 19:12:28 Europe/Berlin] [[17-Apr-2025 19:12:28 Europe/Berlin]] Action: data:, Data: {
+    "status": "paid,pending,overdue",
+    "member_id": "16"
+}
+
+[17-Apr-2025 19:12:56 Europe/Berlin] [[17-Apr-2025 19:12:56 Europe/Berlin]] Action: get_server_request_data(): , Data: {
+    "rawInput": "{\"action\":\"process_amortization_payment\",\"data\":{\"member_id\":\"16\",\"amortization_id\":16,\"used_credit_balance\":0,\"original_amount_payment\":900,\"final_amount_payment\":900,\"payment_method\":\"online_payment\",\"payment_date\":\"2025-04-17\",\"notes\":\"test\",\"is_use_credit\":false,\"is_create_credit\":false}}"
+}
+
+[17-Apr-2025 19:12:56 Europe/Berlin] [[17-Apr-2025 19:12:56 Europe/Berlin]] Action: request: , Data: {
+    "action": "process_amortization_payment",
+    "data": {
+        "member_id": "16",
+        "amortization_id": 16,
+        "used_credit_balance": 0,
+        "original_amount_payment": 900,
+        "final_amount_payment": 900,
+        "payment_method": "online_payment",
+        "payment_date": "2025-04-17",
+        "notes": "test",
+        "is_use_credit": false,
+        "is_create_credit": false
+    }
+}
+
+[17-Apr-2025 19:12:56 Europe/Berlin] [[17-Apr-2025 19:12:56 Europe/Berlin]] Action: data:, Data: {
+    "status": "paid,pending,overdue",
+    "member_id": "16"
 }
 

@@ -45,6 +45,12 @@ if ($request_file_name === 'login.php') {
         <script type="text/javascript" src="{$base_url}/assets/scripts/system/dashboard/admin/summary-metrics.js" loading="lazy"></script>
         <script type="text/javascript" src="{$base_url}/assets/scripts/system/dashboard/admin/monthly-balance-trends.js" loading="lazy"></script>
         <script type="text/javascript" src="{$base_url}/assets/scripts/system/dashboard/admin/loan-performance-metrics.js" loading="lazy"></script>
+        <script type="text/javascript" src="{$base_url}/assets/scripts/system/dashboard/admin/outstanding-receivables-by-member.js" loading="lazy"></script>
+        <script type="text/javascript" src="{$base_url}/assets/scripts/system/dashboard/admin/payment-histories-by-member.js" loading="lazy"></script>
+        <script type="text/javascript" src="{$base_url}/assets/scripts/system/dashboard/admin/payment-trends-monthly.js" loading="lazy"></script>
+        <script type="text/javascript" src="{$base_url}/assets/scripts/system/dashboard/admin/quarterly-financial-summary.js" loading="lazy"></script>
+        <script type="text/javascript" src="{$base_url}/assets/scripts/system/dashboard/admin/monthly-financial-summary.js" loading="lazy"></script>
+        <script type="text/javascript" src="{$base_url}/assets/scripts/system/dashboard/admin/annually-financial-summary.js" loading="lazy"></script>
         <script type="text/javascript" src="{$base_url}/assets/scripts/system/dashboard/admin/dashboard.js" loading="lazy"></script>
     HTML;
 } else if ($request_file_name === 'accounts.php') {

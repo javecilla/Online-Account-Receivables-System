@@ -1,13 +1,6 @@
-<?php
+-- DASHBOARD METRICS
 
-declare(strict_types=1);
-
-function vw_dashboard_metrics(): string
-{
-    /*
-        CREATE VIEW vw_dashboard_metrics AS
-    */
-    return "WITH active_members_summary AS (
+WITH active_members_summary AS (
         SELECT COUNT(*) as total_active_members,
             SUM(COALESCE(current_balance, 0)) as total_active_balances
         FROM members
@@ -52,5 +45,4 @@ function vw_dashboard_metrics(): string
             2
         ) as overdue_percentage
     FROM active_members_summary ams
-        CROSS JOIN receivables_summary rs";
-}
+        CROSS JOIN receivables_summary rs

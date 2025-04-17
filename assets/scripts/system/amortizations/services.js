@@ -1,6 +1,4 @@
-const fetchAmortizationsByStatus = async (
-  status = 'active,completed,defaulted'
-) => {
+const fetchAmortizationsByStatus = async (status = 'paid,pending,overdue') => {
   try {
     const response = await axios.get(
       `${API_URL}?action=get_amortizations_by_status&status=${status}`,
@@ -131,7 +129,7 @@ const fetchAmortizationPayments = async () => {
 
 const fetchMemberApprovedAmortizations = async (
   memberId,
-  status = 'active,completed,defaulted'
+  status = 'paid,pending,overdue'
 ) => {
   try {
     const response = await axios.get(
@@ -248,6 +246,32 @@ const fetchAmortization = async (amortizationId) => {
     return response.data
   } catch (error) {
     console.error('Error fetching amortization:', error)
+    const errorMessage =
+      error.response?.data?.message ||
+      'Something went wrong while processing request.'
+    toastr.error(errorMessage)
+    throw error
+  }
+}
+
+const processAmortizationPayment = async (paymentData) => {
+  try {
+    const payload = {
+      action: 'process_amortization_payment',
+      data: paymentData
+    }
+
+    const response = await axios.post(`${API_URL}`, payload, {
+      headers: HEADERS
+    })
+    if (!response.data || !response.data.success) {
+      throw new Error(
+        response.data?.message || 'Failed to process amortization payment'
+      )
+    }
+    return response.data
+  } catch (error) {
+    console.error('Error processing amortization payment:', error)
     const errorMessage =
       error.response?.data?.message ||
       'Something went wrong while processing request.'

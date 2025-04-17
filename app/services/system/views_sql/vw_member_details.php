@@ -17,6 +17,7 @@ function vw_member_details(): string
         m.contact_number,
         m.membership_status,
         m.current_balance,
+        m.credit_balance,
         m.opened_date,
         m.closed_date,
         m.house_address,

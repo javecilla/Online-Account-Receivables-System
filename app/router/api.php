@@ -259,6 +259,46 @@ try {
                 handle_get_monthly_overdue_metrics($payload);
                 break;
 
+            //
+
+            case 'get_annual_financial_summary_income_from_payments':
+                handle_get_annual_financial_summary_income_from_payments($payload);
+                break;
+
+            case 'get_annual_financial_summary_transactions':
+                handle_get_annual_financial_summary_transactions($payload);
+                break;
+
+            case 'get_monthly_financial_summary_income_from_payments':
+                handle_get_monthly_financial_summary_income_from_payments($payload);
+                break;
+
+            case 'get_monthly_financial_summary_transactions':
+                handle_get_monthly_financial_summary_transactions($payload);
+                break;
+
+            case 'get_outstanding_receivables_by_member':
+                handle_get_outstanding_receivables_by_member($payload);
+                break;
+
+            case 'get_payment_histories_by_member':
+                handle_get_payment_histories_by_member($payload);
+                break;
+
+            case 'get_payment_trends_monthly':
+                handle_get_payment_trends_monthly($payload);
+                break;
+
+            case 'get_quarterly_financial_summary_income_from_payments':
+                handle_get_quarterly_financial_summary_income_from_payments($payload);
+                break;
+
+            case 'get_quarterly_financial_summary_transactions':
+                handle_get_quarterly_financial_summary_transactions($payload);
+                break;
+
+            //
+
             case 'get_member_transactions':
                 hanlde_get_member_transactions($payload);
                 break;

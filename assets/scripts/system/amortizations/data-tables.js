@@ -226,15 +226,15 @@ window.DataTableAmortizationsByStatus = function ($amortizationsTable, data) {
           let typeClass
           let icon
           switch (data) {
-            case 'active':
-              typeClass = 'status-active'
+            case 'paid':
+              typeClass = 'as-completed'
               icon = 'fas fa-info-circle'
               break
-            case 'completed':
-              typeClass = 'as-completed'
+            case 'pending':
+              typeClass = 'as-dilaw'
               icon = 'fas fa-check-circle'
               break
-            case 'defaulted':
+            case 'overdue':
               typeClass = 'as-defaulted'
               icon = 'fas fa-times-circle'
               break
@@ -253,10 +253,15 @@ window.DataTableAmortizationsByStatus = function ($amortizationsTable, data) {
         orderable: false,
         render: function (data) {
           return `
-            <div class="d-flex">
-              <button class="btn btn-sm action-btn view-btn" data-id="${data.member_id}">
-                <i class="fas fa-eye"></i> View
+            <div class="dropdown" id="requestAmortizationActionDropdown">
+              <button class="action-btn" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="fa-solid fa-bars me-1"></i><i class="fas fa-chevron-down" style="font-size: 8px; margin-bottom: 2px"></i>
               </button>
+              <ul class="dropdown-menu profile-menu" aria-labelledby="requestAmortizationActionDropdown">
+                <li><a class="dropdown-item view-btn" href="javascript:void(0)" data-id="${data.member_id}"><i class="fas fa-eye me-1"></i> View Details</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item send-reminder-btn" href="javascript:void(0)" data-id="${data.member_id}"><i class="fas fa-bell me-1"></i> Send Reminders</a></li>
+              </ul>
             </div>
           `
         }
@@ -325,13 +330,13 @@ window.DataTableAmortizationsByApproval = function ($loanRequestsTable, data) {
         data: 'full_name',
         title: 'Member Name'
       },
-      {
-        data: 'current_balance',
-        title: 'Current Balance',
-        render: function (data) {
-          return `&#8369;${parseFloat(data).toFixed(2)}`
-        }
-      },
+      // {
+      //   data: 'current_balance',
+      //   title: 'Current Balance',
+      //   render: function (data) {
+      //     return `&#8369;${parseFloat(data).toFixed(2)}`
+      //   }
+      // },
       {
         data: 'principal_amount',
         title: 'Principal Amount',
@@ -414,7 +419,7 @@ window.DataTableAmortizationsByApproval = function ($loanRequestsTable, data) {
         visible: false
       }
     ],
-    order: [[8, 'desc']]
+    order: [[7, 'desc']]
   })
 
   return amortizationsDataTable

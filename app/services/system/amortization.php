@@ -256,24 +256,12 @@ function get_member_amortizations(int $member_id, int $page = 1, int $per_page =
     }
 }
 
-function process_amortization_payment(array $data): array
+function create_amortization_payment(array $data): array
 {
     try {
         $conn = open_connection();
-        // TODO: must the logged-in user's account_id as created_by
-        $created_by = $_SESSION['account_id'] ?? DEFAULT_ADMIN_ID;
-        $reference_number = 'AMT' . date('Ymd') . generate_random_number(4);
         $conn->begin_transaction();
 
-        //get amortization details for transaction recording
-        $amortization = get_amortization($data['amortization_id']);
-        $amort = $amortization['data'];
-        //check for amortization status, if completed then hindi ipa process
-        if ($amort['status'] === AMORTIZATION_COMPLETED) {
-            return ['success' => false, 'message' => 'Unable to proccess payment. You are already completed this amortization payment', 'status' => 403];
-        }
-
-        // Insert payment record
         $sql = "INSERT INTO amortization_payments (
             amortization_id, payment_method, amount, payment_date, reference_number, notes, created_by
         ) VALUES (?, ?, ?, ?, ?, ?, ?)";
@@ -285,84 +273,189 @@ function process_amortization_payment(array $data): array
             $data['payment_method'],
             $data['amount'],
             $data['payment_date'],
-            $reference_number,
+            $data['reference_number'],
             $data['notes'],
-            $created_by
+            $data['created_by']
         );
         $created = $stmt->execute();
         if (!$created) {
             $conn->rollback();
             return ['success' => false, 'message' => 'Failed to record payment'];
         }
+        $conn->commit();
+        $payment_id = $stmt->insert_id;
+        return ['success' => true,'message' => 'Payment recorded successfully', 'payment_id' => $payment_id];
+    } catch(Exception $e) {
+        $conn->rollback();
+        log_error("Error creating amortization payment: {$e->getTraceAsString()}");
+        return ['success' => false,'message' => "Error: {$e->getMessage()}"];
+    }
+}
 
-        // Update remaining balance na need niya for repaid 
-        $new_remaining = $amort['remaining_balance'] - $data['amount'];
-        $rb_sql = "UPDATE member_amortizations  SET remaining_balance = ? 
-                   WHERE amortization_id = ? LIMIT 1";
-        $rb_stmt = $conn->prepare($rb_sql);
-        $rb_stmt->bind_param('di', $new_remaining, $data['amortization_id']);
-        $rb_updated = $rb_stmt->execute();
-        if (!$rb_updated) {
+function update_amortization_remaining_balance(int $amortization_id, float $new_remaining): array
+{
+    try {
+        $conn = open_connection();
+        $conn->begin_transaction();
+
+        $sql = "UPDATE member_amortizations SET remaining_balance = ? WHERE amortization_id = ? LIMIT 1";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param('di', $new_remaining, $amortization_id);
+        $updated = $stmt->execute();
+        if (!$updated) {
             $conn->rollback();
             return ['success' => false, 'message' => 'Failed to update remaining balance'];
         }
 
-        //calculate member new balance after deposit
-        $current_balance = $amort['current_balance'];
-        $new_balance = $current_balance + $data['amount'];
+        $conn->commit();
+        return ['success' => true,'message' => 'Remaining balance updated successfully'];
+    } catch (Exception $e) {
+        $conn->rollback();
+        log_error("Error updating member amortization remaining balance: {$e->getTraceAsString()}");
+        return ['success' => false,'message' => "Error: {$e->getMessage()}"];
+    }
+}
 
-        // Record transaction
-        $transaction_data = [
-            'transaction_type' => DEPOSIT,
-            'amount' => $data['amount'],
-            'previous_balance' => $current_balance,
-            'new_balance' => $new_balance,
-            'notes' => "Amortization payment for {$amort['type_name']} (Ref: {$reference_number})",
-            'created_by' => $created_by
-        ];
-        $recorded = record_transaction($amort['member_id'], $transaction_data);
-        if (!$recorded['success']) {
-            $conn->rollback();
-            return $recorded;
+function process_amortization_payment(array $data): array
+{
+    try {
+        $conn = open_connection();
+        $conn->begin_transaction();
+
+        $data['reference_number'] = 'AMT' . date('Ymd') . generate_random_number(4);
+        $data['created_by'] = $_SESSION['account_id'] ?? DEFAULT_ADMIN_ID;
+
+        //get member details for transaction recording
+        $m = get_member((int)$data['member_id']);
+        if(!$m['success']) return $m;
+        $member = $m['data'];
+
+        //get amortization details for transaction recording
+        $a = get_amortization($data['amortization_id']);
+        if(!$a['success']) return $a;
+        $amort = $a['data'];
+
+        //extra layer check lang for amortization status, if already paid completed na then no need to process
+        if ($amort['status'] === AMORTIZATION_PAID) {
+            return ['success' => false, 'message' => 'Unable to process payment. You are already paid completed this amortization payment', 'status' => 403];
         }
 
-        // Update member's current balance
-        $cb_sql = "UPDATE members SET current_balance = ? WHERE member_id = ? LIMIT 1";
-        $cb_stmt = $conn->prepare($cb_sql);
-        $cb_stmt->bind_param('di', $new_balance, $amort['member_id']);
-        $cb_updated = $cb_stmt->execute();
-        if (!$cb_updated) {
+        // Calculate payment allocation and potential credit
+        $payment_amount = $data['final_amount_payment'];
+        $credit_amount = $data['used_credit_balance'];
+
+        //handle payment that uses their credit balance in loan payment
+        if($data['is_use_credit'] && $credit_amount > 0) {
+            //update member credit balance
+            $new_credit_balance = $member['credit_balance'] - $credit_amount;
+            $updated_credit = update_member_credit_balance($member['member_id'], $new_credit_balance);
+            if (!$updated_credit['success']) {
+                $conn->rollback();
+                return $updated_credit;
+            }
+
+            //record transaction
+            $credit_recorded = record_transaction($member['member_id'], [
+                'transaction_type' => WITHDRAWAL,
+                'amount' => $credit_amount,
+                'previous_balance' => $member['credit_balance'],
+                'new_balance' => $new_credit_balance,
+                'notes' => "Payment for {$amort['type_name']} with used credit balance (Ref: {$data['reference_number']})",
+                'created_by' => $data['created_by']
+            ]);
+            if (!$credit_recorded['success']) {
+                $conn->rollback();
+                return $credit_recorded;
+            }
+        }
+        
+        //if yung payment is more than dun sa remaining balance and is_create_credit is true
+        if ($payment_amount > $amort['remaining_balance'] && $data['is_create_credit']) {
+            $credit_amount = $payment_amount - $amort['remaining_balance'];
+            $payment_amount = $amort['remaining_balance'];
+
+            //update member credit balance
+            $new_credit_balance = $member['credit_balance'] + $credit_amount;
+            $updated_credit = update_member_credit_balance($member['member_id'], $new_credit_balance);
+            if (!$updated_credit['success']) {
+                $conn->rollback();
+                return $updated_credit;
+            }
+
+            //record transaction
+            $credit_recorded = record_transaction($member['member_id'], [
+                'transaction_type' => DEPOSIT,
+                'amount' => $credit_amount,
+                'previous_balance' => $member['credit_balance'],
+                'new_balance' => $new_credit_balance,
+                'notes' => "Credit from excess payment for {$amort['type_name']} (Ref: {$data['reference_number']})",
+                'created_by' => $data['created_by']
+            ]);
+            if (!$credit_recorded['success']) {
+                $conn->rollback();
+                return $credit_recorded;
+            }
+        }
+
+        //calculate member new balance
+        $new_balance = $member['current_balance'] + $payment_amount;
+        //update member current balance
+        $updated_balance = update_member_current_balance($member['member_id'], $new_balance);
+        if (!$updated_balance['success']) {
             $conn->rollback();
-            return ['success' => false, 'message' => 'Failed to update member balance'];
+            return $updated_balance;
+        }
+
+        //update remaining balance
+        $new_remaining =  $amort['remaining_balance'] - $payment_amount;
+        $updated_rb = update_amortization_remaining_balance($data['amortization_id'], $new_remaining);
+        if (!$updated_rb['success']) {
+            $conn->rollback();
+            return $updated_rb;
         }
 
         //if remaining balance is 0 or less, mark amortization as completed
         if ($new_remaining <= 0) {
-            // $status_sql = "UPDATE member_amortizations 
-            //               SET `status` = 'completed' 
-            //               WHERE amortization_id = ?";
-            // $status_stmt = $conn->prepare($status_sql);
-            // $status_stmt->bind_param('i', $data['amortization_id']);
-            // $status_stmt->execute();
-            $s_updated = update_amortization_status(
-                $data['amortization_id'],
-                AMORTIZATION_COMPLETED
-            );
-            if (!$s_updated['success']) {
+            $updated_status = update_amortization_status($data['amortization_id'], AMORTIZATION_PAID);
+            if (!$updated_status['success']) {
                 $conn->rollback();
-                return $s_updated;
+                return $updated_status;
             }
         }
 
+        // create payment
+        $data['amount'] = $payment_amount;
+        $payment_created = create_amortization_payment($data);
+        if(!$payment_created['success']) {
+            $conn->rollback();
+            return $payment_created;
+        }
+
+        //record main payment transaction
+        $payment_recorded = record_transaction($member['member_id'], [
+            'transaction_type' => DEPOSIT,
+            'amount' => $payment_amount,
+            'previous_balance' => $member['current_balance'],
+            'new_balance' => $new_balance,
+            'notes' => "Amortization payment for {$amort['type_name']} (Ref: {$data['reference_number']})",
+            'created_by' => $data['created_by']
+        ]);
+        if (!$payment_recorded['success']) {
+            $conn->rollback();
+            return $payment_recorded;
+        }
+        
         $conn->commit();
+        //return ['success' => true,'message' => '[TEST]: Payment processed successfully'];
         return [
             'success' => true,
             'message' => 'Payment processed successfully',
             'data' => [
-                'reference_number' => $reference_number,
-                'transaction_reference' => $recorded['data']['reference_number'],
+                'reference_number' => $data['reference_number'],
+                'transaction_reference' => $payment_recorded['data']['reference_number'],
                 'remaining_balance' => $new_remaining,
-                'new_balance' => $new_balance
+                'new_balance' => $new_balance,
+                'credit_amount' => $credit_amount
             ]
         ];
     } catch (Exception $e) {
@@ -504,7 +597,7 @@ function check_active_amortizations(int $member_id): array
 
         $sql = "SELECT COUNT(*) as active_count 
                 FROM member_amortizations 
-                WHERE member_id = ? AND `status` = 'active'";
+                WHERE member_id = ? AND `status` IN ('pending', 'overdue')"; //active
 
         $stmt = $conn->prepare($sql);
         $stmt->bind_param('i', $member_id);
@@ -826,6 +919,150 @@ function get_monthly_overdue_metrics(?string $start_date = null, ?string $end_da
         ];
     } catch (Exception $e) {
         log_error("Error fetching monthly overdue metrics: {$e->getMessage()}");
+        return ['success' => false, 'message' => "Database error: {$e->getMessage()}"];
+    }
+}
+
+function get_annual_financial_summary_income_from_payments(): array
+{
+    try {
+        $conn = open_connection();
+        $result = $conn->query(vw_annual_financial_summary_income_from_payments());
+
+        return [
+            'success' => true,
+            'data' => $result->fetch_all(MYSQLI_ASSOC)
+        ];
+    } catch (Exception $e) {
+        log_error("Error: {$e->getMessage()}");
+        return ['success' => false, 'message' => "Database error: {$e->getMessage()}"];
+    }
+}
+
+function get_annual_financial_summary_transactions(): array
+{
+    try {
+        $conn = open_connection();
+        $result = $conn->query(vw_annual_financial_summary_transactions());
+
+        return [
+            'success' => true,
+            'data' => $result->fetch_all(MYSQLI_ASSOC)
+        ];
+    } catch (Exception $e) {
+        log_error("Error: {$e->getMessage()}");
+        return ['success' => false, 'message' => "Database error: {$e->getMessage()}"];
+    }
+}
+
+function get_monthly_financial_summary_income_from_payments(): array
+{
+    try {
+        $conn = open_connection();
+        $result = $conn->query(vw_monthly_financial_summary_income_from_payments());
+
+        return [
+            'success' => true,
+            'data' => $result->fetch_all(MYSQLI_ASSOC)
+        ];
+    } catch (Exception $e) {
+        log_error("Error: {$e->getMessage()}");
+        return ['success' => false, 'message' => "Database error: {$e->getMessage()}"];
+    }
+}
+
+function get_monthly_financial_summary_transactions(): array
+{
+    try {
+        $conn = open_connection();
+        $result = $conn->query(vw_monthly_financial_summary_transactions());
+
+        return [
+            'success' => true,
+            'data' => $result->fetch_all(MYSQLI_ASSOC)
+        ];
+    } catch (Exception $e) {
+        log_error("Error: {$e->getMessage()}");
+        return ['success' => false, 'message' => "Database error: {$e->getMessage()}"];
+    }
+}
+
+function get_outstanding_receivables_by_member(): array
+{
+    try {
+        $conn = open_connection();
+        $result = $conn->query(vw_outstanding_receivables_by_member());
+
+        return [
+            'success' => true,
+            'data' => $result->fetch_all(MYSQLI_ASSOC)
+        ];
+    } catch (Exception $e) {
+        log_error("Error: {$e->getMessage()}");
+        return ['success' => false, 'message' => "Database error: {$e->getMessage()}"];
+    }
+}
+
+function get_payment_histories_by_member(): array
+{
+    try {
+        $conn = open_connection();
+        $result = $conn->query(vw_payment_histories_by_member());
+
+        return [
+            'success' => true,
+            'data' => $result->fetch_all(MYSQLI_ASSOC)
+        ];
+    } catch (Exception $e) {
+        log_error("Error: {$e->getMessage()}");
+        return ['success' => false, 'message' => "Database error: {$e->getMessage()}"];
+    }
+}
+
+function get_payment_trends_monthly(): array
+{
+    try {
+        $conn = open_connection();
+        $result = $conn->query(vw_payment_trends_monthly());
+
+        return [
+            'success' => true,
+            'data' => $result->fetch_all(MYSQLI_ASSOC)
+        ];
+    } catch (Exception $e) {
+        log_error("Error: {$e->getMessage()}");
+        return ['success' => false, 'message' => "Database error: {$e->getMessage()}"];
+    }
+}
+
+function get_quarterly_financial_summary_income_from_payments(): array
+{
+    try {
+        $conn = open_connection();
+        $result = $conn->query(vw_quarterly_financial_summary_income_from_payments());
+
+        return [
+            'success' => true,
+            'data' => $result->fetch_all(MYSQLI_ASSOC)
+        ];
+    } catch (Exception $e) {
+        log_error("Error: {$e->getMessage()}");
+        return ['success' => false, 'message' => "Database error: {$e->getMessage()}"];
+    }
+}
+
+function get_quarterly_financial_summary_transactions(): array
+{
+    try {
+        $conn = open_connection();
+        $result = $conn->query(vw_quarterly_financial_summary_transactions());
+
+        return [
+            'success' => true,
+            'data' => $result->fetch_all(MYSQLI_ASSOC)
+        ];
+    } catch (Exception $e) {
+        log_error("Error: {$e->getMessage()}");
         return ['success' => false, 'message' => "Database error: {$e->getMessage()}"];
     }
 }

@@ -33,7 +33,7 @@ function handle_create_amortization(mixed $payload): void
 }
 
 function layer_two_amortization_validation(mixed $validated): void {
-        $type = get_amortization_type((int)$validated['data']['type_id']);
+    $type = get_amortization_type((int)$validated['data']['type_id']);
     if(!$type['success']) {
         return_response($type);
     }
@@ -228,28 +228,72 @@ function handle_get_member_request_amortizations(mixed $payload): void
     return_response($amortizations);
 }
 
-
+// TODO:
 function handle_process_amortization_payment(mixed $payload): void
 {
-    //log_request('data:', $payload);
+    // log_request('data:', $payload); // Keep for debugging if needed
     $validated = validate_data($payload, [
+        'member_id' => 'required|numeric|min:1|check:member_model',
         'amortization_id' => 'required|numeric|min:1|check:amortization_model',
-        'payment_method' => 'required|in:cash,check,bank_transfer,online_payment,others',
-        'amount' => 'required|numeric|min:1',
+        'used_credit_balance' => 'required|numeric|min:0', // Can be 0
+        'original_amount_payment' => 'required|numeric|min:0', // Can be 0 if only credit is used
+        'final_amount_payment' =>'required|numeric|min:1',
+        'payment_method' =>'required|in:cash,check,bank_transfer,online_payment,others',
         'payment_date' => 'required|date:YYYY-MM-DD',
-        'notes' => 'optional'
+        'notes' => 'required|string|min:1|max:500',
+        'is_use_credit' => 'required|boolean',
+        'is_create_credit' => 'required|boolean'
     ]);
-    //return_response(['success' => true, 'message' => 'test']);
 
-    $payment = process_amortization_payment($validated['data']);
-    return_response($payment);
+    //check and Ensure final_amount matches sum if credit is used
+    if ($validated['data']['is_use_credit']) {
+        $calculated_final = (float)$validated['data']['original_amount_payment'] + (float)$validated['data']['used_credit_balance'];
+        if (abs($calculated_final - (float)$validated['data']['final_amount_payment']) > 0.01) { // Allow for small float inaccuracies
+            return_response([
+                'success' => false,
+                'message' => 'Payment amount mismatch. Final amount does not equal original payment plus used credit.',
+                'status' => 400
+            ]);
+        }
+    } else {
+        //if not using credit, original and final should match, and used credit should be 0
+         if ((float)$validated['data']['used_credit_balance'] !== 0.0) {
+             return_response([
+                'success' => false,
+                'message' => 'Payment amount mismatch. Credit balance should be zero when not using credit.',
+                'status' => 400
+            ]);
+         }
+         if (abs((float)$validated['data']['original_amount_payment'] - (float)$validated['data']['final_amount_payment']) > 0.01) {
+             return_response([
+                'success' => false,
+                'message' => 'Payment amount mismatch. Final amount does not equal original payment when not using credit.',
+                'status' => 400
+            ]);
+         }
+    }
+
+    // Ensure at least one payment method (original or credit) is non-zero
+    if ((float)$validated['data']['original_amount_payment'] <= 0 && (float)$validated['data']['used_credit_balance'] <= 0) {
+         return_response([
+            'success' => false,
+            'message' => 'Invalid payment amount. Both original payment and used credit cannot be zero or less.',
+            'status' => 400
+        ]);
+    }
+
+    // log_request('data:', $validated['data']);
+    // return_response(['success' => true,'message' => 'test']);
+
+    $processed = process_amortization_payment($validated['data']);
+    return_response($processed);
 }
 
 function handle_update_amortization_status(mixed $payload): void
 {
     $validated = validate_data($payload, [
         'amortization_id' => 'required|numeric|min:1|check:amortization_model',
-        'status' => 'required|string|in:active,completed,defaulted',
+        'status' => 'required|string|in:paid,pending,overdue',
     ]);
 
     $status_update = update_amortization_status(
@@ -268,9 +312,29 @@ function handle_update_amortization_approval(mixed $payload): void
 
     //if approved, update status to active
     if ($validated['data']['approval'] === AMORTIZATION_APPROVED) {
+        $amort = get_amortization((int)$validated['data']['amortization_id']);
+        if (!$amort['success']) {
+            return_response($amort);
+        }
+
+        //check if this member has 3 existing active amortizations
+        $active_check = check_active_amortizations((int)$amort['data']['member_id']);
+        if (!$active_check['success']) {
+            return_response($active_check);
+        }
+        //if ($active_check['has_active']) {
+        if ($active_check['active_count'] >= 3) {
+            return_response([
+                'success' => false,
+                'message' => "Cannot approved this amortization because, A member {$amort['data']['full_name']} has already {$active_check['active_count']} active amortization(s).",
+                'status' => 400
+            ]);
+        }
+
         $status_update = update_amortization_status(
             (int)$validated['data']['amortization_id'],
-            AMORTIZATION_ACTIVE
+            AMORTIZATION_PENDING
+            //AMORTIZATION_ACTIVE
         );
         if (!$status_update['success']) {
             return_response($status_update);
@@ -439,4 +503,58 @@ function handle_get_amortization_type(mixed $payload): void
 
     $types = get_amortization_type((int)$validated['data']['type_id']);
     return_response($types);
+}
+
+function handle_get_annual_financial_summary_income_from_payments(mixed $payload): void
+{
+    $data = get_annual_financial_summary_income_from_payments();
+    return_response($data);
+}
+
+function handle_get_annual_financial_summary_transactions(mixed $payload): void
+{
+    $data = get_annual_financial_summary_transactions();
+    return_response($data);
+}
+
+function handle_get_monthly_financial_summary_income_from_payments(mixed $payload): void
+{
+    $data = get_monthly_financial_summary_income_from_payments();
+    return_response($data);
+}
+
+function handle_get_monthly_financial_summary_transactions(mixed $payload): void
+{
+    $data = get_monthly_financial_summary_transactions();
+    return_response($data);
+}
+
+function handle_get_outstanding_receivables_by_member(mixed $payload): void
+{
+    $data = get_outstanding_receivables_by_member();
+    return_response($data);
+}
+
+function handle_get_payment_histories_by_member(mixed $payload): void
+{
+    $data = get_payment_histories_by_member();
+    return_response($data);
+}
+
+function handle_get_payment_trends_monthly(mixed $payload): void
+{
+    $data = get_payment_trends_monthly();
+    return_response($data);
+}
+
+function handle_get_quarterly_financial_summary_income_from_payments(mixed $payload): void
+{
+    $data = get_quarterly_financial_summary_income_from_payments();
+    return_response($data);
+}
+
+function handle_get_quarterly_financial_summary_transactions(mixed $payload): void
+{
+    $data = get_quarterly_financial_summary_transactions();
+    return_response($data);
 }

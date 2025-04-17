@@ -4,6 +4,7 @@ $(document).ready(async function () {
   async function initializePage() {
     try {
       await Promise.all([
+        displayMemberDetails(),
         displayMemberApprovedAmortizations(),
         displayMemberRequestAmortizations(),
         displayMemberTransactionsHistory()

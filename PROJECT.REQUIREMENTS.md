@@ -12,9 +12,9 @@ accessibility to both administrators and members.
 - **User Management**:
 
   - **Admin Panel**:
-    - Add, update, and remove members.
-    - Assign roles (Administrator, Member, Accountant).
-    - Reset passwords and manage user credentials.
+    - ✅ Add, update, and remove members.
+    - ✅ Assign roles (Administrator, Member, Accountant).
+    - ✅ Reset passwords and manage user credentials.
   - **Member Access**:
     - View their account balances, invoices, and payment history
     - Submit proof of payment.
@@ -26,16 +26,16 @@ accessibility to both administrators and members.
     - Automate recurring invoices for periodic contributions or loans.
     - Track overdue invoices.
   - **Payment Tracking**:
-    - Record payments made by members (manual and auto-reconciled via bank integration).
-    - Monitor payment statuses (paid, pending, overdue).
+    - ✅ Record payments made by members (manual and auto-reconciled via bank integration).
+    - ✅ Monitor payment statuses (paid, pending, overdue).
     - Send payment reminders and notifications via email.
 
 - **Financial Reporting**
 
   - **Generate reports for**:
-    - Outstanding receivables by member and total.
-    - Payment histories and trends.
-    - Monthly, quarterly, and annual financial summaries.
+    - ✅ Outstanding receivables by member and total.
+    - ✅ Payment histories and trends.
+    - ✅ Monthly, quarterly, and annual financial summaries.
 
 - **Notifications and Alerts**
 

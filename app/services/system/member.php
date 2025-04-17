@@ -477,51 +477,6 @@ function credit_interest(int $member_id): array
     }
 }
 
-function record_transaction(int $member_id, array $data): array
-{
-    try {
-        $conn = open_connection();
-        $conn->begin_transaction();
-
-        $reference_number = 'TXN' . date('Ymd') . generate_random_number(4);
-
-        $sql = "INSERT INTO member_transactions (
-            member_id, transaction_type, amount, previous_balance,
-            new_balance, reference_number, notes, created_by
-        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-
-        $stmt = $conn->prepare($sql);
-        $stmt->bind_param(
-            'isdddssi',
-            $member_id,
-            $data['transaction_type'],
-            $data['amount'],
-            $data['previous_balance'],
-            $data['new_balance'],
-            $reference_number,
-            $data['notes'],
-            $data['created_by']
-        );
-        $created = $stmt->execute();
-
-        if (!$created) {
-            $conn->rollback();
-            return ['success' => false, 'message' => 'Failed to record transaction'];
-        }
-
-        $conn->commit();
-        return [
-            'success' => true,
-            'message' => 'Transaction recorded successfully',
-            'data' => ['reference_number' => $reference_number]
-        ];
-    } catch (Exception $e) {
-        $conn->rollback();
-        log_error("Error recording transaction: {$e->getTraceAsString()}");
-        return ['success' => false, 'message' => "Error: {$e->getMessage()}"];
-    }
-}
-
 function get_member_transactions(int $member_id): array
 {
     try {
@@ -569,5 +524,97 @@ function get_members_transactions(): array
     } catch (Exception $e) {
         log_error("Error fetching members transactions: {$e->getTraceAsString()}");
         return ['success' => false, 'message' => "Error: {$e->getMessage()}"];
+    }
+}
+
+function record_transaction(int $member_id, array $data): array
+{
+    try {
+        $conn = open_connection();
+        $conn->begin_transaction();
+
+        $reference_number = 'TXN' . date('Ymd') . generate_random_number(4);
+
+        $sql = "INSERT INTO member_transactions (
+            member_id, transaction_type, amount, previous_balance,
+            new_balance, reference_number, notes, created_by
+        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param(
+            'isdddssi',
+            $member_id,
+            $data['transaction_type'],
+            $data['amount'],
+            $data['previous_balance'],
+            $data['new_balance'],
+            $reference_number,
+            $data['notes'],
+            $data['created_by']
+        );
+        $created = $stmt->execute();
+
+        if (!$created) {
+           $conn->rollback();
+            return ['success' => false, 'message' => 'Failed to record transaction'];
+        }
+
+        $conn->commit();
+        return [
+            'success' => true,
+            'message' => 'Transaction recorded successfully',
+            'data' => ['reference_number' => $reference_number]
+        ];
+    } catch (Exception $e) {
+        $conn->rollback();
+        log_error("Error recording transaction: {$e->getTraceAsString()}");
+        return ['success' => false, 'message' => "Error: {$e->getMessage()}"];
+    }
+}
+
+function update_member_credit_balance(int $member_id, float $new_credit_balance): array
+{
+    try {
+        $conn = open_connection();
+        $conn->begin_transaction();
+
+        $sql = "UPDATE members SET credit_balance =? WHERE member_id =? LIMIT 1";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param('di', $new_credit_balance, $member_id);
+        $updated = $stmt->execute();
+        if (!$updated) {
+            $conn->rollback();
+            return ['success' => false,'message' => 'Failed to update member credit balance'];
+        }
+        $conn->commit();
+        return ['success' => true,'message' => 'Member balance updated successfully'];
+    } catch (Exception $e) {
+        $conn->rollback();
+        log_error("Error updating member credit balance: {$e->getTraceAsString()}");
+        return ['success' => false,'message' => "Error: {$e->getMessage()}"];
+    }
+}
+
+
+function update_member_current_balance(int $member_id, float $new_balance): array {
+    try {
+        $conn = open_connection();
+        $conn->begin_transaction();
+
+        $sql = "UPDATE members SET current_balance =? WHERE member_id =? LIMIT 1";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param('di', $new_balance, $member_id);
+        $updated = $stmt->execute();
+        if (!$updated) {
+            $conn->rollback();
+            return ['success' => false,'message' => 'Failed to update member current balance'];
+        }
+
+        $conn->commit();
+        return ['success' => true,'message' => 'Member current balance updated successfully'];
+    } catch (Exception $e) {
+        $conn->rollback();
+        log_error("Error updating member current balance: {$e->getTraceAsString()}");
+        return ['success' => false,'message' => "Error: {$e->getMessage()}"];
     }
 }

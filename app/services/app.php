@@ -37,6 +37,17 @@ require_once __DIR__ . '/system/views_sql/vw_monthly_receivables_trend.php';
 require_once __DIR__ . '/system/views_sql/vw_payment_collection_efficiency.php';
 require_once __DIR__ . '/system/views_sql/vw_risk_assessment_dashboard.php';
 require_once __DIR__ . '/system/views_sql/vw_amortization_payments_details.php';
+//
+require_once __DIR__ . '/system/views_sql/vw_annual_financial_summary_income_from_payments.php';
+require_once __DIR__ . '/system/views_sql/vw_annual_financial_summary_transactions.php';
+require_once __DIR__ . '/system/views_sql/vw_monthly_financial_summary_income_from_payments.php';
+require_once __DIR__ . '/system/views_sql/vw_monthly_financial_summary_transactions.php';
+require_once __DIR__ . '/system/views_sql/vw_outstanding_receivables_by_member.php';
+require_once __DIR__ . '/system/views_sql/vw_payment_histories_by_member.php';
+require_once __DIR__ . '/system/views_sql/vw_payment_trends_monthly.php';
+require_once __DIR__ . '/system/views_sql/vw_quarterly_financial_summary_income_from_payments.php';
+require_once __DIR__ . '/system/views_sql/vw_quarterly_financial_summary_transactions.php';
+// require_once __DIR__ . '/system/views_sql/test.php';
 
 require_once __DIR__ . '/system/account_role.php';
 require_once __DIR__ . '/system/account.php';

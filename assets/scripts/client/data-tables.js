@@ -73,38 +73,6 @@ window.DataTableMemberApprovedAmortizations = function (
         }
       },
       {
-        data: 'status',
-        title: 'Status',
-        render: function (data) {
-          let typeClass
-          let icon
-
-          if (!data) {
-            return '<span class="status-badge as-pending"><i class="fas fa-clock"></i>&nbsp;Pending</span>'
-          }
-          switch (data) {
-            case 'active':
-              typeClass = 'status-active'
-              icon = 'fas fa-info-circle'
-              break
-            case 'completed':
-              typeClass = 'as-completed'
-              icon = 'fas fa-check-circle'
-              break
-            case 'defaulted':
-              typeClass = 'as-defaulted'
-              icon = 'fas fa-times-circle'
-              break
-            default:
-              typeClass = ''
-              icon = ''
-          }
-          return `<span class="status-badge ${typeClass}"><i class="${icon}"></i>&nbsp;${
-            data.charAt(0).toUpperCase() + data.slice(1)
-          }</span>`
-        }
-      },
-      {
         data: null,
         title: 'Progress',
         render: function (data) {
@@ -142,6 +110,38 @@ window.DataTableMemberApprovedAmortizations = function (
         }
       },
       {
+        data: 'status',
+        title: 'Status',
+        render: function (data) {
+          let typeClass
+          let icon
+
+          if (!data) {
+            return '<span class="status-badge at-loan"><i class="fas fa-clock"></i>&nbsp;Pending</span>'
+          }
+          switch (data) {
+            case 'pending':
+              typeClass = 'at-loan'
+              icon = 'fas fa-info-circle'
+              break
+            case 'paid':
+              typeClass = 'as-completed'
+              icon = 'fas fa-check-circle'
+              break
+            case 'overdue':
+              typeClass = 'as-defaulted'
+              icon = 'fas fa-times-circle'
+              break
+            default:
+              typeClass = ''
+              icon = ''
+          }
+          return `<span class="status-badge ${typeClass}"><i class="${icon}"></i>&nbsp;${
+            data.charAt(0).toUpperCase() + data.slice(1)
+          }</span>`
+        }
+      },
+      {
         data: 'start_date',
         title: 'Start Date',
         render: function (data) {
@@ -162,8 +162,12 @@ window.DataTableMemberApprovedAmortizations = function (
         render: function (data) {
           let actionButtons = ''
 
-          if (data.status === 'active') {
-            actionButtons += `<li><a class="dropdown-item" href="javascript:void(0)" data-id="${data.amortization_id}"><strong>₱</strong> Pay Balance Due</a></li>
+          if (data.status === 'pending') {
+            actionButtons += `<li><a class="dropdown-item pay-balance-btn" href="javascript:void(0)" 
+              data-id="${data.amortization_id}"
+              data-remaining-balance="${data.remaining_balance}"
+              data-monthly-amount="${data.monthly_amount}"
+              data-total-paid="${data.total_paid}" data-title="Pay Balance Due for ${data.type_name}"><strong>₱</strong> Pay Balance Due</a></li>
               <li><hr class="dropdown-divider"></li>
             `
           }

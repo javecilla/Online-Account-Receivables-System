@@ -71,9 +71,50 @@
             </div>
         </div>
 
-        <!-- Monthly Balance Trends & Loan Performance Metrics-->
-        <div class="row mb-4">
-            <div class="col-md-6">
+        <!-- //TODO:  Chart's-->
+        <!--
+        - Outstanding receivables by member and total.
+        - Payment histories and trends.
+        - Monthly, quarterly, and annual financial summaries.
+        -->
+
+        <!-- Outstanding Receivables by Member & Loan Performance Metrics -->
+        <div class="row">
+            <div class="col-md-6 mb-4">
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <h2 class="card-title">Outstanding Receivables by Member</h2>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="OutstandingReceivablesByMemberChart"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 mb-4">
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <h2 class="card-title">Loan Performance Metrics</h2>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="loanPerformanceChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Payment Trends Monthly & Monthly Balance Trends -->
+        <div class="row mb-1">
+            <div class="col-md-6 mb-4">
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <h2 class="card-title">Payment Trends Monthly</h2>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="PaymentTrendsMonthlyChart"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 mb-4">
                 <div class="dashboard-card">
                     <div class="card-header">
                         <h2 class="card-title">Monthly Balance Trends</h2>
@@ -88,48 +129,87 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-6">
-                <div class="dashboard-card">
-                    <div class="card-header">
-                        <h2 class="card-title">Loan Performance Metrics</h2>
-                    </div>
-                    <div class="chart-container">
-                        <canvas id="loanPerformanceChart"></canvas>
-                    </div>
-                </div>
-            </div>
-
         </div>
 
-        <!-- TODO: Monthly Receivables Trend & Monthly Overdue Metrics -->
-        <div class="row">
-            <div class="col-md-7 mb-4">
+        <!-- Payment Histories by Member -->
+        <div class="row mb-4">
+            <div class="col-12">
                 <div class="dashboard-card">
                     <div class="card-header">
-                        <h2 class="card-title">TODO: Monthly_Receivables_Trend</h2>
-                        <!-- <div id="dateRangeReceivabeleTrends" class="d-inline-block">
-                                <i class="fa fa-calendar"></i>&nbsp;
-                                <span></span>
-                                <i class="fa fa-caret-down"></i>
-                            </div> -->
+                        <h2 class="card-title">Payment Histories by Member</h2>
                     </div>
                     <div class="chart-container">
-                        <canvas id="monthlyReceivablesChart"></canvas>
+                        <canvas id="PaymentHistoriesByMemberChart"></canvas>
                     </div>
                 </div>
             </div>
-            <div class="col-md-5 mb-4">
-                <div class="dashboard-card">
+        </div>
+
+        <!-- Monthly, quarterly, and annual financial summaries. -->
+        <div class="row mb-4">
+            <div class="col-md-6">
+                <div class="dashboard-card mb-3">
                     <div class="card-header">
-                        <h2 class="card-title">TODO: Monthly_Overdue_Metrics</h2>
-                        <!-- <div id="dateRangeOverdueMetrics" class="d-inline-block">
-                                <i class="fa fa-calendar"></i>&nbsp;
-                                <span></span>
-                                <i class="fa fa-caret-down"></i>
-                            </div> -->
+                        <h2 class="card-title">Quarterly Financial Summary (Income from Payments)</h2>
                     </div>
                     <div class="chart-container">
-                        <canvas id="monthlyOverdueChart"></canvas>
+                        <canvas id="quarterlyFinancialSummaryIP"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="dashboard-card mb-3">
+                    <div class="card-header">
+                        <h2 class="card-title">Quarterly Financial Summary (Transactions)</h2>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="quarterlyFinancialSummaryT"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mb-4">
+            <div class="col-md-6">
+                <div class="dashboard-card mb-3">
+                    <div class="card-header">
+                        <h2 class="card-title">Monthly Financial Summary (Income from Payments)</h2>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="monthlyFinancialSummaryIP"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="dashboard-card mb-3">
+                    <div class="card-header">
+                        <h2 class="card-title">Monthly Financial Summary (Transactions)</h2>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="monthlyFinancialSummaryT"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mb-4">
+            <div class="col-md-6">
+                <div class="dashboard-card mb-3">
+                    <div class="card-header">
+                        <h2 class="card-title">Annually Financial Summary (Income from Payments)</h2>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="annuallyFinancialSummaryIP"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="dashboard-card mb-3">
+                    <div class="card-header">
+                        <h2 class="card-title">Annually Financial Summary (Transactions)</h2>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="annuallyFinancialSummaryT"></canvas>
                     </div>
                 </div>
             </div>
@@ -137,6 +217,6 @@
     </div>
 </main>
 
-<?php //require_once __DIR__ . '/app/includes/layouts/footer.php' 
+<?php //require_once __DIR__ . '/app/includes/layouts/footer.php'
 ?>
 <?php require_once __DIR__ . '/app/includes/layouts/end.php' ?>

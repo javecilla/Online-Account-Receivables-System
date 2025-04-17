@@ -226,6 +226,7 @@ window.DataTableMembersTransactionLogs = function ($transactionsTable, data) {
 }
 
 window.DataTableMemberAmortizations = function ($amortizationsTable, data) {
+  // console.log(data)
   if ($.fn.DataTable.isDataTable($amortizationsTable)) {
     $amortizationsTable.DataTable().destroy()
     $amortizationsTable.empty()
@@ -274,16 +275,9 @@ window.DataTableMemberAmortizations = function ($amortizationsTable, data) {
           return `<span class="status-badge ${statusClass}">${data}</span>`
         }
       },
-      {
-        data: 'principal_amount',
-        title: 'Principal Amount',
-        render: function (data) {
-          return `&#8369;${parseFloat(data).toFixed(2)}`
-        }
-      },
       // {
-      //   data: 'remaining_balance',
-      //   title: 'Remaining Balance',
+      //   data: 'principal_amount',
+      //   title: 'Principal Amount',
       //   render: function (data) {
       //     return `&#8369;${parseFloat(data).toFixed(2)}`
       //   }
@@ -303,6 +297,71 @@ window.DataTableMemberAmortizations = function ($amortizationsTable, data) {
         }
       },
       {
+        data: null,
+        title: 'Progress',
+        render: function (data) {
+          const startDate = moment(data.start_date)
+          const endDate = moment(data.end_date)
+          const currentDate = moment()
+          // Calculate total months between start and end date
+          const totalMonths = endDate.diff(startDate, 'months')
+          const half = Math.floor(totalMonths / 2)
+          // Calculate months passed since start date
+          const monthsPassed = currentDate.diff(startDate, 'months')
+          let typeClass =
+            monthsPassed >= half ? 'status-inactive' : 'as-completed'
+          let icon = monthsPassed >= half ? 'fa-arrow-down' : 'fa-arrow-up'
+
+          // Calculate total repayment amount (principal + interest)
+          const principalAmount = parseFloat(data.principal_amount) || 0
+          const interestRate = parseFloat(data.interest_rate) || 0
+          const interestAmount = (principalAmount * interestRate) / 100 || 0
+          const totalRepayment = principalAmount + interestAmount
+
+          // Calculate percentage based on total repayment
+          const totalPaid = parseFloat(data.total_paid) || 0
+          let percentagePaid = 0
+
+          if (totalRepayment > 0) {
+            percentagePaid = ((totalPaid / totalRepayment) * 100).toFixed(2)
+            // Cap at 100% for display purposes
+            if (percentagePaid > 100) percentagePaid = 100
+          }
+
+          return `<span class="status-badge ${typeClass}" data-bs-toggle="tooltip" title="${monthsPassed} months passed out of ${totalMonths}">
+      <i class="fas ${icon}"></i> &nbsp;<span>${percentagePaid}%</span>
+    </span>`
+        }
+      },
+      {
+        data: 'approval',
+        title: 'Approval',
+        render: function (data) {
+          let typeClass
+          let icon
+          switch (data) {
+            case 'pending':
+              typeClass = 'as-pending'
+              icon = 'fas fa-info-circle'
+              break
+            case 'approved':
+              typeClass = 'as-approved'
+              icon = 'fas fa-check-circle'
+              break
+            case 'rejected':
+              typeClass = 'as-rejected'
+              icon = 'fas fa-times-circle'
+              break
+            default:
+              typeClass = ''
+              icon = ''
+          }
+          return `<span class="status-badge ${typeClass}"><i class="fas ${icon}"></i>&nbsp;${
+            data.charAt(0).toUpperCase() + data.slice(1)
+          }</span>`
+        }
+      },
+      {
         data: 'status',
         title: 'Status',
         render: function (data) {
@@ -313,16 +372,16 @@ window.DataTableMemberAmortizations = function ($amortizationsTable, data) {
             return '<span class="status-badge as-pending"><i class="fas fa-clock"></i>&nbsp;Pending</span>'
           }
           switch (data) {
-            case 'active':
-              typeClass = 'status-active'
+            case 'paid':
+              typeClass = 'as-completed'
               icon = 'fas fa-info-circle'
               break
-            case 'completed':
-              typeClass = 'as-completed'
+            case 'pending':
+              typeClass = 'at-loan'
               icon = 'fas fa-check-circle'
               break
-            case 'defaulted':
-              typeClass = 'as-defaulted'
+            case 'overdue':
+              typeClass = 'ap-others'
               icon = 'fas fa-times-circle'
               break
             default:
@@ -354,7 +413,7 @@ window.DataTableMemberAmortizations = function ($amortizationsTable, data) {
         orderable: false,
         render: function (data) {
           const buttonAction =
-            data.status === 'active'
+            data.status === 'pending'
               ? `<button class="btn btn-sm action-btn viewAmortizationPaymentsBtn" data-id="${data.amortization_id}" data-at-name="${data.type_name}"><i class="fas fa-history"></i> Payments History</button>`
               : '<button class="btn btn-sm action-btn" title="No action is required this loan is pending." style="pointer-events: none">No action required</button>'
 
