@@ -67,7 +67,7 @@ CREATE TABLE notifications (
     message TEXT NOT NULL,
     `type` ENUM(
         'payment_reminder',
-        'overdue_notice',
+        'overdue_notice',   
         'system_alert',
         'payment_confirmation'
     ) NOT NULL,

@@ -135,10 +135,9 @@ function handle_get_member_amortizations(mixed $payload): void
 
 function handle_get_amortizations_by_status(mixed $payload): void
 {
-    //paylaod: status=active,completed,defaulted
     //log_request('data:', $payload);
     $validated = validate_data($payload, [
-        'status' => 'required' //in:active,completed,defaulted
+        'status' => 'required' //in:paid,pending,overdue,defaulted
     ]);
 
     $status_array = array_map('trim', explode(',', $validated['data']['status']));
@@ -153,6 +152,40 @@ function handle_get_amortizations_by_status(mixed $payload): void
     }
 
     $amortizations = get_amortizations_by_status($status_array);
+    return_response($amortizations);
+}
+
+function handle_get_amortizations_by_criteria(mixed $payload): void
+{
+    //log_request('data:', $payload);
+    $validated = validate_data($payload, [
+        'status' => 'required', //in:paid,pending,overdue,defaulted
+        'loan_types' => 'required' //in:Educational Loan,Calamity Loan,Business Loan,Personal Loan,Agricultural Loan
+    ]);
+
+    $status_array = array_map('trim', explode(',', $validated['data']['status']));
+    foreach ($status_array as $status) {
+        if (!in_array($status, AMORTIZATION_STATUS)) {
+            return_response([
+                'success' => false,
+                'message' => "Invalid status value: {$status}",
+                'status' => 400
+            ]);
+        }
+    }
+
+    $type_names_array = array_map('trim', explode(',', $validated['data']['loan_types']));
+    foreach ($type_names_array as $type_name) {
+        if (!in_array($type_name, LOAN_TYPE_NAMES)) {
+            return_response([
+                'success' => false,
+                'message' => "Invalid amortization type name provided: {$type_name}",
+                'status' => 400
+            ]);
+        }
+    }
+
+    $amortizations = get_amortizations_by_criteria($status_array, $type_names_array);
     return_response($amortizations);
 }
 
@@ -293,13 +326,75 @@ function handle_update_amortization_status(mixed $payload): void
 {
     $validated = validate_data($payload, [
         'amortization_id' => 'required|numeric|min:1|check:amortization_model',
-        'status' => 'required|string|in:paid,pending,overdue',
+        'status' => 'required|string|in:paid,pending,overdue,defaulted',
+        // added for admin side (optional, used for notification context if available)
+        'account_id' => 'optional|numeric|min:1|check:account_model',
+        'email' => 'optional|email|check:is_email_exist',
+        'member_id' => 'optional|numeric|min:1|check:member_model',
+        'member_name' => 'optional',
+        'title' => 'optional',
+        'message' => 'optional'
     ]);
 
-    $status_update = update_amortization_status(
-        (int)$validated['data']['amortization_id'],
-        $validated['data']['status']
-    );
+    // log_request('data:', $validated['data']);
+    // return_response(['success' => true,'message' => 'test']);
+
+    $amortization_id = (int)$validated['data']['amortization_id'];
+    $new_status = $validated['data']['status'];
+
+    if($validated['data']['status'] === AMORTIZATION_DEFAULTED) {
+        $amort = get_amortization($amortization_id);
+        if(!$amort['success']) {
+            return_response($amort);
+        }
+
+        $amortization = $amort['data'];
+        $member_id = (int)$validated['data']['member_id'];
+    
+        $mem = get_member($member_id);
+        if(!$mem['success']) {
+            return_response($mem);
+        }
+
+        $member = $mem['data'];
+        $notification_payload = [
+            // Use account_id from payload if admin initiated, otherwise maybe null or a system ID
+            'account_id' => $member['account_id'],
+            'title' => 'Loan Default Notice',
+            'message' => "We regret to inform you that your loan (Amortization ID: {$amortization_id}, Type: {$amortization['type_name']}) has been marked as defaulted due to non-payment or other reasons as per our terms.",
+            'type' => 'system_alert',
+        ];
+
+        $notification_created = create_notification($notification_payload);
+        if(!$notification_created['success']) {
+            return_response($notification_created);
+        }
+
+        //send email notification to member
+        $recipient_name = htmlspecialchars($validated['data']['member_name']);
+        $recipient_email = 'jeromesavc@gmail.com'; //$validated['data']['email']
+        $notification_title = htmlspecialchars($validated['data']['title']);
+        $notification_message = nl2br(htmlspecialchars($validated['data']['message']));
+
+        $email_subject = "OARSMC Avecilla - {$notification_title}";
+
+        $email_body_content = <<<HTML
+            <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
+                <p>Dear {$recipient_name},</p>
+                <p>We regret to inform you that your loan (Amortization ID: {$amortization_id}, Type: {$amortization['type_name']}) has been marked as defaulted due to non-payment or other reasons as per our terms.</p>
+                <p><strong>{$notification_title}</strong></p>
+                <p>{$notification_message}</p>
+                <p>If you believe you received this email in error, please disregard it or contact us immediately.</p>
+            </div>
+        HTML;
+
+        $mailed = send_email($recipient_email, $email_subject, $email_body_content);
+        if (!$mailed['success']) {
+            return_response(['success' => false, 'message' => 'Failed to send email: ' . $mailed['message'], 'status' => 500]);
+        }
+    }
+
+    $status_update = update_amortization_status($amortization_id, $new_status);
     return_response($status_update);
 }
 

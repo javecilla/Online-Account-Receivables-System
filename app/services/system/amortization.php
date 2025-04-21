@@ -156,6 +156,30 @@ function get_amortizations_by_status(array $statuses): array
     }
 }
 
+function get_amortizations_by_criteria(array $statuses, array $loan_types): array
+{
+    try {
+        $conn = open_connection();
+
+        $status_placeholders = str_repeat('?,', count($statuses) - 1) . '?';
+        $loan_type_placeholders = str_repeat('?,', count($loan_types) - 1) . '?';
+        $sql = vw_amortization_details() . " WHERE ma.status IN ({$status_placeholders}) AND at.type_name IN ({$loan_type_placeholders}) AND ma.approval = 'approved' ORDER BY ma.updated_at DESC";
+        $stmt = $conn->prepare($sql);
+        $params = array_merge($statuses, $loan_types);
+        $types = str_repeat('s', count($statuses)) . str_repeat('s', count($loan_types));
+        $stmt->bind_param($types, ...$params);
+
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $amortizations = $result->num_rows > 0 ? $result->fetch_all(MYSQLI_ASSOC) : [];
+
+        return ['success' => true, 'message' => 'Retrieved successfully', 'data' => $amortizations];
+    } catch (Exception $e) {
+        log_error("Error fetching amortization by criteria: {$e->getTraceAsString()}");
+        return ['success' => false, 'message' => "Database error occurred: {$e->getMessage()}"];
+    }
+}
+
 function get_member_approved_amortizations(int $member_id, array $statuses): array
 {
     try {

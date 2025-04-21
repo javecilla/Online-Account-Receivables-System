@@ -169,6 +169,19 @@ CREATE TABLE `member_transactions` (
   CONSTRAINT `member_transactions_ibfk_2` FOREIGN KEY (`created_by`) REFERENCES `accounts` (`account_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=864 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+CREATE TABLE `notifications` (
+  `notification_id` int NOT NULL AUTO_INCREMENT,
+  `account_id` int NOT NULL,
+  `title` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `message` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `type` enum('payment_reminder','overdue_notice','system_alert') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `is_read` tinyint(1) DEFAULT '0',
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`notification_id`),
+  KEY `idx_account_type` (`account_id`,`type`),
+  CONSTRAINT `notifications_ibfk_1` FOREIGN KEY (`account_id`) REFERENCES `accounts` (`account_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
 /*===========================================================================================================================*/
 
 CREATE TABLE `email_verification_codes` (

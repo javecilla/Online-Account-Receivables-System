@@ -28,7 +28,7 @@ accessibility to both administrators and members.
   - **Payment Tracking**:
     - ✅ Record payments made by members (manual and auto-reconciled via bank integration).
     - ✅ Monitor payment statuses (paid, pending, overdue).
-    - Send payment reminders and notifications via email.
+    - ✅ Send payment reminders and notifications via email.
 
 - **Financial Reporting**
 
@@ -40,8 +40,8 @@ accessibility to both administrators and members.
 - **Notifications and Alerts**
 
   - **Notify members of**:
-    - Upcoming payment deadlines.
-    - Overdue accounts.
+    - ✅ Upcoming payment deadlines.
+    - ✅ Overdue accounts.
   - **Alert administrators about overdue accounts, unusual activity, or system errors.**
 
 - **Data Security and Backup**

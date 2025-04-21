@@ -21,3 +21,4 @@ require_once __DIR__ . '/employee.php';
 require_once __DIR__ . '/member.php';
 // TODO:
 require_once __DIR__ . '/amortization.php';
+require_once __DIR__ . '/notification.php';

@@ -369,7 +369,7 @@ window.DataTableMemberAmortizations = function ($amortizationsTable, data) {
           let icon
 
           if (!data) {
-            return '<span class="status-badge as-pending"><i class="fas fa-clock"></i>&nbsp;Pending</span>'
+            return '<span class="status-badge ap-others"><i class="fas fa-clock"></i>&nbsp;Defaulted</span>'
           }
           switch (data) {
             case 'paid':
@@ -413,9 +413,9 @@ window.DataTableMemberAmortizations = function ($amortizationsTable, data) {
         orderable: false,
         render: function (data) {
           const buttonAction =
-            data.status === 'pending'
-              ? `<button class="btn btn-sm action-btn viewAmortizationPaymentsBtn" data-id="${data.amortization_id}" data-at-name="${data.type_name}"><i class="fas fa-history"></i> Payments History</button>`
-              : '<button class="btn btn-sm action-btn" title="No action is required this loan is pending." style="pointer-events: none">No action required</button>'
+            data.approval === 'pending' || data.approval === 'rejected'
+              ? '<button class="btn btn-sm action-btn" title="No action is required this loan is pending." style="pointer-events: none">No action required</button>'
+              : `<button class="btn btn-sm action-btn viewAmortizationPaymentsBtn" data-id="${data.amortization_id}" data-at-name="${data.type_name}"><i class="fas fa-history"></i> View Payments</button>`
 
           return `
             <div class="d-flex">

@@ -1,226 +1,1672 @@
-[17-Apr-2025 17:57:10 Europe/Berlin] [[17-Apr-2025 17:57:10 Europe/Berlin]] Action: get_server_request_data(): , Data: {
-    "rawInput": "{\"action\":\"update_amortization_approval\",\"data\":{\"amortization_id\":14,\"approval\":\"approved\"}}"
+[21-Apr-2025 04:45:05 Europe/Berlin] [[21-Apr-2025 04:45:05 Europe/Berlin]] Action: get_server_request_data(): , Data: {
+    "rawInput": "{\"action\":\"update_amortization_status\",\"data\":{\"amortization_id\":\"3\",\"status\":\"defaulted\",\"account_id\":\"1\",\"email\":\"member2@gmail.com\",\"member_id\":\"22\",\"member_name\":\"Test O. One\",\"title\":\"testt\",\"message\":\"testt\"}}"
 }
 
-[17-Apr-2025 17:57:10 Europe/Berlin] [[17-Apr-2025 17:57:10 Europe/Berlin]] Action: request: , Data: {
-    "action": "update_amortization_approval",
+[21-Apr-2025 04:45:05 Europe/Berlin] [[21-Apr-2025 04:45:05 Europe/Berlin]] Action: request: , Data: {
+    "action": "update_amortization_status",
     "data": {
-        "amortization_id": 14,
-        "approval": "approved"
+        "amortization_id": "3",
+        "status": "defaulted",
+        "account_id": "1",
+        "email": "member2@gmail.com",
+        "member_id": "22",
+        "member_name": "Test O. One",
+        "title": "testt",
+        "message": "testt"
     }
 }
 
-[17-Apr-2025 23:57:10 Asia/Manila] [[17-Apr-2025 23:57:10 Asia/Manila]] ERROR: Error updating amortization status: #0 C:\xampp\htdocs\bulsu-school\account-receivable-system-project\app\services\system\amortization.php(481): mysqli_stmt->execute()
-#1 C:\xampp\htdocs\bulsu-school\account-receivable-system-project\app\controllers\amortization.php(315): update_amortization_status(14, 'active')
-#2 C:\xampp\htdocs\bulsu-school\account-receivable-system-project\app\router\api.php(116): handle_update_amortization_approval(Array)
-#3 {main}
+[21-Apr-2025 10:45:05 Asia/Manila] PHP Warning:  Undefined array key "name" in C:\xampp\htdocs\bulsu-school\account-receivable-system-project\app\controllers\amortization.php on line 374
+[21-Apr-2025 10:45:05 Asia/Manila] [[21-Apr-2025 10:45:05 Asia/Manila]] ERROR: An error occured: #0 C:\xampp\htdocs\bulsu-school\account-receivable-system-project\app\controllers\amortization.php(374): htmlspecialchars(NULL)
+#1 C:\xampp\htdocs\bulsu-school\account-receivable-system-project\app\router\api.php(112): handle_update_amortization_status(Array)
+#2 {main}
 
-[17-Apr-2025 18:00:47 Europe/Berlin] [[17-Apr-2025 18:00:47 Europe/Berlin]] Action: get_server_request_data(): , Data: {
-    "rawInput": "{\"action\":\"update_amortization_approval\",\"data\":{\"amortization_id\":14,\"approval\":\"approved\"}}"
+[21-Apr-2025 04:45:31 Europe/Berlin] [[21-Apr-2025 04:45:31 Europe/Berlin]] Action: get_server_request_data(): , Data: {
+    "rawInput": "{\"action\":\"update_amortization_status\",\"data\":{\"amortization_id\":\"3\",\"status\":\"defaulted\",\"account_id\":\"1\",\"email\":\"member2@gmail.com\",\"member_id\":\"22\",\"member_name\":\"Test O. One\",\"title\":\"testt\",\"message\":\"testt\"}}"
 }
 
-[17-Apr-2025 18:00:47 Europe/Berlin] [[17-Apr-2025 18:00:47 Europe/Berlin]] Action: request: , Data: {
-    "action": "update_amortization_approval",
+[21-Apr-2025 04:45:31 Europe/Berlin] [[21-Apr-2025 04:45:31 Europe/Berlin]] Action: request: , Data: {
+    "action": "update_amortization_status",
     "data": {
-        "amortization_id": 14,
-        "approval": "approved"
+        "amortization_id": "3",
+        "status": "defaulted",
+        "account_id": "1",
+        "email": "member2@gmail.com",
+        "member_id": "22",
+        "member_name": "Test O. One",
+        "title": "testt",
+        "message": "testt"
     }
 }
 
-[17-Apr-2025 18:05:18 Europe/Berlin] [[17-Apr-2025 18:05:18 Europe/Berlin]] Action: get_server_request_data(): , Data: {
-    "rawInput": "{\"action\":\"logout_account\",\"data\":{\"uid\":\"A581841\",\"session_id\":\"32t69o24a9ti21mt4r8o7qamuj\"}}"
+[21-Apr-2025 10:45:31 Asia/Manila] [[21-Apr-2025 10:45:31 Asia/Manila]] ERROR: PHPMailer Debug: SERVER -> CLIENT: 220 smtp.gmail.com ESMTP d9443c01a7336-22c50ecee9dsm54852765ad.193 - gsmtp
+
+
+[21-Apr-2025 10:45:31 Asia/Manila] [[21-Apr-2025 10:45:31 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: EHLO jerome-avecilla-preview.infinityfreeapp.test
+
+
+[21-Apr-2025 10:45:31 Asia/Manila] [[21-Apr-2025 10:45:31 Asia/Manila]] ERROR: PHPMailer Debug: SERVER -> CLIENT: 250-smtp.gmail.com at your service, [119.94.142.2]
+250-SIZE 35882577
+250-8BITMIME
+250-STARTTLS
+250-ENHANCEDSTATUSCODES
+250-PIPELINING
+250-CHUNKING
+250 SMTPUTF8
+
+
+[21-Apr-2025 10:45:31 Asia/Manila] [[21-Apr-2025 10:45:31 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: STARTTLS
+
+
+[21-Apr-2025 10:45:32 Asia/Manila] [[21-Apr-2025 10:45:32 Asia/Manila]] ERROR: PHPMailer Debug: SERVER -> CLIENT: 220 2.0.0 Ready to start TLS
+
+
+[21-Apr-2025 10:45:32 Asia/Manila] [[21-Apr-2025 10:45:32 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: EHLO jerome-avecilla-preview.infinityfreeapp.test
+
+
+[21-Apr-2025 10:45:32 Asia/Manila] [[21-Apr-2025 10:45:32 Asia/Manila]] ERROR: PHPMailer Debug: SERVER -> CLIENT: 250-smtp.gmail.com at your service, [119.94.142.2]
+250-SIZE 35882577
+250-8BITMIME
+250-AUTH LOGIN PLAIN XOAUTH2 PLAIN-CLIENTTOKEN OAUTHBEARER XOAUTH
+250-ENHANCEDSTATUSCODES
+250-PIPELINING
+250-CHUNKING
+250 SMTPUTF8
+
+
+[21-Apr-2025 10:45:32 Asia/Manila] [[21-Apr-2025 10:45:32 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: AUTH LOGIN
+
+
+[21-Apr-2025 10:45:32 Asia/Manila] [[21-Apr-2025 10:45:32 Asia/Manila]] ERROR: PHPMailer Debug: SERVER -> CLIENT: 334 VXNlcm5hbWU6
+
+
+[21-Apr-2025 10:45:32 Asia/Manila] [[21-Apr-2025 10:45:32 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: [credentials hidden]
+
+[21-Apr-2025 10:45:33 Asia/Manila] [[21-Apr-2025 10:45:33 Asia/Manila]] ERROR: PHPMailer Debug: SERVER -> CLIENT: 334 UGFzc3dvcmQ6
+
+
+[21-Apr-2025 10:45:33 Asia/Manila] [[21-Apr-2025 10:45:33 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: [credentials hidden]
+
+[21-Apr-2025 10:45:33 Asia/Manila] [[21-Apr-2025 10:45:33 Asia/Manila]] ERROR: PHPMailer Debug: SERVER -> CLIENT: 235 2.7.0 Accepted
+
+
+[21-Apr-2025 10:45:33 Asia/Manila] [[21-Apr-2025 10:45:33 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: MAIL FROM:<jeromesavc@gmail.com>
+
+
+[21-Apr-2025 10:45:33 Asia/Manila] [[21-Apr-2025 10:45:33 Asia/Manila]] ERROR: PHPMailer Debug: SERVER -> CLIENT: 250 2.1.0 OK d9443c01a7336-22c50ecee9dsm54852765ad.193 - gsmtp
+
+
+[21-Apr-2025 10:45:33 Asia/Manila] [[21-Apr-2025 10:45:33 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: RCPT TO:<member2@gmail.com>
+
+
+[21-Apr-2025 10:45:33 Asia/Manila] [[21-Apr-2025 10:45:34 Asia/Manila]] ERROR: PHPMailer Debug: SERVER -> CLIENT: 250 2.1.5 OK d9443c01a7336-22c50ecee9dsm54852765ad.193 - gsmtp
+
+
+[21-Apr-2025 10:45:33 Asia/Manila] [[21-Apr-2025 10:45:34 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: DATA
+
+
+[21-Apr-2025 10:45:34 Asia/Manila] [[21-Apr-2025 10:45:34 Asia/Manila]] ERROR: PHPMailer Debug: SERVER -> CLIENT: 354 Go ahead d9443c01a7336-22c50ecee9dsm54852765ad.193 - gsmtp
+
+
+[21-Apr-2025 10:45:34 Asia/Manila] [[21-Apr-2025 10:45:34 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: Date: Mon, 21 Apr 2025 10:45:31 +0800
+
+
+[21-Apr-2025 10:45:34 Asia/Manila] [[21-Apr-2025 10:45:34 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: To: member2@gmail.com
+
+
+[21-Apr-2025 10:45:34 Asia/Manila] [[21-Apr-2025 10:45:34 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: From: "<no-reply>Jerome Avecilla - BSIT 2FG2" <jeromesavc@gmail.com>
+
+
+[21-Apr-2025 10:45:34 Asia/Manila] [[21-Apr-2025 10:45:34 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: Subject: OARSMC Avecilla - testt
+
+
+[21-Apr-2025 10:45:34 Asia/Manila] [[21-Apr-2025 10:45:34 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: Message-ID: <hTvIdvgjo8iixTZ59e6tsH8jq9jPOFzDZOT75UZei08@jerome-avecilla-preview.infinityfreeapp.test>
+
+
+[21-Apr-2025 10:45:34 Asia/Manila] [[21-Apr-2025 10:45:34 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: X-Mailer: PHPMailer 6.9.3 (https://github.com/PHPMailer/PHPMailer)
+
+
+[21-Apr-2025 10:45:34 Asia/Manila] [[21-Apr-2025 10:45:34 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: MIME-Version: 1.0
+
+
+[21-Apr-2025 10:45:34 Asia/Manila] [[21-Apr-2025 10:45:34 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: Content-Type: text/html; charset=iso-8859-1
+
+
+[21-Apr-2025 10:45:34 Asia/Manila] [[21-Apr-2025 10:45:34 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: 
+
+
+[21-Apr-2025 10:45:34 Asia/Manila] [[21-Apr-2025 10:45:34 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: <!DOCTYPE html>
+
+
+[21-Apr-2025 10:45:34 Asia/Manila] [[21-Apr-2025 10:45:34 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: <html>
+
+
+[21-Apr-2025 10:45:34 Asia/Manila] [[21-Apr-2025 10:45:34 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: <head></head>
+
+
+[21-Apr-2025 10:45:34 Asia/Manila] [[21-Apr-2025 10:45:34 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:     <meta charset="UTF-8">
+
+
+[21-Apr-2025 10:45:34 Asia/Manila] [[21-Apr-2025 10:45:34 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: </head>
+
+
+[21-Apr-2025 10:45:34 Asia/Manila] [[21-Apr-2025 10:45:34 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: <body>
+
+
+[21-Apr-2025 10:45:34 Asia/Manila] [[21-Apr-2025 10:45:34 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:     <div style="font-family: Arial, sans-serif; background-color: #f8f8f8; padding: 0px; line-height: 1.2; color: #000;">
+
+
+[21-Apr-2025 10:45:34 Asia/Manila] [[21-Apr-2025 10:45:34 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:         <div style="width: 100%; margin: 0; background-color: #ffffff; overflow: hidden; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);">
+
+
+[21-Apr-2025 10:45:34 Asia/Manila] [[21-Apr-2025 10:45:34 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:             <!-- Header Section -->
+
+
+[21-Apr-2025 10:45:34 Asia/Manila] [[21-Apr-2025 10:45:34 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:             <div style="text-align: center; padding: 0;">
+
+
+[21-Apr-2025 10:45:34 Asia/Manila] [[21-Apr-2025 10:45:34 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:                 <img src="https://avecilla-project-multipurpose.infinityfreeapp.com/assets/images/email-banner.png" alt="Header Banner" style="width: 100%; height: auto;" />
+
+
+[21-Apr-2025 10:45:34 Asia/Manila] [[21-Apr-2025 10:45:34 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:             </div>
+
+
+[21-Apr-2025 10:45:34 Asia/Manila] [[21-Apr-2025 10:45:34 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:             <!-- Body Section -->
+
+
+[21-Apr-2025 10:45:34 Asia/Manila] [[21-Apr-2025 10:45:34 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:             <div style="padding: 15px; color: #000;"> 
+
+
+[21-Apr-2025 10:45:34 Asia/Manila] [[21-Apr-2025 10:45:34 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:                     <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
+
+
+[21-Apr-2025 10:45:34 Asia/Manila] [[21-Apr-2025 10:45:34 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:         <p>Dear Test O. One,</p>
+
+
+[21-Apr-2025 10:45:34 Asia/Manila] [[21-Apr-2025 10:45:34 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:         <p>We regret to inform you that your loan (Amortization ID: 3, Type: Educational Loan) has been marked as defaulted due to non-payment or other reasons as per our terms.</p>
+
+
+[21-Apr-2025 10:45:34 Asia/Manila] [[21-Apr-2025 10:45:34 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:         <p><strong>testt</strong></p>
+
+
+[21-Apr-2025 10:45:34 Asia/Manila] [[21-Apr-2025 10:45:34 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:         <p>testt</p>
+
+
+[21-Apr-2025 10:45:34 Asia/Manila] [[21-Apr-2025 10:45:34 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:         <p>If you believe you received this email in error, please disregard it or contact us immediately.</p>
+
+
+[21-Apr-2025 10:45:34 Asia/Manila] [[21-Apr-2025 10:45:34 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:     </div>
+
+
+[21-Apr-2025 10:45:34 Asia/Manila] [[21-Apr-2025 10:45:34 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:             </div>
+
+
+[21-Apr-2025 10:45:34 Asia/Manila] [[21-Apr-2025 10:45:34 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:             <!-- Footer Section -->
+
+
+[21-Apr-2025 10:45:34 Asia/Manila] [[21-Apr-2025 10:45:34 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:             <div style="text-align: center; background-color: #f3f3f3; padding: 20px 0 20px 0; font-size: 10px; color: #000;">
+
+
+[21-Apr-2025 10:45:34 Asia/Manila] [[21-Apr-2025 10:45:34 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:                 <p style="margin: 0; color: #000;">Created by: <a href="https://jerome-avecilla.vercel.app/" target="_blank">Jerome Avecilla</a></p>
+
+
+[21-Apr-2025 10:45:34 Asia/Manila] [[21-Apr-2025 10:45:34 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:                 <p style="margin: 0; color: #000;">Section: BSIT 2F-G2</p>
+
+
+[21-Apr-2025 10:45:34 Asia/Manila] [[21-Apr-2025 10:45:34 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:                 <p style="margin: 0; color: #000;">Subject: IT211 - Web System Technologies</p>
+
+
+[21-Apr-2025 10:45:34 Asia/Manila] [[21-Apr-2025 10:45:34 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:             </div>
+
+
+[21-Apr-2025 10:45:34 Asia/Manila] [[21-Apr-2025 10:45:34 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:         </div>
+
+
+[21-Apr-2025 10:45:34 Asia/Manila] [[21-Apr-2025 10:45:34 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:     </div>
+
+
+[21-Apr-2025 10:45:34 Asia/Manila] [[21-Apr-2025 10:45:34 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: </body>
+
+
+[21-Apr-2025 10:45:34 Asia/Manila] [[21-Apr-2025 10:45:34 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: </html>
+
+
+[21-Apr-2025 10:45:34 Asia/Manila] [[21-Apr-2025 10:45:34 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: 
+
+
+[21-Apr-2025 10:45:34 Asia/Manila] [[21-Apr-2025 10:45:34 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: .
+
+
+[21-Apr-2025 10:45:35 Asia/Manila] [[21-Apr-2025 10:45:35 Asia/Manila]] ERROR: PHPMailer Debug: SERVER -> CLIENT: 250 2.0.0 OK  1745203536 d9443c01a7336-22c50ecee9dsm54852765ad.193 - gsmtp
+
+
+[21-Apr-2025 10:45:35 Asia/Manila] [[21-Apr-2025 10:45:35 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: QUIT
+
+
+[21-Apr-2025 10:45:35 Asia/Manila] [[21-Apr-2025 10:45:35 Asia/Manila]] ERROR: PHPMailer Debug: SERVER -> CLIENT: 221 2.0.0 closing connection d9443c01a7336-22c50ecee9dsm54852765ad.193 - gsmtp
+
+
+[21-Apr-2025 04:48:42 Europe/Berlin] [[21-Apr-2025 04:48:42 Europe/Berlin]] Action: get_server_request_data(): , Data: {
+    "rawInput": "{\"action\":\"update_amortization_status\",\"data\":{\"amortization_id\":\"7\",\"status\":\"defaulted\",\"account_id\":\"1\",\"email\":\"member6@gmail.com\",\"member_id\":\"26\",\"member_name\":\"Test O. Five\",\"title\":\"tesstts\",\"message\":\"testt\"}}"
 }
 
-[17-Apr-2025 18:05:18 Europe/Berlin] [[17-Apr-2025 18:05:18 Europe/Berlin]] Action: request: , Data: {
-    "action": "logout_account",
+[21-Apr-2025 04:48:42 Europe/Berlin] [[21-Apr-2025 04:48:42 Europe/Berlin]] Action: request: , Data: {
+    "action": "update_amortization_status",
     "data": {
-        "uid": "A581841",
-        "session_id": "32t69o24a9ti21mt4r8o7qamuj"
+        "amortization_id": "7",
+        "status": "defaulted",
+        "account_id": "1",
+        "email": "member6@gmail.com",
+        "member_id": "26",
+        "member_name": "Test O. Five",
+        "title": "tesstts",
+        "message": "testt"
     }
 }
 
-[17-Apr-2025 18:05:28 Europe/Berlin] [[17-Apr-2025 18:05:28 Europe/Berlin]] Action: get_server_request_data(): , Data: {
-    "rawInput": "{\"action\":\"login_account\",\"data\":{\"uid\":\"member\",\"password\":\"member\",\"recaptcha_response\":\"03AFcWeA5GKfo8vGBzL2DDglJewfNyw3d3aL9N1MwNduAiGJzthRiuMeUkuBrDRRs3N-FDb3gkKOUNDdqQQ0lAKxesgYpu2xK2UBT0eoh7_oOf4EwDT6BNSkouYoyN1Yr1SLH3pol37JbVKMTWjN6wcW2gOLmto-e0Q419twq0GvPQHMItm07evKJ_1oY7Ij-y7Z8HOYePXzc05Ks4ZiaIXHpYuczgUjiCBm0stXOX0Gmo-hqa2JaZASQjA37XGTj_fNksJKhuu16QHGuIbpA-foRGiOIamC7JoHkZQf0yOeIyX310qXMBsMX9gIq0tAT765Tx-BR6F0H2l6lRvshP3nuejV7Po37gHqfJbfHQO7v4-_NDSEQl4VaJ3WZ-DAHrWQy_Z53oS8cDdXPnhqHWAvbvzOW9kclS2vEqu5MKh3lNud4iTQx1qOp141_YDltGqQk6SFLcKtIg_-IGeW5WVWbLzK5m_winNC1kjg9aLhUiMejcUCIdSVVaKMt2pxI0xVPoTmcEmxKgMZJUl6VTGflE7NwrDkLiWVlh9j3EZLVrW0WfHBYFksP0PKUei1ShbW-pp_5bn7r4FQZ1IaqXC23RqwY3OXxLwzBaNwKxO6rOAHbOeem53anfQpnzfj28f8js-G4UUlHEUL0hgzMGxe4nqFS1lWeyz82Cb8PXBwzVNSY7k33gWiG2QlmTbvnUV4-o75LDeZju3S8PbL7wDtGkHQSZgHiNO7738L-RvoWRA80suVbKgyvashWkDZCeDa6fVjRi60BvHTfhAXDbcFXjnBY0O2zB1O6uzeElNjMItEiiJgdieH4bexQrhOXXEDiwHqX7ms9k-PhviFpEBtU6W74ZeKDDLUxdQ3UE05RYNz6gmS4nCiySC53rqFhuxuQqYqcrT7s4JiswBiS_XjSqkWGF4PjnvCYoxGRvvnVTfcWB41_AKOdORfzSSXIvypZ_F963QYAK\"}}"
+[21-Apr-2025 10:48:43 Asia/Manila] [[21-Apr-2025 10:48:43 Asia/Manila]] ERROR: PHPMailer Debug: SERVER -> CLIENT: 220 smtp.gmail.com ESMTP 98e67ed59e1d1-3087dddeca2sm6180750a91.0 - gsmtp
+
+
+[21-Apr-2025 10:48:43 Asia/Manila] [[21-Apr-2025 10:48:43 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: EHLO jerome-avecilla-preview.infinityfreeapp.test
+
+
+[21-Apr-2025 10:48:43 Asia/Manila] [[21-Apr-2025 10:48:43 Asia/Manila]] ERROR: PHPMailer Debug: SERVER -> CLIENT: 250-smtp.gmail.com at your service, [119.94.142.2]
+250-SIZE 35882577
+250-8BITMIME
+250-STARTTLS
+250-ENHANCEDSTATUSCODES
+250-PIPELINING
+250-CHUNKING
+250 SMTPUTF8
+
+
+[21-Apr-2025 10:48:43 Asia/Manila] [[21-Apr-2025 10:48:43 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: STARTTLS
+
+
+[21-Apr-2025 10:48:43 Asia/Manila] [[21-Apr-2025 10:48:43 Asia/Manila]] ERROR: PHPMailer Debug: SERVER -> CLIENT: 220 2.0.0 Ready to start TLS
+
+
+[21-Apr-2025 10:48:43 Asia/Manila] [[21-Apr-2025 10:48:43 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: EHLO jerome-avecilla-preview.infinityfreeapp.test
+
+
+[21-Apr-2025 10:48:44 Asia/Manila] [[21-Apr-2025 10:48:44 Asia/Manila]] ERROR: PHPMailer Debug: SERVER -> CLIENT: 250-smtp.gmail.com at your service, [119.94.142.2]
+250-SIZE 35882577
+250-8BITMIME
+250-AUTH LOGIN PLAIN XOAUTH2 PLAIN-CLIENTTOKEN OAUTHBEARER XOAUTH
+250-ENHANCEDSTATUSCODES
+250-PIPELINING
+250-CHUNKING
+250 SMTPUTF8
+
+
+[21-Apr-2025 10:48:44 Asia/Manila] [[21-Apr-2025 10:48:44 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: AUTH LOGIN
+
+
+[21-Apr-2025 10:48:44 Asia/Manila] [[21-Apr-2025 10:48:44 Asia/Manila]] ERROR: PHPMailer Debug: SERVER -> CLIENT: 334 VXNlcm5hbWU6
+
+
+[21-Apr-2025 10:48:44 Asia/Manila] [[21-Apr-2025 10:48:44 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: [credentials hidden]
+
+[21-Apr-2025 10:48:44 Asia/Manila] [[21-Apr-2025 10:48:44 Asia/Manila]] ERROR: PHPMailer Debug: SERVER -> CLIENT: 334 UGFzc3dvcmQ6
+
+
+[21-Apr-2025 10:48:44 Asia/Manila] [[21-Apr-2025 10:48:44 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: [credentials hidden]
+
+[21-Apr-2025 10:48:45 Asia/Manila] [[21-Apr-2025 10:48:45 Asia/Manila]] ERROR: PHPMailer Debug: SERVER -> CLIENT: 235 2.7.0 Accepted
+
+
+[21-Apr-2025 10:48:45 Asia/Manila] [[21-Apr-2025 10:48:45 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: MAIL FROM:<jeromesavc@gmail.com>
+
+
+[21-Apr-2025 10:48:45 Asia/Manila] [[21-Apr-2025 10:48:45 Asia/Manila]] ERROR: PHPMailer Debug: SERVER -> CLIENT: 250 2.1.0 OK 98e67ed59e1d1-3087dddeca2sm6180750a91.0 - gsmtp
+
+
+[21-Apr-2025 10:48:45 Asia/Manila] [[21-Apr-2025 10:48:45 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: RCPT TO:<jeromesavc@gmail.com>
+
+
+[21-Apr-2025 10:48:45 Asia/Manila] [[21-Apr-2025 10:48:45 Asia/Manila]] ERROR: PHPMailer Debug: SERVER -> CLIENT: 250 2.1.5 OK 98e67ed59e1d1-3087dddeca2sm6180750a91.0 - gsmtp
+
+
+[21-Apr-2025 10:48:45 Asia/Manila] [[21-Apr-2025 10:48:45 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: DATA
+
+
+[21-Apr-2025 10:48:45 Asia/Manila] [[21-Apr-2025 10:48:45 Asia/Manila]] ERROR: PHPMailer Debug: SERVER -> CLIENT: 354 Go ahead 98e67ed59e1d1-3087dddeca2sm6180750a91.0 - gsmtp
+
+
+[21-Apr-2025 10:48:45 Asia/Manila] [[21-Apr-2025 10:48:45 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: Date: Mon, 21 Apr 2025 10:48:42 +0800
+
+
+[21-Apr-2025 10:48:45 Asia/Manila] [[21-Apr-2025 10:48:45 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: To: jeromesavc@gmail.com
+
+
+[21-Apr-2025 10:48:45 Asia/Manila] [[21-Apr-2025 10:48:45 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: From: "<no-reply>Jerome Avecilla - BSIT 2FG2" <jeromesavc@gmail.com>
+
+
+[21-Apr-2025 10:48:45 Asia/Manila] [[21-Apr-2025 10:48:45 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: Subject: OARSMC Avecilla - tesstts
+
+
+[21-Apr-2025 10:48:45 Asia/Manila] [[21-Apr-2025 10:48:45 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: Message-ID: <zYWoXFpeEk7RVem9ATEyOaEbHQPsiWhCwhlOlaxewrk@jerome-avecilla-preview.infinityfreeapp.test>
+
+
+[21-Apr-2025 10:48:45 Asia/Manila] [[21-Apr-2025 10:48:45 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: X-Mailer: PHPMailer 6.9.3 (https://github.com/PHPMailer/PHPMailer)
+
+
+[21-Apr-2025 10:48:45 Asia/Manila] [[21-Apr-2025 10:48:45 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: MIME-Version: 1.0
+
+
+[21-Apr-2025 10:48:45 Asia/Manila] [[21-Apr-2025 10:48:45 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: Content-Type: text/html; charset=iso-8859-1
+
+
+[21-Apr-2025 10:48:45 Asia/Manila] [[21-Apr-2025 10:48:45 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: 
+
+
+[21-Apr-2025 10:48:45 Asia/Manila] [[21-Apr-2025 10:48:45 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: <!DOCTYPE html>
+
+
+[21-Apr-2025 10:48:45 Asia/Manila] [[21-Apr-2025 10:48:45 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: <html>
+
+
+[21-Apr-2025 10:48:45 Asia/Manila] [[21-Apr-2025 10:48:45 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: <head></head>
+
+
+[21-Apr-2025 10:48:45 Asia/Manila] [[21-Apr-2025 10:48:45 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:     <meta charset="UTF-8">
+
+
+[21-Apr-2025 10:48:45 Asia/Manila] [[21-Apr-2025 10:48:45 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: </head>
+
+
+[21-Apr-2025 10:48:45 Asia/Manila] [[21-Apr-2025 10:48:45 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: <body>
+
+
+[21-Apr-2025 10:48:45 Asia/Manila] [[21-Apr-2025 10:48:45 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:     <div style="font-family: Arial, sans-serif; background-color: #f8f8f8; padding: 0px; line-height: 1.2; color: #000;">
+
+
+[21-Apr-2025 10:48:45 Asia/Manila] [[21-Apr-2025 10:48:45 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:         <div style="width: 100%; margin: 0; background-color: #ffffff; overflow: hidden; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);">
+
+
+[21-Apr-2025 10:48:45 Asia/Manila] [[21-Apr-2025 10:48:45 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:             <!-- Header Section -->
+
+
+[21-Apr-2025 10:48:45 Asia/Manila] [[21-Apr-2025 10:48:45 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:             <div style="text-align: center; padding: 0;">
+
+
+[21-Apr-2025 10:48:45 Asia/Manila] [[21-Apr-2025 10:48:45 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:                 <img src="https://avecilla-project-multipurpose.infinityfreeapp.com/assets/images/email-banner.png" alt="Header Banner" style="width: 100%; height: auto;" />
+
+
+[21-Apr-2025 10:48:45 Asia/Manila] [[21-Apr-2025 10:48:45 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:             </div>
+
+
+[21-Apr-2025 10:48:45 Asia/Manila] [[21-Apr-2025 10:48:45 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:             <!-- Body Section -->
+
+
+[21-Apr-2025 10:48:45 Asia/Manila] [[21-Apr-2025 10:48:45 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:             <div style="padding: 15px; color: #000;"> 
+
+
+[21-Apr-2025 10:48:45 Asia/Manila] [[21-Apr-2025 10:48:45 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:                     <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
+
+
+[21-Apr-2025 10:48:45 Asia/Manila] [[21-Apr-2025 10:48:45 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:         <p>Dear Test O. Five,</p>
+
+
+[21-Apr-2025 10:48:45 Asia/Manila] [[21-Apr-2025 10:48:45 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:         <p>We regret to inform you that your loan (Amortization ID: 7, Type: Calamity Loan) has been marked as defaulted due to non-payment or other reasons as per our terms.</p>
+
+
+[21-Apr-2025 10:48:45 Asia/Manila] [[21-Apr-2025 10:48:45 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:         <p><strong>tesstts</strong></p>
+
+
+[21-Apr-2025 10:48:45 Asia/Manila] [[21-Apr-2025 10:48:45 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:         <p>testt</p>
+
+
+[21-Apr-2025 10:48:45 Asia/Manila] [[21-Apr-2025 10:48:45 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:         <p>If you believe you received this email in error, please disregard it or contact us immediately.</p>
+
+
+[21-Apr-2025 10:48:45 Asia/Manila] [[21-Apr-2025 10:48:45 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:     </div>
+
+
+[21-Apr-2025 10:48:45 Asia/Manila] [[21-Apr-2025 10:48:45 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:             </div>
+
+
+[21-Apr-2025 10:48:45 Asia/Manila] [[21-Apr-2025 10:48:45 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:             <!-- Footer Section -->
+
+
+[21-Apr-2025 10:48:45 Asia/Manila] [[21-Apr-2025 10:48:45 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:             <div style="text-align: center; background-color: #f3f3f3; padding: 20px 0 20px 0; font-size: 10px; color: #000;">
+
+
+[21-Apr-2025 10:48:45 Asia/Manila] [[21-Apr-2025 10:48:45 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:                 <p style="margin: 0; color: #000;">Created by: <a href="https://jerome-avecilla.vercel.app/" target="_blank">Jerome Avecilla</a></p>
+
+
+[21-Apr-2025 10:48:45 Asia/Manila] [[21-Apr-2025 10:48:45 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:                 <p style="margin: 0; color: #000;">Section: BSIT 2F-G2</p>
+
+
+[21-Apr-2025 10:48:45 Asia/Manila] [[21-Apr-2025 10:48:45 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:                 <p style="margin: 0; color: #000;">Subject: IT211 - Web System Technologies</p>
+
+
+[21-Apr-2025 10:48:45 Asia/Manila] [[21-Apr-2025 10:48:45 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:             </div>
+
+
+[21-Apr-2025 10:48:45 Asia/Manila] [[21-Apr-2025 10:48:45 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:         </div>
+
+
+[21-Apr-2025 10:48:45 Asia/Manila] [[21-Apr-2025 10:48:45 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:     </div>
+
+
+[21-Apr-2025 10:48:45 Asia/Manila] [[21-Apr-2025 10:48:45 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: </body>
+
+
+[21-Apr-2025 10:48:45 Asia/Manila] [[21-Apr-2025 10:48:45 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: </html>
+
+
+[21-Apr-2025 10:48:45 Asia/Manila] [[21-Apr-2025 10:48:45 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: 
+
+
+[21-Apr-2025 10:48:45 Asia/Manila] [[21-Apr-2025 10:48:45 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: .
+
+
+[21-Apr-2025 10:48:46 Asia/Manila] [[21-Apr-2025 10:48:46 Asia/Manila]] ERROR: PHPMailer Debug: SERVER -> CLIENT: 250 2.0.0 OK  1745203727 98e67ed59e1d1-3087dddeca2sm6180750a91.0 - gsmtp
+
+
+[21-Apr-2025 10:48:46 Asia/Manila] [[21-Apr-2025 10:48:46 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: QUIT
+
+
+[21-Apr-2025 10:48:46 Asia/Manila] [[21-Apr-2025 10:48:46 Asia/Manila]] ERROR: PHPMailer Debug: SERVER -> CLIENT: 221 2.0.0 closing connection 98e67ed59e1d1-3087dddeca2sm6180750a91.0 - gsmtp
+
+
+[21-Apr-2025 04:50:19 Europe/Berlin] [[21-Apr-2025 04:50:19 Europe/Berlin]] Action: get_server_request_data(): , Data: {
+    "rawInput": "{\"action\":\"update_amortization_status\",\"data\":{\"amortization_id\":\"7\",\"status\":\"defaulted\",\"account_id\":\"1\",\"email\":\"member6@gmail.com\",\"member_id\":\"26\",\"member_name\":\"Test O. Five\",\"title\":\"test\",\"message\":\"test\"}}"
 }
 
-[17-Apr-2025 18:05:28 Europe/Berlin] [[17-Apr-2025 18:05:28 Europe/Berlin]] Action: request: , Data: {
-    "action": "login_account",
+[21-Apr-2025 04:50:19 Europe/Berlin] [[21-Apr-2025 04:50:19 Europe/Berlin]] Action: request: , Data: {
+    "action": "update_amortization_status",
     "data": {
-        "uid": "member",
-        "password": "member",
-        "recaptcha_response": "03AFcWeA5GKfo8vGBzL2DDglJewfNyw3d3aL9N1MwNduAiGJzthRiuMeUkuBrDRRs3N-FDb3gkKOUNDdqQQ0lAKxesgYpu2xK2UBT0eoh7_oOf4EwDT6BNSkouYoyN1Yr1SLH3pol37JbVKMTWjN6wcW2gOLmto-e0Q419twq0GvPQHMItm07evKJ_1oY7Ij-y7Z8HOYePXzc05Ks4ZiaIXHpYuczgUjiCBm0stXOX0Gmo-hqa2JaZASQjA37XGTj_fNksJKhuu16QHGuIbpA-foRGiOIamC7JoHkZQf0yOeIyX310qXMBsMX9gIq0tAT765Tx-BR6F0H2l6lRvshP3nuejV7Po37gHqfJbfHQO7v4-_NDSEQl4VaJ3WZ-DAHrWQy_Z53oS8cDdXPnhqHWAvbvzOW9kclS2vEqu5MKh3lNud4iTQx1qOp141_YDltGqQk6SFLcKtIg_-IGeW5WVWbLzK5m_winNC1kjg9aLhUiMejcUCIdSVVaKMt2pxI0xVPoTmcEmxKgMZJUl6VTGflE7NwrDkLiWVlh9j3EZLVrW0WfHBYFksP0PKUei1ShbW-pp_5bn7r4FQZ1IaqXC23RqwY3OXxLwzBaNwKxO6rOAHbOeem53anfQpnzfj28f8js-G4UUlHEUL0hgzMGxe4nqFS1lWeyz82Cb8PXBwzVNSY7k33gWiG2QlmTbvnUV4-o75LDeZju3S8PbL7wDtGkHQSZgHiNO7738L-RvoWRA80suVbKgyvashWkDZCeDa6fVjRi60BvHTfhAXDbcFXjnBY0O2zB1O6uzeElNjMItEiiJgdieH4bexQrhOXXEDiwHqX7ms9k-PhviFpEBtU6W74ZeKDDLUxdQ3UE05RYNz6gmS4nCiySC53rqFhuxuQqYqcrT7s4JiswBiS_XjSqkWGF4PjnvCYoxGRvvnVTfcWB41_AKOdORfzSSXIvypZ_F963QYAK"
+        "amortization_id": "7",
+        "status": "defaulted",
+        "account_id": "1",
+        "email": "member6@gmail.com",
+        "member_id": "26",
+        "member_name": "Test O. Five",
+        "title": "test",
+        "message": "test"
     }
 }
 
-[18-Apr-2025 00:05:29 Asia/Manila] [[18-Apr-2025 00:05:29 Asia/Manila]] Action: Session Data: , Data: {
-    "ip_address": "127.0.0.1",
-    "user_agent": "Mozilla\/5.0 (Windows NT 10.0; Win64; x64; rv:137.0) Gecko\/20100101 Firefox\/137.0",
-    "session_hash": "472531f5a0e43f5491a27455082cad5022a7e49a038302a373ffdae8b28dbcc1",
-    "session_id": "cvhrm2pmkl8i2gmpg22r8opglh",
-    "account_id": 18,
-    "account_uid": "A839109",
-    "email": "member@gmail.com",
-    "username": "member",
-    "account_status": "active",
-    "role_name": "Member",
-    "member_id": 16,
-    "first_name": "John",
-    "last_name": "Doe",
-    "middle_name": "Smith",
-    "full_name": "John S. Doe",
-    "contact_number": "+639772465533",
-    "full_address": "Ph7, Blk3, Lot24, Residence III, Brgy. Mapulang Lupa, Pandi, Bulacan, Region 3"
+[21-Apr-2025 10:50:20 Asia/Manila] [[21-Apr-2025 10:50:20 Asia/Manila]] ERROR: PHPMailer Debug: SERVER -> CLIENT: 220 smtp.gmail.com ESMTP d2e1a72fcca58-73dbfaed86csm5453759b3a.180 - gsmtp
+
+
+[21-Apr-2025 10:50:20 Asia/Manila] [[21-Apr-2025 10:50:20 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: EHLO jerome-avecilla-preview.infinityfreeapp.test
+
+
+[21-Apr-2025 10:50:20 Asia/Manila] [[21-Apr-2025 10:50:20 Asia/Manila]] ERROR: PHPMailer Debug: SERVER -> CLIENT: 250-smtp.gmail.com at your service, [119.94.142.2]
+250-SIZE 35882577
+250-8BITMIME
+250-STARTTLS
+250-ENHANCEDSTATUSCODES
+250-PIPELINING
+250-CHUNKING
+250 SMTPUTF8
+
+
+[21-Apr-2025 10:50:20 Asia/Manila] [[21-Apr-2025 10:50:20 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: STARTTLS
+
+
+[21-Apr-2025 10:50:20 Asia/Manila] [[21-Apr-2025 10:50:20 Asia/Manila]] ERROR: PHPMailer Debug: SERVER -> CLIENT: 220 2.0.0 Ready to start TLS
+
+
+[21-Apr-2025 10:50:20 Asia/Manila] [[21-Apr-2025 10:50:20 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: EHLO jerome-avecilla-preview.infinityfreeapp.test
+
+
+[21-Apr-2025 10:50:21 Asia/Manila] [[21-Apr-2025 10:50:21 Asia/Manila]] ERROR: PHPMailer Debug: SERVER -> CLIENT: 250-smtp.gmail.com at your service, [119.94.142.2]
+250-SIZE 35882577
+250-8BITMIME
+250-AUTH LOGIN PLAIN XOAUTH2 PLAIN-CLIENTTOKEN OAUTHBEARER XOAUTH
+250-ENHANCEDSTATUSCODES
+250-PIPELINING
+250-CHUNKING
+250 SMTPUTF8
+
+
+[21-Apr-2025 10:50:21 Asia/Manila] [[21-Apr-2025 10:50:21 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: AUTH LOGIN
+
+
+[21-Apr-2025 10:50:21 Asia/Manila] [[21-Apr-2025 10:50:21 Asia/Manila]] ERROR: PHPMailer Debug: SERVER -> CLIENT: 334 VXNlcm5hbWU6
+
+
+[21-Apr-2025 10:50:21 Asia/Manila] [[21-Apr-2025 10:50:21 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: [credentials hidden]
+
+[21-Apr-2025 10:50:21 Asia/Manila] [[21-Apr-2025 10:50:21 Asia/Manila]] ERROR: PHPMailer Debug: SERVER -> CLIENT: 334 UGFzc3dvcmQ6
+
+
+[21-Apr-2025 10:50:21 Asia/Manila] [[21-Apr-2025 10:50:21 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: [credentials hidden]
+
+[21-Apr-2025 10:50:21 Asia/Manila] [[21-Apr-2025 10:50:21 Asia/Manila]] ERROR: PHPMailer Debug: SERVER -> CLIENT: 235 2.7.0 Accepted
+
+
+[21-Apr-2025 10:50:21 Asia/Manila] [[21-Apr-2025 10:50:21 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: MAIL FROM:<jeromesavc@gmail.com>
+
+
+[21-Apr-2025 10:50:22 Asia/Manila] [[21-Apr-2025 10:50:22 Asia/Manila]] ERROR: PHPMailer Debug: SERVER -> CLIENT: 250 2.1.0 OK d2e1a72fcca58-73dbfaed86csm5453759b3a.180 - gsmtp
+
+
+[21-Apr-2025 10:50:22 Asia/Manila] [[21-Apr-2025 10:50:22 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: RCPT TO:<jeromesavc@gmail.com>
+
+
+[21-Apr-2025 10:50:22 Asia/Manila] [[21-Apr-2025 10:50:22 Asia/Manila]] ERROR: PHPMailer Debug: SERVER -> CLIENT: 250 2.1.5 OK d2e1a72fcca58-73dbfaed86csm5453759b3a.180 - gsmtp
+
+
+[21-Apr-2025 10:50:22 Asia/Manila] [[21-Apr-2025 10:50:22 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: DATA
+
+
+[21-Apr-2025 10:50:22 Asia/Manila] [[21-Apr-2025 10:50:22 Asia/Manila]] ERROR: PHPMailer Debug: SERVER -> CLIENT: 354 Go ahead d2e1a72fcca58-73dbfaed86csm5453759b3a.180 - gsmtp
+
+
+[21-Apr-2025 10:50:22 Asia/Manila] [[21-Apr-2025 10:50:22 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: Date: Mon, 21 Apr 2025 10:50:19 +0800
+
+
+[21-Apr-2025 10:50:22 Asia/Manila] [[21-Apr-2025 10:50:22 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: To: jeromesavc@gmail.com
+
+
+[21-Apr-2025 10:50:22 Asia/Manila] [[21-Apr-2025 10:50:22 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: From: "<no-reply>Jerome Avecilla - BSIT 2FG2" <jeromesavc@gmail.com>
+
+
+[21-Apr-2025 10:50:22 Asia/Manila] [[21-Apr-2025 10:50:22 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: Subject: OARSMC Avecilla - test
+
+
+[21-Apr-2025 10:50:22 Asia/Manila] [[21-Apr-2025 10:50:22 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: Message-ID: <EVfMLZbAEiKY4G8dkqyUBjVcmjexZ7572n6VneUe8SY@jerome-avecilla-preview.infinityfreeapp.test>
+
+
+[21-Apr-2025 10:50:22 Asia/Manila] [[21-Apr-2025 10:50:22 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: X-Mailer: PHPMailer 6.9.3 (https://github.com/PHPMailer/PHPMailer)
+
+
+[21-Apr-2025 10:50:22 Asia/Manila] [[21-Apr-2025 10:50:22 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: MIME-Version: 1.0
+
+
+[21-Apr-2025 10:50:22 Asia/Manila] [[21-Apr-2025 10:50:22 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: Content-Type: text/html; charset=iso-8859-1
+
+
+[21-Apr-2025 10:50:22 Asia/Manila] [[21-Apr-2025 10:50:22 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: 
+
+
+[21-Apr-2025 10:50:22 Asia/Manila] [[21-Apr-2025 10:50:22 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: <!DOCTYPE html>
+
+
+[21-Apr-2025 10:50:22 Asia/Manila] [[21-Apr-2025 10:50:22 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: <html>
+
+
+[21-Apr-2025 10:50:22 Asia/Manila] [[21-Apr-2025 10:50:22 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: <head></head>
+
+
+[21-Apr-2025 10:50:22 Asia/Manila] [[21-Apr-2025 10:50:22 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:     <meta charset="UTF-8">
+
+
+[21-Apr-2025 10:50:22 Asia/Manila] [[21-Apr-2025 10:50:22 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: </head>
+
+
+[21-Apr-2025 10:50:22 Asia/Manila] [[21-Apr-2025 10:50:22 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: <body>
+
+
+[21-Apr-2025 10:50:22 Asia/Manila] [[21-Apr-2025 10:50:22 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:     <div style="font-family: Arial, sans-serif; background-color: #f8f8f8; padding: 0px; line-height: 1.2; color: #000;">
+
+
+[21-Apr-2025 10:50:22 Asia/Manila] [[21-Apr-2025 10:50:22 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:         <div style="width: 100%; margin: 0; background-color: #ffffff; overflow: hidden; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);">
+
+
+[21-Apr-2025 10:50:22 Asia/Manila] [[21-Apr-2025 10:50:22 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:             <!-- Header Section -->
+
+
+[21-Apr-2025 10:50:22 Asia/Manila] [[21-Apr-2025 10:50:22 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:             <div style="text-align: center; padding: 0;">
+
+
+[21-Apr-2025 10:50:22 Asia/Manila] [[21-Apr-2025 10:50:22 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:                 <img src="https://avecilla-project-multipurpose.infinityfreeapp.com/assets/images/email-banner.png" alt="Header Banner" style="width: 100%; height: auto;" />
+
+
+[21-Apr-2025 10:50:22 Asia/Manila] [[21-Apr-2025 10:50:22 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:             </div>
+
+
+[21-Apr-2025 10:50:22 Asia/Manila] [[21-Apr-2025 10:50:22 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:             <!-- Body Section -->
+
+
+[21-Apr-2025 10:50:22 Asia/Manila] [[21-Apr-2025 10:50:22 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:             <div style="padding: 15px; color: #000;"> 
+
+
+[21-Apr-2025 10:50:22 Asia/Manila] [[21-Apr-2025 10:50:22 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:                     <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
+
+
+[21-Apr-2025 10:50:22 Asia/Manila] [[21-Apr-2025 10:50:22 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:         <p>Dear Test O. Five,</p>
+
+
+[21-Apr-2025 10:50:22 Asia/Manila] [[21-Apr-2025 10:50:22 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:         <p>We regret to inform you that your loan (Amortization ID: 7, Type: Calamity Loan) has been marked as defaulted due to non-payment or other reasons as per our terms.</p>
+
+
+[21-Apr-2025 10:50:22 Asia/Manila] [[21-Apr-2025 10:50:22 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:         <p><strong>test</strong></p>
+
+
+[21-Apr-2025 10:50:22 Asia/Manila] [[21-Apr-2025 10:50:22 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:         <p>test</p>
+
+
+[21-Apr-2025 10:50:22 Asia/Manila] [[21-Apr-2025 10:50:22 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:         <p>If you believe you received this email in error, please disregard it or contact us immediately.</p>
+
+
+[21-Apr-2025 10:50:22 Asia/Manila] [[21-Apr-2025 10:50:22 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:     </div>
+
+
+[21-Apr-2025 10:50:22 Asia/Manila] [[21-Apr-2025 10:50:22 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:             </div>
+
+
+[21-Apr-2025 10:50:22 Asia/Manila] [[21-Apr-2025 10:50:22 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:             <!-- Footer Section -->
+
+
+[21-Apr-2025 10:50:22 Asia/Manila] [[21-Apr-2025 10:50:22 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:             <div style="text-align: center; background-color: #f3f3f3; padding: 20px 0 20px 0; font-size: 10px; color: #000;">
+
+
+[21-Apr-2025 10:50:22 Asia/Manila] [[21-Apr-2025 10:50:22 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:                 <p style="margin: 0; color: #000;">Created by: <a href="https://jerome-avecilla.vercel.app/" target="_blank">Jerome Avecilla</a></p>
+
+
+[21-Apr-2025 10:50:22 Asia/Manila] [[21-Apr-2025 10:50:22 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:                 <p style="margin: 0; color: #000;">Section: BSIT 2F-G2</p>
+
+
+[21-Apr-2025 10:50:22 Asia/Manila] [[21-Apr-2025 10:50:22 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:                 <p style="margin: 0; color: #000;">Subject: IT211 - Web System Technologies</p>
+
+
+[21-Apr-2025 10:50:22 Asia/Manila] [[21-Apr-2025 10:50:22 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:             </div>
+
+
+[21-Apr-2025 10:50:22 Asia/Manila] [[21-Apr-2025 10:50:22 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:         </div>
+
+
+[21-Apr-2025 10:50:22 Asia/Manila] [[21-Apr-2025 10:50:22 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:     </div>
+
+
+[21-Apr-2025 10:50:22 Asia/Manila] [[21-Apr-2025 10:50:22 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: </body>
+
+
+[21-Apr-2025 10:50:22 Asia/Manila] [[21-Apr-2025 10:50:22 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: </html>
+
+
+[21-Apr-2025 10:50:22 Asia/Manila] [[21-Apr-2025 10:50:22 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: 
+
+
+[21-Apr-2025 10:50:22 Asia/Manila] [[21-Apr-2025 10:50:22 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: .
+
+
+[21-Apr-2025 10:50:23 Asia/Manila] [[21-Apr-2025 10:50:23 Asia/Manila]] ERROR: PHPMailer Debug: SERVER -> CLIENT: 250 2.0.0 OK  1745203824 d2e1a72fcca58-73dbfaed86csm5453759b3a.180 - gsmtp
+
+
+[21-Apr-2025 10:50:23 Asia/Manila] [[21-Apr-2025 10:50:23 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: QUIT
+
+
+[21-Apr-2025 10:50:23 Asia/Manila] [[21-Apr-2025 10:50:23 Asia/Manila]] ERROR: PHPMailer Debug: SERVER -> CLIENT: 221 2.0.0 closing connection d2e1a72fcca58-73dbfaed86csm5453759b3a.180 - gsmtp
+
+
+[21-Apr-2025 04:51:23 Europe/Berlin] [[21-Apr-2025 04:51:23 Europe/Berlin]] Action: get_server_request_data(): , Data: {
+    "rawInput": "{\"action\":\"update_amortization_status\",\"data\":{\"amortization_id\":\"19\",\"status\":\"overdue\",\"account_id\":\"1\",\"email\":\"member4@gmail.com\",\"member_id\":\"24\",\"member_name\":\"Test O. Three\",\"title\":\"\",\"message\":\"\"}}"
 }
 
-[17-Apr-2025 18:05:29 Europe/Berlin] PHP Warning:  Undefined variable $base_url in C:\xampp\htdocs\bulsu-school\account-receivable-system-project\index.php on line 12
-[17-Apr-2025 18:05:30 Europe/Berlin] [[17-Apr-2025 18:05:30 Europe/Berlin]] Action: data:, Data: {
-    "status": "paid,pending,overdue",
-    "member_id": "16"
-}
-
-[17-Apr-2025 18:20:13 Europe/Berlin] [[17-Apr-2025 18:20:13 Europe/Berlin]] Action: get_server_request_data(): , Data: {
-    "rawInput": "{\"action\":\"update_amortization_approval\",\"data\":{\"amortization_id\":12,\"approval\":\"approved\"}}"
-}
-
-[17-Apr-2025 18:20:13 Europe/Berlin] [[17-Apr-2025 18:20:13 Europe/Berlin]] Action: request: , Data: {
-    "action": "update_amortization_approval",
+[21-Apr-2025 04:51:23 Europe/Berlin] [[21-Apr-2025 04:51:23 Europe/Berlin]] Action: request: , Data: {
+    "action": "update_amortization_status",
     "data": {
-        "amortization_id": 12,
-        "approval": "approved"
+        "amortization_id": "19",
+        "status": "overdue",
+        "account_id": "1",
+        "email": "member4@gmail.com",
+        "member_id": "24",
+        "member_name": "Test O. Three",
+        "title": "",
+        "message": ""
     }
 }
 
-[17-Apr-2025 18:20:33 Europe/Berlin] [[17-Apr-2025 18:20:33 Europe/Berlin]] Action: get_server_request_data(): , Data: {
-    "rawInput": "{\"action\":\"update_amortization_approval\",\"data\":{\"amortization_id\":12,\"approval\":\"approved\"}}"
+[21-Apr-2025 04:51:32 Europe/Berlin] [[21-Apr-2025 04:51:32 Europe/Berlin]] Action: get_server_request_data(): , Data: {
+    "rawInput": "{\"action\":\"update_amortization_status\",\"data\":{\"amortization_id\":\"19\",\"status\":\"pending\",\"account_id\":\"1\",\"email\":\"member4@gmail.com\",\"member_id\":\"24\",\"member_name\":\"Test O. Three\",\"title\":\"\",\"message\":\"\"}}"
 }
 
-[17-Apr-2025 18:20:33 Europe/Berlin] [[17-Apr-2025 18:20:33 Europe/Berlin]] Action: request: , Data: {
-    "action": "update_amortization_approval",
+[21-Apr-2025 04:51:32 Europe/Berlin] [[21-Apr-2025 04:51:32 Europe/Berlin]] Action: request: , Data: {
+    "action": "update_amortization_status",
     "data": {
-        "amortization_id": 12,
-        "approval": "approved"
+        "amortization_id": "19",
+        "status": "pending",
+        "account_id": "1",
+        "email": "member4@gmail.com",
+        "member_id": "24",
+        "member_name": "Test O. Three",
+        "title": "",
+        "message": ""
     }
 }
 
-[17-Apr-2025 18:21:57 Europe/Berlin] [[17-Apr-2025 18:21:57 Europe/Berlin]] Action: get_server_request_data(): , Data: {
-    "rawInput": "{\"action\":\"update_amortization_approval\",\"data\":{\"amortization_id\":12,\"approval\":\"approved\"}}"
+[21-Apr-2025 04:56:52 Europe/Berlin] [[21-Apr-2025 04:56:52 Europe/Berlin]] Action: get_server_request_data(): , Data: {
+    "rawInput": "{\"action\":\"update_amortization_status\",\"data\":{\"amortization_id\":\"6\",\"status\":\"defaulted\",\"account_id\":\"1\",\"email\":\"member5@gmail.com\",\"member_id\":\"25\",\"member_name\":\"Test O. Four\",\"title\":\"test\",\"message\":\"test\"}}"
 }
 
-[17-Apr-2025 18:21:57 Europe/Berlin] [[17-Apr-2025 18:21:57 Europe/Berlin]] Action: request: , Data: {
-    "action": "update_amortization_approval",
+[21-Apr-2025 04:56:52 Europe/Berlin] [[21-Apr-2025 04:56:52 Europe/Berlin]] Action: request: , Data: {
+    "action": "update_amortization_status",
     "data": {
-        "amortization_id": 12,
-        "approval": "approved"
+        "amortization_id": "6",
+        "status": "defaulted",
+        "account_id": "1",
+        "email": "member5@gmail.com",
+        "member_id": "25",
+        "member_name": "Test O. Four",
+        "title": "test",
+        "message": "test"
     }
 }
 
-[17-Apr-2025 18:29:28 Europe/Berlin] [[17-Apr-2025 18:29:28 Europe/Berlin]] Action: get_server_request_data(): , Data: {
-    "rawInput": "{\"action\":\"update_amortization_approval\",\"data\":{\"amortization_id\":12,\"approval\":\"rejected\"}}"
+[21-Apr-2025 10:56:52 Asia/Manila] [[21-Apr-2025 10:56:52 Asia/Manila]] ERROR: PHPMailer Debug: SERVER -> CLIENT: 220 smtp.gmail.com ESMTP d2e1a72fcca58-73dbf90c668sm5415415b3a.80 - gsmtp
+
+
+[21-Apr-2025 10:56:52 Asia/Manila] [[21-Apr-2025 10:56:52 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: EHLO jerome-avecilla-preview.infinityfreeapp.test
+
+
+[21-Apr-2025 10:56:52 Asia/Manila] [[21-Apr-2025 10:56:52 Asia/Manila]] ERROR: PHPMailer Debug: SERVER -> CLIENT: 250-smtp.gmail.com at your service, [119.94.142.2]
+250-SIZE 35882577
+250-8BITMIME
+250-STARTTLS
+250-ENHANCEDSTATUSCODES
+250-PIPELINING
+250-CHUNKING
+250 SMTPUTF8
+
+
+[21-Apr-2025 10:56:52 Asia/Manila] [[21-Apr-2025 10:56:52 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: STARTTLS
+
+
+[21-Apr-2025 10:56:52 Asia/Manila] [[21-Apr-2025 10:56:52 Asia/Manila]] ERROR: PHPMailer Debug: SERVER -> CLIENT: 220 2.0.0 Ready to start TLS
+
+
+[21-Apr-2025 10:56:53 Asia/Manila] [[21-Apr-2025 10:56:53 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: EHLO jerome-avecilla-preview.infinityfreeapp.test
+
+
+[21-Apr-2025 10:56:53 Asia/Manila] [[21-Apr-2025 10:56:53 Asia/Manila]] ERROR: PHPMailer Debug: SERVER -> CLIENT: 250-smtp.gmail.com at your service, [119.94.142.2]
+250-SIZE 35882577
+250-8BITMIME
+250-AUTH LOGIN PLAIN XOAUTH2 PLAIN-CLIENTTOKEN OAUTHBEARER XOAUTH
+250-ENHANCEDSTATUSCODES
+250-PIPELINING
+250-CHUNKING
+250 SMTPUTF8
+
+
+[21-Apr-2025 10:56:53 Asia/Manila] [[21-Apr-2025 10:56:53 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: AUTH LOGIN
+
+
+[21-Apr-2025 10:56:53 Asia/Manila] [[21-Apr-2025 10:56:53 Asia/Manila]] ERROR: PHPMailer Debug: SERVER -> CLIENT: 334 VXNlcm5hbWU6
+
+
+[21-Apr-2025 10:56:53 Asia/Manila] [[21-Apr-2025 10:56:53 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: [credentials hidden]
+
+[21-Apr-2025 10:56:53 Asia/Manila] [[21-Apr-2025 10:56:53 Asia/Manila]] ERROR: PHPMailer Debug: SERVER -> CLIENT: 334 UGFzc3dvcmQ6
+
+
+[21-Apr-2025 10:56:53 Asia/Manila] [[21-Apr-2025 10:56:53 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: [credentials hidden]
+
+[21-Apr-2025 10:56:54 Asia/Manila] [[21-Apr-2025 10:56:54 Asia/Manila]] ERROR: PHPMailer Debug: SERVER -> CLIENT: 235 2.7.0 Accepted
+
+
+[21-Apr-2025 10:56:54 Asia/Manila] [[21-Apr-2025 10:56:54 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: MAIL FROM:<jeromesavc@gmail.com>
+
+
+[21-Apr-2025 10:56:54 Asia/Manila] [[21-Apr-2025 10:56:54 Asia/Manila]] ERROR: PHPMailer Debug: SERVER -> CLIENT: 250 2.1.0 OK d2e1a72fcca58-73dbf90c668sm5415415b3a.80 - gsmtp
+
+
+[21-Apr-2025 10:56:54 Asia/Manila] [[21-Apr-2025 10:56:54 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: RCPT TO:<jeromesavc@gmail.com>
+
+
+[21-Apr-2025 10:56:54 Asia/Manila] [[21-Apr-2025 10:56:54 Asia/Manila]] ERROR: PHPMailer Debug: SERVER -> CLIENT: 250 2.1.5 OK d2e1a72fcca58-73dbf90c668sm5415415b3a.80 - gsmtp
+
+
+[21-Apr-2025 10:56:54 Asia/Manila] [[21-Apr-2025 10:56:54 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: DATA
+
+
+[21-Apr-2025 10:56:55 Asia/Manila] [[21-Apr-2025 10:56:55 Asia/Manila]] ERROR: PHPMailer Debug: SERVER -> CLIENT: 354 Go ahead d2e1a72fcca58-73dbf90c668sm5415415b3a.80 - gsmtp
+
+
+[21-Apr-2025 10:56:55 Asia/Manila] [[21-Apr-2025 10:56:55 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: Date: Mon, 21 Apr 2025 10:56:52 +0800
+
+
+[21-Apr-2025 10:56:55 Asia/Manila] [[21-Apr-2025 10:56:55 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: To: jeromesavc@gmail.com
+
+
+[21-Apr-2025 10:56:55 Asia/Manila] [[21-Apr-2025 10:56:55 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: From: "<no-reply>Jerome Avecilla - BSIT 2FG2" <jeromesavc@gmail.com>
+
+
+[21-Apr-2025 10:56:55 Asia/Manila] [[21-Apr-2025 10:56:55 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: Subject: OARSMC Avecilla - test
+
+
+[21-Apr-2025 10:56:55 Asia/Manila] [[21-Apr-2025 10:56:55 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: Message-ID: <6a7LR3BcHQF5S9K0qw65nPGwnhetcRixnpOOL6drQ@jerome-avecilla-preview.infinityfreeapp.test>
+
+
+[21-Apr-2025 10:56:55 Asia/Manila] [[21-Apr-2025 10:56:55 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: X-Mailer: PHPMailer 6.9.3 (https://github.com/PHPMailer/PHPMailer)
+
+
+[21-Apr-2025 10:56:55 Asia/Manila] [[21-Apr-2025 10:56:55 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: MIME-Version: 1.0
+
+
+[21-Apr-2025 10:56:55 Asia/Manila] [[21-Apr-2025 10:56:55 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: Content-Type: text/html; charset=iso-8859-1
+
+
+[21-Apr-2025 10:56:55 Asia/Manila] [[21-Apr-2025 10:56:55 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: 
+
+
+[21-Apr-2025 10:56:55 Asia/Manila] [[21-Apr-2025 10:56:55 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: <!DOCTYPE html>
+
+
+[21-Apr-2025 10:56:55 Asia/Manila] [[21-Apr-2025 10:56:55 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: <html>
+
+
+[21-Apr-2025 10:56:55 Asia/Manila] [[21-Apr-2025 10:56:55 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: <head></head>
+
+
+[21-Apr-2025 10:56:55 Asia/Manila] [[21-Apr-2025 10:56:55 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:     <meta charset="UTF-8">
+
+
+[21-Apr-2025 10:56:55 Asia/Manila] [[21-Apr-2025 10:56:55 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: </head>
+
+
+[21-Apr-2025 10:56:55 Asia/Manila] [[21-Apr-2025 10:56:55 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: <body>
+
+
+[21-Apr-2025 10:56:55 Asia/Manila] [[21-Apr-2025 10:56:55 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:     <div style="font-family: Arial, sans-serif; background-color: #f8f8f8; padding: 0px; line-height: 1.2; color: #000;">
+
+
+[21-Apr-2025 10:56:55 Asia/Manila] [[21-Apr-2025 10:56:55 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:         <div style="width: 100%; margin: 0; background-color: #ffffff; overflow: hidden; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);">
+
+
+[21-Apr-2025 10:56:55 Asia/Manila] [[21-Apr-2025 10:56:55 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:             <!-- Header Section -->
+
+
+[21-Apr-2025 10:56:55 Asia/Manila] [[21-Apr-2025 10:56:55 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:             <div style="text-align: center; padding: 0;">
+
+
+[21-Apr-2025 10:56:55 Asia/Manila] [[21-Apr-2025 10:56:55 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:                 <img src="https://avecilla-project-multipurpose.infinityfreeapp.com/assets/images/email-banner.png" alt="Header Banner" style="width: 100%; height: auto;" />
+
+
+[21-Apr-2025 10:56:55 Asia/Manila] [[21-Apr-2025 10:56:55 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:             </div>
+
+
+[21-Apr-2025 10:56:55 Asia/Manila] [[21-Apr-2025 10:56:55 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:             <!-- Body Section -->
+
+
+[21-Apr-2025 10:56:55 Asia/Manila] [[21-Apr-2025 10:56:55 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:             <div style="padding: 15px; color: #000;"> 
+
+
+[21-Apr-2025 10:56:55 Asia/Manila] [[21-Apr-2025 10:56:55 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:                     <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
+
+
+[21-Apr-2025 10:56:55 Asia/Manila] [[21-Apr-2025 10:56:55 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:         <p>Dear Test O. Four,</p>
+
+
+[21-Apr-2025 10:56:55 Asia/Manila] [[21-Apr-2025 10:56:55 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:         <p>We regret to inform you that your loan (Amortization ID: 6, Type: Agricultural Loan) has been marked as defaulted due to non-payment or other reasons as per our terms.</p>
+
+
+[21-Apr-2025 10:56:55 Asia/Manila] [[21-Apr-2025 10:56:55 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:         <p><strong>test</strong></p>
+
+
+[21-Apr-2025 10:56:55 Asia/Manila] [[21-Apr-2025 10:56:55 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:         <p>test</p>
+
+
+[21-Apr-2025 10:56:55 Asia/Manila] [[21-Apr-2025 10:56:55 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:         <p>If you believe you received this email in error, please disregard it or contact us immediately.</p>
+
+
+[21-Apr-2025 10:56:55 Asia/Manila] [[21-Apr-2025 10:56:55 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:     </div>
+
+
+[21-Apr-2025 10:56:55 Asia/Manila] [[21-Apr-2025 10:56:55 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:             </div>
+
+
+[21-Apr-2025 10:56:55 Asia/Manila] [[21-Apr-2025 10:56:55 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:             <!-- Footer Section -->
+
+
+[21-Apr-2025 10:56:55 Asia/Manila] [[21-Apr-2025 10:56:55 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:             <div style="text-align: center; background-color: #f3f3f3; padding: 20px 0 20px 0; font-size: 10px; color: #000;">
+
+
+[21-Apr-2025 10:56:55 Asia/Manila] [[21-Apr-2025 10:56:55 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:                 <p style="margin: 0; color: #000;">Created by: <a href="https://jerome-avecilla.vercel.app/" target="_blank">Jerome Avecilla</a></p>
+
+
+[21-Apr-2025 10:56:55 Asia/Manila] [[21-Apr-2025 10:56:55 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:                 <p style="margin: 0; color: #000;">Section: BSIT 2F-G2</p>
+
+
+[21-Apr-2025 10:56:55 Asia/Manila] [[21-Apr-2025 10:56:55 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:                 <p style="margin: 0; color: #000;">Subject: IT211 - Web System Technologies</p>
+
+
+[21-Apr-2025 10:56:55 Asia/Manila] [[21-Apr-2025 10:56:55 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:             </div>
+
+
+[21-Apr-2025 10:56:55 Asia/Manila] [[21-Apr-2025 10:56:55 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:         </div>
+
+
+[21-Apr-2025 10:56:55 Asia/Manila] [[21-Apr-2025 10:56:55 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:     </div>
+
+
+[21-Apr-2025 10:56:55 Asia/Manila] [[21-Apr-2025 10:56:55 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: </body>
+
+
+[21-Apr-2025 10:56:55 Asia/Manila] [[21-Apr-2025 10:56:55 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: </html>
+
+
+[21-Apr-2025 10:56:55 Asia/Manila] [[21-Apr-2025 10:56:55 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: 
+
+
+[21-Apr-2025 10:56:55 Asia/Manila] [[21-Apr-2025 10:56:55 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: .
+
+
+[21-Apr-2025 10:56:56 Asia/Manila] [[21-Apr-2025 10:56:56 Asia/Manila]] ERROR: PHPMailer Debug: SERVER -> CLIENT: 250 2.0.0 OK  1745204216 d2e1a72fcca58-73dbf90c668sm5415415b3a.80 - gsmtp
+
+
+[21-Apr-2025 10:56:56 Asia/Manila] [[21-Apr-2025 10:56:56 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: QUIT
+
+
+[21-Apr-2025 10:56:56 Asia/Manila] [[21-Apr-2025 10:56:56 Asia/Manila]] ERROR: PHPMailer Debug: SERVER -> CLIENT: 221 2.0.0 closing connection d2e1a72fcca58-73dbf90c668sm5415415b3a.80 - gsmtp
+
+
+[21-Apr-2025 04:57:08 Europe/Berlin] [[21-Apr-2025 04:57:08 Europe/Berlin]] Action: get_server_request_data(): , Data: {
+    "rawInput": "{\"action\":\"update_amortization_status\",\"data\":{\"amortization_id\":\"5\",\"status\":\"defaulted\",\"account_id\":\"1\",\"email\":\"member4@gmail.com\",\"member_id\":\"24\",\"member_name\":\"Test O. Three\",\"title\":\"test\",\"message\":\"test\"}}"
 }
 
-[17-Apr-2025 18:29:28 Europe/Berlin] [[17-Apr-2025 18:29:28 Europe/Berlin]] Action: request: , Data: {
-    "action": "update_amortization_approval",
+[21-Apr-2025 04:57:08 Europe/Berlin] [[21-Apr-2025 04:57:08 Europe/Berlin]] Action: request: , Data: {
+    "action": "update_amortization_status",
     "data": {
-        "amortization_id": 12,
-        "approval": "rejected"
+        "amortization_id": "5",
+        "status": "defaulted",
+        "account_id": "1",
+        "email": "member4@gmail.com",
+        "member_id": "24",
+        "member_name": "Test O. Three",
+        "title": "test",
+        "message": "test"
     }
 }
 
-[17-Apr-2025 18:30:22 Europe/Berlin] [[17-Apr-2025 18:30:22 Europe/Berlin]] Action: get_server_request_data(): , Data: {
-    "rawInput": "{\"action\":\"update_amortization_approval\",\"data\":{\"amortization_id\":12,\"approval\":\"approved\"}}"
+[21-Apr-2025 10:57:08 Asia/Manila] [[21-Apr-2025 10:57:08 Asia/Manila]] ERROR: PHPMailer Debug: SERVER -> CLIENT: 220 smtp.gmail.com ESMTP d2e1a72fcca58-73dbf8e59f7sm5493344b3a.72 - gsmtp
+
+
+[21-Apr-2025 10:57:08 Asia/Manila] [[21-Apr-2025 10:57:08 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: EHLO jerome-avecilla-preview.infinityfreeapp.test
+
+
+[21-Apr-2025 10:57:08 Asia/Manila] [[21-Apr-2025 10:57:08 Asia/Manila]] ERROR: PHPMailer Debug: SERVER -> CLIENT: 250-smtp.gmail.com at your service, [119.94.142.2]
+250-SIZE 35882577
+250-8BITMIME
+250-STARTTLS
+250-ENHANCEDSTATUSCODES
+250-PIPELINING
+250-CHUNKING
+250 SMTPUTF8
+
+
+[21-Apr-2025 10:57:08 Asia/Manila] [[21-Apr-2025 10:57:08 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: STARTTLS
+
+
+[21-Apr-2025 10:57:09 Asia/Manila] [[21-Apr-2025 10:57:09 Asia/Manila]] ERROR: PHPMailer Debug: SERVER -> CLIENT: 220 2.0.0 Ready to start TLS
+
+
+[21-Apr-2025 10:57:09 Asia/Manila] [[21-Apr-2025 10:57:09 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: EHLO jerome-avecilla-preview.infinityfreeapp.test
+
+
+[21-Apr-2025 10:57:09 Asia/Manila] [[21-Apr-2025 10:57:09 Asia/Manila]] ERROR: PHPMailer Debug: SERVER -> CLIENT: 250-smtp.gmail.com at your service, [119.94.142.2]
+250-SIZE 35882577
+250-8BITMIME
+250-AUTH LOGIN PLAIN XOAUTH2 PLAIN-CLIENTTOKEN OAUTHBEARER XOAUTH
+250-ENHANCEDSTATUSCODES
+250-PIPELINING
+250-CHUNKING
+250 SMTPUTF8
+
+
+[21-Apr-2025 10:57:09 Asia/Manila] [[21-Apr-2025 10:57:09 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: AUTH LOGIN
+
+
+[21-Apr-2025 10:57:09 Asia/Manila] [[21-Apr-2025 10:57:09 Asia/Manila]] ERROR: PHPMailer Debug: SERVER -> CLIENT: 334 VXNlcm5hbWU6
+
+
+[21-Apr-2025 10:57:09 Asia/Manila] [[21-Apr-2025 10:57:09 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: [credentials hidden]
+
+[21-Apr-2025 10:57:10 Asia/Manila] [[21-Apr-2025 10:57:10 Asia/Manila]] ERROR: PHPMailer Debug: SERVER -> CLIENT: 334 UGFzc3dvcmQ6
+
+
+[21-Apr-2025 10:57:10 Asia/Manila] [[21-Apr-2025 10:57:10 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: [credentials hidden]
+
+[21-Apr-2025 10:57:10 Asia/Manila] [[21-Apr-2025 10:57:10 Asia/Manila]] ERROR: PHPMailer Debug: SERVER -> CLIENT: 235 2.7.0 Accepted
+
+
+[21-Apr-2025 10:57:10 Asia/Manila] [[21-Apr-2025 10:57:10 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: MAIL FROM:<jeromesavc@gmail.com>
+
+
+[21-Apr-2025 10:57:10 Asia/Manila] [[21-Apr-2025 10:57:10 Asia/Manila]] ERROR: PHPMailer Debug: SERVER -> CLIENT: 250 2.1.0 OK d2e1a72fcca58-73dbf8e59f7sm5493344b3a.72 - gsmtp
+
+
+[21-Apr-2025 10:57:10 Asia/Manila] [[21-Apr-2025 10:57:10 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: RCPT TO:<jeromesavc@gmail.com>
+
+
+[21-Apr-2025 10:57:10 Asia/Manila] [[21-Apr-2025 10:57:10 Asia/Manila]] ERROR: PHPMailer Debug: SERVER -> CLIENT: 250 2.1.5 OK d2e1a72fcca58-73dbf8e59f7sm5493344b3a.72 - gsmtp
+
+
+[21-Apr-2025 10:57:10 Asia/Manila] [[21-Apr-2025 10:57:10 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: DATA
+
+
+[21-Apr-2025 10:57:11 Asia/Manila] [[21-Apr-2025 10:57:11 Asia/Manila]] ERROR: PHPMailer Debug: SERVER -> CLIENT: 354 Go ahead d2e1a72fcca58-73dbf8e59f7sm5493344b3a.72 - gsmtp
+
+
+[21-Apr-2025 10:57:11 Asia/Manila] [[21-Apr-2025 10:57:11 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: Date: Mon, 21 Apr 2025 10:57:08 +0800
+
+
+[21-Apr-2025 10:57:11 Asia/Manila] [[21-Apr-2025 10:57:11 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: To: jeromesavc@gmail.com
+
+
+[21-Apr-2025 10:57:11 Asia/Manila] [[21-Apr-2025 10:57:11 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: From: "<no-reply>Jerome Avecilla - BSIT 2FG2" <jeromesavc@gmail.com>
+
+
+[21-Apr-2025 10:57:11 Asia/Manila] [[21-Apr-2025 10:57:11 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: Subject: OARSMC Avecilla - test
+
+
+[21-Apr-2025 10:57:11 Asia/Manila] [[21-Apr-2025 10:57:11 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: Message-ID: <5xGHfUvt4k52cMsSGbZ15ZKRmDa4sIQN8ojQxaU8o0o@jerome-avecilla-preview.infinityfreeapp.test>
+
+
+[21-Apr-2025 10:57:11 Asia/Manila] [[21-Apr-2025 10:57:11 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: X-Mailer: PHPMailer 6.9.3 (https://github.com/PHPMailer/PHPMailer)
+
+
+[21-Apr-2025 10:57:11 Asia/Manila] [[21-Apr-2025 10:57:11 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: MIME-Version: 1.0
+
+
+[21-Apr-2025 10:57:11 Asia/Manila] [[21-Apr-2025 10:57:11 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: Content-Type: text/html; charset=iso-8859-1
+
+
+[21-Apr-2025 10:57:11 Asia/Manila] [[21-Apr-2025 10:57:11 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: 
+
+
+[21-Apr-2025 10:57:11 Asia/Manila] [[21-Apr-2025 10:57:11 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: <!DOCTYPE html>
+
+
+[21-Apr-2025 10:57:11 Asia/Manila] [[21-Apr-2025 10:57:11 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: <html>
+
+
+[21-Apr-2025 10:57:11 Asia/Manila] [[21-Apr-2025 10:57:11 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: <head></head>
+
+
+[21-Apr-2025 10:57:11 Asia/Manila] [[21-Apr-2025 10:57:11 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:     <meta charset="UTF-8">
+
+
+[21-Apr-2025 10:57:11 Asia/Manila] [[21-Apr-2025 10:57:11 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: </head>
+
+
+[21-Apr-2025 10:57:11 Asia/Manila] [[21-Apr-2025 10:57:11 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: <body>
+
+
+[21-Apr-2025 10:57:11 Asia/Manila] [[21-Apr-2025 10:57:11 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:     <div style="font-family: Arial, sans-serif; background-color: #f8f8f8; padding: 0px; line-height: 1.2; color: #000;">
+
+
+[21-Apr-2025 10:57:11 Asia/Manila] [[21-Apr-2025 10:57:11 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:         <div style="width: 100%; margin: 0; background-color: #ffffff; overflow: hidden; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);">
+
+
+[21-Apr-2025 10:57:11 Asia/Manila] [[21-Apr-2025 10:57:11 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:             <!-- Header Section -->
+
+
+[21-Apr-2025 10:57:11 Asia/Manila] [[21-Apr-2025 10:57:11 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:             <div style="text-align: center; padding: 0;">
+
+
+[21-Apr-2025 10:57:11 Asia/Manila] [[21-Apr-2025 10:57:11 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:                 <img src="https://avecilla-project-multipurpose.infinityfreeapp.com/assets/images/email-banner.png" alt="Header Banner" style="width: 100%; height: auto;" />
+
+
+[21-Apr-2025 10:57:11 Asia/Manila] [[21-Apr-2025 10:57:11 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:             </div>
+
+
+[21-Apr-2025 10:57:11 Asia/Manila] [[21-Apr-2025 10:57:11 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:             <!-- Body Section -->
+
+
+[21-Apr-2025 10:57:11 Asia/Manila] [[21-Apr-2025 10:57:11 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:             <div style="padding: 15px; color: #000;"> 
+
+
+[21-Apr-2025 10:57:11 Asia/Manila] [[21-Apr-2025 10:57:11 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:                     <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
+
+
+[21-Apr-2025 10:57:11 Asia/Manila] [[21-Apr-2025 10:57:11 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:         <p>Dear Test O. Three,</p>
+
+
+[21-Apr-2025 10:57:11 Asia/Manila] [[21-Apr-2025 10:57:11 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:         <p>We regret to inform you that your loan (Amortization ID: 5, Type: Business Loan) has been marked as defaulted due to non-payment or other reasons as per our terms.</p>
+
+
+[21-Apr-2025 10:57:11 Asia/Manila] [[21-Apr-2025 10:57:11 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:         <p><strong>test</strong></p>
+
+
+[21-Apr-2025 10:57:11 Asia/Manila] [[21-Apr-2025 10:57:11 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:         <p>test</p>
+
+
+[21-Apr-2025 10:57:11 Asia/Manila] [[21-Apr-2025 10:57:11 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:         <p>If you believe you received this email in error, please disregard it or contact us immediately.</p>
+
+
+[21-Apr-2025 10:57:11 Asia/Manila] [[21-Apr-2025 10:57:11 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:     </div>
+
+
+[21-Apr-2025 10:57:11 Asia/Manila] [[21-Apr-2025 10:57:11 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:             </div>
+
+
+[21-Apr-2025 10:57:11 Asia/Manila] [[21-Apr-2025 10:57:11 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:             <!-- Footer Section -->
+
+
+[21-Apr-2025 10:57:11 Asia/Manila] [[21-Apr-2025 10:57:11 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:             <div style="text-align: center; background-color: #f3f3f3; padding: 20px 0 20px 0; font-size: 10px; color: #000;">
+
+
+[21-Apr-2025 10:57:11 Asia/Manila] [[21-Apr-2025 10:57:11 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:                 <p style="margin: 0; color: #000;">Created by: <a href="https://jerome-avecilla.vercel.app/" target="_blank">Jerome Avecilla</a></p>
+
+
+[21-Apr-2025 10:57:11 Asia/Manila] [[21-Apr-2025 10:57:11 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:                 <p style="margin: 0; color: #000;">Section: BSIT 2F-G2</p>
+
+
+[21-Apr-2025 10:57:11 Asia/Manila] [[21-Apr-2025 10:57:11 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:                 <p style="margin: 0; color: #000;">Subject: IT211 - Web System Technologies</p>
+
+
+[21-Apr-2025 10:57:11 Asia/Manila] [[21-Apr-2025 10:57:11 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:             </div>
+
+
+[21-Apr-2025 10:57:11 Asia/Manila] [[21-Apr-2025 10:57:11 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:         </div>
+
+
+[21-Apr-2025 10:57:11 Asia/Manila] [[21-Apr-2025 10:57:11 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:     </div>
+
+
+[21-Apr-2025 10:57:11 Asia/Manila] [[21-Apr-2025 10:57:11 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: </body>
+
+
+[21-Apr-2025 10:57:11 Asia/Manila] [[21-Apr-2025 10:57:11 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: </html>
+
+
+[21-Apr-2025 10:57:11 Asia/Manila] [[21-Apr-2025 10:57:11 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: 
+
+
+[21-Apr-2025 10:57:11 Asia/Manila] [[21-Apr-2025 10:57:11 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: .
+
+
+[21-Apr-2025 10:57:12 Asia/Manila] [[21-Apr-2025 10:57:12 Asia/Manila]] ERROR: PHPMailer Debug: SERVER -> CLIENT: 250 2.0.0 OK  1745204232 d2e1a72fcca58-73dbf8e59f7sm5493344b3a.72 - gsmtp
+
+
+[21-Apr-2025 10:57:12 Asia/Manila] [[21-Apr-2025 10:57:12 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: QUIT
+
+
+[21-Apr-2025 10:57:12 Asia/Manila] [[21-Apr-2025 10:57:12 Asia/Manila]] ERROR: PHPMailer Debug: SERVER -> CLIENT: 221 2.0.0 closing connection d2e1a72fcca58-73dbf8e59f7sm5493344b3a.72 - gsmtp
+
+
+[21-Apr-2025 04:57:24 Europe/Berlin] [[21-Apr-2025 04:57:24 Europe/Berlin]] Action: get_server_request_data(): , Data: {
+    "rawInput": "{\"action\":\"update_amortization_status\",\"data\":{\"amortization_id\":\"4\",\"status\":\"defaulted\",\"account_id\":\"1\",\"email\":\"member3@gmail.com\",\"member_id\":\"23\",\"member_name\":\"TestUpdated O. Two\",\"title\":\"test\",\"message\":\"test\"}}"
 }
 
-[17-Apr-2025 18:30:22 Europe/Berlin] [[17-Apr-2025 18:30:22 Europe/Berlin]] Action: request: , Data: {
-    "action": "update_amortization_approval",
+[21-Apr-2025 04:57:24 Europe/Berlin] [[21-Apr-2025 04:57:24 Europe/Berlin]] Action: request: , Data: {
+    "action": "update_amortization_status",
     "data": {
-        "amortization_id": 12,
-        "approval": "approved"
+        "amortization_id": "4",
+        "status": "defaulted",
+        "account_id": "1",
+        "email": "member3@gmail.com",
+        "member_id": "23",
+        "member_name": "TestUpdated O. Two",
+        "title": "test",
+        "message": "test"
     }
 }
 
-[17-Apr-2025 18:30:24 Europe/Berlin] [[17-Apr-2025 18:30:24 Europe/Berlin]] Action: get_server_request_data(): , Data: {
-    "rawInput": "{\"action\":\"update_amortization_approval\",\"data\":{\"amortization_id\":12,\"approval\":\"rejected\"}}"
+[21-Apr-2025 10:57:24 Asia/Manila] [[21-Apr-2025 10:57:24 Asia/Manila]] ERROR: PHPMailer Debug: SERVER -> CLIENT: 220 smtp.gmail.com ESMTP d9443c01a7336-22c50eceb37sm54508295ad.179 - gsmtp
+
+
+[21-Apr-2025 10:57:24 Asia/Manila] [[21-Apr-2025 10:57:24 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: EHLO jerome-avecilla-preview.infinityfreeapp.test
+
+
+[21-Apr-2025 10:57:25 Asia/Manila] [[21-Apr-2025 10:57:25 Asia/Manila]] ERROR: PHPMailer Debug: SERVER -> CLIENT: 250-smtp.gmail.com at your service, [119.94.142.2]
+250-SIZE 35882577
+250-8BITMIME
+250-STARTTLS
+250-ENHANCEDSTATUSCODES
+250-PIPELINING
+250-CHUNKING
+250 SMTPUTF8
+
+
+[21-Apr-2025 10:57:25 Asia/Manila] [[21-Apr-2025 10:57:25 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: STARTTLS
+
+
+[21-Apr-2025 10:57:25 Asia/Manila] [[21-Apr-2025 10:57:25 Asia/Manila]] ERROR: PHPMailer Debug: SERVER -> CLIENT: 220 2.0.0 Ready to start TLS
+
+
+[21-Apr-2025 10:57:25 Asia/Manila] [[21-Apr-2025 10:57:25 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: EHLO jerome-avecilla-preview.infinityfreeapp.test
+
+
+[21-Apr-2025 10:57:25 Asia/Manila] [[21-Apr-2025 10:57:25 Asia/Manila]] ERROR: PHPMailer Debug: SERVER -> CLIENT: 250-smtp.gmail.com at your service, [119.94.142.2]
+250-SIZE 35882577
+250-8BITMIME
+250-AUTH LOGIN PLAIN XOAUTH2 PLAIN-CLIENTTOKEN OAUTHBEARER XOAUTH
+250-ENHANCEDSTATUSCODES
+250-PIPELINING
+250-CHUNKING
+250 SMTPUTF8
+
+
+[21-Apr-2025 10:57:25 Asia/Manila] [[21-Apr-2025 10:57:25 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: AUTH LOGIN
+
+
+[21-Apr-2025 10:57:26 Asia/Manila] [[21-Apr-2025 10:57:26 Asia/Manila]] ERROR: PHPMailer Debug: SERVER -> CLIENT: 334 VXNlcm5hbWU6
+
+
+[21-Apr-2025 10:57:26 Asia/Manila] [[21-Apr-2025 10:57:26 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: [credentials hidden]
+
+[21-Apr-2025 10:57:26 Asia/Manila] [[21-Apr-2025 10:57:26 Asia/Manila]] ERROR: PHPMailer Debug: SERVER -> CLIENT: 334 UGFzc3dvcmQ6
+
+
+[21-Apr-2025 10:57:26 Asia/Manila] [[21-Apr-2025 10:57:26 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: [credentials hidden]
+
+[21-Apr-2025 10:57:26 Asia/Manila] [[21-Apr-2025 10:57:26 Asia/Manila]] ERROR: PHPMailer Debug: SERVER -> CLIENT: 235 2.7.0 Accepted
+
+
+[21-Apr-2025 10:57:26 Asia/Manila] [[21-Apr-2025 10:57:26 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: MAIL FROM:<jeromesavc@gmail.com>
+
+
+[21-Apr-2025 10:57:26 Asia/Manila] [[21-Apr-2025 10:57:26 Asia/Manila]] ERROR: PHPMailer Debug: SERVER -> CLIENT: 250 2.1.0 OK d9443c01a7336-22c50eceb37sm54508295ad.179 - gsmtp
+
+
+[21-Apr-2025 10:57:26 Asia/Manila] [[21-Apr-2025 10:57:26 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: RCPT TO:<jeromesavc@gmail.com>
+
+
+[21-Apr-2025 10:57:27 Asia/Manila] [[21-Apr-2025 10:57:27 Asia/Manila]] ERROR: PHPMailer Debug: SERVER -> CLIENT: 250 2.1.5 OK d9443c01a7336-22c50eceb37sm54508295ad.179 - gsmtp
+
+
+[21-Apr-2025 10:57:27 Asia/Manila] [[21-Apr-2025 10:57:27 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: DATA
+
+
+[21-Apr-2025 10:57:27 Asia/Manila] [[21-Apr-2025 10:57:27 Asia/Manila]] ERROR: PHPMailer Debug: SERVER -> CLIENT: 354 Go ahead d9443c01a7336-22c50eceb37sm54508295ad.179 - gsmtp
+
+
+[21-Apr-2025 10:57:27 Asia/Manila] [[21-Apr-2025 10:57:27 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: Date: Mon, 21 Apr 2025 10:57:24 +0800
+
+
+[21-Apr-2025 10:57:27 Asia/Manila] [[21-Apr-2025 10:57:27 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: To: jeromesavc@gmail.com
+
+
+[21-Apr-2025 10:57:27 Asia/Manila] [[21-Apr-2025 10:57:27 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: From: "<no-reply>Jerome Avecilla - BSIT 2FG2" <jeromesavc@gmail.com>
+
+
+[21-Apr-2025 10:57:27 Asia/Manila] [[21-Apr-2025 10:57:27 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: Subject: OARSMC Avecilla - test
+
+
+[21-Apr-2025 10:57:27 Asia/Manila] [[21-Apr-2025 10:57:27 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: Message-ID: <vZ7ckGCqI6zVyybwbiE9BhKnuqZPRJPYeJz0rcB7Ds@jerome-avecilla-preview.infinityfreeapp.test>
+
+
+[21-Apr-2025 10:57:27 Asia/Manila] [[21-Apr-2025 10:57:27 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: X-Mailer: PHPMailer 6.9.3 (https://github.com/PHPMailer/PHPMailer)
+
+
+[21-Apr-2025 10:57:27 Asia/Manila] [[21-Apr-2025 10:57:27 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: MIME-Version: 1.0
+
+
+[21-Apr-2025 10:57:27 Asia/Manila] [[21-Apr-2025 10:57:27 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: Content-Type: text/html; charset=iso-8859-1
+
+
+[21-Apr-2025 10:57:27 Asia/Manila] [[21-Apr-2025 10:57:27 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: 
+
+
+[21-Apr-2025 10:57:27 Asia/Manila] [[21-Apr-2025 10:57:27 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: <!DOCTYPE html>
+
+
+[21-Apr-2025 10:57:27 Asia/Manila] [[21-Apr-2025 10:57:27 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: <html>
+
+
+[21-Apr-2025 10:57:27 Asia/Manila] [[21-Apr-2025 10:57:27 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: <head></head>
+
+
+[21-Apr-2025 10:57:27 Asia/Manila] [[21-Apr-2025 10:57:27 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:     <meta charset="UTF-8">
+
+
+[21-Apr-2025 10:57:27 Asia/Manila] [[21-Apr-2025 10:57:27 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: </head>
+
+
+[21-Apr-2025 10:57:27 Asia/Manila] [[21-Apr-2025 10:57:27 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: <body>
+
+
+[21-Apr-2025 10:57:27 Asia/Manila] [[21-Apr-2025 10:57:27 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:     <div style="font-family: Arial, sans-serif; background-color: #f8f8f8; padding: 0px; line-height: 1.2; color: #000;">
+
+
+[21-Apr-2025 10:57:27 Asia/Manila] [[21-Apr-2025 10:57:27 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:         <div style="width: 100%; margin: 0; background-color: #ffffff; overflow: hidden; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);">
+
+
+[21-Apr-2025 10:57:27 Asia/Manila] [[21-Apr-2025 10:57:27 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:             <!-- Header Section -->
+
+
+[21-Apr-2025 10:57:27 Asia/Manila] [[21-Apr-2025 10:57:27 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:             <div style="text-align: center; padding: 0;">
+
+
+[21-Apr-2025 10:57:27 Asia/Manila] [[21-Apr-2025 10:57:27 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:                 <img src="https://avecilla-project-multipurpose.infinityfreeapp.com/assets/images/email-banner.png" alt="Header Banner" style="width: 100%; height: auto;" />
+
+
+[21-Apr-2025 10:57:27 Asia/Manila] [[21-Apr-2025 10:57:27 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:             </div>
+
+
+[21-Apr-2025 10:57:27 Asia/Manila] [[21-Apr-2025 10:57:27 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:             <!-- Body Section -->
+
+
+[21-Apr-2025 10:57:27 Asia/Manila] [[21-Apr-2025 10:57:27 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:             <div style="padding: 15px; color: #000;"> 
+
+
+[21-Apr-2025 10:57:27 Asia/Manila] [[21-Apr-2025 10:57:27 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:                     <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
+
+
+[21-Apr-2025 10:57:27 Asia/Manila] [[21-Apr-2025 10:57:27 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:         <p>Dear TestUpdated O. Two,</p>
+
+
+[21-Apr-2025 10:57:27 Asia/Manila] [[21-Apr-2025 10:57:27 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:         <p>We regret to inform you that your loan (Amortization ID: 4, Type: Personal Loan) has been marked as defaulted due to non-payment or other reasons as per our terms.</p>
+
+
+[21-Apr-2025 10:57:27 Asia/Manila] [[21-Apr-2025 10:57:27 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:         <p><strong>test</strong></p>
+
+
+[21-Apr-2025 10:57:27 Asia/Manila] [[21-Apr-2025 10:57:27 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:         <p>test</p>
+
+
+[21-Apr-2025 10:57:27 Asia/Manila] [[21-Apr-2025 10:57:27 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:         <p>If you believe you received this email in error, please disregard it or contact us immediately.</p>
+
+
+[21-Apr-2025 10:57:27 Asia/Manila] [[21-Apr-2025 10:57:27 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:     </div>
+
+
+[21-Apr-2025 10:57:27 Asia/Manila] [[21-Apr-2025 10:57:27 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:             </div>
+
+
+[21-Apr-2025 10:57:27 Asia/Manila] [[21-Apr-2025 10:57:27 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:             <!-- Footer Section -->
+
+
+[21-Apr-2025 10:57:27 Asia/Manila] [[21-Apr-2025 10:57:27 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:             <div style="text-align: center; background-color: #f3f3f3; padding: 20px 0 20px 0; font-size: 10px; color: #000;">
+
+
+[21-Apr-2025 10:57:27 Asia/Manila] [[21-Apr-2025 10:57:27 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:                 <p style="margin: 0; color: #000;">Created by: <a href="https://jerome-avecilla.vercel.app/" target="_blank">Jerome Avecilla</a></p>
+
+
+[21-Apr-2025 10:57:27 Asia/Manila] [[21-Apr-2025 10:57:27 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:                 <p style="margin: 0; color: #000;">Section: BSIT 2F-G2</p>
+
+
+[21-Apr-2025 10:57:27 Asia/Manila] [[21-Apr-2025 10:57:27 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:                 <p style="margin: 0; color: #000;">Subject: IT211 - Web System Technologies</p>
+
+
+[21-Apr-2025 10:57:27 Asia/Manila] [[21-Apr-2025 10:57:27 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:             </div>
+
+
+[21-Apr-2025 10:57:27 Asia/Manila] [[21-Apr-2025 10:57:27 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:         </div>
+
+
+[21-Apr-2025 10:57:27 Asia/Manila] [[21-Apr-2025 10:57:27 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER:     </div>
+
+
+[21-Apr-2025 10:57:27 Asia/Manila] [[21-Apr-2025 10:57:27 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: </body>
+
+
+[21-Apr-2025 10:57:27 Asia/Manila] [[21-Apr-2025 10:57:27 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: </html>
+
+
+[21-Apr-2025 10:57:27 Asia/Manila] [[21-Apr-2025 10:57:27 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: 
+
+
+[21-Apr-2025 10:57:27 Asia/Manila] [[21-Apr-2025 10:57:27 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: .
+
+
+[21-Apr-2025 10:57:28 Asia/Manila] [[21-Apr-2025 10:57:28 Asia/Manila]] ERROR: PHPMailer Debug: SERVER -> CLIENT: 250 2.0.0 OK  1745204249 d9443c01a7336-22c50eceb37sm54508295ad.179 - gsmtp
+
+
+[21-Apr-2025 10:57:28 Asia/Manila] [[21-Apr-2025 10:57:28 Asia/Manila]] ERROR: PHPMailer Debug: CLIENT -> SERVER: QUIT
+
+
+[21-Apr-2025 10:57:28 Asia/Manila] [[21-Apr-2025 10:57:28 Asia/Manila]] ERROR: PHPMailer Debug: SERVER -> CLIENT: 221 2.0.0 closing connection d9443c01a7336-22c50eceb37sm54508295ad.179 - gsmtp
+
+
+[21-Apr-2025 04:57:58 Europe/Berlin] [[21-Apr-2025 04:57:58 Europe/Berlin]] Action: get_server_request_data(): , Data: {
+    "rawInput": "{\"action\":\"logout_account\",\"data\":{\"uid\":\"A581822\",\"session_id\":\"ar00o5ajutbu46u6ojd1f4tej1\"}}"
 }
 
-[17-Apr-2025 18:30:24 Europe/Berlin] [[17-Apr-2025 18:30:24 Europe/Berlin]] Action: request: , Data: {
-    "action": "update_amortization_approval",
-    "data": {
-        "amortization_id": 12,
-        "approval": "rejected"
-    }
-}
-
-[17-Apr-2025 18:30:35 Europe/Berlin] [[17-Apr-2025 18:30:35 Europe/Berlin]] Action: get_server_request_data(): , Data: {
-    "rawInput": "{\"action\":\"update_amortization_approval\",\"data\":{\"amortization_id\":12,\"approval\":\"pending\"}}"
-}
-
-[17-Apr-2025 18:30:35 Europe/Berlin] [[17-Apr-2025 18:30:35 Europe/Berlin]] Action: request: , Data: {
-    "action": "update_amortization_approval",
-    "data": {
-        "amortization_id": 12,
-        "approval": "pending"
-    }
-}
-
-[17-Apr-2025 18:30:37 Europe/Berlin] [[17-Apr-2025 18:30:37 Europe/Berlin]] Action: get_server_request_data(): , Data: {
-    "rawInput": "{\"action\":\"update_amortization_approval\",\"data\":{\"amortization_id\":12,\"approval\":\"approved\"}}"
-}
-
-[17-Apr-2025 18:30:37 Europe/Berlin] [[17-Apr-2025 18:30:37 Europe/Berlin]] Action: request: , Data: {
-    "action": "update_amortization_approval",
-    "data": {
-        "amortization_id": 12,
-        "approval": "approved"
-    }
-}
-
-[17-Apr-2025 18:30:39 Europe/Berlin] [[17-Apr-2025 18:30:39 Europe/Berlin]] Action: get_server_request_data(): , Data: {
-    "rawInput": "{\"action\":\"update_amortization_approval\",\"data\":{\"amortization_id\":12,\"approval\":\"rejected\"}}"
-}
-
-[17-Apr-2025 18:30:39 Europe/Berlin] [[17-Apr-2025 18:30:39 Europe/Berlin]] Action: request: , Data: {
-    "action": "update_amortization_approval",
-    "data": {
-        "amortization_id": 12,
-        "approval": "rejected"
-    }
-}
-
-[17-Apr-2025 18:30:56 Europe/Berlin] [[17-Apr-2025 18:30:56 Europe/Berlin]] Action: data:, Data: {
-    "status": "paid,pending,overdue",
-    "member_id": "16"
-}
-
-[17-Apr-2025 19:07:56 Europe/Berlin] [[17-Apr-2025 19:07:56 Europe/Berlin]] Action: get_server_request_data(): , Data: {
-    "rawInput": "{\"action\":\"logout_account\",\"data\":{\"uid\":\"A581822\",\"session_id\":\"oj9allec81qj31o4b5k6de7cuo\"}}"
-}
-
-[17-Apr-2025 19:07:56 Europe/Berlin] [[17-Apr-2025 19:07:56 Europe/Berlin]] Action: request: , Data: {
+[21-Apr-2025 04:57:58 Europe/Berlin] [[21-Apr-2025 04:57:58 Europe/Berlin]] Action: request: , Data: {
     "action": "logout_account",
     "data": {
         "uid": "A581822",
-        "session_id": "oj9allec81qj31o4b5k6de7cuo"
+        "session_id": "ar00o5ajutbu46u6ojd1f4tej1"
     }
 }
 
-[17-Apr-2025 19:08:08 Europe/Berlin] [[17-Apr-2025 19:08:08 Europe/Berlin]] Action: get_server_request_data(): , Data: {
-    "rawInput": "{\"action\":\"login_account\",\"data\":{\"uid\":\"member\",\"password\":\"member\",\"recaptcha_response\":\"03AFcWeA7UfpCL7pIn9JVBDA3QTiWZPocnhEw73w5kA70aSuzlUzIvnd_DGUiZRoY6hnJC_gMmao28oCW8QS8fkdehnfG-V0EeENLZ0G0uRkxCRzA5NIDe5CGrQNqozc4zoBs9wiFKG34hy33m5pXtaUbY_67ihI4grS2FyJBG1Cb-GgB_uazLyQtVmHR9NxnxaAuE0hqYXT4smi1QCwGIJ5H5vvVU2TQf3hluPOmXldMQ_tITPyQIVbicWGSaYj_lE_Bcaf_0iORkUHMCJd8OzzDJdV2f8-fl95BuNbkNqtwm2w3K-4WxH0-fPEL98-TLT_gQNRx5fndNKXSZthVtQkz58f5cl959_XE5EP_n7W0mIC-r6Qr8jNazjJM4NZZAfARJxEyuBQmRA2md6ruGHte9gWDqdFopjs7f-oCuPCOY_AoiP1bvsq2ACEyRT4nHAVUY99Q1CtiDmhzs0Sq5IZxBDKP4K6hDiTj3w16Yqudujl4ZquKKRTlJ0RBaFxpKW6N3I6vGWWsVBp1wPdSD863BAcsddu1FURaFvZrPV3bEYsHebx0pIHhrqB73DsEoO4pZIbW1g4ebFQR9eS3Yvfe98L5DzHAIazASC7gZuaw_oPZu4qpHyapND9umDIgq0PNx52Q6SWqPan9RmNEQTOhSPSRvJ6snVuST5femZpGQ434Cs2MVBae64MPMT3DwmczIhB7Fl3sLRuzzRWfWI9pWQH8WTDYPhagoQw0bDYichm2yxRPBvwbCR9GyQG37PoNpijU6MN5mdDhFYuVRp0y5SCZc-oI8ECGgC1v8MZwnoDc78eX_CIz8GV0nqELRXKgKuXRg3I3a2KsD4ifVROoir-rZUzRNiC9y-oqjVPoip2yfmVry-gue0Ok4jvZ0gLq-3HVufRlA8EAKi39RG1F0PbBy9BqAgjIG_uSdSkn87ZpxvNVNvB1bmzJ8BrXTK807ZNTqYoHoIq5yuQ1NFYYeHmPSVMxkXQ\"}}"
+[21-Apr-2025 04:58:08 Europe/Berlin] [[21-Apr-2025 04:58:08 Europe/Berlin]] Action: get_server_request_data(): , Data: {
+    "rawInput": "{\"action\":\"login_account\",\"data\":{\"uid\":\"member4\",\"password\":\"member\",\"recaptcha_response\":\"03AFcWeA6-JIq3PAJsZL9GwV7bWO1ionuzW6JMETBJRrWJj9eNu5AKXmk1stQo5i2nohIvT4XgHgnklezmo509A-xB59oSDWqv5uRCLzQo4QqewxV8AY6Oi4gLQG70xoOxpPx1AuzZgpGKR7c_neO85h_nZWYL8JwRzcMCJOxEyPC8vjk-G4egvnFLQbfDVa8QUsQpMGLcpzDaiEXjuAsiKL1J2BHWl6VN7Dpr0opkSf50j67TcnLGGSCzkCjVeVYEl_hcf62SHIFQCdRlRwAoZr_JKkNU1WhJF5CjSp-QJyFc735j5vNwJC0nzap8l9PaSjhyoz4sT1C1b7r6ipOzbNTCwqH-bhdIJKhNzYcU-Fq13gTrW0I-p37U6tOjisQ1YaPO2_Aon4ozRNWXiKJ1V_wZOgLNoqMBsZqkqERhGAuZpkYIP6uQrSr5jDwUEjdl1l_NYKu_dnNKIPK0KNJvOimcrbrY-7C2ytWIT3ZddjUK_RHwFJra0DxMWyrHNl0ncUZKFRqTC2SLfxzloyzf8KuRWipAmFUdvymQzLJNnTUolpBtwUsem9mwBPaElHue8WIHjBJqz7JXEbZCIWoWndQMrHrgXSOmNeTNeSWbvYxIsnmDdiaLeYsv8OzRI7s8JnF2xugjHbDGbrFDUFkmrAJ4MWSLkV4J8oYlC8gjbQV3JHpDYa1V1r_RglrKM7kNgGNcHv9cIeAtzxWjRvc-VfzSJ1_QNQYCQvy56A3AQMnqurIPPfWSwitJCBZeRnP0wrg7b40ioVVmNP8II1j3Wyzq6UUPIqydf6y6fzUF6MvPEYfspSMJPIJjz8sUGRDfFgLzRTYgiJmI7oUdsiU49P0l1HYBfjxaX-eZvn4PI_TFC-HUOQ6QsVJnkUHjMfmv13mXRWP1nizUFqi0nPGkS_DFLhsaMih6E5gK-khZQypDAijrBsm35AZ8DZOCm5l2oRtm-CMT_oTcST-_RqVqXe-KlCVLAxYlXg\"}}"
 }
 
-[17-Apr-2025 19:08:08 Europe/Berlin] [[17-Apr-2025 19:08:08 Europe/Berlin]] Action: request: , Data: {
+[21-Apr-2025 04:58:08 Europe/Berlin] [[21-Apr-2025 04:58:08 Europe/Berlin]] Action: request: , Data: {
+    "action": "login_account",
+    "data": {
+        "uid": "member4",
+        "password": "member",
+        "recaptcha_response": "03AFcWeA6-JIq3PAJsZL9GwV7bWO1ionuzW6JMETBJRrWJj9eNu5AKXmk1stQo5i2nohIvT4XgHgnklezmo509A-xB59oSDWqv5uRCLzQo4QqewxV8AY6Oi4gLQG70xoOxpPx1AuzZgpGKR7c_neO85h_nZWYL8JwRzcMCJOxEyPC8vjk-G4egvnFLQbfDVa8QUsQpMGLcpzDaiEXjuAsiKL1J2BHWl6VN7Dpr0opkSf50j67TcnLGGSCzkCjVeVYEl_hcf62SHIFQCdRlRwAoZr_JKkNU1WhJF5CjSp-QJyFc735j5vNwJC0nzap8l9PaSjhyoz4sT1C1b7r6ipOzbNTCwqH-bhdIJKhNzYcU-Fq13gTrW0I-p37U6tOjisQ1YaPO2_Aon4ozRNWXiKJ1V_wZOgLNoqMBsZqkqERhGAuZpkYIP6uQrSr5jDwUEjdl1l_NYKu_dnNKIPK0KNJvOimcrbrY-7C2ytWIT3ZddjUK_RHwFJra0DxMWyrHNl0ncUZKFRqTC2SLfxzloyzf8KuRWipAmFUdvymQzLJNnTUolpBtwUsem9mwBPaElHue8WIHjBJqz7JXEbZCIWoWndQMrHrgXSOmNeTNeSWbvYxIsnmDdiaLeYsv8OzRI7s8JnF2xugjHbDGbrFDUFkmrAJ4MWSLkV4J8oYlC8gjbQV3JHpDYa1V1r_RglrKM7kNgGNcHv9cIeAtzxWjRvc-VfzSJ1_QNQYCQvy56A3AQMnqurIPPfWSwitJCBZeRnP0wrg7b40ioVVmNP8II1j3Wyzq6UUPIqydf6y6fzUF6MvPEYfspSMJPIJjz8sUGRDfFgLzRTYgiJmI7oUdsiU49P0l1HYBfjxaX-eZvn4PI_TFC-HUOQ6QsVJnkUHjMfmv13mXRWP1nizUFqi0nPGkS_DFLhsaMih6E5gK-khZQypDAijrBsm35AZ8DZOCm5l2oRtm-CMT_oTcST-_RqVqXe-KlCVLAxYlXg"
+    }
+}
+
+[21-Apr-2025 10:58:09 Asia/Manila] [[21-Apr-2025 10:58:09 Asia/Manila]] Action: Session Data: , Data: {
+    "ip_address": "127.0.0.1",
+    "user_agent": "Mozilla\/5.0 (Windows NT 10.0; Win64; x64; rv:137.0) Gecko\/20100101 Firefox\/137.0",
+    "session_hash": "50d9bab7cad51a137f0d8be7a3ef1d7bed322807b72703dd146299cc38cbe5a3",
+    "session_id": "vn0pi2cf30pghnjlb8i42tgq45",
+    "account_id": 21,
+    "account_uid": "A581839",
+    "email": "member4@gmail.com",
+    "username": "member4",
+    "account_status": "active",
+    "role_name": "Member",
+    "member_id": 24,
+    "first_name": "Test",
+    "last_name": "Three",
+    "middle_name": "Overdue",
+    "full_name": "Test O. Three",
+    "contact_number": "+639341234567",
+    "full_address": "Block 13 Lot 42, Santa Maria, Pandi, Bulacan, Region 3"
+}
+
+[21-Apr-2025 04:58:09 Europe/Berlin] PHP Warning:  Undefined variable $base_url in C:\xampp\htdocs\bulsu-school\account-receivable-system-project\index.php on line 12
+[21-Apr-2025 04:58:10 Europe/Berlin] [[21-Apr-2025 04:58:10 Europe/Berlin]] Action: data:, Data: {
+    "status": "paid,pending,overdue",
+    "member_id": "24"
+}
+
+[21-Apr-2025 04:59:36 Europe/Berlin] [[21-Apr-2025 04:59:36 Europe/Berlin]] Action: get_server_request_data(): , Data: {
+    "rawInput": "{\"action\":\"process_amortization_payment\",\"data\":{\"member_id\":\"24\",\"amortization_id\":19,\"used_credit_balance\":0,\"original_amount_payment\":2417,\"final_amount_payment\":2417,\"payment_method\":\"online_payment\",\"payment_date\":\"2025-04-21\",\"notes\":\"test\",\"is_use_credit\":false,\"is_create_credit\":false}}"
+}
+
+[21-Apr-2025 04:59:36 Europe/Berlin] [[21-Apr-2025 04:59:36 Europe/Berlin]] Action: request: , Data: {
+    "action": "process_amortization_payment",
+    "data": {
+        "member_id": "24",
+        "amortization_id": 19,
+        "used_credit_balance": 0,
+        "original_amount_payment": 2417,
+        "final_amount_payment": 2417,
+        "payment_method": "online_payment",
+        "payment_date": "2025-04-21",
+        "notes": "test",
+        "is_use_credit": false,
+        "is_create_credit": false
+    }
+}
+
+[21-Apr-2025 04:59:36 Europe/Berlin] [[21-Apr-2025 04:59:36 Europe/Berlin]] Action: data:, Data: {
+    "status": "paid,pending,overdue",
+    "member_id": "24"
+}
+
+[21-Apr-2025 04:59:41 Europe/Berlin] [[21-Apr-2025 04:59:41 Europe/Berlin]] Action: get_server_request_data(): , Data: {
+    "rawInput": "{\"action\":\"logout_account\",\"data\":{\"uid\":\"A581839\",\"session_id\":\"vn0pi2cf30pghnjlb8i42tgq45\"}}"
+}
+
+[21-Apr-2025 04:59:41 Europe/Berlin] [[21-Apr-2025 04:59:41 Europe/Berlin]] Action: request: , Data: {
+    "action": "logout_account",
+    "data": {
+        "uid": "A581839",
+        "session_id": "vn0pi2cf30pghnjlb8i42tgq45"
+    }
+}
+
+[21-Apr-2025 04:59:54 Europe/Berlin] [[21-Apr-2025 04:59:54 Europe/Berlin]] Action: get_server_request_data(): , Data: {
+    "rawInput": "{\"action\":\"login_account\",\"data\":{\"uid\":\"member5\",\"password\":\"member\",\"recaptcha_response\":\"03AFcWeA51JOXGr3yrEuBoA1Y_xPOD0zBm7CMwEzqRdoCkJ1Cy6DSQDijcUdpIu6NlXy2uAJ1fKw33ZdDkahAqn8dKtwADuAYkDeKO3BY4PcxwLjdrOppsTXj5y3-oSjU1X9bsRxijafKMbcGOuGRNFegoVPKhqFQlWmSe0HBVyUxy9iT6zyIBsSJQrHUpbc0lIkwgEdCcan4U9aoRijD9ix7c8joQT6gt6lcuYowytMXVpGHwIqvCsuhHBU8vRKxba5zRbC_X3EfqrGChKLs9JWXikkdBBeuk87nzJP7Sfa0XB7LAuWRcKGJyLRj1b3MMZjtMS6mQBfFCbJknuTOE6LVEU0s0NFctXn3HEL2w7JfEonbWnj0nZ3E36uVTe-AeE61Vs6fcQS2HFr3vFO6KjbrP6fyrNiJbmIfJB8wy2pm1RCHqeUWWn2ygfSQ8wOoO2LnUMDd3i7XBjieCcEre7Fb8rSb7fRrx7G_3vVjXHMBmhsMPhmdQGwcSGhMRme2lCm1fxZFb0OJmnk9bu5Gz3L6KD1j424ENOu5UMZyanARW29HYYB4W9NIl3vtgcwPl57QAnvRFKYhPyRq5WsHtIsbkq9APsrdgK2ni1fXunXUM2xpgjmiQOtB3pWt-8SqC142MSMvLy8ztm3EXjpg_P-7gSVZYdfLOqiNAjRFzcnVNZAm6cGrTXoLOJdxr68o1UdbbJLFK9dQ6CITtrsS7476Iy9cLmY-MaNJKHGyOOm4hg4eB2yAZRYX26qvRAepv1yv1b7sHZHF_TJ4Ebu5rVyULID63R6pFfgb3vZXL19NOfuE7wy4CT72FNDLjJOk1G5xtTVdOuicQoLnIf6v6VBMe3i5ol0LowJ2kp7c8aLXL2s6vAh_VGEO4qr8JdLVukuLB5b9fLJ_rVcGqno-uwr0Bmrq0peFBnukL4UzUG228FK0H8QFi4y0dsoluABItSFRaLEFdof51WCmpY2DMAbMZoEDe6D2ONg\"}}"
+}
+
+[21-Apr-2025 04:59:54 Europe/Berlin] [[21-Apr-2025 04:59:54 Europe/Berlin]] Action: request: , Data: {
+    "action": "login_account",
+    "data": {
+        "uid": "member5",
+        "password": "member",
+        "recaptcha_response": "03AFcWeA51JOXGr3yrEuBoA1Y_xPOD0zBm7CMwEzqRdoCkJ1Cy6DSQDijcUdpIu6NlXy2uAJ1fKw33ZdDkahAqn8dKtwADuAYkDeKO3BY4PcxwLjdrOppsTXj5y3-oSjU1X9bsRxijafKMbcGOuGRNFegoVPKhqFQlWmSe0HBVyUxy9iT6zyIBsSJQrHUpbc0lIkwgEdCcan4U9aoRijD9ix7c8joQT6gt6lcuYowytMXVpGHwIqvCsuhHBU8vRKxba5zRbC_X3EfqrGChKLs9JWXikkdBBeuk87nzJP7Sfa0XB7LAuWRcKGJyLRj1b3MMZjtMS6mQBfFCbJknuTOE6LVEU0s0NFctXn3HEL2w7JfEonbWnj0nZ3E36uVTe-AeE61Vs6fcQS2HFr3vFO6KjbrP6fyrNiJbmIfJB8wy2pm1RCHqeUWWn2ygfSQ8wOoO2LnUMDd3i7XBjieCcEre7Fb8rSb7fRrx7G_3vVjXHMBmhsMPhmdQGwcSGhMRme2lCm1fxZFb0OJmnk9bu5Gz3L6KD1j424ENOu5UMZyanARW29HYYB4W9NIl3vtgcwPl57QAnvRFKYhPyRq5WsHtIsbkq9APsrdgK2ni1fXunXUM2xpgjmiQOtB3pWt-8SqC142MSMvLy8ztm3EXjpg_P-7gSVZYdfLOqiNAjRFzcnVNZAm6cGrTXoLOJdxr68o1UdbbJLFK9dQ6CITtrsS7476Iy9cLmY-MaNJKHGyOOm4hg4eB2yAZRYX26qvRAepv1yv1b7sHZHF_TJ4Ebu5rVyULID63R6pFfgb3vZXL19NOfuE7wy4CT72FNDLjJOk1G5xtTVdOuicQoLnIf6v6VBMe3i5ol0LowJ2kp7c8aLXL2s6vAh_VGEO4qr8JdLVukuLB5b9fLJ_rVcGqno-uwr0Bmrq0peFBnukL4UzUG228FK0H8QFi4y0dsoluABItSFRaLEFdof51WCmpY2DMAbMZoEDe6D2ONg"
+    }
+}
+
+[21-Apr-2025 10:59:55 Asia/Manila] [[21-Apr-2025 10:59:55 Asia/Manila]] Action: Session Data: , Data: {
+    "ip_address": "127.0.0.1",
+    "user_agent": "Mozilla\/5.0 (Windows NT 10.0; Win64; x64; rv:137.0) Gecko\/20100101 Firefox\/137.0",
+    "session_hash": "ed62c4a7f025caf56ff21adf45dece038020441bf5e639a946b777db57f675a7",
+    "session_id": "askf9skv3os8j4shtoejtmbhmj",
+    "account_id": 22,
+    "account_uid": "A581840",
+    "email": "member5@gmail.com",
+    "username": "member5",
+    "account_status": "active",
+    "role_name": "Member",
+    "member_id": 25,
+    "first_name": "Test",
+    "last_name": "Four",
+    "middle_name": "Overdue",
+    "full_name": "Test O. Four",
+    "contact_number": "+639351234567",
+    "full_address": "Block 14 Lot 45, Santa Maria, Pandi, Bulacan, Region 3"
+}
+
+[21-Apr-2025 04:59:55 Europe/Berlin] PHP Warning:  Undefined variable $base_url in C:\xampp\htdocs\bulsu-school\account-receivable-system-project\index.php on line 12
+[21-Apr-2025 04:59:58 Europe/Berlin] [[21-Apr-2025 04:59:58 Europe/Berlin]] Action: data:, Data: {
+    "status": "paid,pending,overdue",
+    "member_id": "25"
+}
+
+[21-Apr-2025 05:00:29 Europe/Berlin] [[21-Apr-2025 05:00:29 Europe/Berlin]] Action: get_server_request_data(): , Data: {
+    "rawInput": "{\"action\":\"process_amortization_payment\",\"data\":{\"member_id\":\"25\",\"amortization_id\":20,\"used_credit_balance\":0,\"original_amount_payment\":2688,\"final_amount_payment\":2688,\"payment_method\":\"online_payment\",\"payment_date\":\"2025-04-21\",\"notes\":\"testt\",\"is_use_credit\":false,\"is_create_credit\":false}}"
+}
+
+[21-Apr-2025 05:00:29 Europe/Berlin] [[21-Apr-2025 05:00:29 Europe/Berlin]] Action: request: , Data: {
+    "action": "process_amortization_payment",
+    "data": {
+        "member_id": "25",
+        "amortization_id": 20,
+        "used_credit_balance": 0,
+        "original_amount_payment": 2688,
+        "final_amount_payment": 2688,
+        "payment_method": "online_payment",
+        "payment_date": "2025-04-21",
+        "notes": "testt",
+        "is_use_credit": false,
+        "is_create_credit": false
+    }
+}
+
+[21-Apr-2025 05:00:30 Europe/Berlin] [[21-Apr-2025 05:00:30 Europe/Berlin]] Action: data:, Data: {
+    "status": "paid,pending,overdue",
+    "member_id": "25"
+}
+
+[21-Apr-2025 05:00:32 Europe/Berlin] [[21-Apr-2025 05:00:32 Europe/Berlin]] Action: get_server_request_data(): , Data: {
+    "rawInput": "{\"action\":\"logout_account\",\"data\":{\"uid\":\"A581840\",\"session_id\":\"askf9skv3os8j4shtoejtmbhmj\"}}"
+}
+
+[21-Apr-2025 05:00:32 Europe/Berlin] [[21-Apr-2025 05:00:32 Europe/Berlin]] Action: request: , Data: {
+    "action": "logout_account",
+    "data": {
+        "uid": "A581840",
+        "session_id": "askf9skv3os8j4shtoejtmbhmj"
+    }
+}
+
+[21-Apr-2025 05:00:44 Europe/Berlin] [[21-Apr-2025 05:00:44 Europe/Berlin]] Action: get_server_request_data(): , Data: {
+    "rawInput": "{\"action\":\"login_account\",\"data\":{\"uid\":\"admin\",\"password\":\"admin\",\"recaptcha_response\":\"03AFcWeA49nyb8EDoi3hpZ5AXfC9T5Nw3SvIR5jtxdObrFA5iIBK5QRQ1ZsL9GVbCyl10s0dv7PNJ5bwaMnfW0bIuYCiwee35aTIuTiRgmy3K0vWAmzpCH4BiQjJgXdQCF1VkHVl_uYqs0eLnrSq2-91SL-HhZ2Kb03cTVefyjgdk9fvzGIiRGEgDeiOOMh7UZ1e4cctdYNEPgkGeiL1B9D31WBJ-aajRxfWY3fCvDtf1iZmriOPbLpcN5eznpV8N7hE07clahZ7YVETvE4S5Bs4qVW9OaK98YnNyS-oX7rbQ6PfnlxA5UPhFnH40Ap8LuDlOp3yBq9czyIjCpwgL8RaL_OSpISGDwNdY5s4X3XYkuk7gfBA-2yqthQLm6yE4693JhALA-t8NAABCryyIKiC0LubMJ0OITYT__HLt1ZZF2o0MlB078LvZyhcXaMc9Qem2cd9ubW8cp6p37F34PGTWKHn35xx2MtQln-cnlUKTThfEJ1g9E1vb_fgdd4txIcRrL4XxKx0Smbme_u0H9dAaFshUTRFpikfdLR-HyIS8PAJ4LMv_kBAuK4xR7CZtfn693a2kcHwbl8C5B_FJutVKidw8Zc8sJkWqZDu2zSI4KDaXM0A6q-YgEWpRG7XRdOFwkP6aUyv13ORo8kimVxzCnmBbCGL0GTfQRq8Nwr-n3jlx5cxcVPq-qZEoinrY6yJOlp65zXjZkOXKuDmmLqC-Q21FsUnFn-Juf_06lLd9EpCSfHu-wuuD2RxGAQYYiMiv4RiaN_Vp4AfEZ7FHXoxgzdofEJVJPAaCehOoSiVYCZ-RBHTF2UI9yjAiKr5tjFgfNjHgw7gcYvTUbQoY8X4uwTtTNCtOgj3uadNe3trAc9L4TFRU8GR0ypIbfSrnHnahv6m-gOf4Qmof3zmPh-lgqbxm0hYTpTecAwQigtyj9oc1yPhM5ITLZhNJx43lE8rI8exzfjd-LBgqzC6rBQtja4aPip-e7mQ\"}}"
+}
+
+[21-Apr-2025 05:00:44 Europe/Berlin] [[21-Apr-2025 05:00:44 Europe/Berlin]] Action: request: , Data: {
+    "action": "login_account",
+    "data": {
+        "uid": "admin",
+        "password": "admin",
+        "recaptcha_response": "03AFcWeA49nyb8EDoi3hpZ5AXfC9T5Nw3SvIR5jtxdObrFA5iIBK5QRQ1ZsL9GVbCyl10s0dv7PNJ5bwaMnfW0bIuYCiwee35aTIuTiRgmy3K0vWAmzpCH4BiQjJgXdQCF1VkHVl_uYqs0eLnrSq2-91SL-HhZ2Kb03cTVefyjgdk9fvzGIiRGEgDeiOOMh7UZ1e4cctdYNEPgkGeiL1B9D31WBJ-aajRxfWY3fCvDtf1iZmriOPbLpcN5eznpV8N7hE07clahZ7YVETvE4S5Bs4qVW9OaK98YnNyS-oX7rbQ6PfnlxA5UPhFnH40Ap8LuDlOp3yBq9czyIjCpwgL8RaL_OSpISGDwNdY5s4X3XYkuk7gfBA-2yqthQLm6yE4693JhALA-t8NAABCryyIKiC0LubMJ0OITYT__HLt1ZZF2o0MlB078LvZyhcXaMc9Qem2cd9ubW8cp6p37F34PGTWKHn35xx2MtQln-cnlUKTThfEJ1g9E1vb_fgdd4txIcRrL4XxKx0Smbme_u0H9dAaFshUTRFpikfdLR-HyIS8PAJ4LMv_kBAuK4xR7CZtfn693a2kcHwbl8C5B_FJutVKidw8Zc8sJkWqZDu2zSI4KDaXM0A6q-YgEWpRG7XRdOFwkP6aUyv13ORo8kimVxzCnmBbCGL0GTfQRq8Nwr-n3jlx5cxcVPq-qZEoinrY6yJOlp65zXjZkOXKuDmmLqC-Q21FsUnFn-Juf_06lLd9EpCSfHu-wuuD2RxGAQYYiMiv4RiaN_Vp4AfEZ7FHXoxgzdofEJVJPAaCehOoSiVYCZ-RBHTF2UI9yjAiKr5tjFgfNjHgw7gcYvTUbQoY8X4uwTtTNCtOgj3uadNe3trAc9L4TFRU8GR0ypIbfSrnHnahv6m-gOf4Qmof3zmPh-lgqbxm0hYTpTecAwQigtyj9oc1yPhM5ITLZhNJx43lE8rI8exzfjd-LBgqzC6rBQtja4aPip-e7mQ"
+    }
+}
+
+[21-Apr-2025 11:00:44 Asia/Manila] [[21-Apr-2025 11:00:44 Asia/Manila]] Action: Session Data: , Data: {
+    "ip_address": "127.0.0.1",
+    "user_agent": "Mozilla\/5.0 (Windows NT 10.0; Win64; x64; rv:137.0) Gecko\/20100101 Firefox\/137.0",
+    "session_hash": "33fe2ea4fa357bc7737575698a9211cd40bae90e25af5ee7e11c9d4cd88dfcc5",
+    "session_id": "vgcr98tn77mbogbf7bmcp2mi33",
+    "account_id": 1,
+    "account_uid": "A581822",
+    "email": "jeromesavc@gmail.com",
+    "username": "admin",
+    "account_status": "active",
+    "role_name": "Administrator",
+    "employee_id": 1,
+    "first_name": "Jerome",
+    "last_name": "Avecilla",
+    "middle_name": "Sotel",
+    "full_name": "Jerome S. Avecilla",
+    "contact_number": "+639772465533"
+}
+
+[21-Apr-2025 05:00:45 Europe/Berlin] PHP Warning:  Undefined variable $base_url in C:\xampp\htdocs\bulsu-school\account-receivable-system-project\index.php on line 10
+[21-Apr-2025 05:02:24 Europe/Berlin] [[21-Apr-2025 05:02:24 Europe/Berlin]] Action: get_server_request_data(): , Data: {
+    "rawInput": "{\"action\":\"login_account\",\"data\":{\"uid\":\"admin\",\"password\":\"admin\",\"recaptcha_response\":\"03AFcWeA4F9il8r7xHVg_oz9VfmFR47dv4vWnj3FzNyk_af0pyX3aWU8YpNVRWn7KPHdirxu_G7D__L-0lEe_myimapH_-c7dWJ18GL1NGUWPY9De8nCS6qw02SzqzJ91pQSNF00vC6GEoQrUI7Sh6vuGfGYGTzgne6DidGpjk2VXWBE5Rnu5M4vEzWNL5bLdOWvEbb-kzK1F_qBqmxVWh1TKtWGntFQfYwvJ7E-Hko18afOVf2k_ZN667QZJ1Ki2GIp3WvqF5jhFjq3IVwNc7iRio0TCDVsBZYOwXR_O4nA2gGM6KFFaeCXUHdshiucrQpFICa71-8X4e8ieNma5Vv7vU9z71Y9kUo6Q31LoAD8QZPFKLoY6AQJ5m-RrfKQr1k7QisXn4gmOzXcxiqDum70c6WwCGi-XOiTD6IUuPXIPtypKqZfyt7G2tjhjMe26D2AZUTuK-noHfnQHx705BxvVReHOKVFXvO20dMVzmbKF9tH95JmDi-y3XhZM7mrfEWGthd1n7G6D8tKBAvdnnJhDbNVxfVZV19DCCmmx28tDOIILh38Gt6Z-4ZpwSBbbt3It0PtATDksixCqzRGSrvo-_laIiE4A23pn18gFFj_9f2uHdLv_Rv3AH-OhrSvQbQQ6-mi4fqAqOLOpyMZv7PSlluZnjvuF5_YNJW_miTk1k0fv-whmcWlAMDAwLVxGC5BujvkZJWltsXaMQaRHK6iBsJ03NtM47fhwHIljk0QpLySDBEMQInbBXgSKBQDlp2nkgivzGSmJrEZjWjrnCzGyUYtyVK_tj-DepwYq50V3FvcDV7X4EwExfe_PF0rwGzNga4befRX9F-ne2QjAl4fXy8oCWjMyIMHkn8kLstmOgSwZSdQkz-ziBwl6WPxEBwsEL9ER73T7ZknBAgN7cIm5OSSKskIW2FwHfURclVoiB_aeInEN0PkNXhvgfUb7FcdLtBu7Hd-wxsOePox6b8fsKIIah9nyEQg\"}}"
+}
+
+[21-Apr-2025 05:02:24 Europe/Berlin] [[21-Apr-2025 05:02:24 Europe/Berlin]] Action: request: , Data: {
+    "action": "login_account",
+    "data": {
+        "uid": "admin",
+        "password": "admin",
+        "recaptcha_response": "03AFcWeA4F9il8r7xHVg_oz9VfmFR47dv4vWnj3FzNyk_af0pyX3aWU8YpNVRWn7KPHdirxu_G7D__L-0lEe_myimapH_-c7dWJ18GL1NGUWPY9De8nCS6qw02SzqzJ91pQSNF00vC6GEoQrUI7Sh6vuGfGYGTzgne6DidGpjk2VXWBE5Rnu5M4vEzWNL5bLdOWvEbb-kzK1F_qBqmxVWh1TKtWGntFQfYwvJ7E-Hko18afOVf2k_ZN667QZJ1Ki2GIp3WvqF5jhFjq3IVwNc7iRio0TCDVsBZYOwXR_O4nA2gGM6KFFaeCXUHdshiucrQpFICa71-8X4e8ieNma5Vv7vU9z71Y9kUo6Q31LoAD8QZPFKLoY6AQJ5m-RrfKQr1k7QisXn4gmOzXcxiqDum70c6WwCGi-XOiTD6IUuPXIPtypKqZfyt7G2tjhjMe26D2AZUTuK-noHfnQHx705BxvVReHOKVFXvO20dMVzmbKF9tH95JmDi-y3XhZM7mrfEWGthd1n7G6D8tKBAvdnnJhDbNVxfVZV19DCCmmx28tDOIILh38Gt6Z-4ZpwSBbbt3It0PtATDksixCqzRGSrvo-_laIiE4A23pn18gFFj_9f2uHdLv_Rv3AH-OhrSvQbQQ6-mi4fqAqOLOpyMZv7PSlluZnjvuF5_YNJW_miTk1k0fv-whmcWlAMDAwLVxGC5BujvkZJWltsXaMQaRHK6iBsJ03NtM47fhwHIljk0QpLySDBEMQInbBXgSKBQDlp2nkgivzGSmJrEZjWjrnCzGyUYtyVK_tj-DepwYq50V3FvcDV7X4EwExfe_PF0rwGzNga4befRX9F-ne2QjAl4fXy8oCWjMyIMHkn8kLstmOgSwZSdQkz-ziBwl6WPxEBwsEL9ER73T7ZknBAgN7cIm5OSSKskIW2FwHfURclVoiB_aeInEN0PkNXhvgfUb7FcdLtBu7Hd-wxsOePox6b8fsKIIah9nyEQg"
+    }
+}
+
+[21-Apr-2025 11:02:24 Asia/Manila] [[21-Apr-2025 11:02:24 Asia/Manila]] Action: Session Data: , Data: {
+    "ip_address": "127.0.0.1",
+    "user_agent": "Mozilla\/5.0 (Windows NT 10.0; Win64; x64; rv:137.0) Gecko\/20100101 Firefox\/137.0",
+    "session_hash": "33fe2ea4fa357bc7737575698a9211cd40bae90e25af5ee7e11c9d4cd88dfcc5",
+    "session_id": "vgcr98tn77mbogbf7bmcp2mi33",
+    "account_id": 1,
+    "account_uid": "A581822",
+    "email": "jeromesavc@gmail.com",
+    "username": "admin",
+    "account_status": "active",
+    "role_name": "Administrator",
+    "employee_id": 1,
+    "first_name": "Jerome",
+    "last_name": "Avecilla",
+    "middle_name": "Sotel",
+    "full_name": "Jerome S. Avecilla",
+    "contact_number": "+639772465533"
+}
+
+[21-Apr-2025 05:02:25 Europe/Berlin] PHP Warning:  Undefined variable $base_url in C:\xampp\htdocs\bulsu-school\account-receivable-system-project\index.php on line 10
+[21-Apr-2025 05:04:05 Europe/Berlin] [[21-Apr-2025 05:04:05 Europe/Berlin]] Action: get_server_request_data(): , Data: {
+    "rawInput": "{\"action\":\"logout_account\",\"data\":{\"uid\":\"A581822\",\"session_id\":\"vgcr98tn77mbogbf7bmcp2mi33\"}}"
+}
+
+[21-Apr-2025 05:04:05 Europe/Berlin] [[21-Apr-2025 05:04:05 Europe/Berlin]] Action: request: , Data: {
+    "action": "logout_account",
+    "data": {
+        "uid": "A581822",
+        "session_id": "vgcr98tn77mbogbf7bmcp2mi33"
+    }
+}
+
+[21-Apr-2025 05:04:13 Europe/Berlin] [[21-Apr-2025 05:04:13 Europe/Berlin]] Action: get_server_request_data(): , Data: {
+    "rawInput": "{\"action\":\"login_account\",\"data\":{\"uid\":\"member\",\"password\":\"member\",\"recaptcha_response\":\"03AFcWeA5gd-iHLoqw6cxqFf1VpEawSAfci7_cYeOFHA6RZxhrhiyJa0NqzNbr4wZErHMJ0BkV243-hR_opeFMFl1cmwnO4ZtSikOBFxS0h5AjREGFMptuF7AS_wzC9uhoLYDAQuO9ZOaksBmEgJuDkkiam2ZxltBn7pJJHQabhT3CPrN4j8bXFzwmo1mreCj9RFmHfZUKNxWe3aiPhgmjXifJQkBM9JVN85xsIttK_83tauoxP18NYdR0AOBGGthEz403JS9NF7LRc9uQsKeOD3ADjvoifptSf-spZaOdFQlUpauWct8C9MVgunD07u9A21Nt0gVAemrtJfo2Z_NDZmLpk4Il8HbpltLVCCVUxHngDkPRGaFrKzYwUeRgR8hHCaNxeMi1hKnbQ1S6Otf8M5DjANb6IkN8-iPXgLdxuywwjNWKuPu18UyF872lwfN0ATYTqZsN6TgRs-KbZCCDfmhASEmlcrQu8y1vbf2JiFQwulMt9NF03buR7OgARQjv1EHc-yvV-cJ_E6XeVRC7roeMS67AxpTVoGCCgLrXm-EeKX8gYWAQAttr5SELXRItQA1rdOfKSFLwkKwazd_oRrX3whHY2zq16RydqOv_dD2C9mxn8IdIlSv4hH23FF705P6N1cKj_HdvMJbkbYCwTm2wQQaImoNm0jiP3C_cfepSwJgJKZu9VUZXzQGGqhdWFTzaT8yPC_Li0ZOO6D3gY038RhG-GnplaqLmQd8dztUzR1TtoM0f_7CA_N0PVcm0Ly2x4hAP9abYkGTyMRcos4NfgMxHh40ccrJEIAbs5iS631t79Awawk3o4Cwv0_0hG5tuHgPHUANJSVb-3cFh4kQuAG3mM2yPuiPIdKKqG8uOxjkTNp2vDG-tuIb7uQU-NGHlASO3VCGXlcmn8r2PeXQuKIA10y1gQ7EDQ2Xz9f-JQq1bDSKtys-k2CGK5EU9f4Um_Oe7aSBrCiuL54M4gQerRUwVjNBNLw\"}}"
+}
+
+[21-Apr-2025 05:04:13 Europe/Berlin] [[21-Apr-2025 05:04:13 Europe/Berlin]] Action: request: , Data: {
     "action": "login_account",
     "data": {
         "uid": "member",
         "password": "member",
-        "recaptcha_response": "03AFcWeA7UfpCL7pIn9JVBDA3QTiWZPocnhEw73w5kA70aSuzlUzIvnd_DGUiZRoY6hnJC_gMmao28oCW8QS8fkdehnfG-V0EeENLZ0G0uRkxCRzA5NIDe5CGrQNqozc4zoBs9wiFKG34hy33m5pXtaUbY_67ihI4grS2FyJBG1Cb-GgB_uazLyQtVmHR9NxnxaAuE0hqYXT4smi1QCwGIJ5H5vvVU2TQf3hluPOmXldMQ_tITPyQIVbicWGSaYj_lE_Bcaf_0iORkUHMCJd8OzzDJdV2f8-fl95BuNbkNqtwm2w3K-4WxH0-fPEL98-TLT_gQNRx5fndNKXSZthVtQkz58f5cl959_XE5EP_n7W0mIC-r6Qr8jNazjJM4NZZAfARJxEyuBQmRA2md6ruGHte9gWDqdFopjs7f-oCuPCOY_AoiP1bvsq2ACEyRT4nHAVUY99Q1CtiDmhzs0Sq5IZxBDKP4K6hDiTj3w16Yqudujl4ZquKKRTlJ0RBaFxpKW6N3I6vGWWsVBp1wPdSD863BAcsddu1FURaFvZrPV3bEYsHebx0pIHhrqB73DsEoO4pZIbW1g4ebFQR9eS3Yvfe98L5DzHAIazASC7gZuaw_oPZu4qpHyapND9umDIgq0PNx52Q6SWqPan9RmNEQTOhSPSRvJ6snVuST5femZpGQ434Cs2MVBae64MPMT3DwmczIhB7Fl3sLRuzzRWfWI9pWQH8WTDYPhagoQw0bDYichm2yxRPBvwbCR9GyQG37PoNpijU6MN5mdDhFYuVRp0y5SCZc-oI8ECGgC1v8MZwnoDc78eX_CIz8GV0nqELRXKgKuXRg3I3a2KsD4ifVROoir-rZUzRNiC9y-oqjVPoip2yfmVry-gue0Ok4jvZ0gLq-3HVufRlA8EAKi39RG1F0PbBy9BqAgjIG_uSdSkn87ZpxvNVNvB1bmzJ8BrXTK807ZNTqYoHoIq5yuQ1NFYYeHmPSVMxkXQ"
+        "recaptcha_response": "03AFcWeA5gd-iHLoqw6cxqFf1VpEawSAfci7_cYeOFHA6RZxhrhiyJa0NqzNbr4wZErHMJ0BkV243-hR_opeFMFl1cmwnO4ZtSikOBFxS0h5AjREGFMptuF7AS_wzC9uhoLYDAQuO9ZOaksBmEgJuDkkiam2ZxltBn7pJJHQabhT3CPrN4j8bXFzwmo1mreCj9RFmHfZUKNxWe3aiPhgmjXifJQkBM9JVN85xsIttK_83tauoxP18NYdR0AOBGGthEz403JS9NF7LRc9uQsKeOD3ADjvoifptSf-spZaOdFQlUpauWct8C9MVgunD07u9A21Nt0gVAemrtJfo2Z_NDZmLpk4Il8HbpltLVCCVUxHngDkPRGaFrKzYwUeRgR8hHCaNxeMi1hKnbQ1S6Otf8M5DjANb6IkN8-iPXgLdxuywwjNWKuPu18UyF872lwfN0ATYTqZsN6TgRs-KbZCCDfmhASEmlcrQu8y1vbf2JiFQwulMt9NF03buR7OgARQjv1EHc-yvV-cJ_E6XeVRC7roeMS67AxpTVoGCCgLrXm-EeKX8gYWAQAttr5SELXRItQA1rdOfKSFLwkKwazd_oRrX3whHY2zq16RydqOv_dD2C9mxn8IdIlSv4hH23FF705P6N1cKj_HdvMJbkbYCwTm2wQQaImoNm0jiP3C_cfepSwJgJKZu9VUZXzQGGqhdWFTzaT8yPC_Li0ZOO6D3gY038RhG-GnplaqLmQd8dztUzR1TtoM0f_7CA_N0PVcm0Ly2x4hAP9abYkGTyMRcos4NfgMxHh40ccrJEIAbs5iS631t79Awawk3o4Cwv0_0hG5tuHgPHUANJSVb-3cFh4kQuAG3mM2yPuiPIdKKqG8uOxjkTNp2vDG-tuIb7uQU-NGHlASO3VCGXlcmn8r2PeXQuKIA10y1gQ7EDQ2Xz9f-JQq1bDSKtys-k2CGK5EU9f4Um_Oe7aSBrCiuL54M4gQerRUwVjNBNLw"
     }
 }
 
-[18-Apr-2025 01:08:09 Asia/Manila] [[18-Apr-2025 01:08:09 Asia/Manila]] Action: Session Data: , Data: {
+[21-Apr-2025 11:04:13 Asia/Manila] [[21-Apr-2025 11:04:13 Asia/Manila]] Action: Session Data: , Data: {
     "ip_address": "127.0.0.1",
     "user_agent": "Mozilla\/5.0 (Windows NT 10.0; Win64; x64; rv:137.0) Gecko\/20100101 Firefox\/137.0",
-    "session_hash": "233876b74d2ddf9ce8120a467b8377f976a2f335b400585d97e18978848b6cd7",
-    "session_id": "tg0r766kjq0ff306cqmuf1hfr2",
+    "session_hash": "fe3f0f93ca13668488c0cad028fefaca9b2eebb8b5067a207a103e9cc9b06ef2",
+    "session_id": "f2va9vie3brc1jg3ei78ekkh3s",
     "account_id": 18,
     "account_uid": "A839109",
     "email": "member@gmail.com",
@@ -236,42 +1682,118 @@
     "full_address": "Ph7, Blk3, Lot24, Residence III, Brgy. Mapulang Lupa, Pandi, Bulacan, Region 3"
 }
 
-[17-Apr-2025 19:08:09 Europe/Berlin] PHP Warning:  Undefined variable $base_url in C:\xampp\htdocs\bulsu-school\account-receivable-system-project\index.php on line 12
-[17-Apr-2025 19:08:10 Europe/Berlin] [[17-Apr-2025 19:08:10 Europe/Berlin]] Action: data:, Data: {
+[21-Apr-2025 05:04:14 Europe/Berlin] PHP Warning:  Undefined variable $base_url in C:\xampp\htdocs\bulsu-school\account-receivable-system-project\index.php on line 12
+[21-Apr-2025 05:04:15 Europe/Berlin] [[21-Apr-2025 05:04:15 Europe/Berlin]] Action: data:, Data: {
     "status": "paid,pending,overdue",
     "member_id": "16"
 }
 
-[17-Apr-2025 19:10:14 Europe/Berlin] [[17-Apr-2025 19:10:14 Europe/Berlin]] Action: data:, Data: {
+[21-Apr-2025 05:06:43 Europe/Berlin] [[21-Apr-2025 05:06:43 Europe/Berlin]] Action: data:, Data: {
     "status": "paid,pending,overdue",
     "member_id": "16"
 }
 
-[17-Apr-2025 19:10:41 Europe/Berlin] [[17-Apr-2025 19:10:41 Europe/Berlin]] Action: data:, Data: {
+[21-Apr-2025 05:06:46 Europe/Berlin] [[21-Apr-2025 05:06:46 Europe/Berlin]] Action: get_server_request_data(): , Data: {
+    "rawInput": "{\"action\":\"logout_account\",\"data\":{\"uid\":\"A839109\",\"session_id\":\"f2va9vie3brc1jg3ei78ekkh3s\"}}"
+}
+
+[21-Apr-2025 05:06:46 Europe/Berlin] [[21-Apr-2025 05:06:46 Europe/Berlin]] Action: request: , Data: {
+    "action": "logout_account",
+    "data": {
+        "uid": "A839109",
+        "session_id": "f2va9vie3brc1jg3ei78ekkh3s"
+    }
+}
+
+[21-Apr-2025 05:06:53 Europe/Berlin] [[21-Apr-2025 05:06:53 Europe/Berlin]] Action: get_server_request_data(): , Data: {
+    "rawInput": "{\"action\":\"login_account\",\"data\":{\"uid\":\"admin\",\"password\":\"admin\",\"recaptcha_response\":\"03AFcWeA7Fihp4fnLrhA5iATba8qaO8fSboehRAiDEEvu2t1Ao1kilyo0KwdOUuqUvKWEr-KsILS3mJgWSOrmfe_dRRmk7dndZWLqCusEsdTxMsjwWtz7GdU81syrCoUQTJEcoOYCLIycQUKuxHD_OrM5cCcNZCduQiMzM-cvkNiogieEToAvvlwYKwVpPX5-hQiu2t1M512d1xdHSGLMU8EX5H93uQfGqX6BwcBWz-uCEzXaL9579ne4SxOIfWbmPfDHXBFgoa6NbHUiLClTp8qsc88cB0XEcCjTVaM9PuCEg__uy7crauKCJQEgW6UOvTv_NYC6Yykb4UbX1y8KPCVLO8kOJG3DdaLz5038qET8yVSmj45bsIMSqfWIMQmaF54hoCATvwf8-RLrXcvZocRTAGIZXXpljjpqN5gq42JWz7I00dzrkfcaMrGwEFr-Z8sRJi6420L6j1u82MgrDbk0w_f8aJVsl8PHVrOTVEgini-squksGjy4QwcyhYVALtds6H4FqGY96ch8-sRCEec37b_XJM3F3pUlbxNpFYyV_lt0sLzeu-Mfra4M9L2OxjPPPcnvboRD_dfRz1eATvN5yUOs3au9gt8z_Z3300knr9DY9-sl48w0_P7psSuclm70LAUpqWIk8kqD6_AbOe9ircfX7ggE299trReyzjVUvawTEuen9vL6EWDwrKzyyQLaKRpkZiNJBxlcZ7l_jensS1eS1wxpFWPjilIM7uek0ItimbTjaawq4SBNnKw1ceA98rgFWt2qPV7dd2ocZ7GZAxYsYhaw3tijG_F4-rJBZm1LhyZIPUHWFM8x96MOfSZwrJlhaJvwp67sl2mp4DYWtRM3gbkKzaAkQSdUiUId6rXaVu2gsuFPNMaqjwZOMv8NhFszN6UicT9mBRagMGwQhYvXJM6nljU0CoFcNcGFRl_JkkAzmMluRQ-2-ZE9a_1kaJWEPnJLWVJb3v0t0bcjMP30TtjNy-Q\"}}"
+}
+
+[21-Apr-2025 05:06:53 Europe/Berlin] [[21-Apr-2025 05:06:53 Europe/Berlin]] Action: request: , Data: {
+    "action": "login_account",
+    "data": {
+        "uid": "admin",
+        "password": "admin",
+        "recaptcha_response": "03AFcWeA7Fihp4fnLrhA5iATba8qaO8fSboehRAiDEEvu2t1Ao1kilyo0KwdOUuqUvKWEr-KsILS3mJgWSOrmfe_dRRmk7dndZWLqCusEsdTxMsjwWtz7GdU81syrCoUQTJEcoOYCLIycQUKuxHD_OrM5cCcNZCduQiMzM-cvkNiogieEToAvvlwYKwVpPX5-hQiu2t1M512d1xdHSGLMU8EX5H93uQfGqX6BwcBWz-uCEzXaL9579ne4SxOIfWbmPfDHXBFgoa6NbHUiLClTp8qsc88cB0XEcCjTVaM9PuCEg__uy7crauKCJQEgW6UOvTv_NYC6Yykb4UbX1y8KPCVLO8kOJG3DdaLz5038qET8yVSmj45bsIMSqfWIMQmaF54hoCATvwf8-RLrXcvZocRTAGIZXXpljjpqN5gq42JWz7I00dzrkfcaMrGwEFr-Z8sRJi6420L6j1u82MgrDbk0w_f8aJVsl8PHVrOTVEgini-squksGjy4QwcyhYVALtds6H4FqGY96ch8-sRCEec37b_XJM3F3pUlbxNpFYyV_lt0sLzeu-Mfra4M9L2OxjPPPcnvboRD_dfRz1eATvN5yUOs3au9gt8z_Z3300knr9DY9-sl48w0_P7psSuclm70LAUpqWIk8kqD6_AbOe9ircfX7ggE299trReyzjVUvawTEuen9vL6EWDwrKzyyQLaKRpkZiNJBxlcZ7l_jensS1eS1wxpFWPjilIM7uek0ItimbTjaawq4SBNnKw1ceA98rgFWt2qPV7dd2ocZ7GZAxYsYhaw3tijG_F4-rJBZm1LhyZIPUHWFM8x96MOfSZwrJlhaJvwp67sl2mp4DYWtRM3gbkKzaAkQSdUiUId6rXaVu2gsuFPNMaqjwZOMv8NhFszN6UicT9mBRagMGwQhYvXJM6nljU0CoFcNcGFRl_JkkAzmMluRQ-2-ZE9a_1kaJWEPnJLWVJb3v0t0bcjMP30TtjNy-Q"
+    }
+}
+
+[21-Apr-2025 11:06:53 Asia/Manila] [[21-Apr-2025 11:06:53 Asia/Manila]] Action: Session Data: , Data: {
+    "ip_address": "127.0.0.1",
+    "user_agent": "Mozilla\/5.0 (Windows NT 10.0; Win64; x64; rv:137.0) Gecko\/20100101 Firefox\/137.0",
+    "session_hash": "03886b43ba407f84cd2b77a9f15b2312a030e9faf041cc3b4819e9b457658be2",
+    "session_id": "6842sm6cph8r1ubq6o3a0cojb7",
+    "account_id": 1,
+    "account_uid": "A581822",
+    "email": "jeromesavc@gmail.com",
+    "username": "admin",
+    "account_status": "active",
+    "role_name": "Administrator",
+    "employee_id": 1,
+    "first_name": "Jerome",
+    "last_name": "Avecilla",
+    "middle_name": "Sotel",
+    "full_name": "Jerome S. Avecilla",
+    "contact_number": "+639772465533"
+}
+
+[21-Apr-2025 05:06:53 Europe/Berlin] PHP Warning:  Undefined variable $base_url in C:\xampp\htdocs\bulsu-school\account-receivable-system-project\index.php on line 10
+[21-Apr-2025 05:08:54 Europe/Berlin] [[21-Apr-2025 05:08:54 Europe/Berlin]] Action: get_server_request_data(): , Data: {
+    "rawInput": "{\"action\":\"logout_account\",\"data\":{\"uid\":\"A581822\",\"session_id\":\"6842sm6cph8r1ubq6o3a0cojb7\"}}"
+}
+
+[21-Apr-2025 05:08:54 Europe/Berlin] [[21-Apr-2025 05:08:54 Europe/Berlin]] Action: request: , Data: {
+    "action": "logout_account",
+    "data": {
+        "uid": "A581822",
+        "session_id": "6842sm6cph8r1ubq6o3a0cojb7"
+    }
+}
+
+[21-Apr-2025 05:09:00 Europe/Berlin] [[21-Apr-2025 05:09:00 Europe/Berlin]] Action: get_server_request_data(): , Data: {
+    "rawInput": "{\"action\":\"login_account\",\"data\":{\"uid\":\"member\",\"password\":\"member\",\"recaptcha_response\":\"03AFcWeA5QP1LvbpW4EdK9xr78nqQOfWCSOhr654FUSLxRFc88J2Z-Ybt7S04AQeEsE5PpVYMUUa4jWThrWv6dUaFGz64Q8r0-FDzVgg7HgwY8Rhb6SaBN6JTFkf8_Brfoe6WmoRzBZf1WGgWEB9KNZ2pl6OfTWswAGSqgcsGJmntCi03Z-c1zMiyFHAC1IuLFB9aoFzjgD8XFhcA7LmTQr1WDb_ayAuKYB6OR9yI4ZmTWssqW-9204-eo0u-ywRa9lxU-CibrPuHsRuneziKcXhNaitexPjIAqk_uN65-g1R_0x_4n8kKe6-83hXS__7eNj0YunAeSFpqGgkdGpRWXAUbT_7qeK1FU4sY1n5QHaw6BgFmNi_0r7xawLad9AECe2Dbj6GwOqYzRd7j7g6la30vzj91vLZ-27MbYJhhlm1fbwtGTywWOzU__dsOmL1iIlbRLw8r0LLhQYiZJL0gr4nbwSM0USGUnpJXc99XnewK7O2CLb6E3A1Pwvgnan_ZIkQ2cRxZQQuUbB1vkLzc0S2KRBt7ZGpps80ev7qdoWRVoTcuaXKVbijMnGl26kVDjK1U3gR29qP1DeQSYT_tgop4_rbudPhZ2Ms09Zqt-Rtwm-5YzNZVZ8AHIT0bLcY7Be1ijYD5CzrRfiTLRl-yo6aSLcM7o_iWb8kcctHLCgbMsgKLAvkeHdK2BWuePQCGEA6HCbptFfld5byvk5Mw1C92tIOPRHm2RUKaOKKf9pjWTFthcs_3jzgi8P0WUQsYbo3GXTwZXK-2kRVsQk19Kno0Ll1uk7lRCYprIIwh8kE29GAIcJHvrBQDn0TCNWPbRd_xuBcOY_ainwA5nyXATZ62mgNq_fChiYfPzUDEdAzXMgL3FHkxGNG9MFU6Xp4qFMPnaIS_J7v4-uCZVJ9W69ZoSBqaRCGcy-P3S5RKXjiWSQf1nE5yZ7gSVwLTLdLxKhE6YAiCY4z4ZCjDKTRSVMD3m2OFxOpgNg\"}}"
+}
+
+[21-Apr-2025 05:09:00 Europe/Berlin] [[21-Apr-2025 05:09:00 Europe/Berlin]] Action: request: , Data: {
+    "action": "login_account",
+    "data": {
+        "uid": "member",
+        "password": "member",
+        "recaptcha_response": "03AFcWeA5QP1LvbpW4EdK9xr78nqQOfWCSOhr654FUSLxRFc88J2Z-Ybt7S04AQeEsE5PpVYMUUa4jWThrWv6dUaFGz64Q8r0-FDzVgg7HgwY8Rhb6SaBN6JTFkf8_Brfoe6WmoRzBZf1WGgWEB9KNZ2pl6OfTWswAGSqgcsGJmntCi03Z-c1zMiyFHAC1IuLFB9aoFzjgD8XFhcA7LmTQr1WDb_ayAuKYB6OR9yI4ZmTWssqW-9204-eo0u-ywRa9lxU-CibrPuHsRuneziKcXhNaitexPjIAqk_uN65-g1R_0x_4n8kKe6-83hXS__7eNj0YunAeSFpqGgkdGpRWXAUbT_7qeK1FU4sY1n5QHaw6BgFmNi_0r7xawLad9AECe2Dbj6GwOqYzRd7j7g6la30vzj91vLZ-27MbYJhhlm1fbwtGTywWOzU__dsOmL1iIlbRLw8r0LLhQYiZJL0gr4nbwSM0USGUnpJXc99XnewK7O2CLb6E3A1Pwvgnan_ZIkQ2cRxZQQuUbB1vkLzc0S2KRBt7ZGpps80ev7qdoWRVoTcuaXKVbijMnGl26kVDjK1U3gR29qP1DeQSYT_tgop4_rbudPhZ2Ms09Zqt-Rtwm-5YzNZVZ8AHIT0bLcY7Be1ijYD5CzrRfiTLRl-yo6aSLcM7o_iWb8kcctHLCgbMsgKLAvkeHdK2BWuePQCGEA6HCbptFfld5byvk5Mw1C92tIOPRHm2RUKaOKKf9pjWTFthcs_3jzgi8P0WUQsYbo3GXTwZXK-2kRVsQk19Kno0Ll1uk7lRCYprIIwh8kE29GAIcJHvrBQDn0TCNWPbRd_xuBcOY_ainwA5nyXATZ62mgNq_fChiYfPzUDEdAzXMgL3FHkxGNG9MFU6Xp4qFMPnaIS_J7v4-uCZVJ9W69ZoSBqaRCGcy-P3S5RKXjiWSQf1nE5yZ7gSVwLTLdLxKhE6YAiCY4z4ZCjDKTRSVMD3m2OFxOpgNg"
+    }
+}
+
+[21-Apr-2025 11:09:00 Asia/Manila] [[21-Apr-2025 11:09:00 Asia/Manila]] Action: Session Data: , Data: {
+    "ip_address": "127.0.0.1",
+    "user_agent": "Mozilla\/5.0 (Windows NT 10.0; Win64; x64; rv:137.0) Gecko\/20100101 Firefox\/137.0",
+    "session_hash": "64448f07fa27b14d731976670ef5851511c728fdb835dfd20a11af410c05d300",
+    "session_id": "no5sb2f9v9s96lp6fe4t6cqq3j",
+    "account_id": 18,
+    "account_uid": "A839109",
+    "email": "member@gmail.com",
+    "username": "member",
+    "account_status": "active",
+    "role_name": "Member",
+    "member_id": 16,
+    "first_name": "John",
+    "last_name": "Doe",
+    "middle_name": "Smith",
+    "full_name": "John S. Doe",
+    "contact_number": "+639772465533",
+    "full_address": "Ph7, Blk3, Lot24, Residence III, Brgy. Mapulang Lupa, Pandi, Bulacan, Region 3"
+}
+
+[21-Apr-2025 05:09:00 Europe/Berlin] PHP Warning:  Undefined variable $base_url in C:\xampp\htdocs\bulsu-school\account-receivable-system-project\index.php on line 12
+[21-Apr-2025 05:09:01 Europe/Berlin] [[21-Apr-2025 05:09:01 Europe/Berlin]] Action: data:, Data: {
     "status": "paid,pending,overdue",
     "member_id": "16"
 }
 
-[17-Apr-2025 19:11:59 Europe/Berlin] [[17-Apr-2025 19:11:59 Europe/Berlin]] Action: data:, Data: {
-    "status": "paid,pending,overdue",
-    "member_id": "16"
+[21-Apr-2025 05:09:13 Europe/Berlin] [[21-Apr-2025 05:09:13 Europe/Berlin]] Action: get_server_request_data(): , Data: {
+    "rawInput": "{\"action\":\"process_amortization_payment\",\"data\":{\"member_id\":\"16\",\"amortization_id\":16,\"used_credit_balance\":0,\"original_amount_payment\":900,\"final_amount_payment\":900,\"payment_method\":\"online_payment\",\"payment_date\":\"2025-04-21\",\"notes\":\"test\",\"is_use_credit\":false,\"is_create_credit\":false}}"
 }
 
-[17-Apr-2025 19:12:10 Europe/Berlin] [[17-Apr-2025 19:12:10 Europe/Berlin]] Action: data:, Data: {
-    "status": "paid,pending,overdue",
-    "member_id": "16"
-}
-
-[17-Apr-2025 19:12:28 Europe/Berlin] [[17-Apr-2025 19:12:28 Europe/Berlin]] Action: data:, Data: {
-    "status": "paid,pending,overdue",
-    "member_id": "16"
-}
-
-[17-Apr-2025 19:12:56 Europe/Berlin] [[17-Apr-2025 19:12:56 Europe/Berlin]] Action: get_server_request_data(): , Data: {
-    "rawInput": "{\"action\":\"process_amortization_payment\",\"data\":{\"member_id\":\"16\",\"amortization_id\":16,\"used_credit_balance\":0,\"original_amount_payment\":900,\"final_amount_payment\":900,\"payment_method\":\"online_payment\",\"payment_date\":\"2025-04-17\",\"notes\":\"test\",\"is_use_credit\":false,\"is_create_credit\":false}}"
-}
-
-[17-Apr-2025 19:12:56 Europe/Berlin] [[17-Apr-2025 19:12:56 Europe/Berlin]] Action: request: , Data: {
+[21-Apr-2025 05:09:13 Europe/Berlin] [[21-Apr-2025 05:09:13 Europe/Berlin]] Action: request: , Data: {
     "action": "process_amortization_payment",
     "data": {
         "member_id": "16",
@@ -280,15 +1802,433 @@
         "original_amount_payment": 900,
         "final_amount_payment": 900,
         "payment_method": "online_payment",
-        "payment_date": "2025-04-17",
+        "payment_date": "2025-04-21",
         "notes": "test",
         "is_use_credit": false,
         "is_create_credit": false
     }
 }
 
-[17-Apr-2025 19:12:56 Europe/Berlin] [[17-Apr-2025 19:12:56 Europe/Berlin]] Action: data:, Data: {
+[21-Apr-2025 05:09:13 Europe/Berlin] [[21-Apr-2025 05:09:13 Europe/Berlin]] Action: data:, Data: {
     "status": "paid,pending,overdue",
     "member_id": "16"
+}
+
+[21-Apr-2025 05:09:19 Europe/Berlin] [[21-Apr-2025 05:09:19 Europe/Berlin]] Action: get_server_request_data(): , Data: {
+    "rawInput": "{\"action\":\"process_amortization_payment\",\"data\":{\"member_id\":\"16\",\"amortization_id\":14,\"used_credit_balance\":0,\"original_amount_payment\":837,\"final_amount_payment\":837,\"payment_method\":\"online_payment\",\"payment_date\":\"2025-04-21\",\"notes\":\"test\",\"is_use_credit\":false,\"is_create_credit\":false}}"
+}
+
+[21-Apr-2025 05:09:19 Europe/Berlin] [[21-Apr-2025 05:09:19 Europe/Berlin]] Action: request: , Data: {
+    "action": "process_amortization_payment",
+    "data": {
+        "member_id": "16",
+        "amortization_id": 14,
+        "used_credit_balance": 0,
+        "original_amount_payment": 837,
+        "final_amount_payment": 837,
+        "payment_method": "online_payment",
+        "payment_date": "2025-04-21",
+        "notes": "test",
+        "is_use_credit": false,
+        "is_create_credit": false
+    }
+}
+
+[21-Apr-2025 05:09:19 Europe/Berlin] [[21-Apr-2025 05:09:19 Europe/Berlin]] Action: data:, Data: {
+    "status": "paid,pending,overdue",
+    "member_id": "16"
+}
+
+[21-Apr-2025 05:09:25 Europe/Berlin] [[21-Apr-2025 05:09:25 Europe/Berlin]] Action: get_server_request_data(): , Data: {
+    "rawInput": "{\"action\":\"process_amortization_payment\",\"data\":{\"member_id\":\"16\",\"amortization_id\":1,\"used_credit_balance\":0,\"original_amount_payment\":2650,\"final_amount_payment\":2650,\"payment_method\":\"online_payment\",\"payment_date\":\"2025-04-21\",\"notes\":\"test\",\"is_use_credit\":false,\"is_create_credit\":false}}"
+}
+
+[21-Apr-2025 05:09:25 Europe/Berlin] [[21-Apr-2025 05:09:25 Europe/Berlin]] Action: request: , Data: {
+    "action": "process_amortization_payment",
+    "data": {
+        "member_id": "16",
+        "amortization_id": 1,
+        "used_credit_balance": 0,
+        "original_amount_payment": 2650,
+        "final_amount_payment": 2650,
+        "payment_method": "online_payment",
+        "payment_date": "2025-04-21",
+        "notes": "test",
+        "is_use_credit": false,
+        "is_create_credit": false
+    }
+}
+
+[21-Apr-2025 05:09:25 Europe/Berlin] [[21-Apr-2025 05:09:25 Europe/Berlin]] Action: data:, Data: {
+    "status": "paid,pending,overdue",
+    "member_id": "16"
+}
+
+[21-Apr-2025 05:09:31 Europe/Berlin] [[21-Apr-2025 05:09:31 Europe/Berlin]] Action: get_server_request_data(): , Data: {
+    "rawInput": "{\"action\":\"logout_account\",\"data\":{\"uid\":\"A839109\",\"session_id\":\"no5sb2f9v9s96lp6fe4t6cqq3j\"}}"
+}
+
+[21-Apr-2025 05:09:31 Europe/Berlin] [[21-Apr-2025 05:09:31 Europe/Berlin]] Action: request: , Data: {
+    "action": "logout_account",
+    "data": {
+        "uid": "A839109",
+        "session_id": "no5sb2f9v9s96lp6fe4t6cqq3j"
+    }
+}
+
+[21-Apr-2025 05:09:37 Europe/Berlin] [[21-Apr-2025 05:09:37 Europe/Berlin]] Action: get_server_request_data(): , Data: {
+    "rawInput": "{\"action\":\"login_account\",\"data\":{\"uid\":\"admin\",\"password\":\"admin\",\"recaptcha_response\":\"03AFcWeA5AhN0RPc6wHKYsQjFRxw5NRGjskJm5Nk2Ukw1Vt2hQFb94E4mnNIEPtU9SHFTxUd6DsFiP3ZnzYOsNXJaKeisRcZEBRKDycryvzQHSExbZVu2tcJ615KTcCVuSjo238b9KU84rCf5RObUMqyTiYckiVVq5bJaItxqxW22pQn1g6EunBOCif04l3Peku5F-r_irJ18tUn_OFsBvIJwxjnNeH39DgBVEx5INn91oG5FomlXeCgdupCkBiYcs322Q49NQIFOzPLo7YZHSS136IPzxiFNvmrWxR1UiK80U3CU4tdU6eMxCwduYEOevLPr4GcRBPXeSiXLqFBWsagVUsyMT-6S8IQAp8Zig-k-91UBHqAbt8Ov7d_8nouhqCSZSNIk4j7y1MkTUq_PDZ2zP9OLCkpYSS6MldLlCvNLTc3-NwdAEgOgwd8SmCrJ0qLciK-UbQrspvKmmhDvfrlZWpP5RiWn_IQRnZPUNC720QU3kWS79I1bdVh1rxW1TlQP7avYjLMDEsrhJc6TT4Hw7xNDZT2WKufQjTmjF0qmv9s9rG9fQalegQ9AJtiGvfT9y1BeD4kspe05hcxeSNas6kH-XN6_eGgj1oTMbd4-CBODtv28ucirV2KW6usK_6T-jJdtrG95gJZZCBAhXevgkWMKM8Pl0oG-xwOoMqD9QzW7-sC8dAKAxaNZK7QUHsA4oehGKQqiNgujopMhljGbIGbCle8HPM6x6W0OGdlBWKP_paB9B6--WwcDz2VlJ-oQoJHRW0v-OhfqSY4sFQtkGdXCxLUqTQ0CFytoJC6iwr2Oh76E2eOLInLNpgfymHJuL0g6oI1DYepm2IBNvq3UyevtgTB1IWvMYcgN9uQAG19LE8NgbrxDZtHvlgiXrtDqAf2i3Mrrc7y_EgAd7VoPMtNVes_WSZP6bnrUt1cUIw2BI2Spjt3ygIANF8kujH7XcrrmJzVoR2MFwzaHRdvy1Tsf2sppwSA\"}}"
+}
+
+[21-Apr-2025 05:09:37 Europe/Berlin] [[21-Apr-2025 05:09:37 Europe/Berlin]] Action: request: , Data: {
+    "action": "login_account",
+    "data": {
+        "uid": "admin",
+        "password": "admin",
+        "recaptcha_response": "03AFcWeA5AhN0RPc6wHKYsQjFRxw5NRGjskJm5Nk2Ukw1Vt2hQFb94E4mnNIEPtU9SHFTxUd6DsFiP3ZnzYOsNXJaKeisRcZEBRKDycryvzQHSExbZVu2tcJ615KTcCVuSjo238b9KU84rCf5RObUMqyTiYckiVVq5bJaItxqxW22pQn1g6EunBOCif04l3Peku5F-r_irJ18tUn_OFsBvIJwxjnNeH39DgBVEx5INn91oG5FomlXeCgdupCkBiYcs322Q49NQIFOzPLo7YZHSS136IPzxiFNvmrWxR1UiK80U3CU4tdU6eMxCwduYEOevLPr4GcRBPXeSiXLqFBWsagVUsyMT-6S8IQAp8Zig-k-91UBHqAbt8Ov7d_8nouhqCSZSNIk4j7y1MkTUq_PDZ2zP9OLCkpYSS6MldLlCvNLTc3-NwdAEgOgwd8SmCrJ0qLciK-UbQrspvKmmhDvfrlZWpP5RiWn_IQRnZPUNC720QU3kWS79I1bdVh1rxW1TlQP7avYjLMDEsrhJc6TT4Hw7xNDZT2WKufQjTmjF0qmv9s9rG9fQalegQ9AJtiGvfT9y1BeD4kspe05hcxeSNas6kH-XN6_eGgj1oTMbd4-CBODtv28ucirV2KW6usK_6T-jJdtrG95gJZZCBAhXevgkWMKM8Pl0oG-xwOoMqD9QzW7-sC8dAKAxaNZK7QUHsA4oehGKQqiNgujopMhljGbIGbCle8HPM6x6W0OGdlBWKP_paB9B6--WwcDz2VlJ-oQoJHRW0v-OhfqSY4sFQtkGdXCxLUqTQ0CFytoJC6iwr2Oh76E2eOLInLNpgfymHJuL0g6oI1DYepm2IBNvq3UyevtgTB1IWvMYcgN9uQAG19LE8NgbrxDZtHvlgiXrtDqAf2i3Mrrc7y_EgAd7VoPMtNVes_WSZP6bnrUt1cUIw2BI2Spjt3ygIANF8kujH7XcrrmJzVoR2MFwzaHRdvy1Tsf2sppwSA"
+    }
+}
+
+[21-Apr-2025 11:09:38 Asia/Manila] [[21-Apr-2025 11:09:38 Asia/Manila]] Action: Session Data: , Data: {
+    "ip_address": "127.0.0.1",
+    "user_agent": "Mozilla\/5.0 (Windows NT 10.0; Win64; x64; rv:137.0) Gecko\/20100101 Firefox\/137.0",
+    "session_hash": "0bec7ec0f77bbd12c4d742534c3a992c220da107eda70a7dbc32e00b3d9f9828",
+    "session_id": "c4udv8go98cmlm18f3vap36mg1",
+    "account_id": 1,
+    "account_uid": "A581822",
+    "email": "jeromesavc@gmail.com",
+    "username": "admin",
+    "account_status": "active",
+    "role_name": "Administrator",
+    "employee_id": 1,
+    "first_name": "Jerome",
+    "last_name": "Avecilla",
+    "middle_name": "Sotel",
+    "full_name": "Jerome S. Avecilla",
+    "contact_number": "+639772465533"
+}
+
+[21-Apr-2025 05:09:38 Europe/Berlin] PHP Warning:  Undefined variable $base_url in C:\xampp\htdocs\bulsu-school\account-receivable-system-project\index.php on line 10
+[21-Apr-2025 05:10:17 Europe/Berlin] [[21-Apr-2025 05:10:17 Europe/Berlin]] Action: get_server_request_data(): , Data: {
+    "rawInput": "{\"action\":\"logout_account\",\"data\":{\"uid\":\"A581822\",\"session_id\":\"c4udv8go98cmlm18f3vap36mg1\"}}"
+}
+
+[21-Apr-2025 05:10:17 Europe/Berlin] [[21-Apr-2025 05:10:17 Europe/Berlin]] Action: request: , Data: {
+    "action": "logout_account",
+    "data": {
+        "uid": "A581822",
+        "session_id": "c4udv8go98cmlm18f3vap36mg1"
+    }
+}
+
+[21-Apr-2025 05:10:29 Europe/Berlin] [[21-Apr-2025 05:10:29 Europe/Berlin]] Action: get_server_request_data(): , Data: {
+    "rawInput": "{\"action\":\"login_account\",\"data\":{\"uid\":\"member6\",\"password\":\"member\",\"recaptcha_response\":\"03AFcWeA5EftrJJl-0P9XFQ81dVOo5dEE7YVX_XqT6ss62ZG8VbUbYUfWWKNiwE13lvVRDRjKugU3ulDtZNVWCQN2hXZ80Ol8jROvVhriuwFRYpGnEWttirpN09ehv5pmtKCqbG_uBVQZ7B2NCm9q5XmWrqM5sju3Oyq5uB1xPy6CfbqnbJG-BurW7c7Qw_mN0Mc7zieU0_xbeSH0klPL2Qb7y5nASEDxHhCjOlYpqDixxAlB51ktVIbFmPtfsJG9rMiZNA1v1NA26PV7ozM56KbGt4wS6Xc9pWJE_2fgND7JC_x2BzUJ2Ten_wNTuP4JtG9w69llRJztPmkJZgp5JlMjuh279nIreqH08NghEqIlyXOy6jc4hxSX6aN4WBsUvB04GKqOheU_RMEjpoP-ADcJQ-1mCqVja9sAKGWgFMXjDCuB8yqzaQf04yWSBh8sEHbxSMeiwuGZoUwHCviLm8Yxvy07GWayH2XX62wQzJfinsLiX4VpFOFTy6TqAOhBwsr4UMfJQWs0f9Kxe9-tAGDM_u5DRfUAKbSFZ7v6IEF6NU4DpRFkymILOfjW1I5Q5K0mvEh85zHCl2ouzrhYjIjFmobLxF54jjjL0Bw539Y6QG-rTyC9tGGFuGliTLnU-g3mE3CbBiKZjeGN-5VoM1P3wPZC4jJcm-cSD971I_BSG_7CM7pOEkSXlMViiyzghtnvjvrjtSBPFEOy7x7oW9tb-rI9rbfdzVh-SKHkLIKtTlTUAbwAK6Bc6KtPCU7kvFO0wGsQFYrKhJ4qI-0hGrF_E-Cg90zUlw1hFjHpVDAmjvg6f6WWpo5NE3h5008-ZF2hrTCZ9GHTc43nsH3riljgN1xcAvt9vlIOgEGOC7RKw6J0QRh4S0D1VIm-xeq7fYf8ZoNH2r7cUpD1xRE444RKtYJPH8WrP6J_Y1Szis99dE7hwWcIkyIxI-Bx1JdirzbW5mpQt4GiQpQDvljZ4n2Mss73UwZJJYA\"}}"
+}
+
+[21-Apr-2025 05:10:29 Europe/Berlin] [[21-Apr-2025 05:10:29 Europe/Berlin]] Action: request: , Data: {
+    "action": "login_account",
+    "data": {
+        "uid": "member6",
+        "password": "member",
+        "recaptcha_response": "03AFcWeA5EftrJJl-0P9XFQ81dVOo5dEE7YVX_XqT6ss62ZG8VbUbYUfWWKNiwE13lvVRDRjKugU3ulDtZNVWCQN2hXZ80Ol8jROvVhriuwFRYpGnEWttirpN09ehv5pmtKCqbG_uBVQZ7B2NCm9q5XmWrqM5sju3Oyq5uB1xPy6CfbqnbJG-BurW7c7Qw_mN0Mc7zieU0_xbeSH0klPL2Qb7y5nASEDxHhCjOlYpqDixxAlB51ktVIbFmPtfsJG9rMiZNA1v1NA26PV7ozM56KbGt4wS6Xc9pWJE_2fgND7JC_x2BzUJ2Ten_wNTuP4JtG9w69llRJztPmkJZgp5JlMjuh279nIreqH08NghEqIlyXOy6jc4hxSX6aN4WBsUvB04GKqOheU_RMEjpoP-ADcJQ-1mCqVja9sAKGWgFMXjDCuB8yqzaQf04yWSBh8sEHbxSMeiwuGZoUwHCviLm8Yxvy07GWayH2XX62wQzJfinsLiX4VpFOFTy6TqAOhBwsr4UMfJQWs0f9Kxe9-tAGDM_u5DRfUAKbSFZ7v6IEF6NU4DpRFkymILOfjW1I5Q5K0mvEh85zHCl2ouzrhYjIjFmobLxF54jjjL0Bw539Y6QG-rTyC9tGGFuGliTLnU-g3mE3CbBiKZjeGN-5VoM1P3wPZC4jJcm-cSD971I_BSG_7CM7pOEkSXlMViiyzghtnvjvrjtSBPFEOy7x7oW9tb-rI9rbfdzVh-SKHkLIKtTlTUAbwAK6Bc6KtPCU7kvFO0wGsQFYrKhJ4qI-0hGrF_E-Cg90zUlw1hFjHpVDAmjvg6f6WWpo5NE3h5008-ZF2hrTCZ9GHTc43nsH3riljgN1xcAvt9vlIOgEGOC7RKw6J0QRh4S0D1VIm-xeq7fYf8ZoNH2r7cUpD1xRE444RKtYJPH8WrP6J_Y1Szis99dE7hwWcIkyIxI-Bx1JdirzbW5mpQt4GiQpQDvljZ4n2Mss73UwZJJYA"
+    }
+}
+
+[21-Apr-2025 11:10:29 Asia/Manila] [[21-Apr-2025 11:10:29 Asia/Manila]] Action: Session Data: , Data: {
+    "ip_address": "127.0.0.1",
+    "user_agent": "Mozilla\/5.0 (Windows NT 10.0; Win64; x64; rv:137.0) Gecko\/20100101 Firefox\/137.0",
+    "session_hash": "e49c8d389a4c444c35cbfe134faf71ac0e41f223bd5e50e0a7028c6a00df3bf4",
+    "session_id": "jt9rnoajk2moc3cvqlil8uthva",
+    "account_id": 23,
+    "account_uid": "A581841",
+    "email": "member6@gmail.com",
+    "username": "member6",
+    "account_status": "active",
+    "role_name": "Member",
+    "member_id": 26,
+    "first_name": "Test",
+    "last_name": "Five",
+    "middle_name": "Overdue",
+    "full_name": "Test O. Five",
+    "contact_number": "+639361234567",
+    "full_address": "Block 15 Lot 48, Santa Maria, Pandi, Bulacan, Region 3"
+}
+
+[21-Apr-2025 05:10:30 Europe/Berlin] PHP Warning:  Undefined variable $base_url in C:\xampp\htdocs\bulsu-school\account-receivable-system-project\index.php on line 12
+[21-Apr-2025 05:10:32 Europe/Berlin] [[21-Apr-2025 05:10:32 Europe/Berlin]] Action: data:, Data: {
+    "status": "paid,pending,overdue",
+    "member_id": "26"
+}
+
+[21-Apr-2025 05:10:42 Europe/Berlin] [[21-Apr-2025 05:10:42 Europe/Berlin]] Action: get_server_request_data(): , Data: {
+    "rawInput": "{\"action\":\"process_amortization_payment\",\"data\":{\"member_id\":\"26\",\"amortization_id\":21,\"used_credit_balance\":0,\"original_amount_payment\":4833,\"final_amount_payment\":4833,\"payment_method\":\"online_payment\",\"payment_date\":\"2025-04-21\",\"notes\":\"testest\",\"is_use_credit\":false,\"is_create_credit\":false}}"
+}
+
+[21-Apr-2025 05:10:42 Europe/Berlin] [[21-Apr-2025 05:10:42 Europe/Berlin]] Action: request: , Data: {
+    "action": "process_amortization_payment",
+    "data": {
+        "member_id": "26",
+        "amortization_id": 21,
+        "used_credit_balance": 0,
+        "original_amount_payment": 4833,
+        "final_amount_payment": 4833,
+        "payment_method": "online_payment",
+        "payment_date": "2025-04-21",
+        "notes": "testest",
+        "is_use_credit": false,
+        "is_create_credit": false
+    }
+}
+
+[21-Apr-2025 05:10:42 Europe/Berlin] [[21-Apr-2025 05:10:42 Europe/Berlin]] Action: data:, Data: {
+    "status": "paid,pending,overdue",
+    "member_id": "26"
+}
+
+[21-Apr-2025 05:10:46 Europe/Berlin] [[21-Apr-2025 05:10:46 Europe/Berlin]] Action: get_server_request_data(): , Data: {
+    "rawInput": "{\"action\":\"logout_account\",\"data\":{\"uid\":\"A581841\",\"session_id\":\"jt9rnoajk2moc3cvqlil8uthva\"}}"
+}
+
+[21-Apr-2025 05:10:46 Europe/Berlin] [[21-Apr-2025 05:10:46 Europe/Berlin]] Action: request: , Data: {
+    "action": "logout_account",
+    "data": {
+        "uid": "A581841",
+        "session_id": "jt9rnoajk2moc3cvqlil8uthva"
+    }
+}
+
+[21-Apr-2025 05:11:04 Europe/Berlin] [[21-Apr-2025 05:11:04 Europe/Berlin]] Action: get_server_request_data(): , Data: {
+    "rawInput": "{\"action\":\"login_account\",\"data\":{\"uid\":\"member7\",\"password\":\"member\",\"recaptcha_response\":\"03AFcWeA4cLNVvETD9fMeAeBC3P98jahzaGvs4jEckY2CNWgO7WU65A5qBffqwa2NA0eKQiAKCpLBeb-D3-KPtEdfdJfvN8F-oGm-tY33UOuQwCU-LIjs9vK8MlewZZJfxhDNXRoBPJjOPuQmJWHY9CLtaYDv8v-no3Weh22Fd4retaulqMbPEk3wq9qsUz834aVpWsp7cKViOMCooUCunnQMlxaJ_BgkzLW7wkqM44njRTql3No18NEJWCsqTegz1SSePy4fq-oxtZvq3hDOk18ElHh5J4nte7tfqleGdm68F7IlotLQoqEs1ML9Wt4WuL5CrFdZfO3E44yO0cNdLNiNbZP3gXAp7R0T2jLg6H2ysIP1Bs4PMUm0XxgjRS1qrcZPKPg4W02C76yQveUXPsLTFhVzGV5KK-XnkE9Qm5kV9sQ1vdb28HynBkbpz0e_0Q8iAPPu59T9uZh6ZBpRubZw0hVw3I1oUZqIbALbu6h7Fk13_I4zNo4CVNN3Jjo79q54PRo7VeDcLCXUIrUkBrsZAAVfaSyzeK_yO7fmk4O2h9vwdL1AhmMGy8Icso0Z_aLdoFKnSN40vsRA3HpqO0CHYDjRrItbc9PJQuMoRLr1SkFQm9p6dq3rfqR-9OFMN-vSoDMfJ11o6X9WaBHlzNKgiv9dhvLIsNrWSA7whQjbHkolY8cwy9EaYRd-vyK3Ofs1vN1dR9GMSXYxEC7S5V9as5t21nfJham_MugaUX9-RvjqQCmngX53yxJhIjf8URxUFIrV1iBr4xjNrgZT_P-OtCda7dJEYiBKdDmSAjkK7WIvTd9A3yryAKhU9l2U3ONGwZV8lIHMvfpZEnslw3hxMR66KPQPRvcWEXKO8Pma4f9xTrxgXWnYTjux4PEom7ZfXCCRpO_Mqb61fTbr4loL6yvZnP-m_Rdu9vH4LX2VbKX4IO27VHkx3YnA-FGE7VeL5S_yHKo00XMqPLTAAS0dG0Z5fqBQyoQ\"}}"
+}
+
+[21-Apr-2025 05:11:04 Europe/Berlin] [[21-Apr-2025 05:11:04 Europe/Berlin]] Action: request: , Data: {
+    "action": "login_account",
+    "data": {
+        "uid": "member7",
+        "password": "member",
+        "recaptcha_response": "03AFcWeA4cLNVvETD9fMeAeBC3P98jahzaGvs4jEckY2CNWgO7WU65A5qBffqwa2NA0eKQiAKCpLBeb-D3-KPtEdfdJfvN8F-oGm-tY33UOuQwCU-LIjs9vK8MlewZZJfxhDNXRoBPJjOPuQmJWHY9CLtaYDv8v-no3Weh22Fd4retaulqMbPEk3wq9qsUz834aVpWsp7cKViOMCooUCunnQMlxaJ_BgkzLW7wkqM44njRTql3No18NEJWCsqTegz1SSePy4fq-oxtZvq3hDOk18ElHh5J4nte7tfqleGdm68F7IlotLQoqEs1ML9Wt4WuL5CrFdZfO3E44yO0cNdLNiNbZP3gXAp7R0T2jLg6H2ysIP1Bs4PMUm0XxgjRS1qrcZPKPg4W02C76yQveUXPsLTFhVzGV5KK-XnkE9Qm5kV9sQ1vdb28HynBkbpz0e_0Q8iAPPu59T9uZh6ZBpRubZw0hVw3I1oUZqIbALbu6h7Fk13_I4zNo4CVNN3Jjo79q54PRo7VeDcLCXUIrUkBrsZAAVfaSyzeK_yO7fmk4O2h9vwdL1AhmMGy8Icso0Z_aLdoFKnSN40vsRA3HpqO0CHYDjRrItbc9PJQuMoRLr1SkFQm9p6dq3rfqR-9OFMN-vSoDMfJ11o6X9WaBHlzNKgiv9dhvLIsNrWSA7whQjbHkolY8cwy9EaYRd-vyK3Ofs1vN1dR9GMSXYxEC7S5V9as5t21nfJham_MugaUX9-RvjqQCmngX53yxJhIjf8URxUFIrV1iBr4xjNrgZT_P-OtCda7dJEYiBKdDmSAjkK7WIvTd9A3yryAKhU9l2U3ONGwZV8lIHMvfpZEnslw3hxMR66KPQPRvcWEXKO8Pma4f9xTrxgXWnYTjux4PEom7ZfXCCRpO_Mqb61fTbr4loL6yvZnP-m_Rdu9vH4LX2VbKX4IO27VHkx3YnA-FGE7VeL5S_yHKo00XMqPLTAAS0dG0Z5fqBQyoQ"
+    }
+}
+
+[21-Apr-2025 05:11:18 Europe/Berlin] [[21-Apr-2025 05:11:18 Europe/Berlin]] Action: get_server_request_data(): , Data: {
+    "rawInput": "{\"action\":\"login_account\",\"data\":{\"uid\":\"member3\",\"password\":\"member\",\"recaptcha_response\":\"03AFcWeA47PwY-6nVD2RPDEZBa_bUAMW7r9Xnf3bt38_aERe4wBEN2vBjrJBlvVvR6K6RexUXhVrK_6uJvpZfCij4lMG1JDw1zw_GJF4kKdy91uYGvL_J11nnhSBEGfYTwgz2b3TB8SnjtIk5yAdKcr0IECFVJrns3CrEK14ghNhRY_Wvs1939XU1FAhzvsd3jhTdv1fvuGwCC7bzdh2LPQu-NTFqf-aiENinqgWIS_iwDpAMGw4YQwQjg5hp0My8j3jRYLaa2Wk5db-C0oEFv4ziw0WoXQEPqBDAOoGZq91NqiQBGLjoolkC5j8CVNwZUGv-xLNURbzUdTkt1mFwnOdKZXeiekfYhxNSXi3s3AQKnQYjWV868xoRr3_9XKiwTsRDzHfuN883O5OnTK6Gwa9Tp2yKJs-8JxuzHFWawTcHXca0R-zUgkF0CEYDQiNVXNG6U4Yn5A-SIGmKB_ihuAyV5wOMkkQV_1dLy0PAs35tv-2DcY2VC1KhSmSNODO4FeabhTg60YYVY76Z54scV_z6JrlIsCQke16bDs_GuwkDEpn8ahinKgabz6pHzuwZ1KGsjcpzWDGUkBajPiyNg0VHkDa4-U0KY37uPvwwlkkOb6_vx66smv3JcYHV-EmnjK08-fW3UaN8HARAsT7ZN9Dag7yeMv2CZq7wv1sXQDt9bsFXLig-cCjKZOszjQKZjtk_jHX1TFrsZuHFky5kLLsVHa2REGYr8Hb_ksG7P6Mij1EtVb1ZeFK_Ne4FaDIZsE73sAEepPdZATjQ0Ea7jZtWZS4HvQT7_H_oMhvoKEgipn0TSCQ9CfY5xAKlRR0wBWhLD6X8uOfmr9vDKAOFmTp3_icNS5lzePyf5L1A7utBA_Jb_ffLUlqHjLtO4Y4ZIIyZWtQo_VoV5wHExj-IF5ia1E-kqISmA1i9JIbajoOZu0jlr9-IwnsbpG3lHZR4VaFzqcsAytM8xEKQ_qfu7_JrMPLr4KhK9cw\"}}"
+}
+
+[21-Apr-2025 05:11:18 Europe/Berlin] [[21-Apr-2025 05:11:18 Europe/Berlin]] Action: request: , Data: {
+    "action": "login_account",
+    "data": {
+        "uid": "member3",
+        "password": "member",
+        "recaptcha_response": "03AFcWeA47PwY-6nVD2RPDEZBa_bUAMW7r9Xnf3bt38_aERe4wBEN2vBjrJBlvVvR6K6RexUXhVrK_6uJvpZfCij4lMG1JDw1zw_GJF4kKdy91uYGvL_J11nnhSBEGfYTwgz2b3TB8SnjtIk5yAdKcr0IECFVJrns3CrEK14ghNhRY_Wvs1939XU1FAhzvsd3jhTdv1fvuGwCC7bzdh2LPQu-NTFqf-aiENinqgWIS_iwDpAMGw4YQwQjg5hp0My8j3jRYLaa2Wk5db-C0oEFv4ziw0WoXQEPqBDAOoGZq91NqiQBGLjoolkC5j8CVNwZUGv-xLNURbzUdTkt1mFwnOdKZXeiekfYhxNSXi3s3AQKnQYjWV868xoRr3_9XKiwTsRDzHfuN883O5OnTK6Gwa9Tp2yKJs-8JxuzHFWawTcHXca0R-zUgkF0CEYDQiNVXNG6U4Yn5A-SIGmKB_ihuAyV5wOMkkQV_1dLy0PAs35tv-2DcY2VC1KhSmSNODO4FeabhTg60YYVY76Z54scV_z6JrlIsCQke16bDs_GuwkDEpn8ahinKgabz6pHzuwZ1KGsjcpzWDGUkBajPiyNg0VHkDa4-U0KY37uPvwwlkkOb6_vx66smv3JcYHV-EmnjK08-fW3UaN8HARAsT7ZN9Dag7yeMv2CZq7wv1sXQDt9bsFXLig-cCjKZOszjQKZjtk_jHX1TFrsZuHFky5kLLsVHa2REGYr8Hb_ksG7P6Mij1EtVb1ZeFK_Ne4FaDIZsE73sAEepPdZATjQ0Ea7jZtWZS4HvQT7_H_oMhvoKEgipn0TSCQ9CfY5xAKlRR0wBWhLD6X8uOfmr9vDKAOFmTp3_icNS5lzePyf5L1A7utBA_Jb_ffLUlqHjLtO4Y4ZIIyZWtQo_VoV5wHExj-IF5ia1E-kqISmA1i9JIbajoOZu0jlr9-IwnsbpG3lHZR4VaFzqcsAytM8xEKQ_qfu7_JrMPLr4KhK9cw"
+    }
+}
+
+[21-Apr-2025 11:11:18 Asia/Manila] [[21-Apr-2025 11:11:18 Asia/Manila]] Action: Session Data: , Data: {
+    "ip_address": "127.0.0.1",
+    "user_agent": "Mozilla\/5.0 (Windows NT 10.0; Win64; x64; rv:137.0) Gecko\/20100101 Firefox\/137.0",
+    "session_hash": "6151915b94e76cf24743f06da982d1d3cf8fb2373b01903fe0758d6aae19bf51",
+    "session_id": "c394tgk3a9d8oueaaikqomt9p0",
+    "account_id": 20,
+    "account_uid": "A581838",
+    "email": "member3@gmail.com",
+    "username": "member3",
+    "account_status": "active",
+    "role_name": "Member",
+    "member_id": 23,
+    "first_name": "TestUpdated",
+    "last_name": "Two",
+    "middle_name": "Overdue",
+    "full_name": "TestUpdated O. Two",
+    "contact_number": "+639331234567",
+    "full_address": "Block 12 Lot 39, San Jose, Pandi, Bulacan, Region 3"
+}
+
+[21-Apr-2025 05:11:18 Europe/Berlin] PHP Warning:  Undefined variable $base_url in C:\xampp\htdocs\bulsu-school\account-receivable-system-project\index.php on line 12
+[21-Apr-2025 05:11:21 Europe/Berlin] [[21-Apr-2025 05:11:21 Europe/Berlin]] Action: data:, Data: {
+    "status": "paid,pending,overdue",
+    "member_id": "23"
+}
+
+[21-Apr-2025 05:11:40 Europe/Berlin] [[21-Apr-2025 05:11:40 Europe/Berlin]] Action: get_server_request_data(): , Data: {
+    "rawInput": "{\"action\":\"process_amortization_payment\",\"data\":{\"member_id\":\"23\",\"amortization_id\":18,\"used_credit_balance\":0,\"original_amount_payment\":1804,\"final_amount_payment\":1804,\"payment_method\":\"online_payment\",\"payment_date\":\"2025-04-21\",\"notes\":\"test\",\"is_use_credit\":false,\"is_create_credit\":false}}"
+}
+
+[21-Apr-2025 05:11:40 Europe/Berlin] [[21-Apr-2025 05:11:40 Europe/Berlin]] Action: request: , Data: {
+    "action": "process_amortization_payment",
+    "data": {
+        "member_id": "23",
+        "amortization_id": 18,
+        "used_credit_balance": 0,
+        "original_amount_payment": 1804,
+        "final_amount_payment": 1804,
+        "payment_method": "online_payment",
+        "payment_date": "2025-04-21",
+        "notes": "test",
+        "is_use_credit": false,
+        "is_create_credit": false
+    }
+}
+
+[21-Apr-2025 05:11:40 Europe/Berlin] [[21-Apr-2025 05:11:40 Europe/Berlin]] Action: data:, Data: {
+    "status": "paid,pending,overdue",
+    "member_id": "23"
+}
+
+[21-Apr-2025 05:11:45 Europe/Berlin] [[21-Apr-2025 05:11:45 Europe/Berlin]] Action: get_server_request_data(): , Data: {
+    "rawInput": "{\"action\":\"logout_account\",\"data\":{\"uid\":\"A581838\",\"session_id\":\"c394tgk3a9d8oueaaikqomt9p0\"}}"
+}
+
+[21-Apr-2025 05:11:45 Europe/Berlin] [[21-Apr-2025 05:11:45 Europe/Berlin]] Action: request: , Data: {
+    "action": "logout_account",
+    "data": {
+        "uid": "A581838",
+        "session_id": "c394tgk3a9d8oueaaikqomt9p0"
+    }
+}
+
+[21-Apr-2025 05:12:03 Europe/Berlin] [[21-Apr-2025 05:12:03 Europe/Berlin]] Action: get_server_request_data(): , Data: {
+    "rawInput": "{\"action\":\"login_account\",\"data\":{\"uid\":\"admin\",\"password\":\"admin\",\"recaptcha_response\":\"03AFcWeA5u5DUXrBBw6ZsUxs31NIyu4br7aKbFuPKeKRTGHWx0WifjtJpo0HQvLMMoWhkB4oyFvWUoF-oxNgPxHhQdf1qXwQ0LEsrnFRaostW6p7lZfwc-NukifaBjy_VsnmKsBcwiNOhv9J9Jj9gGyUuRpnqUKhUigqtNka3w0nifR-3rNQc2E8PZ3R2H2FXbi6iOFpVU72i7OtT57C2BUmIGADwF8wDeY9aiiKNi4tdlgPYNxnNhG7fStwQxouyTvOorp3n0u7oEmR89JDy4RYK7SYKqHPRavN3m4KAxtyiG__bhK-tW3Ooz77Xm0f1hQhMEL2WtLcC1kEOGMqrEW-NKgaiL-Z-Gc8m46r1DZ1Dhqmb3mqbrIxWA7wbmBzKImP57rr0bQ1-0TE2m99rXOI-xYhoJP-dvTUHXljSRQ2BjrvAsfi44YEuZCir-gyoEiWk6h2dYoEUBbpFAdidG2z6TQz3YTXwoeRpg4pw8LXjWS1vffp-E2u51jKMBnl9LF1GW1rPdJGzpHVdkXcTSbwtLiu8U8SAgopZdmthYFLrnaCTvCIWea3-gp1UAay-sbCm7-FpnzX0Tf_6ZvQmixlWLKc8anC20Kd8-Vp_RzxTQ5WzcfVJo_OqSUzrhLrbIDMgeWBCbTrK--ovt4x9zRFByifLyzLhvJzF3HUZANRZtbaIzSQdO0t1D_jOURAJan6862MRT8WVHDpcCoI33-I8oddUCZc5pAGFBOFv9bmzCtLkTjV5uhdn4ywizeIjzaU0zr53lULqdENvUBPYr-Vz2BM09IwYDaoES2dZGkCJzNzRFHUziIyTkpJgDxvWxtCYhct_dUkD7Tqy8GuHlA1i2lrsTWut6r4Hp0Fqm3DDNh6_I7mnHun9DYk0ln1Af3GQeJ6bpWt0eUvCUjjrC49evw1DdXe0pneiaGE69iLy9ml7EywyG357oSlS0dL-StugcDBzlhLP5bJ10qia8QmRmb2j3N1gGgKV8UENuvlDd7FO2jo2GAyI\"}}"
+}
+
+[21-Apr-2025 05:12:03 Europe/Berlin] [[21-Apr-2025 05:12:03 Europe/Berlin]] Action: request: , Data: {
+    "action": "login_account",
+    "data": {
+        "uid": "admin",
+        "password": "admin",
+        "recaptcha_response": "03AFcWeA5u5DUXrBBw6ZsUxs31NIyu4br7aKbFuPKeKRTGHWx0WifjtJpo0HQvLMMoWhkB4oyFvWUoF-oxNgPxHhQdf1qXwQ0LEsrnFRaostW6p7lZfwc-NukifaBjy_VsnmKsBcwiNOhv9J9Jj9gGyUuRpnqUKhUigqtNka3w0nifR-3rNQc2E8PZ3R2H2FXbi6iOFpVU72i7OtT57C2BUmIGADwF8wDeY9aiiKNi4tdlgPYNxnNhG7fStwQxouyTvOorp3n0u7oEmR89JDy4RYK7SYKqHPRavN3m4KAxtyiG__bhK-tW3Ooz77Xm0f1hQhMEL2WtLcC1kEOGMqrEW-NKgaiL-Z-Gc8m46r1DZ1Dhqmb3mqbrIxWA7wbmBzKImP57rr0bQ1-0TE2m99rXOI-xYhoJP-dvTUHXljSRQ2BjrvAsfi44YEuZCir-gyoEiWk6h2dYoEUBbpFAdidG2z6TQz3YTXwoeRpg4pw8LXjWS1vffp-E2u51jKMBnl9LF1GW1rPdJGzpHVdkXcTSbwtLiu8U8SAgopZdmthYFLrnaCTvCIWea3-gp1UAay-sbCm7-FpnzX0Tf_6ZvQmixlWLKc8anC20Kd8-Vp_RzxTQ5WzcfVJo_OqSUzrhLrbIDMgeWBCbTrK--ovt4x9zRFByifLyzLhvJzF3HUZANRZtbaIzSQdO0t1D_jOURAJan6862MRT8WVHDpcCoI33-I8oddUCZc5pAGFBOFv9bmzCtLkTjV5uhdn4ywizeIjzaU0zr53lULqdENvUBPYr-Vz2BM09IwYDaoES2dZGkCJzNzRFHUziIyTkpJgDxvWxtCYhct_dUkD7Tqy8GuHlA1i2lrsTWut6r4Hp0Fqm3DDNh6_I7mnHun9DYk0ln1Af3GQeJ6bpWt0eUvCUjjrC49evw1DdXe0pneiaGE69iLy9ml7EywyG357oSlS0dL-StugcDBzlhLP5bJ10qia8QmRmb2j3N1gGgKV8UENuvlDd7FO2jo2GAyI"
+    }
+}
+
+[21-Apr-2025 11:12:04 Asia/Manila] [[21-Apr-2025 11:12:04 Asia/Manila]] Action: Session Data: , Data: {
+    "ip_address": "127.0.0.1",
+    "user_agent": "Mozilla\/5.0 (Windows NT 10.0; Win64; x64; rv:137.0) Gecko\/20100101 Firefox\/137.0",
+    "session_hash": "83dcecac961d60281371eae9cf75be1f184123f3678425ad47fe49cc11884848",
+    "session_id": "qjoq6be04sjt3pekveh9ilelrf",
+    "account_id": 1,
+    "account_uid": "A581822",
+    "email": "jeromesavc@gmail.com",
+    "username": "admin",
+    "account_status": "active",
+    "role_name": "Administrator",
+    "employee_id": 1,
+    "first_name": "Jerome",
+    "last_name": "Avecilla",
+    "middle_name": "Sotel",
+    "full_name": "Jerome S. Avecilla",
+    "contact_number": "+639772465533"
+}
+
+[21-Apr-2025 05:12:04 Europe/Berlin] PHP Warning:  Undefined variable $base_url in C:\xampp\htdocs\bulsu-school\account-receivable-system-project\index.php on line 10
+[21-Apr-2025 05:31:12 Europe/Berlin] [[21-Apr-2025 05:31:12 Europe/Berlin]] Action: get_server_request_data(): , Data: {
+    "rawInput": "{\"action\":\"logout_account\",\"data\":{\"uid\":\"A581822\",\"session_id\":\"qjoq6be04sjt3pekveh9ilelrf\"}}"
+}
+
+[21-Apr-2025 05:31:12 Europe/Berlin] [[21-Apr-2025 05:31:12 Europe/Berlin]] Action: request: , Data: {
+    "action": "logout_account",
+    "data": {
+        "uid": "A581822",
+        "session_id": "qjoq6be04sjt3pekveh9ilelrf"
+    }
+}
+
+[21-Apr-2025 05:32:01 Europe/Berlin] [[21-Apr-2025 05:32:01 Europe/Berlin]] Action: get_server_request_data(): , Data: {
+    "rawInput": "{\"action\":\"login_account\",\"data\":{\"uid\":\"member\",\"password\":\"member\",\"recaptcha_response\":\"03AFcWeA7DY26a2LCc0ATgyjxUKsTbbLzZD-jMv4v7WlOV1Kf2g-4DwGuY7lCNRLQ8q41TVb3RRJhRVirAtNnvQzEACaHLf_RxbB_DYlMrYRwZZQzRPBQ2F5aiEjfqC_G4ND7VyUCtoffXnuykeHCQPEYbpUdBB02aSRWwysFnB57Zv-VGEEdKUhTVs_qnEbaxXaA0Ssj1nEZ34Z4MC8wkMV5GPgHRRD_GQHYp6urUVZaAip1mtnlbPUzWXAcGwIvlZuZgmEEm02X80x4entZakf6A48Gr3_EYXOL6BsYsChDnQkfDY1pYkLxTN1MmNQ-Tztxx5pvYpVy4mVHDhmYnD7IWad6RxQ90Nc9dYdVyiAbrcLMMX0mqFIUxW_Fjul0Pb06M15CTfxG5QQ5-kwKwGlFaWvHafMrX5xcT2o_fG4Fj__hRHCFciSqVjd5NnNMV9CWi5Quti89l8_Q9R8fvTp_dMngORFA6A79Y1KJLd7PU-pMoyu_ftKFteZ9FZnY0fSRKwGZgZ6Gu2HyTwdSMbdyRbSXoK4qqL7Yxt2aSf5QRxjezXqDDR_Q8RYnNf99RmeI8EIyniBe7j0-wExeL4E5cY31odOX0xEZrWK9JsTFCMfBGylWLrUzYU_GKtJwcSs_76HPGv1A-auvGn6K5JYf1q-TmSuTMTKNliDvKv2Kb7E2w9P0EeH6y1sS8rGFm00TglMMX6QZ3Ce2A5aa25SLq5TOJVq2NaODiq3o9W9n-ZNmUc5X0l0i9yiTMc3ObfPx54S5bwge4EHLF0UIsqiFaNGywwNij_0s9JDilBkq-YEaVIWyEErrGckpMFWh9WX19jOad2a2FRZ2iMRNpn2c2JNSCxDpmjBEZqbBX7BZcHD5wITj1gTvGTmJW_stiExgIFX_mCJowausPsnO9VICoC_U6h9FM577DRVHsCOLKLb6B38hVLzGYPKe1CKgpyOS6kJNiPCPpx5mkuG7qRg77aJlJTncA7AElpRUcjy6QNzs4n6su0mc\"}}"
+}
+
+[21-Apr-2025 05:32:01 Europe/Berlin] [[21-Apr-2025 05:32:01 Europe/Berlin]] Action: request: , Data: {
+    "action": "login_account",
+    "data": {
+        "uid": "member",
+        "password": "member",
+        "recaptcha_response": "03AFcWeA7DY26a2LCc0ATgyjxUKsTbbLzZD-jMv4v7WlOV1Kf2g-4DwGuY7lCNRLQ8q41TVb3RRJhRVirAtNnvQzEACaHLf_RxbB_DYlMrYRwZZQzRPBQ2F5aiEjfqC_G4ND7VyUCtoffXnuykeHCQPEYbpUdBB02aSRWwysFnB57Zv-VGEEdKUhTVs_qnEbaxXaA0Ssj1nEZ34Z4MC8wkMV5GPgHRRD_GQHYp6urUVZaAip1mtnlbPUzWXAcGwIvlZuZgmEEm02X80x4entZakf6A48Gr3_EYXOL6BsYsChDnQkfDY1pYkLxTN1MmNQ-Tztxx5pvYpVy4mVHDhmYnD7IWad6RxQ90Nc9dYdVyiAbrcLMMX0mqFIUxW_Fjul0Pb06M15CTfxG5QQ5-kwKwGlFaWvHafMrX5xcT2o_fG4Fj__hRHCFciSqVjd5NnNMV9CWi5Quti89l8_Q9R8fvTp_dMngORFA6A79Y1KJLd7PU-pMoyu_ftKFteZ9FZnY0fSRKwGZgZ6Gu2HyTwdSMbdyRbSXoK4qqL7Yxt2aSf5QRxjezXqDDR_Q8RYnNf99RmeI8EIyniBe7j0-wExeL4E5cY31odOX0xEZrWK9JsTFCMfBGylWLrUzYU_GKtJwcSs_76HPGv1A-auvGn6K5JYf1q-TmSuTMTKNliDvKv2Kb7E2w9P0EeH6y1sS8rGFm00TglMMX6QZ3Ce2A5aa25SLq5TOJVq2NaODiq3o9W9n-ZNmUc5X0l0i9yiTMc3ObfPx54S5bwge4EHLF0UIsqiFaNGywwNij_0s9JDilBkq-YEaVIWyEErrGckpMFWh9WX19jOad2a2FRZ2iMRNpn2c2JNSCxDpmjBEZqbBX7BZcHD5wITj1gTvGTmJW_stiExgIFX_mCJowausPsnO9VICoC_U6h9FM577DRVHsCOLKLb6B38hVLzGYPKe1CKgpyOS6kJNiPCPpx5mkuG7qRg77aJlJTncA7AElpRUcjy6QNzs4n6su0mc"
+    }
+}
+
+[21-Apr-2025 11:32:01 Asia/Manila] [[21-Apr-2025 11:32:01 Asia/Manila]] Action: Session Data: , Data: {
+    "ip_address": "127.0.0.1",
+    "user_agent": "Mozilla\/5.0 (Windows NT 10.0; Win64; x64; rv:137.0) Gecko\/20100101 Firefox\/137.0",
+    "session_hash": "6f310b1d1dce2a991ed399bc89e36e57e3d53be8a35657c429286530e79de33e",
+    "session_id": "7j1goahl7hha42sao9beg0tq88",
+    "account_id": 18,
+    "account_uid": "A839109",
+    "email": "member@gmail.com",
+    "username": "member",
+    "account_status": "active",
+    "role_name": "Member",
+    "member_id": 16,
+    "first_name": "John",
+    "last_name": "Doe",
+    "middle_name": "Smith",
+    "full_name": "John S. Doe",
+    "contact_number": "+639772465533",
+    "full_address": "Ph7, Blk3, Lot24, Residence III, Brgy. Mapulang Lupa, Pandi, Bulacan, Region 3"
+}
+
+[21-Apr-2025 05:32:02 Europe/Berlin] PHP Warning:  Undefined variable $base_url in C:\xampp\htdocs\bulsu-school\account-receivable-system-project\index.php on line 12
+[21-Apr-2025 05:32:04 Europe/Berlin] [[21-Apr-2025 05:32:04 Europe/Berlin]] Action: data:, Data: {
+    "status": "paid,pending,overdue",
+    "member_id": "16"
+}
+
+[21-Apr-2025 05:58:19 Europe/Berlin] [[21-Apr-2025 05:58:19 Europe/Berlin]] Action: data:, Data: {
+    "status": "paid,pending,overdue",
+    "member_id": "16"
+}
+
+[21-Apr-2025 05:58:25 Europe/Berlin] [[21-Apr-2025 05:58:25 Europe/Berlin]] Action: get_server_request_data(): , Data: {
+    "rawInput": "{\"action\":\"logout_account\",\"data\":{\"uid\":\"A839109\",\"session_id\":\"7j1goahl7hha42sao9beg0tq88\"}}"
+}
+
+[21-Apr-2025 05:58:25 Europe/Berlin] [[21-Apr-2025 05:58:25 Europe/Berlin]] Action: request: , Data: {
+    "action": "logout_account",
+    "data": {
+        "uid": "A839109",
+        "session_id": "7j1goahl7hha42sao9beg0tq88"
+    }
+}
+
+[21-Apr-2025 05:59:05 Europe/Berlin] [[21-Apr-2025 05:59:05 Europe/Berlin]] Action: get_server_request_data(): , Data: {
+    "rawInput": "{\"action\":\"login_account\",\"data\":{\"uid\":\"admin\",\"password\":\"admin\",\"recaptcha_response\":\"03AFcWeA44HYzZyzVtWvdMrBrAHM9zl2tyLBb8a6a30jZHHTfXAK4WFJ5fIaYkFpSwyBMvm0NVaGqtDMd30U6CGQjQvCfwGmUb6fs94EmH20sNPvGGufT7f9H0LDcyAZX6VIbjfCqRf1_k8QuqX06ZyIC5P61SiOlJcbO8-K1LOtSJwO1O2PKB6_ZH14O9_5Do5NwzS5Fo3dFR9t5s2fJg_ZxK-j7AwY-7TlfFupQm4ue-IU8N6g-vs_cx9WQyVJOrdLgvAOFlXm75H3dh8G_8yNyBEju8RM-ddjExJjFTJ0SRzVR1iKxRS3r6M9SEO3Fu_xmrYCbhslmBb28ysH2Ureqn1q1LrwNgXd5ixZlT1btfmZGBY2_97qSFS31-hE-sgoqGs9dtO08_gV7FBYIlVGgmrgEvNBQkY6HA8C2u6CeD4ofwVX6DQhTWzH9gV2vYL3UYQnKdCEwwAYLwLRg3Ul4I8W5mhdYsPZZ4eik_J905fb3csow8P9gtzHujePn9k-bQK1PoPHeNtf_4zDV67Bqz2L57IrrHRnC8ZFMxEcYf6fa46_9DKxGbv3k-adsDKaiIv-2Ln2s1sV3m2HTTNcmeeqQknCilCQvw5T4ufXETW65bjNHyd-GGrLhwGhde2wp2YdEhKnAIc_jvJ1a41T73-5BVqFf-hqz6IL5uQdL4d-eoZ1kB2BxYW6HTGbrZuCRyFtd-VSp3QY9iShL8lhFQt2PVP8ijoD6d-qwVJUGoI_jr1ZSI_aKsGUn7cPJdoEtPsrlBUIwmF1QBWp_NfchGy4Lwqtn9N59J9evURDnZw4keSlIpyUTBS0wG8bPfnnQLiyjtuqRD5h7t6Mto9mFfUXAHKF9ZOcdJNxLYFVswxTUphZJlcNvNpDrYMh6WPpZRrKAI5LbB03egmY1r6UuUEYFmYflUFIpliGxJjcvdd0hUrzSjYun5FjLJ5WFwQS6U4now2xO2jpjM1yKOiZ12v6u1OszQY9IxLCm4lOx6lKU1iFLLiDs\"}}"
+}
+
+[21-Apr-2025 05:59:05 Europe/Berlin] [[21-Apr-2025 05:59:05 Europe/Berlin]] Action: request: , Data: {
+    "action": "login_account",
+    "data": {
+        "uid": "admin",
+        "password": "admin",
+        "recaptcha_response": "03AFcWeA44HYzZyzVtWvdMrBrAHM9zl2tyLBb8a6a30jZHHTfXAK4WFJ5fIaYkFpSwyBMvm0NVaGqtDMd30U6CGQjQvCfwGmUb6fs94EmH20sNPvGGufT7f9H0LDcyAZX6VIbjfCqRf1_k8QuqX06ZyIC5P61SiOlJcbO8-K1LOtSJwO1O2PKB6_ZH14O9_5Do5NwzS5Fo3dFR9t5s2fJg_ZxK-j7AwY-7TlfFupQm4ue-IU8N6g-vs_cx9WQyVJOrdLgvAOFlXm75H3dh8G_8yNyBEju8RM-ddjExJjFTJ0SRzVR1iKxRS3r6M9SEO3Fu_xmrYCbhslmBb28ysH2Ureqn1q1LrwNgXd5ixZlT1btfmZGBY2_97qSFS31-hE-sgoqGs9dtO08_gV7FBYIlVGgmrgEvNBQkY6HA8C2u6CeD4ofwVX6DQhTWzH9gV2vYL3UYQnKdCEwwAYLwLRg3Ul4I8W5mhdYsPZZ4eik_J905fb3csow8P9gtzHujePn9k-bQK1PoPHeNtf_4zDV67Bqz2L57IrrHRnC8ZFMxEcYf6fa46_9DKxGbv3k-adsDKaiIv-2Ln2s1sV3m2HTTNcmeeqQknCilCQvw5T4ufXETW65bjNHyd-GGrLhwGhde2wp2YdEhKnAIc_jvJ1a41T73-5BVqFf-hqz6IL5uQdL4d-eoZ1kB2BxYW6HTGbrZuCRyFtd-VSp3QY9iShL8lhFQt2PVP8ijoD6d-qwVJUGoI_jr1ZSI_aKsGUn7cPJdoEtPsrlBUIwmF1QBWp_NfchGy4Lwqtn9N59J9evURDnZw4keSlIpyUTBS0wG8bPfnnQLiyjtuqRD5h7t6Mto9mFfUXAHKF9ZOcdJNxLYFVswxTUphZJlcNvNpDrYMh6WPpZRrKAI5LbB03egmY1r6UuUEYFmYflUFIpliGxJjcvdd0hUrzSjYun5FjLJ5WFwQS6U4now2xO2jpjM1yKOiZ12v6u1OszQY9IxLCm4lOx6lKU1iFLLiDs"
+    }
+}
+
+[21-Apr-2025 11:59:05 Asia/Manila] [[21-Apr-2025 11:59:05 Asia/Manila]] Action: Session Data: , Data: {
+    "ip_address": "127.0.0.1",
+    "user_agent": "Mozilla\/5.0 (Windows NT 10.0; Win64; x64; rv:137.0) Gecko\/20100101 Firefox\/137.0",
+    "session_hash": "8798bfd15a338c84af70746bcf9262870557018bc1194d2b44c3b94f963833ef",
+    "session_id": "i45l6vqbkg8nsf21iu4u035kk5",
+    "account_id": 1,
+    "account_uid": "A581822",
+    "email": "jeromesavc@gmail.com",
+    "username": "admin",
+    "account_status": "active",
+    "role_name": "Administrator",
+    "employee_id": 1,
+    "first_name": "Jerome",
+    "last_name": "Avecilla",
+    "middle_name": "Sotel",
+    "full_name": "Jerome S. Avecilla",
+    "contact_number": "+639772465533"
+}
+
+[21-Apr-2025 05:59:06 Europe/Berlin] PHP Warning:  Undefined variable $base_url in C:\xampp\htdocs\bulsu-school\account-receivable-system-project\index.php on line 10
+[21-Apr-2025 06:00:11 Europe/Berlin] [[21-Apr-2025 06:00:11 Europe/Berlin]] Action: get_server_request_data(): , Data: {
+    "rawInput": "{\"action\":\"logout_account\",\"data\":{\"uid\":\"A581822\",\"session_id\":\"i45l6vqbkg8nsf21iu4u035kk5\"}}"
+}
+
+[21-Apr-2025 06:00:11 Europe/Berlin] [[21-Apr-2025 06:00:11 Europe/Berlin]] Action: request: , Data: {
+    "action": "logout_account",
+    "data": {
+        "uid": "A581822",
+        "session_id": "i45l6vqbkg8nsf21iu4u035kk5"
+    }
 }
 

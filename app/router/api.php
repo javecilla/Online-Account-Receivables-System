@@ -159,6 +159,11 @@ try {
                 handle_delete_amortization($payload);
                 break;
 
+            // TODO: Notification
+            case 'create_notification':
+                handle_create_notification($payload);
+                break;
+
             default:
                 throw new Exception('Bad Request! Invalid action.', 400);
                 break;
@@ -309,6 +314,10 @@ try {
 
             case 'get_amortizations_by_status':
                 handle_get_amortizations_by_status($payload);
+                break;
+            
+            case 'get_amortizations_by_criteria':
+                handle_get_amortizations_by_criteria($payload);
                 break;
 
             case 'get_amortizations_by_approval':

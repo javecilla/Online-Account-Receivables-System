@@ -36,9 +36,11 @@ function vw_amortization_details(): string
         -- (ma.remaining_balance - ps.total_paid) as balance_due,
          -- ma.remaining_balance as balance_due,
         m.current_balance,
-        CONCAT(m.first_name, ' ',IFNULL(CONCAT(LEFT(m.middle_name, 1), '. '), ''), m.last_name) as full_name
+        CONCAT(m.first_name, ' ',IFNULL(CONCAT(LEFT(m.middle_name, 1), '. '), ''), m.last_name) as full_name,
+         a.email
     FROM member_amortizations ma
         JOIN amortization_types `at` ON ma.type_id = `at`.type_id
         JOIN payment_summary ps ON ma.amortization_id = ps.amortization_id
-        INNER JOIN members m ON ma.member_id = m.member_id";
+        INNER JOIN members m ON ma.member_id = m.member_id
+        LEFT JOIN accounts a ON m.account_id = a.account_id";
 }

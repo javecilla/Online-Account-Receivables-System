@@ -26,6 +26,7 @@
 <script type="text/javascript" src="<?= $base_url ?>/assets/scripts/system/members/services.js" loading="lazy"></script>
 <script type="text/javascript" src="<?= $base_url ?>/assets/scripts/system/employee/services.js" loading="lazy"></script>
 <script type="text/javascript" src="<?= $base_url ?>/assets/scripts/system/amortizations/services.js" loading="lazy"></script>
+<script type="text/javascript" src="<?= $base_url ?>/assets/scripts/system/notifications/services.js" loading="lazy"></script>
 <?php
 if ($request_file_name === 'login.php') {
     echo <<<HTML

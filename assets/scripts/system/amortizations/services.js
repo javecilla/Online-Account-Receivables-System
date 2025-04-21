@@ -1,4 +1,6 @@
-const fetchAmortizationsByStatus = async (status = 'paid,pending,overdue') => {
+const fetchAmortizationsByStatus = async (
+  status = 'paid,pending,overdue,defaulted'
+) => {
   try {
     const response = await axios.get(
       `${API_URL}?action=get_amortizations_by_status&status=${status}`,
@@ -15,6 +17,34 @@ const fetchAmortizationsByStatus = async (status = 'paid,pending,overdue') => {
     return response.data
   } catch (error) {
     console.error('Error fetching amortizations by status:', error)
+    const errorMessage =
+      error.response?.data?.message ||
+      'Something went wrong while processing request.'
+    toastr.error(errorMessage)
+    throw error
+  }
+}
+
+const fetchAmortizationsByCriteria = async (
+  status = 'paid,pending,overdue,defaulted',
+  loan_types = 'Educational Loan,Calamity Loan,Business Loan,Personal Loan,Agricultural Loan'
+) => {
+  try {
+    const response = await axios.get(
+      `${API_URL}?action=get_amortizations_by_criteria&status=${status}&loan_types=${loan_types}`,
+      {
+        headers: HEADERS
+      }
+    )
+
+    if (!response.data || !response.data.success) {
+      throw new Error(
+        response.data?.message || 'Failed to fetch amortizations by criteria'
+      )
+    }
+    return response.data
+  } catch (error) {
+    console.error('Error fetching amortizations by criteria:', error)
     const errorMessage =
       error.response?.data?.message ||
       'Something went wrong while processing request.'
@@ -70,6 +100,31 @@ const updateAmortizationApproval = async (amortizationId, newStatus) => {
     return response.data
   } catch (error) {
     console.error('Error updating approval status:', error)
+    const errorMessage =
+      error.response?.data?.message ||
+      'Something went wrong while processing request.'
+    toastr.error(errorMessage)
+    throw error
+  }
+}
+
+const updateAmortizationStatus = async (data) => {
+  try {
+    const payload = {
+      action: 'update_amortization_status',
+      data: data
+    }
+
+    const response = await axios.post(`${API_URL}`, payload, {
+      headers: HEADERS
+    })
+
+    if (!response.data || !response.data.success) {
+      throw new Error(response.data?.message || 'Failed to update status')
+    }
+    return response.data
+  } catch (error) {
+    console.error('Error updating status:', error)
     const errorMessage =
       error.response?.data?.message ||
       'Something went wrong while processing request.'

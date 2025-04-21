@@ -57,3 +57,4 @@ require_once __DIR__ . '/system/member.php';
 // TODO:
 require_once __DIR__ . '/system/amortization_type.php';
 require_once __DIR__ . '/system/amortization.php';
+require_once __DIR__ . '/system/notifications.php';
