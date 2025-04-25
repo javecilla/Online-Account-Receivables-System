@@ -17,9 +17,18 @@
                                     <div class="d-flex justify-content-between align-items-center mb-4">
                                         <h4 class="module-title">Accounts Management <span class="text-secondary" id="modeBreadCrumb">/ Mode</span> <span class="text-secondary" id="forAccountBreadCrumb">/ For</span></h4>
                                         <div class="tableContainerContent">
-                                            <button class="btn action-btn">
-                                                Export
+                                            <!-- refresh button -->
+                                            <button class="btn action-btn" style="cursor: no-drop">
+                                                <i class="fas fa-sync-alt me-2"></i>Refresh
                                             </button>
+                                            <!-- filter button -->
+                                            <button class="btn action-btn" style="cursor: no-drop">
+                                                <i class="fas fa-filter me-2"></i>Filter
+                                            </button>
+                                            <button class="btn action-btn" style="cursor: no-drop">
+                                                <i class="fas fa-history me-2"></i> View Activity Logs
+                                            </button>
+                                            <!-- add account button -->
                                             <button class="btn action-btn" id="addAccountBtn">
                                                 <i class="fas fa-plus-circle me-2"></i>Create Account
                                             </button>

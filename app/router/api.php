@@ -206,6 +206,23 @@ try {
             case 'get_member_amortizations':
                 handle_get_member_amortizations($payload);
                 break;
+            
+            // Member risk assessment endpoints
+            case 'get_high_risk_members':
+                handle_get_high_risk_members($payload);
+                break;
+            
+            case 'get_member_risk_dashboard':
+                handle_get_member_risk_dashboard();
+                break;
+            
+            case 'assess_account_closure':
+                handle_assess_account_closure($payload);
+                break;
+            
+            case 'generate_default_notifications':
+                handle_generate_default_notifications($payload);
+                break;
 
             case 'get_employee_by_account':
                 handle_get_employee_by_account($payload);
@@ -303,13 +320,12 @@ try {
                 break;
 
             //
-
-            case 'get_member_transactions':
-                hanlde_get_member_transactions($payload);
+            case 'get_members_transactions':
+                handle_get_members_transactions($payload);
                 break;
 
-            case 'get_members_transactions':
-                hanlde_get_members_transactions($payload);
+            case 'get_member_transactions':
+                handle_get_member_transactions($payload);
                 break;
 
             case 'get_amortizations_by_status':
@@ -342,6 +358,30 @@ try {
 
             case 'get_amortization':
                 handle_get_amortization($payload);
+                break;
+
+            case 'get_members_by_criteria':
+                handle_get_members_by_criteria($payload);
+                break;
+
+            case 'get_member_account_balance_metrics':
+                handle_get_member_account_balance_metrics($payload);
+                break;
+
+            case 'get_member_savings_goal_metrics':
+                handle_get_member_savings_goal_metrics($payload);
+                break;
+
+            case 'get_member_active_loans_metrics':
+                handle_get_member_active_loans_metrics($payload);
+                break;
+
+            case 'get_member_account_status_metrics':
+                handle_get_member_account_status_metrics($payload);
+                break;
+
+            case 'get_member_upcoming_payments':
+                handle_get_member_upcoming_payments($payload);
                 break;
 
             default:

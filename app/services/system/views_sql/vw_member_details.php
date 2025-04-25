@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+require_once 'vw_member_loan_metrics.php';
+
 function vw_member_details(): string
 {
     /*
@@ -40,10 +42,19 @@ function vw_member_details(): string
         a.updated_at as account_updated_at,
         ar.role_id,
         ar.role_name,
+        IFNULL(lm.total_loans, 0) as total_loans,
+        IFNULL(lm.paid_loans, 0) as paid_loans,
+        IFNULL(lm.pending_loans, 0) as pending_loans,
+        IFNULL(lm.overdue_loans, 0) as overdue_loans,
+        IFNULL(lm.defaulted_loans, 0) as defaulted_loans,
+        IFNULL(lm.overdue_rate, 0) as overdue_rate,
+        IFNULL(lm.default_rate, 0) as default_rate,
+        IFNULL(lm.risk_level, 'No History') as risk_level,
         m.created_at as member_created_at,
         m.updated_at as member_updated_at
     FROM members m
         INNER JOIN member_types mt ON m.type_id = mt.type_id
         LEFT JOIN accounts a ON m.account_id = a.account_id
-        LEFT JOIN account_roles ar ON a.role_id= ar.role_id";
+        LEFT JOIN account_roles ar ON a.role_id= ar.role_id
+        LEFT JOIN (" . vw_member_loan_metrics() . ") lm ON m.member_id = lm.member_id";
 }

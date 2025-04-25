@@ -108,7 +108,7 @@ function get_member(int $member_id): array
     try {
         $conn = open_connection();
 
-        $sql = vw_member_details() . " WHERE member_id = ? LIMIT 1";
+        $sql = vw_member_details() . " WHERE m.member_id = ? LIMIT 1";
         $stmt = $conn->prepare($sql);
         $stmt->bind_param('i', $member_id);
         $stmt->execute();
@@ -120,6 +120,30 @@ function get_member(int $member_id): array
         }
 
         return ['success' => true, 'message' => 'Retrieved successfully', 'data' => $result->fetch_assoc()];
+    } catch (Exception $e) {
+        log_error("Error fetching member: {$e->getTraceAsString()}");
+        return ['success' => false, 'message' => "Database error occurred: {$e->getMessage()}"];
+    }
+}
+
+function get_members_by_criteria(array $membership_type, array $membership_status): array
+{
+    try {
+        $conn = open_connection();
+
+        $mt_placeholders = str_repeat('?,', count($membership_type) - 1) . '?';
+        $ms_placeholders = str_repeat('?,', count($membership_status) - 1) . '?';
+
+        $sql = vw_member_details() . " WHERE mt.type_name IN ({$mt_placeholders}) AND m.membership_status IN ({$ms_placeholders})";
+        $stmt = $conn->prepare($sql);
+        $params = array_merge($membership_type, $membership_status);
+        $types = str_repeat('s', count($membership_type)) . str_repeat('s', count($membership_status));
+        $stmt->bind_param($types, ...$params);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $members = $result->num_rows > 0 ? $result->fetch_all(MYSQLI_ASSOC) : [];
+
+        return ['success' => true, 'message' => 'Retrieved successfully', 'data' => $members];
     } catch (Exception $e) {
         log_error("Error fetching member: {$e->getTraceAsString()}");
         return ['success' => false, 'message' => "Database error occurred: {$e->getMessage()}"];
@@ -615,6 +639,175 @@ function update_member_current_balance(int $member_id, float $new_balance): arra
     } catch (Exception $e) {
         $conn->rollback();
         log_error("Error updating member current balance: {$e->getTraceAsString()}");
+        return ['success' => false,'message' => "Error: {$e->getMessage()}"];
+    }
+}
+
+
+// MEMBER METRICS
+
+function get_member_account_balance_metrics(int $member_id): array {
+    try {
+        $conn = open_connection();
+
+        $sql = "SELECT
+            m.current_balance AS total_current_balance,
+            m.credit_balance,
+            (SELECT COALESCE(SUM(amount), 0) 
+            FROM member_transactions 
+            WHERE member_id = m.member_id 
+            AND transaction_type = 'withdrawal' 
+            AND created_at >= DATE_SUB(CURDATE(), INTERVAL 30 DAY)) AS total_withdrawals_last_30d
+        FROM members m
+        WHERE m.member_id = ?";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param('i', $member_id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        if ($result->num_rows === 0) {
+            return ['success' => false,'message' => 'Member not found'];
+        }
+
+        $metrics = $result->fetch_assoc();
+        return ['success' => true, 'message' => 'Retrieved successfully', 'data' => $metrics];
+    } catch (Exception $e) {
+        log_error("Error: {$e->getTraceAsString()}");
+        return ['success' => false,'message' => "Error: {$e->getMessage()}"];
+    }
+}
+
+function get_member_savings_goal_metrics(int $member_id): array {
+    try {
+        $conn = open_connection();
+
+        $sql = "SELECT 
+            mt.type_name AS member_type_name,
+            m.current_balance AS savings_current_balance,
+            mt.minimum_balance AS savings_target_balance,
+            CASE 
+                WHEN mt.minimum_balance > 0 THEN (m.current_balance / mt.minimum_balance) * 100
+                ELSE 0 
+            END AS savings_progress_percentage
+        FROM 
+            members m
+        JOIN 
+            member_types mt ON m.type_id = mt.type_id
+        WHERE mt.type_name IN ('Savings Account', 'Time Deposit', 'Fixed Deposit', 'Special Savings', 'Youth Savings')
+            AND m.member_id = ?";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param('i', $member_id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        if ($result->num_rows === 0) {
+            return ['success' => false,'message' => 'Member not found'];
+        }
+
+        $metrics = $result->fetch_assoc();
+        return ['success' => true, 'message' => 'Retrieved successfully', 'data' => $metrics];
+    } catch (Exception $e) {
+        log_error("Error: {$e->getTraceAsString()}");
+        return ['success' => false,'message' => "Error: {$e->getMessage()}"];
+    }
+}
+
+function get_member_active_loans_metrics(int $member_id): array {
+    try {
+        $conn = open_connection();
+
+        $sql = "SELECT 
+            COUNT(ma.amortization_id) AS total_active_loans_count,
+            COALESCE(SUM(ma.principal_amount), 0) AS total_loan_principal,
+            COALESCE(SUM(CASE WHEN ma.status = 'overdue' THEN ma.remaining_balance ELSE 0 END), 0) AS total_overdue_amount,
+            COALESCE(SUM(CASE WHEN ma.status = 'overdue' THEN 1 ELSE 0 END), 0) AS overdue_loans_count
+        FROM 
+            member_amortizations ma
+        WHERE ma.status IN ('pending', 'overdue') 
+            AND ma.approval = 'approved'
+            AND ma.member_id = ?";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param('i', $member_id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        if ($result->num_rows === 0) {
+            return ['success' => false,'message' => 'Member not found'];
+        }
+
+        $metrics = $result->fetch_assoc();
+        return ['success' => true, 'message' => 'Retrieved successfully', 'data' => $metrics];
+    } catch (Exception $e) {
+        log_error("Error: {$e->getTraceAsString()}");
+        return ['success' => false,'message' => "Error: {$e->getMessage()}"];
+    }
+}
+
+function get_member_account_status_metrics(int $member_id): array {
+    try {
+        $conn = open_connection();
+
+        $sql = "SELECT 
+            m.membership_status,
+            m.opened_date AS member_since_date,
+            CASE 
+                WHEN EXISTS (SELECT 1 FROM member_amortizations WHERE member_id = m.member_id AND status = 'overdue' AND approval = 'approved') THEN 'Overdue Payments'
+                WHEN EXISTS (SELECT 1 FROM member_amortizations WHERE member_id = m.member_id AND status = 'pending' AND approval = 'approved') THEN 'Payments Pending'
+                WHEN EXISTS (SELECT 1 FROM member_amortizations WHERE member_id = m.member_id AND approval = 'approved') THEN 'On Time'
+                ELSE 'No Active Loans'
+            END AS loan_payment_status
+        FROM 
+            members m
+        WHERE m.member_id = ?";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param('i', $member_id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        if ($result->num_rows === 0) {
+            return ['success' => false,'message' => 'Member not found'];
+        }
+
+        $metrics = $result->fetch_assoc();
+        return ['success' => true, 'message' => 'Retrieved successfully', 'data' => $metrics];
+    } catch (Exception $e) {
+        log_error("Error: {$e->getTraceAsString()}");
+        return ['success' => false,'message' => "Error: {$e->getMessage()}"];
+    }
+}
+
+function get_member_upcoming_payments(int $member_id): array {
+    try {
+        $conn = open_connection();
+
+        $sql = "SELECT 
+            ma.amortization_id,
+            at.type_name AS loan_type,
+            ma.monthly_amount,
+            DATE_ADD(ma.start_date, INTERVAL (SELECT COUNT(*) FROM amortization_payments WHERE amortization_id = ma.amortization_id) MONTH) AS next_due_date_estimate
+        FROM 
+            member_amortizations ma
+        JOIN
+            amortization_types at ON ma.type_id = at.type_id
+        WHERE ma.status IN ('pending', 'overdue')
+            AND ma.approval = 'approved'
+            AND ma.member_id = ?
+        ORDER BY
+            next_due_date_estimate ASC
+        LIMIT 5";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param('i', $member_id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        if ($result->num_rows === 0) {
+            return ['success' => false,'message' => 'Member not found'];
+        }
+
+        $metrics = $result->fetch_all(MYSQLI_ASSOC);
+        return ['success' => true, 'message' => 'Retrieved successfully', 'data' => $metrics];
+    } catch (Exception $e) {
+        log_error("Error: {$e->getTraceAsString()}");
         return ['success' => false,'message' => "Error: {$e->getMessage()}"];
     }
 }

@@ -245,3 +245,158 @@ const updateMemberAmortization = async (amortizationId, newData) => {
     throw error
   }
 }
+
+const fetchMembersByCriteria = async (
+  types = 'Savings Account,Time Deposit,Fixed Deposit,Special Savings,Youth Savings,Loan',
+  status = 'active,inactive,suspended,closed'
+) => {
+  try {
+    const response = await axios.get(
+      `${API_URL}?action=get_members_by_criteria&membership_types=${types}&membership_status=${status}`,
+      {
+        headers: HEADERS
+      }
+    )
+    if (!response.data || !response.data.success) {
+      throw new Error(
+        response.data?.message || 'Failed to fetch members by criteria'
+      )
+    }
+    return response.data
+  } catch (error) {
+    console.error('Error fetching members by criteria:', error)
+    const errorMessage =
+      error.response?.data?.message || 'Opss! Something went wrong.'
+    toastr.error(errorMessage)
+    throw error
+  }
+}
+
+const updateMembershipStatus = async (data) => {
+  try {
+    const payload = {
+      action: 'update_member_status',
+      data: data
+    }
+    const response = await axios.post(`${API_URL}`, payload, {
+      headers: HEADERS
+    })
+    if (!response.data || !response.data.success) {
+      throw new Error(
+        response.data?.message || 'Failed to updated member status'
+      )
+    }
+    return response.data
+  } catch (error) {
+    console.error('Error updating member status:', error)
+    const errorMessage =
+      error.response?.data?.message || 'Opss! Something went wrong.'
+    toastr.error(errorMessage)
+    throw error
+  }
+}
+
+const fetchMemberAccountBalanceMetrics = async (memberId) => {
+  try {
+    const response = await axios.get(
+      `${API_URL}?action=get_member_account_balance_metrics&member_id=${memberId}`,
+      {
+        headers: HEADERS
+      }
+    )
+    if (!response.data || !response.data.success) {
+      throw new Error(response.data?.message || 'Failed to fetch')
+    }
+    return response.data
+  } catch (error) {
+    console.error('Error:', error)
+    const errorMessage =
+      error.response?.data?.message || 'Opss! Something went wrong.'
+    toastr.error(errorMessage)
+    throw error
+  }
+}
+
+const fetchMemberSavingsGoalMetrics = async (memberId) => {
+  try {
+    const response = await axios.get(
+      `${API_URL}?action=get_member_savings_goal_metrics&member_id=${memberId}`,
+      {
+        headers: HEADERS
+      }
+    )
+    if (!response.data || !response.data.success) {
+      throw new Error(response.data?.message || 'Failed to fetch')
+    }
+    return response.data
+  } catch (error) {
+    console.error('Error:', error)
+    const errorMessage =
+      error.response?.data?.message || 'Opss! Something went wrong.'
+    toastr.error(errorMessage)
+    throw error
+  }
+}
+
+const fetchMemberActiveLoansMetrics = async (memberId) => {
+  try {
+    const response = await axios.get(
+      `${API_URL}?action=get_member_active_loans_metrics&member_id=${memberId}`,
+      {
+        headers: HEADERS
+      }
+    )
+    if (!response.data || !response.data.success) {
+      throw new Error(response.data?.message || 'Failed to fetch')
+    }
+    return response.data
+  } catch (error) {
+    console.error('Error:', error)
+    const errorMessage =
+      error.response?.data?.message || 'Opss! Something went wrong.'
+    toastr.error(errorMessage)
+    throw error
+  }
+}
+
+const fetchMemberAccountStatusMetrics = async (memberId) => {
+  try {
+    const response = await axios.get(
+      `${API_URL}?action=get_member_account_status_metrics&member_id=${memberId}`,
+      {
+        headers: HEADERS
+      }
+    )
+    if (!response.data || !response.data.success) {
+      throw new Error(response.data?.message || 'Failed to fetch')
+    }
+    return response.data
+  } catch (error) {
+    console.error('Error:', error)
+    const errorMessage =
+      error.response?.data?.message || 'Opss! Something went wrong.'
+    toastr.error(errorMessage)
+    throw error
+  }
+}
+
+const fetchMemberUpcomingPayments = async (memberId) => {
+  try {
+    const response = await axios.get(
+      `${API_URL}?action=get_member_upcoming_payments&member_id=${memberId}`,
+      {
+        headers: HEADERS
+      }
+    )
+    if (!response.data || !response.data.success) {
+      throw new Error(response.data?.message || 'Failed to fetch')
+    }
+    return response.data
+  } catch (error) {
+    console.error('Error:', error)
+    const errorMessage =
+      error.response?.data?.message || 'Opss! Something went wrong.'
+    toastr.error(errorMessage)
+    throw error
+  }
+}

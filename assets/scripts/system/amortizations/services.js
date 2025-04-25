@@ -184,7 +184,7 @@ const fetchAmortizationPayments = async () => {
 
 const fetchMemberApprovedAmortizations = async (
   memberId,
-  status = 'paid,pending,overdue'
+  status = 'paid,pending,overdue,defaulted'
 ) => {
   try {
     const response = await axios.get(

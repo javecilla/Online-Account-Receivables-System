@@ -48,13 +48,14 @@ require_once __DIR__ . '/system/views_sql/vw_payment_trends_monthly.php';
 require_once __DIR__ . '/system/views_sql/vw_quarterly_financial_summary_income_from_payments.php';
 require_once __DIR__ . '/system/views_sql/vw_quarterly_financial_summary_transactions.php';
 // require_once __DIR__ . '/system/views_sql/test.php';
+require_once __DIR__ . '/system/views_sql/vw_member_loan_metrics.php';
+require_once __DIR__ . '/system/views_sql/vw_member_risk_dashboard.php';
 
 require_once __DIR__ . '/system/account_role.php';
 require_once __DIR__ . '/system/account.php';
 require_once __DIR__ . '/system/employee.php';
 require_once __DIR__ . '/system/member_type.php';
 require_once __DIR__ . '/system/member.php';
-// TODO:
 require_once __DIR__ . '/system/amortization_type.php';
 require_once __DIR__ . '/system/amortization.php';
 require_once __DIR__ . '/system/notifications.php';

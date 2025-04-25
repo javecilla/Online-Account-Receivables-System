@@ -240,7 +240,7 @@ function handle_get_amortizations_by_approval(mixed $payload): void
 
 function handle_get_member_request_amortizations(mixed $payload): void
 {
-    //log_request('data:', $payload);
+    log_request('data:', $payload);
     $validated = validate_data($payload, [
         'member_id' =>'required|numeric|min:1|check:member_model',
         'approval' => 'required'
@@ -372,7 +372,7 @@ function handle_update_amortization_status(mixed $payload): void
 
         //send email notification to member
         $recipient_name = htmlspecialchars($validated['data']['member_name']);
-        $recipient_email = 'jeromesavc@gmail.com'; //$validated['data']['email']
+        $recipient_email = $validated['data']['email']; //$validated['data']['email']
         $notification_title = htmlspecialchars($validated['data']['title']);
         $notification_message = nl2br(htmlspecialchars($validated['data']['message']));
 

@@ -1,6 +1,4 @@
 /* members Page Styles */
-
-/* Card styling */
 .card {
   border-radius: 5px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -12,7 +10,6 @@
   padding: 1.5rem;
 }
 
-/* Page title styling */
 .module-title {
   color: var(--dark-color);
   font-family: var(--font-nunito);
@@ -21,13 +18,11 @@
   font-size: 1rem;
 }
 
-/* Table styling */
 #membersTable {
   width: 100%;
   border-collapse: separate;
   border-spacing: 0;
-  /* Makes all columns equal width */
-  /* table-layout: fixed;  */
+  /* table-layout: fixed; */
 }
 
 #membersTable thead th {
@@ -36,37 +31,51 @@
   color: #495057;
   padding: 12px 15px;
   border-bottom: 2px solid #dee2e6;
+  white-space: nowrap;
 }
 
 #membersTable thead th:first-child {
-  /* border-top-left-radius: 10px; */
-  width: 12%;
+  /* Member ID */
+  width: 8%;
 }
 #membersTable thead th:nth-child(2) {
-  width: 20%;
+  /* profile */
+  width: 2%;
 }
 #membersTable thead th:nth-child(3) {
-  width: 20%;
+  /* full name*/
+  width: 10%;
 }
 #membersTable thead th:nth-child(4) {
-  width: 15%;
+  /* contact */
+  width: 10%;
 }
 #membersTable thead th:nth-child(5) {
-  width: 20%;
+  /* acc type */
+  width: 10%;
 }
 #membersTable thead th:nth-child(6) {
-  width: 20%;
+  /* mem status */
+  width: 10%;
 }
+#membersTable thead th:nth-child(7) {
+  /* risk level */
+  width: 10%;
+}
+#membersTable thead th:nth-child(8) {
+  /* action*/
+  width: 3%;
+}
+
 #membersTable tbody td {
   padding: 12px 15px;
   vertical-align: middle;
   border-bottom: 1px solid #dee2e6;
 }
 
-/* Status indicator styling */
 .status-badge {
   padding: 5px 10px;
-  border-radius: 4px; /* Reduced border-radius as requested */
+  border-radius: 4px;
   font-size: 0.75rem;
   font-weight: 600;
   display: inline-flex;
@@ -78,7 +87,6 @@
 }
 
 .status-active {
-  /* blue */
   background-color: rgba(93, 126, 196, 0.1);
   color: #417ec8;
   border: 1px solid rgba(51, 76, 188, 0.2);
@@ -97,7 +105,7 @@
 .as-completed,
 .ap-online-payment,
 .as-approved {
-  background-color: rgba(40, 167, 69, 0.2); /* Slightly darker green */
+  background-color: rgba(40, 167, 69, 0.2);
   color: #28a745;
   border: 1px solid rgba(40, 167, 69, 0.3);
 }
@@ -105,7 +113,7 @@
 .at-time-deposit,
 .at-educational-loan,
 .as-pending {
-  background-color: rgba(255, 193, 7, 0.2); /* Yellow for time deposit */
+  background-color: rgba(255, 193, 7, 0.2);
   color: #ffc107;
   border: 1px solid rgba(255, 193, 7, 0.3);
 }
@@ -113,8 +121,9 @@
 .at-fixed-deposit,
 .at-calamity-loan,
 .ff-interest,
-.ap-bank-transfer {
-  background-color: rgba(0, 123, 255, 0.2); /* Blue for fixed deposit */
+.ap-bank-transfer,
+.no-history {
+  background-color: rgba(0, 123, 255, 0.2);
   color: var(--primary-color);
   border: 1px solid rgba(0, 123, 255, 0.3);
 }
@@ -122,15 +131,15 @@
 .at-special-savings,
 .at-business-loan,
 .ap-check {
-  background-color: rgba(23, 162, 184, 0.2); /* Cyan for special savings */
+  background-color: rgba(23, 162, 184, 0.2);
   color: #17a2b8;
   border: 1px solid rgba(23, 162, 184, 0.3);
 }
 
 .at-loan {
-  background-color: rgba(255, 165, 0, 0.2); /* Orange background */
-  color: #ff8c00; /* Darker orange for text */
-  border: 1px solid rgba(255, 165, 0, 0.3); /* Orange border */
+  background-color: rgba(255, 165, 0, 0.2);
+  color: #ff8c00;
+  border: 1px solid rgba(255, 165, 0, 0.3);
 }
 
 .at-youth-savings,
@@ -145,12 +154,38 @@
 .tt-withdrawal,
 .ap-others,
 .as-rejected {
-  background-color: rgba(220, 53, 69, 0.2); /* Red for loan */
+  background-color: rgba(220, 53, 69, 0.2);
   color: #dc3545;
   border: 1px solid rgba(220, 53, 69, 0.3);
 }
 
-/* Action buttons styling */
+.risk-low,
+.status-approved {
+  background-color: rgba(40, 167, 69, 0.2);
+  color: #28a745;
+  border: 1px solid rgba(40, 167, 69, 0.3);
+}
+
+.risk-medium,
+.status-pending {
+  background-color: rgba(255, 193, 7, 0.2);
+  color: #ffc107;
+  border: 1px solid rgba(255, 193, 7, 0.3);
+}
+
+.risk-high,
+.status-inactive,
+.status-rejected {
+  background-color: rgba(220, 53, 69, 0.2);
+  color: #dc3545;
+  border: 1px solid rgba(220, 53, 69, 0.3);
+}
+
+.rate-badge {
+  background: linear-gradient(to bottom, #ffffff 40%, #f8f9fa 100%);
+  border: 1px solid #dee2e6;
+}
+
 .action-btn {
   padding: 7px 12px;
   margin-right: 5px;
@@ -224,7 +259,6 @@
   color: #212529 !important;
 }
 
-/* Responsive adjustments */
 @media (max-width: 768px) {
   .action-btn {
     padding: 4px 8px;
@@ -235,4 +269,124 @@
   #membersTable tbody td {
     padding: 10px;
   }
+}
+
+.dashboard-card {
+  /* background: linear-gradient(to bottom, #f8f9fa 40%, #e9ecef 100%); */
+  background: transparent;
+  border-radius: 5px;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  height: 100%;
+  border: 1px solid #f3f3f3;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.card-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #495057;
+  margin: 0;
+}
+
+.card-value {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #212529;
+  margin: 0;
+}
+
+.card-subtitle {
+  font-size: 0.8rem;
+  color: #495057;
+  margin: 5px 0;
+}
+
+.card-subtitle span {
+  font-weight: 600;
+  color: #212529;
+}
+
+/* .member-profile-card {
+  
+} */
+
+.member-profile-card .profile-image-container img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+}
+
+.member-profile-card .member-basic-info h5 {
+  font-size: 1.1rem;
+}
+
+.member-profile-card .member-basic-info p {
+  font-size: 0.85rem;
+}
+
+.member-profile-card hr {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.member-profile-card p {
+  font-size: 0.9rem;
+  color: #495057;
+  margin-bottom: 0.5rem;
+}
+
+.member-profile-card p:last-child {
+  margin-bottom: 0;
+}
+
+.member-profile-card p i {
+  width: 1.2em;
+  text-align: center;
+}
+
+.member-profile-card p span {
+  color: #212529;
+}
+
+.member-profile-card p span#memberAddress {
+  display: inline-block;
+  vertical-align: top;
+  max-width: calc(100% - 2em);
+}
+
+@media (max-width: 767.98px) {
+  .member-profile-card .d-flex {
+    flex-direction: column;
+    align-items: center !important;
+    text-align: center;
+  }
+  .member-profile-card .profile-image-container {
+    margin-right: 0 !important;
+    margin-bottom: 0.75rem;
+  }
+  .member-profile-card .member-basic-info {
+    width: 100%;
+  }
+  .member-profile-card p i {
+    margin-right: 3px;
+  }
+}
+
+.progress {
+  height: 8px;
+  background-color: #e9ecef;
+  border-radius: 4px;
+  margin: 10px 0;
+}
+
+.progress-bar {
+  background-color: var(--info-color);
+  border-radius: 4px;
 }

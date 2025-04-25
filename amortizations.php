@@ -473,6 +473,11 @@
                                                     <div class="d-flex justify-content-between align-items-center mb-4">
                                                         <h4 class="module-title">List of amortizations requests:</h4>
                                                         <div>
+                                                            <!-- refresh button -->
+                                                            <button class="btn action-btn" style="cursor: no-drop">
+                                                                <i class="fas fa-sync-alt me-2"></i>Refresh
+                                                            </button>
+                                                            <!-- filter button -->
                                                             <button class="btn action-btn" style="cursor: no-drop">
                                                                 <i class="fas fa-filter me-2"></i>Filter
                                                             </button>

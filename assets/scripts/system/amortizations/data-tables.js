@@ -87,9 +87,15 @@ window.DataTableAmortizationPayments = function ($paymentsTable, data) {
         orderable: false,
         render: function (data) {
           return `
-            <div class="d-flex">
-              <button class="btn btn-sm action-btn notes-btn" data-id="${data.amortization_id}" data-notes="${data.notes}"><i class="fas fa-file-lines"></i> Notes</button>
-              <button class="btn btn-sm action-btn invoice-btn" data-id="${data.amortization_id}" style="cursor: no-drop"><i class="fas fa-file-invoice"></i> Invoice</button>
+            <div class="dropdown" id="requestAmortizationActionDropdown">
+              <button class="action-btn" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="fa-solid fa-bars me-1"></i><i class="fas fa-chevron-down" style="font-size: 8px; margin-bottom: 2px"></i>
+              </button>
+              <ul class="dropdown-menu profile-menu" aria-labelledby="requestAmortizationActionDropdown">
+                <li><a class="dropdown-item notes-btn" href="javascript:void(0)" data-id="${data.amortization_id}" data-notes="${data.notes}"><i class="fas fa-file-lines"></i> View Payment Notes</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="javascript:void(0)" data-id="${data.amortization_id}"><i class="fas fa-file-image"></i> Prof of Payments</a></li>
+              </ul>
             </div>
           `
         }
@@ -360,6 +366,7 @@ window.DataTableAmortizationsByStatus = function ($amortizationsTable, data) {
             default:
               typeClass = 'as-defaulted'
               icon = 'fas fa-times-circle'
+              break
           }
           return `<span class="status-badge ${typeClass}"><i class="fas ${icon}"></i>&nbsp;${
             data.charAt(0).toUpperCase() + data.slice(1)
@@ -658,9 +665,15 @@ window.DataTableMemberAmortizationPayments = function ($paymentsTable, data) {
         orderable: false,
         render: function (data) {
           return `
-            <div class="d-flex">
-              <button class="btn btn-sm action-btn notes-btn" data-id="${data.amortization_id}" data-notes="${data.notes}"><i class="fas fa-file-lines"></i> Notes</button>
-              <button class="btn btn-sm action-btn invoice-btn" data-id="${data.amortization_id}" style="cursor: no-drop"><i class="fas fa-file-invoice"></i> Invoice</button>
+            <div class="dropdown" id="requestAmortizationActionDropdown">
+              <button class="action-btn" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="fa-solid fa-bars me-1"></i><i class="fas fa-chevron-down" style="font-size: 8px; margin-bottom: 2px"></i>
+              </button>
+              <ul class="dropdown-menu profile-menu" aria-labelledby="requestAmortizationActionDropdown">
+                <li><a class="dropdown-item notes-btn" href="javascript:void(0)" data-id="${data.amortization_id}" data-notes="${data.notes}"><i class="fas fa-file-lines"></i> View Payment Notes</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="javascript:void(0)" data-id="${data.amortization_id}"><i class="fas fa-file-image"></i> Prof of Payments</a></li>
+              </ul>
             </div>
           `
         }

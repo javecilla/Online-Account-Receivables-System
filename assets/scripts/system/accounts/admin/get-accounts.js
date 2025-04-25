@@ -69,16 +69,19 @@ $(document).ready(async function () {
         render: function (data) {
           const dataFor = data.role_name === 'Member' ? 'member' : 'employee'
           return `
-            <div class="d-flex">
-              <button class="btn btn-sm action-btn view-btn" data-id="${data.account_id}" data-for="${dataFor}">
-                <i class="fas fa-eye"></i>
+            <div class="dropdown" id="requestAmortizationActionDropdown">
+              <button class="action-btn" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="fa-solid fa-bars me-1"></i><i class="fas fa-chevron-down" style="font-size: 8px; margin-bottom: 2px"></i>
               </button>
-              <button class="btn btn-sm action-btn edit-btn" data-id="${data.account_id}" data-for="${dataFor}">
-                <i class="fas fa-edit"></i>
-              </button>
-              <button class="btn btn-sm action-btn delete-btn" data-id="${data.account_id}" data-for="${dataFor}">
-                <i class="fas fa-trash"></i>
-              </button>
+              <ul class="dropdown-menu profile-menu" aria-labelledby="requestAmortizationActionDropdown">
+                <li><a class="dropdown-item view-btn" href="javascript:void(0)" data-id="${data.account_id}" data-for="${dataFor}"><i class="fas fa-eye"></i> View Account</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item edit-btn" href="javascript:void(0)" data-id="${data.account_id}" data-for="${dataFor}"><i class="fas fa-edit"></i> Update Details</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="javascript:void(0)" data-id="${data.account_id}" data-for="${dataFor}"><i class="fas fa-edit"></i> Update Status</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item delete-btn" href="javascript:void(0)" data-id="${data.account_id}" data-for="${dataFor}"><i class="fas fa-trash"></i> Delete Account</a></li>
+              </ul>
             </div>
           `
         }
