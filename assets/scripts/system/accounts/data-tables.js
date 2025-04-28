@@ -73,9 +73,7 @@ window.DataTableAccounts = function ($accountsTable, data) {
               </button>
               <ul class="dropdown-menu profile-menu" aria-labelledby="requestAmortizationActionDropdown">
                 <li><a class="dropdown-item view-btn" href="javascript:void(0)" data-id="${data.account_id}" data-for="${dataFor}"><i class="fas fa-eye"></i> View Account</a></li>
-                <li><hr class="dropdown-divider"></li>
                 <li><a class="dropdown-item edit-btn" href="javascript:void(0)" data-id="${data.account_id}" data-for="${dataFor}"><i class="fas fa-edit"></i> Update Details</a></li>
-                <li><hr class="dropdown-divider"></li>
                 <li><a class="dropdown-item update-status-btn" href="javascript:void(0)" data-id="${data.account_id}" data-status="${data.account_status}" data-email="${data.email}" data-for="${dataFor}"><i class="fas fa-edit"></i> Update Status</a></li>
                 <li><hr class="dropdown-divider"></li>
                 <li><a class="dropdown-item delete-btn" href="javascript:void(0)" data-id="${data.account_id}" data-for="${dataFor}"><i class="fas fa-trash"></i> Delete Account</a></li>

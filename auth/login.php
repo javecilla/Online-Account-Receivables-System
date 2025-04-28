@@ -49,7 +49,7 @@
             </div>
 
             <div class="form-group links">
-              <p>Existing account but not yet verified? <a href="account-verification?purpose=request#external">click here</a> to verify your account.</p>
+              <p>Existing account but <a href="javascript:void(0)" style="cursor: no-drop">currently deactivated</a> or <a href="account-verification?purpose=request#external">not yet verified</a>?</p>
               <p>Forgot Password? No worries, please <a href="javascript:void(0)" style="cursor: no-drop">click here</a> to reset your password.</p>
             </div>
           </form>

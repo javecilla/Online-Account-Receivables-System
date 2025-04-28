@@ -93,7 +93,6 @@ window.DataTableAmortizationPayments = function ($paymentsTable, data) {
               </button>
               <ul class="dropdown-menu profile-menu" aria-labelledby="requestAmortizationActionDropdown">
                 <li><a class="dropdown-item notes-btn" href="javascript:void(0)" data-id="${data.amortization_id}" data-notes="${data.notes}"><i class="fas fa-file-lines"></i> View Payment Notes</a></li>
-                <li><hr class="dropdown-divider"></li>
                 <li><a class="dropdown-item" href="javascript:void(0)" data-id="${data.amortization_id}"><i class="fas fa-file-image"></i> Prof of Payments</a></li>
               </ul>
             </div>
@@ -159,7 +158,7 @@ window.DataTableAmortizationsByStatus = function ($amortizationsTable, data) {
       },
       {
         data: 'full_name',
-        title: 'Member Name'
+        title: 'Member'
       },
       // {
       //   data: 'principal_amount',
@@ -385,12 +384,9 @@ window.DataTableAmortizationsByStatus = function ($amortizationsTable, data) {
               </button>
               <ul class="dropdown-menu profile-menu" aria-labelledby="requestAmortizationActionDropdown">
                 <li><a class="dropdown-item view-details-btn" href="javascript:void(0)" data-amortization-id="${data.amortization_id}"><i class="fas fa-eye me-1"></i> View Details</a></li>
-                <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item view-payments-history-btn" href="javascript:void(0)" data-amortization-id="${data.amortization_id}" data-amortization-type-name="${data.type_name}" data-member-id="${data.member_id}"><i class="fas fa-history me-1"></i> Payments History</a></li>
-                <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item send-reminder-btn" href="javascript:void(0)" data-amortization-id="${data.amortization_id}" data-member-id="${data.member_id}" data-email="${data.email}" data-full-name="${data.full_name}"><i class="fas fa-bell me-1"></i> Notify Member</a></li>
-                <li><hr class="dropdown-divider"></li>
                 <li><a class="dropdown-item update-status-btn" href="javascript:void(0)" data-amortization-id="${data.amortization_id}" data-amortization-status="${data.status}" data-member-id="${data.member_id}" data-email="${data.email}" data-full-name="${data.full_name}"><i class="fas fa-edit me-1"></i> Update Status</a></li>
+                <li><a class="dropdown-item send-reminder-btn" href="javascript:void(0)" data-amortization-id="${data.amortization_id}" data-member-id="${data.member_id}" data-email="${data.email}" data-full-name="${data.full_name}"><i class="fas fa-bell me-1"></i> Notify Member</a></li>
+                <li><a class="dropdown-item view-payments-history-btn" href="javascript:void(0)" data-amortization-id="${data.amortization_id}" data-amortization-type-name="${data.type_name}" data-member-id="${data.member_id}"><i class="fas fa-history me-1"></i> Payments History</a></li>
               </ul>
             </div>
           `
@@ -478,7 +474,7 @@ window.DataTableAmortizationsByApproval = function ($loanRequestsTable, data) {
       },
       {
         data: 'full_name',
-        title: 'Member Name'
+        title: 'Member'
       },
       // {
       //   data: 'current_balance',
@@ -671,7 +667,6 @@ window.DataTableMemberAmortizationPayments = function ($paymentsTable, data) {
               </button>
               <ul class="dropdown-menu profile-menu" aria-labelledby="requestAmortizationActionDropdown">
                 <li><a class="dropdown-item notes-btn" href="javascript:void(0)" data-id="${data.amortization_id}" data-notes="${data.notes}"><i class="fas fa-file-lines"></i> View Payment Notes</a></li>
-                <li><hr class="dropdown-divider"></li>
                 <li><a class="dropdown-item" href="javascript:void(0)" data-id="${data.amortization_id}"><i class="fas fa-file-image"></i> Prof of Payments</a></li>
               </ul>
             </div>

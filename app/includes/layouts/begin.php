@@ -190,6 +190,11 @@ begin_session();
           <link rel="stylesheet" type="text/css" href="{$base_url}/assets/stylesheets/system/amortizations.css" loading="eager" />
           <link rel="stylesheet" type="text/css" href="{$base_url}/assets/stylesheets/system/amortization-tabs.css" loading="eager" />
           HTML;
+    } else if ($request_file_name === 'invoices.php') {
+        echo <<<HTML
+          <link rel="stylesheet" type="text/css" href="{$base_url}/assets/stylesheets/system/invoices.css" loading="eager" />
+          <link rel="stylesheet" type="text/css" href="{$base_url}/assets/stylesheets/system/invoice-tabs.css" loading="eager" />
+          HTML;
     } else if ($request_file_name === 'my-account.php') {
         echo <<<HTML
           <link rel="stylesheet" type="text/css" href="{$base_url}/assets/stylesheets/client/my-account.css" loading="eager" />

@@ -1,0 +1,107 @@
+[28-Apr-2025 20:34:09 Europe/Berlin] [[28-Apr-2025 20:34:09 Europe/Berlin]] Action: data:, Data: {
+    "approval": "pending,rejected",
+    "member_id": "30"
+}
+
+[28-Apr-2025 20:34:09 Europe/Berlin] [[28-Apr-2025 20:34:09 Europe/Berlin]] Action: data:, Data: {
+    "status": "paid,pending,overdue,defaulted",
+    "member_id": "30"
+}
+
+[28-Apr-2025 20:34:27 Europe/Berlin] [[28-Apr-2025 20:34:27 Europe/Berlin]] Action: data:, Data: {
+    "approval": "pending,rejected",
+    "member_id": "16"
+}
+
+[28-Apr-2025 20:34:27 Europe/Berlin] [[28-Apr-2025 20:34:27 Europe/Berlin]] Action: data:, Data: {
+    "status": "paid,pending,overdue,defaulted",
+    "member_id": "16"
+}
+
+[28-Apr-2025 20:36:26 Europe/Berlin] [[28-Apr-2025 20:36:26 Europe/Berlin]] Action: data:, Data: {
+    "status": "paid,pending,overdue,defaulted",
+    "member_id": "16"
+}
+
+[28-Apr-2025 20:36:26 Europe/Berlin] [[28-Apr-2025 20:36:26 Europe/Berlin]] Action: data:, Data: {
+    "approval": "pending,rejected",
+    "member_id": "16"
+}
+
+[28-Apr-2025 20:37:15 Europe/Berlin] [[28-Apr-2025 20:37:15 Europe/Berlin]] Action: data:, Data: {
+    "status": "paid,pending,overdue,defaulted",
+    "member_id": "16"
+}
+
+[28-Apr-2025 20:37:15 Europe/Berlin] [[28-Apr-2025 20:37:15 Europe/Berlin]] Action: data:, Data: {
+    "approval": "pending,rejected",
+    "member_id": "16"
+}
+
+[28-Apr-2025 20:37:47 Europe/Berlin] [[28-Apr-2025 20:37:47 Europe/Berlin]] Action: data:, Data: {
+    "status": "paid,pending,overdue,defaulted",
+    "member_id": "16"
+}
+
+[28-Apr-2025 20:37:47 Europe/Berlin] [[28-Apr-2025 20:37:47 Europe/Berlin]] Action: data:, Data: {
+    "approval": "pending,rejected",
+    "member_id": "16"
+}
+
+[28-Apr-2025 21:32:09 Europe/Berlin] [[28-Apr-2025 21:32:09 Europe/Berlin]] Action: get_server_request_data(): , Data: {
+    "rawInput": "{\"action\":\"logout_account\",\"data\":{\"uid\":\"A581822\",\"session_id\":\"h44km0vb0qehfq4bcd0mq4cujb\"}}"
+}
+
+[28-Apr-2025 21:32:09 Europe/Berlin] [[28-Apr-2025 21:32:09 Europe/Berlin]] Action: request: , Data: {
+    "action": "logout_account",
+    "data": {
+        "uid": "A581822",
+        "session_id": "h44km0vb0qehfq4bcd0mq4cujb"
+    }
+}
+
+[28-Apr-2025 21:32:45 Europe/Berlin] [[28-Apr-2025 21:32:45 Europe/Berlin]] Action: get_server_request_data(): , Data: {
+    "rawInput": "{\"action\":\"login_account\",\"data\":{\"uid\":\"admin\",\"password\":\"admin\",\"recaptcha_response\":\"03AFcWeA5hDblugqt1W3Hp_oQFTxZSwkUEar49B4P5sw-RjwyX0Yw53ikaZtpoXKoYt3duEAYyyma1BTK5QkGqwkojIkhs-4MaB2esg9YgSqgAKye6aq0rrbb8q1rKQ-YMGWlvgHVFySBWJat4CzjqyWBVt7uAK_JGpu1nrwZpqS4_MlCOL1Uf56OSZyyeWMrJFyKNr4ypo3x5G1rWOsBMzSQjB5i8Zt5OGBwHJrOzlxhGMhwSMGeE3rA325S8ZVrUWS0dQ0S-k-aCrRMA9zrlrYDdEugM613nBkBoARilUPGfckB8m3wRlX1mY8LGsU4HdXU5VPqt1y8s4AoNFhFtSnzdL4qq2_KYyQzqUjed6JwrFnlXJ_QgLaynt12J04uMPFHQbqrYuFq6fwEOrU25pd_MmaU5Q8X39VymeICz7D5lgKzCj-nlp4Jno-V3lS5bVpniJnKdv1jCkJBWN6IMe9G-5Gux_Z-z1Z0P7nuMFA0me_o5JD9ge9qymOlblrIbucsdkFAE-qLDj_Pl47YDltmDBofspkQV_s8wF3XRWpK9YDMl1x_W0mKXABh__MWA3hOj_hPFtn-t3QFWV0hsMk_ekEtXSQF_NkjkqRt2kxvkN8Q2omAyx7zeeyZ5oVFOZqZHV83I0DJzO8N4mBo33b7zuw2ykcOVSkvYRk7jrKAy_xON-JNDhZmofoFJY9k-OqSj7RNZ6OxuXk-L_n0f-0uoZt8wyOEqyhlGQ-2dxunWl12pprhv_mM4aDIKYFgGbkolaGrVL64uBlTU5ta_V-EFGcZEi5qIpbCCxbzMF2wCG5pzCDOd2j-DKJvIY37MBsIIVbhbdMwcoEmLCxZyt_jOOTqxCLRRciAmcfRUL2gD2dojJUMrN5HTecodPQEG9OP5ehCtgDlGj41O1VCkn5vnS-qP-dkSq-E8dRV5RUxnLhc8XQqvXaxkkD8e2YoyaI0J7LP6ATbPQt0rOIPp68ETcdbGm7y5VOKnuJNUbbn0O35msNdst7k\"}}"
+}
+
+[28-Apr-2025 21:32:45 Europe/Berlin] [[28-Apr-2025 21:32:45 Europe/Berlin]] Action: request: , Data: {
+    "action": "login_account",
+    "data": {
+        "uid": "admin",
+        "password": "admin",
+        "recaptcha_response": "03AFcWeA5hDblugqt1W3Hp_oQFTxZSwkUEar49B4P5sw-RjwyX0Yw53ikaZtpoXKoYt3duEAYyyma1BTK5QkGqwkojIkhs-4MaB2esg9YgSqgAKye6aq0rrbb8q1rKQ-YMGWlvgHVFySBWJat4CzjqyWBVt7uAK_JGpu1nrwZpqS4_MlCOL1Uf56OSZyyeWMrJFyKNr4ypo3x5G1rWOsBMzSQjB5i8Zt5OGBwHJrOzlxhGMhwSMGeE3rA325S8ZVrUWS0dQ0S-k-aCrRMA9zrlrYDdEugM613nBkBoARilUPGfckB8m3wRlX1mY8LGsU4HdXU5VPqt1y8s4AoNFhFtSnzdL4qq2_KYyQzqUjed6JwrFnlXJ_QgLaynt12J04uMPFHQbqrYuFq6fwEOrU25pd_MmaU5Q8X39VymeICz7D5lgKzCj-nlp4Jno-V3lS5bVpniJnKdv1jCkJBWN6IMe9G-5Gux_Z-z1Z0P7nuMFA0me_o5JD9ge9qymOlblrIbucsdkFAE-qLDj_Pl47YDltmDBofspkQV_s8wF3XRWpK9YDMl1x_W0mKXABh__MWA3hOj_hPFtn-t3QFWV0hsMk_ekEtXSQF_NkjkqRt2kxvkN8Q2omAyx7zeeyZ5oVFOZqZHV83I0DJzO8N4mBo33b7zuw2ykcOVSkvYRk7jrKAy_xON-JNDhZmofoFJY9k-OqSj7RNZ6OxuXk-L_n0f-0uoZt8wyOEqyhlGQ-2dxunWl12pprhv_mM4aDIKYFgGbkolaGrVL64uBlTU5ta_V-EFGcZEi5qIpbCCxbzMF2wCG5pzCDOd2j-DKJvIY37MBsIIVbhbdMwcoEmLCxZyt_jOOTqxCLRRciAmcfRUL2gD2dojJUMrN5HTecodPQEG9OP5ehCtgDlGj41O1VCkn5vnS-qP-dkSq-E8dRV5RUxnLhc8XQqvXaxkkD8e2YoyaI0J7LP6ATbPQt0rOIPp68ETcdbGm7y5VOKnuJNUbbn0O35msNdst7k"
+    }
+}
+
+[29-Apr-2025 03:32:46 Asia/Manila] [[29-Apr-2025 03:32:46 Asia/Manila]] Action: Session Data: , Data: {
+    "ip_address": "127.0.0.1",
+    "user_agent": "Mozilla\/5.0 (Windows NT 10.0; Win64; x64; rv:137.0) Gecko\/20100101 Firefox\/137.0",
+    "session_hash": "0cf1a8c26575d23d85e9bfd51c53efde8ae14e48ccf65831782a7017f1d63268",
+    "session_id": "uioh4qcan47n5jl87td2fil2nm",
+    "account_id": 1,
+    "account_uid": "A581822",
+    "email": "jeromesavc@gmail.com",
+    "username": "admin",
+    "account_status": "active",
+    "role_name": "Administrator",
+    "employee_id": 1,
+    "first_name": "Jerome",
+    "last_name": "Avecilla",
+    "middle_name": "Sotel",
+    "full_name": "Jerome S. Avecilla",
+    "contact_number": "+639772465533"
+}
+
+[28-Apr-2025 21:32:46 Europe/Berlin] PHP Warning:  Undefined variable $base_url in C:\xampp\htdocs\bulsu-school\account-receivable-system-project\index.php on line 10
+[28-Apr-2025 21:42:31 Europe/Berlin] [[28-Apr-2025 21:42:31 Europe/Berlin]] Action: get_server_request_data(): , Data: {
+    "rawInput": "{\"action\":\"logout_account\",\"data\":{\"uid\":\"A581822\",\"session_id\":\"uioh4qcan47n5jl87td2fil2nm\"}}"
+}
+
+[28-Apr-2025 21:42:31 Europe/Berlin] [[28-Apr-2025 21:42:31 Europe/Berlin]] Action: request: , Data: {
+    "action": "logout_account",
+    "data": {
+        "uid": "A581822",
+        "session_id": "uioh4qcan47n5jl87td2fil2nm"
+    }
+}
+

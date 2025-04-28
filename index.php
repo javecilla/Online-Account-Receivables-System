@@ -1,3 +1,9 @@
+<?php require_once __DIR__ . '/app/includes/layouts/begin.php' ?>
+<?php require_once __DIR__ . '/app/includes/layouts/sidebar.php' ?>
+<?php require_once __DIR__ . '/app/includes/layouts/header.php' ?>
+<?php // require_once __DIR__ . '/app/includes/layouts/breadcrumb.php' 
+?>
+
 <?php
 require_once __DIR__ . '/app/helpers/system.php';
 require_once __DIR__ . '/app/helpers/global.php';
@@ -19,3 +25,7 @@ if(is_authenticated()) {
 
 exit;
 ?>
+
+<?php //require_once __DIR__ . '/app/includes/layouts/footer.php'
+?>
+<?php require_once __DIR__ . '/app/includes/layouts/end.php' ?>

@@ -12,18 +12,18 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="table-responsive">
-                            <!-- <div class="border-bottom mb-4">
+                            <div class="border-bottom mb-4">
                                 <div class="col-12">
                                     <div class="d-flex justify-content-between align-items-center mb-4">
-                                        <h4 class="module-title">Amortizations Management <span class="text-secondary" id="modeBreadCrumb">/ </span> <span class="text-secondary" id="forAccountBreadCrumb"></span></h4>
-                                        <div>
-                                            <button class="btn action-btn" style="cursor: no-drop">
-                                               <i class=" fas fa-file-csv me-2"></i>Export
+                                        <h4 class="module-title">Amortizations (Loan) Management: </h4>
+                                        <div class="tableContainerContent">
+                                            <button class="btn action-btn" id="refreshAmortizationTableBtn">
+                                                <i class="fas fa-sync-alt me-2"></i>Refresh
                                             </button>
                                         </div>
                                     </div>
                                 </div>
-                            </div> -->
+                            </div>
                             <div class="tableContainerContent">
                                 <div id="tabContainerContent" style="overflow-x: hidden!important;">
                                     <!-- Nav tabs -->
@@ -53,9 +53,6 @@
                                                     <div class="d-flex justify-content-between align-items-center mb-4">
                                                         <h4 class="module-title amortilizationTitle">List of amortizations approved:</h4>
                                                         <div class="amortizationContent">
-                                                            <button class="btn action-btn" id="refreshAmortizationTableBtn">
-                                                                <i class="fas fa-sync-alt me-2"></i>Refresh
-                                                            </button>
                                                             <button class="btn action-btn" id="filterAmortizationTableBtn">
                                                                 <i class="fas fa-filter me-2"></i>Filter
                                                             </button>
@@ -473,10 +470,6 @@
                                                     <div class="d-flex justify-content-between align-items-center mb-4">
                                                         <h4 class="module-title">List of amortizations requests:</h4>
                                                         <div>
-                                                            <!-- refresh button -->
-                                                            <button class="btn action-btn" style="cursor: no-drop">
-                                                                <i class="fas fa-sync-alt me-2"></i>Refresh
-                                                            </button>
                                                             <!-- filter button -->
                                                             <button class="btn action-btn" style="cursor: no-drop">
                                                                 <i class="fas fa-filter me-2"></i>Filter
@@ -505,18 +498,9 @@
                                                 </table>
                                             </div>
                                         </div>
-                                        <!-- <div class="tab-pane fade" id="invoices" role="tabpanel" aria-labelledby="invoices-tab">
-                                            <div class="invoicesContent">
-                                                <span>Todo: Invoices records...</span>
-                                            </div>
-                                        </div> -->
                                     </div>
                                 </div>
                             </div>
-                           
-                                
-                                
-                           
                         </div>
                     </div>
                 </div>

@@ -1,3 +1,4 @@
+DROP TABLE IF EXISTS `account_roles`;
 CREATE TABLE `account_roles` (
   `role_id` int NOT NULL AUTO_INCREMENT,
   `role_name` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
@@ -7,6 +8,7 @@ CREATE TABLE `account_roles` (
   UNIQUE KEY `role_name` (`role_name`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+DROP TABLE IF EXISTS `accounts`;
 CREATE TABLE `accounts` (
   `account_id` int NOT NULL AUTO_INCREMENT,
   `role_id` int NOT NULL,
@@ -29,6 +31,7 @@ CREATE TABLE `accounts` (
   CONSTRAINT `fk_accounts_role_id` FOREIGN KEY (`role_id`) REFERENCES `account_roles` (`role_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+DROP TABLE IF EXISTS `employees`;
 CREATE TABLE `employees` (
   `employee_id` int NOT NULL AUTO_INCREMENT,
   `account_id` int DEFAULT NULL,
@@ -45,6 +48,7 @@ CREATE TABLE `employees` (
   CONSTRAINT `fk_employees_account_id` FOREIGN KEY (`account_id`) REFERENCES `accounts` (`account_id`) ON DELETE SET NULL ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+DROP TABLE IF EXISTS `member_types`;
 CREATE TABLE `member_types` (
   `type_id` int NOT NULL AUTO_INCREMENT,
   `type_name` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
@@ -60,6 +64,7 @@ CREATE TABLE `member_types` (
   UNIQUE KEY `type_name` (`type_name`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+DROP TABLE IF EXISTS `members`;
 CREATE TABLE `members` (
   `member_id` int NOT NULL AUTO_INCREMENT,
   `account_id` int DEFAULT NULL,
@@ -90,6 +95,7 @@ CREATE TABLE `members` (
   CONSTRAINT `fk_members_type_id` FOREIGN KEY (`type_id`) REFERENCES `member_types` (`type_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+DROP TABLE IF EXISTS `amortization_types`;
 CREATE TABLE `amortization_types` (
   `type_id` int NOT NULL AUTO_INCREMENT,
   `type_name` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
@@ -105,6 +111,7 @@ CREATE TABLE `amortization_types` (
   UNIQUE KEY `type_name` (`type_name`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+DROP TABLE IF EXISTS `member_amortizations`;
 CREATE TABLE `member_amortizations` (
   `amortization_id` int NOT NULL AUTO_INCREMENT,
   `member_id` int NOT NULL,
@@ -127,6 +134,7 @@ CREATE TABLE `member_amortizations` (
   CONSTRAINT `member_amortizations_ibfk_2` FOREIGN KEY (`type_id`) REFERENCES `amortization_types` (`type_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+DROP TABLE IF EXISTS `amortization_payments`;
 CREATE TABLE `amortization_payments` (
   `payment_id` int NOT NULL AUTO_INCREMENT,
   `amortization_id` int NOT NULL,
@@ -147,6 +155,7 @@ CREATE TABLE `amortization_payments` (
   CONSTRAINT `amortization_payments_ibfk_2` FOREIGN KEY (`created_by`) REFERENCES `accounts` (`account_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+DROP TABLE IF EXISTS `member_transactions`;
 CREATE TABLE `member_transactions` (
   `transaction_id` int NOT NULL AUTO_INCREMENT,
   `member_id` int NOT NULL,
@@ -169,6 +178,7 @@ CREATE TABLE `member_transactions` (
   CONSTRAINT `member_transactions_ibfk_2` FOREIGN KEY (`created_by`) REFERENCES `accounts` (`account_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=864 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+DROP TABLE IF EXISTS `notifications`;
 CREATE TABLE `notifications` (
   `notification_id` int NOT NULL AUTO_INCREMENT,
   `account_id` int NOT NULL,
@@ -182,8 +192,36 @@ CREATE TABLE `notifications` (
   CONSTRAINT `notifications_ibfk_1` FOREIGN KEY (`account_id`) REFERENCES `accounts` (`account_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+DROP TABLE IF EXISTS `member_invoices`;
+CREATE TABLE `member_invoices` (
+  `invoice_id` int NOT NULL AUTO_INCREMENT,
+  `member_id` int NOT NULL,
+  `invoice_number` varchar(20) COLLATE utf8mb4_general_ci NOT NULL,
+  `amount` decimal(10,2) NOT NULL,
+  `due_date` date NOT NULL,
+  `description` text COLLATE utf8mb4_general_ci,
+  `payment_status` enum('pending','paid','overdue','cancelled') COLLATE utf8mb4_general_ci DEFAULT 'pending',
+  `is_recurring` tinyint(1) DEFAULT '0',
+  `recurring_period` enum('monthly','quarterly','annually') COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `recurring_status` enum('active','paused','completed','cancelled') COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `recurring_invoice_id` int DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`invoice_id`),
+  UNIQUE KEY `invoice_number` (`invoice_number`),
+  KEY `member_id` (`member_id`),
+  KEY `idx_invoice_number` (`invoice_number`),
+  KEY `idx_payment_status` (`payment_status`),
+  KEY `idx_due_date` (`due_date`),
+  KEY `idx_recurring_status` (`recurring_status`),
+  KEY `fk_recurring_invoice_id` (`recurring_invoice_id`),
+  CONSTRAINT `fk_recurring_invoice_id` FOREIGN KEY (`recurring_invoice_id`) REFERENCES `member_invoices` (`invoice_id`),
+  CONSTRAINT `member_invoices_ibfk_1` FOREIGN KEY (`member_id`) REFERENCES `members` (`member_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
 /*===========================================================================================================================*/
 
+DROP TABLE IF EXISTS `email_verification_codes`;
 CREATE TABLE `email_verification_codes` (
   `evc_id` int NOT NULL AUTO_INCREMENT,
   `email` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
@@ -196,7 +234,7 @@ CREATE TABLE `email_verification_codes` (
   KEY `idx_email_code` (`email`,`code`)
 ) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-
+DROP TABLE IF EXISTS `account_otp_codes`;
 CREATE TABLE `account_otp_codes` (
   `aoc_id` int NOT NULL AUTO_INCREMENT,
   `email` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
@@ -209,7 +247,7 @@ CREATE TABLE `account_otp_codes` (
   KEY `idx_email_code` (`email`,`code`)
 ) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-
+DROP TABLE IF EXISTS `password_reset_codes`;
 CREATE TABLE `password_reset_codes` (
   `prc_id` int NOT NULL AUTO_INCREMENT,
   `email` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,

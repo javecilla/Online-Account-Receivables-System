@@ -26,6 +26,7 @@
 <script type="text/javascript" src="<?= $base_url ?>/assets/scripts/system/members/services.js" loading="lazy"></script>
 <script type="text/javascript" src="<?= $base_url ?>/assets/scripts/system/employee/services.js" loading="lazy"></script>
 <script type="text/javascript" src="<?= $base_url ?>/assets/scripts/system/amortizations/services.js" loading="lazy"></script>
+<script type="text/javascript" src="<?= $base_url ?>/assets/scripts/system/invoices/services.js" loading="lazy"></script>
 <script type="text/javascript" src="<?= $base_url ?>/assets/scripts/system/notifications/services.js" loading="lazy"></script>
 <?php
 if ($request_file_name === 'login.php') {
@@ -75,6 +76,10 @@ if ($request_file_name === 'login.php') {
         <script type="text/javascript" src="{$base_url}/assets/scripts/system/amortizations/admin/get-amortizations.js" loading="lazy"></script>
         <script type="text/javascript" src="{$base_url}/assets/scripts/system/amortizations/admin/amortizations.js" loading="lazy"></script>
         <script type="text/javascript" src="{$base_url}/assets/scripts/system/amortizations/amortization-tabs.js" loading="lazy"></script>
+    HTML;
+} else if ($request_file_name === 'invoices.php') {
+    echo <<<HTML
+        <script type="text/javascript" src="{$base_url}/assets/scripts/system/invoices/invoice-tabs.js" loading="lazy"></script>
     HTML;
 } else if ($request_file_name === 'my-account.php') {
     echo <<<HTML

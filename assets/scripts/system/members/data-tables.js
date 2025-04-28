@@ -203,12 +203,10 @@ window.DataTableMembers = function ($membersTable, data) {
               </button>
               <ul class="dropdown-menu profile-menu" aria-labelledby="memberListsActionDropdown">
                 <li><a class="dropdown-item view-btn" href="javascript:void(0)" data-id="${data.member_id}" data-mt="${data.membership_type}"><i class="fas fa-eye me-1"></i> View Information</a></li>
-                <li><hr class="dropdown-divider"></li>
                 <li><a class="dropdown-item" href="javascript:void(0)" onclick="window.open('accounts?mode=update&for=member&account_id=${data.account_id}&member_id=${data.member_id}#internal', '_blank')"><i class="fa-solid fa-arrow-up-right-from-square me-1"></i> Update Details</a></li>
-                <li><hr class="dropdown-divider"></li>
                 <li><a class="dropdown-item update-status-btn" href="javascript:void(0)" data-id="${data.member_id}" data-status="${data.membership_status}" data-email="${data.email}" data-full-name="${data.full_name}"><i class="fas fa-edit me-1"></i> Update Status</a></li>
                 <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item delete-btn" href="javascript:void(0)" data-id="${data.member_id}"><i class="fas fa-trash"></i> Delete Member</a></li>
+                <li><a class="dropdown-item delete-btn" href="javascript:void(0)" data-id="${data.member_id}"><i class="fas fa-trash me-1"></i> Delete Member</a></li>
               </ul>
             </div>
           `
@@ -412,7 +410,6 @@ window.DataTableMemberApprovedAmortizations = function (
               </button>
               <ul class="dropdown-menu profile-menu" aria-labelledby="approvedAmortizationActionDropdown">
                 <li><a class="dropdown-item payment-history-btn"  data-id="${data.amortization_id}" data-at-name="${data.type_name}" href="javascript:void(0)"><i class="fas fa-history"></i> Payment History</a></li>
-                <li><hr class="dropdown-divider"></li>
                 <li><a class="dropdown-item invoice-btn"  data-id="${data.amortization_id}" href="javascript:void(0)"><i class="fas fa-file-invoice"></i> View Invoice</a></li>
               </ul>
             </div>
@@ -522,7 +519,6 @@ window.DataTableMemberAmortizationPayments = function ($paymentsTable, data) {
               </button>
               <ul class="dropdown-menu profile-menu" aria-labelledby="requestAmortizationActionDropdown">
                 <li><a class="dropdown-item notes-btn" href="javascript:void(0)" data-id="${data.amortization_id}" data-notes="${data.notes}"><i class="fas fa-file-lines"></i> View Payment Notes</a></li>
-                <li><hr class="dropdown-divider"></li>
                 <li><a class="dropdown-item" href="javascript:void(0)" data-id="${data.amortization_id}"><i class="fas fa-file-image"></i> Prof of Payments</a></li>
               </ul>
             </div>
