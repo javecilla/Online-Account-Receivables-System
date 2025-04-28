@@ -311,7 +311,7 @@ function verify_account(string $email, int $code): array
             return ['success' => false, 'message' => 'Failed to mark verification code as used', 'status' => 500];
         }
 
-        //update account email verified
+        //TODO TODAY: update account email verified
         $a_sql = "UPDATE accounts 
                 SET email_verified_at = NOW()
                 WHERE email = ? LIMIT 1";
@@ -743,4 +743,98 @@ function set_authenticated_account(array $auth_account): void {
     }
 
     log_request('Session Data: ', $_SESSION);
+}
+
+function get_accounts_by_criteria(array $roles, array $statuses, array $verification): array {
+    try {
+        $conn = open_connection();
+
+        $role_placeholders = str_repeat('?,', count($roles) - 1) . '?';
+        $status_placeholders = str_repeat('?,', count($statuses) - 1) . '?';
+
+        $base_query = vw_account_details() . "
+            WHERE ar.role_name IN ({$role_placeholders})
+            AND a.account_status IN ({$status_placeholders})";
+
+        $params = array_merge($roles, $statuses);
+        $types = str_repeat('s', count($roles)) . str_repeat('s', count($statuses));
+
+        if (count($verification) === 1) {
+            if ($verification[0] === 'verified') {
+                $base_query .= " AND a.email_verified_at IS NOT NULL";
+            } else if ($verification[0] === 'unverified') {
+                $base_query .= " AND a.email_verified_at IS NULL";
+            }
+        }
+
+        $stmt = $conn->prepare($base_query);
+        $stmt->bind_param($types, ...$params);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        if (!$result) {
+            return ['success' => false, 'message' => 'Failed to execute query.', 'status' => 500];
+        }
+
+        $accounts = $result->num_rows > 0 ? $result->fetch_all(MYSQLI_ASSOC) : [];
+
+        return [
+            'success' => true,
+            'message' => 'Accounts retrieved successfully based on criteria.',
+            'data' => $accounts
+        ];
+
+    } catch(Exception $e) {
+        log_error('Error getting accounts by criteria: ' . $e->getTraceAsString());
+        return ['success' => false, 'message' => "Database error occurred: " . $e->getMessage()];
+    }
+}
+
+function update_account_verification(int $account_id): array {
+    try {
+        $conn = open_connection();
+
+        $sql = "UPDATE accounts
+                SET email_verified_at = NOW()
+                WHERE account_id = ? LIMIT 1";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param('i', $account_id);
+        $updated = $stmt->execute();
+        if (!$updated) {
+            $conn->rollback();
+            return ['success' => false, 'message' => 'Failed to update account verification', 'status' => 500];
+        }
+
+        $conn->commit();
+
+        return ['success' => true,'message' => 'Account verification updated successfully'];
+    } catch(Exception $e) {
+        $conn->rollback();
+        log_error('Error updating account verification: ' . $e->getTraceAsString());
+        return ['success' => false, 'message' => "Database error occurred: " . $e->getMessage()];
+    }
+}
+
+function update_account_status(int $account_id, string $status): array {
+    try {
+        $conn = open_connection();
+
+        $sql = "UPDATE accounts
+                SET account_status =?
+                WHERE account_id =? LIMIT 1";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param('si', $status, $account_id);
+        $updated = $stmt->execute();
+        if (!$updated) {
+            $conn->rollback();
+            return ['success' => false,'message' => 'Failed to update account status','status' => 500];
+        }
+
+        $conn->commit();
+
+        return ['success' => true,'message' => 'Account status updated successfully'];
+    } catch(Exception $e) {
+        $conn->rollback();
+        log_error('Error updating account status: ' . $e->getTraceAsString());
+        return ['success' => false, 'message' => "Database error occurred: " . $e->getMessage()];
+    }
 }

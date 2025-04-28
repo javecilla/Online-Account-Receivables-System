@@ -164,6 +164,10 @@ try {
                 handle_create_notification($payload);
                 break;
 
+            case 'update_account_status':
+                handle_update_account_status($payload);
+                break;
+
             default:
                 throw new Exception('Bad Request! Invalid action.', 400);
                 break;
@@ -384,6 +388,10 @@ try {
                 handle_get_member_upcoming_payments($payload);
                 break;
 
+            case 'get_accounts_by_criteria':
+                handle_get_accounts_by_criteria($payload);
+                break;
+
             default:
                 throw new Exception('Bad Request! Invalid action.', 400);
                 break;
@@ -435,6 +443,10 @@ try {
                 handle_update_amortization($payload);
                 break;
 
+            case 'update_account_status':
+                handle_update_account_status($payload);
+                break;
+
             default:
                 throw new Exception('Bad Request! Invalid action.', 400);
                 break;
@@ -464,10 +476,10 @@ try {
         }
     }
 } catch (Throwable $e) {
-    log_error("An error occured: {$e->getTraceAsString()}");
+    log_error("An error occurred: {$e->getTraceAsString()}");
     return_response([
         'success' => false,
-        'message' => "An error occured: {$e->getMessage()}",
+        'message' => "An error occurred: {$e->getMessage()}",
         'status' => 500
     ]);
 }

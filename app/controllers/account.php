@@ -210,3 +210,117 @@ function handle_get_account_roles(mixed $payload): void
     $roles = get_account_roles();
     return_response($roles);
 }
+
+function handle_get_accounts_by_criteria(mixed $payload): void {
+    $validated = validate_data($payload, [
+        'roles' => 'required', //|string|in:Administrator,Accountant,Member
+        'status' => 'required', //|string|in:active,inactive
+        'verification' => 'required', //|string|in:verified,unverified
+    ]);
+
+    $role_array = array_map('trim', explode(',', $validated['data']['roles']));
+    foreach ($role_array as $role) {
+        if (!in_array($role, ACCOUNT_ROLES)) {
+            return_response([
+                'success' => false,
+                'message' => "Invalid role value: {$role}",
+                'status' => 400
+            ]);
+        }
+    }
+
+    $status_array = array_map('trim', explode(',', $validated['data']['status']));
+    foreach ($status_array as $status) {
+        if (!in_array($status, ACCOUNT_STATUS)) {
+            return_response([
+                'success' => false,
+                'message' => "Invalid status value: {$status}",
+                'status' => 400
+            ]);
+        }
+    }
+
+    $verification_array = array_map('trim', explode(',', $validated['data']['verification']));
+    foreach ($verification_array as $verification) {
+        if (!in_array($verification, ACCOUNT_VERIFICATION)) {
+            return_response([
+                'success' => false,
+                'message' => "Invalid verification value: {$verification}",
+                'status' => 400
+            ]);
+        }
+    }
+
+    $accounts = get_accounts_by_criteria($role_array, $status_array, $verification_array);
+    return_response($accounts);
+}
+
+function handle_update_account_status(mixed $payload): void
+{
+    $validated = validate_data($payload, [
+        'account_id' => 'required|numeric|min:1|check:account_model',
+        'status' => 'required|in:active,inactive',
+        'email' => 'optional|email|check:is_email_exist',
+        'title' => 'optional',
+        'message' => 'optional',
+        'is_sending_email' =>'optional|boolean'
+    ]);
+
+    // log_request('payload', $validated['data']);
+    // return_response(['success' => true,'message' => 'test']);
+
+    $account_id = (int)$validated['data']['account_id'];
+    $new_status = $validated['data']['status'];
+
+    $send_email_flag = $validated['data']['is_sending_email'] ?? false;
+
+    if($send_email_flag) {
+        $recipient_email = $validated['data']['email'];
+        $custom_title = empty($validated['data']['title']) ? null : htmlspecialchars($validated['data']['title']);
+        $custom_message = empty($validated['data']['message']) ? null : nl2br(htmlspecialchars($validated['data']['message']));
+
+        $email_subject = '';
+        $email_message = '';
+
+        switch ($new_status) {
+            case ACTIVE:
+                $email_subject = $custom_title ?? "Account Activated";
+                $email_message = $custom_message ?? <<<HTML
+                    <p>Your account has been successfully activated.</p>
+                    <p>You can now fully utilize all the benefits and services associated with your account.</p>
+                    <p>If you have any questions, please feel free to contact us.</p>
+                HTML;
+                break;
+
+            case INACTIVE:
+            default:
+                $email_subject = $custom_title?? "Account Deactivated";
+                $email_message = $custom_message?? <<<HTML
+                    <p>Your account has been deactivated.</p>
+                    <p>You can reactivate your account at any time by logging in and following the instructions.</p>
+                    <p>If you have any questions, please feel free to contact us.</p>
+                HTML;
+                break;
+        }
+
+        $email_body_content = <<<HTML
+            <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
+                <h2 style="color: #0056b3;">Account Status Update</h2>
+                <hr style="border: none; border-top: 1px solid #eee; margin: 20px 0;">
+                $email_message
+                <hr style="border: none; border-top: 1px solid #eee; margin: 20px 0;">
+                <p>Thank you,<br>OARSMC Avecilla</p>
+                <p style="font-size: 0.8em; color: #777;">If you believe you received this email in error, please disregard it or contact our support immediately.</p>
+                <p style="font-size: 0.8em; color: #777;">This is an automated message. Please do not reply directly to this email.</p>
+            </div>
+        HTML;
+
+        $mailed = send_email($recipient_email, $email_subject, $email_body_content);
+        if (!$mailed['success']) {
+            return_response(['success' => false, 'message' => 'Failed to send email: ' . $mailed['message'], 'status' => 500]);
+        }
+    }
+
+    $updated = update_account_status($account_id, $new_status);
+    return_response($updated);
+}

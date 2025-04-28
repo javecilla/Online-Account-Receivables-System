@@ -13,6 +13,10 @@ const ACTIVE = 'active';
 const INACTIVE = 'inactive';
 const ACCOUNT_STATUS = [ACTIVE, INACTIVE];
 
+const VERIFIED = 'verified';
+const UNVERIFIED = 'unverified';
+const ACCOUNT_VERIFICATION = [VERIFIED, UNVERIFIED];
+
 const DEPOSIT = 'deposit';
 const INTEREST = 'interest';
 const WITHDRAWAL = 'withdrawal';

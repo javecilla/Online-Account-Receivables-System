@@ -311,3 +311,57 @@ const logoutAccount = async () => {
     throw error
   }
 }
+
+const fetchAccountsByCriteria = async (
+  roles = 'Administrator,Accountant,Member',
+  status = 'active,inactive',
+  verification = 'verified,unverified'
+) => {
+  try {
+    const response = await axios.get(
+      `${API_URL}?action=get_accounts_by_criteria&roles=${roles}&status=${status}&verification=${verification}`,
+      {
+        headers: HEADERS
+      }
+    )
+    if (!response.data || !response.data.success) {
+      throw new Error(
+        response.data?.message || 'Failed to fetch accounts by criteria'
+      )
+    }
+
+    return response.data
+  } catch (error) {
+    console.error('Error:', error)
+    const errorMessage =
+      error.response?.data?.message || 'Something went wrong.'
+    toastr.error(errorMessage)
+    throw error
+  }
+}
+
+const updateAccountStatus = async (data) => {
+  try {
+    const payload = {
+      action: 'update_account_status',
+      data: data
+    }
+    const response = await axios.post(`${API_URL}`, payload, {
+      headers: HEADERS
+    })
+
+    if (!response.data || !response.data.success) {
+      throw new Error(
+        response.data?.message || 'Failed to update account status'
+      )
+    }
+
+    return response.data
+  } catch (error) {
+    console.error('Error:', error)
+    const errorMessage =
+      error.response?.data?.message || 'Something went wrong.'
+    toastr.error(errorMessage)
+    throw error
+  }
+}

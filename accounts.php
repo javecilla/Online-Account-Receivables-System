@@ -18,17 +18,17 @@
                                         <h4 class="module-title">Accounts Management <span class="text-secondary" id="modeBreadCrumb">/ Mode</span> <span class="text-secondary" id="forAccountBreadCrumb">/ For</span></h4>
                                         <div class="tableContainerContent">
                                             <!-- refresh button -->
-                                            <button class="btn action-btn" style="cursor: no-drop">
+                                            <button class="btn action-btn" id="refreshAccountList">
                                                 <i class="fas fa-sync-alt me-2"></i>Refresh
                                             </button>
                                             <!-- filter button -->
-                                            <button class="btn action-btn" style="cursor: no-drop">
+                                            <button class="btn action-btn" id="filterAccountList">
                                                 <i class="fas fa-filter me-2"></i>Filter
                                             </button>
-                                            <button class="btn action-btn" style="cursor: no-drop">
+                                            <!-- <button class="btn action-btn" style="cursor: no-drop">
                                                 <i class="fas fa-history me-2"></i> View Activity Logs
-                                            </button>
-                                            <!-- add account button -->
+                                            </button> -->
+                                 
                                             <button class="btn action-btn" id="addAccountBtn">
                                                 <i class="fas fa-plus-circle me-2"></i>Create Account
                                             </button>
@@ -59,6 +59,174 @@
                                         <!-- Data will be loaded dynamically -->
                                     </tbody>
                                 </table>
+
+                                <div class="modal fade" id="accountFilterModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="accountDetailsModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h1 class="modal-title fs-5 fw-bold" id="accountFilterModalLabel">Filter Accounts</h1>
+                                            </div>
+                                            <div class="modal-body d-flex justify-content-center align-items-center">
+                                                <div class="row">
+                                                    <div class="col-md-4">
+                                                        <div id="filterAccountRoleContainer">
+                                                            <ul class="list-unstyled">
+                                                                <li>
+                                                                    <span class="filter-label d-flex gap-2 align-items-center text-muted">
+                                                                        Account Roles
+                                                                    </span>
+                                                                </li>
+                                                                <li>
+                                                                    <label class="filter-choices label d-flex gap-2 align-items-center">
+                                                                        <input type="checkbox" class="checkbox-input-role" data-role="Administrator" />
+                                                                        Administrator
+                                                                    </label>
+                                                                </li>
+                                                                <li>
+                                                                    <label class="filter-choices label d-flex gap-2 align-items-center">
+                                                                        <input type="checkbox" class="checkbox-input-role" data-role="Accountant" />
+                                                                        Accountant
+                                                                    </label>
+                                                                </li>
+                                                                <li>
+                                                                    <label class="filter-choices label d-flex gap-2 align-items-center">
+                                                                        <input type="checkbox" class="checkbox-input-role" data-role="Member" />
+                                                                        Member
+                                                                    </label>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                        <input type="hidden" id="filterAccountRoleSelected" />
+                                                    </div>
+
+                                                    <div class="col-md-4">
+                                                        <div id="filterAccountStatusContainer">
+                                                            <ul class="list-unstyled">
+                                                                <li>
+                                                                    <span class="filter-label d-flex gap-2 align-items-center text-muted">
+                                                                        Account Status
+                                                                    </span>
+                                                                </li>
+                                                                <li>
+                                                                    <label class="filter-choices label d-flex gap-2 align-items-center">
+                                                                        <input type="checkbox" class="checkbox-input-status" data-status="active" />
+                                                                        Active
+                                                                    </label>
+                                                                </li>
+                                                                <li>
+                                                                    <label class="filter-choices label d-flex gap-2 align-items-center">
+                                                                        <input type="checkbox" class="checkbox-input-status" data-status="inactive" />
+                                                                        Inactive
+                                                                    </label>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                        <input type="hidden" id="filterAccountStatusSelected" />
+                                                    </div>
+
+                                                    <div class="col-md-4">
+                                                        <div id="filterAccountVerificationContainer">
+                                                            <ul class="list-unstyled">
+                                                                <li>
+                                                                    <span class="filter-label d-flex gap-2 align-items-center text-muted">
+                                                                        Verification
+                                                                    </span>
+                                                                </li>
+                                                                <li>
+                                                                    <label class="filter-choices label d-flex gap-2 align-items-center">
+                                                                        <input type="checkbox" class="checkbox-input-verify" data-verify="verified" />
+                                                                        Verified
+                                                                    </label>
+                                                                </li>
+                                                                <li>
+                                                                    <label class="filter-choices label d-flex gap-2 align-items-center">
+                                                                        <input type="checkbox" class="checkbox-input-verify" data-verify="unverified" />
+                                                                        Unverified
+                                                                    </label>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                        <input type="hidden" id="filterAccountVerificationSelected" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn action-btn" id="accountFilterSubmitBtn">Save and Close</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="modal fade" id="updateStatusModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="updateStatusModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h1 class="modal-title fs-5 fw-bold" id="updateStatusModalLabel">Update Account Status</h1>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div>
+                                                    <div class="row mb-3">
+                                                        <label for="updateStatusCurrentStatus" class="col-sm-2 col-form-label">Current Status: </label>
+                                                        <div class="col-sm-10">
+                                                            <input type="text" class="form-control" id="updateStatusCurrentStatus" readonly/>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row mb-3">
+                                                        <label for="updateStatusNewStatusSelection" class="col-sm-2 col-form-label">New Status: <span class="text-danger fw-bold">*</span></label>
+                                                        <div class="col-sm-10">
+                                                            <div class="input-group" id="updateStatusNewStatusSelection">
+                                                                <input type="text" class="form-control" id="updateStatusNewStatusUI" placeholder="Select new status" readonly />
+                                                                <span class="input-group-text" style="width: 5.5%;">
+                                                                    <select id="updateStatusNewStatus" style="width: 60%;" aria-label="updateStatusNewStatus" aria-describedby="updateStatusNewStatusAddon">
+                                                                        <option value="" selected></option>
+                                                                        <option value="active">Active</option>
+                                                                        <option value="inactive">Inactive</option>
+                                                                    </select>
+                                                                </span>
+                                                            </div>
+                                                            <br/>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="sendEmailCheck">
+                                                                <label class="form-check-label" for="sendEmailCheck">
+                                                                    Send Email Message
+                                                                </label>
+                                                            </div>
+                                                            <div class="form-control mt-3 hidden" contenteditable="true" id="statusMailNotifyContainer">
+                                                                <small style="margin-left: 150px!important; cursor: default!important;">Send Message to Notify <strong>Account Owner</strong> about their account status.</small>
+                                                                <div class="row mb-3 mt-3">
+                                                                    <label for="updateStatusEmailField" class="col-sm-2 col-form-label">Email: <span class="text-primary fw-bold">*</span></label>
+                                                                    <div class="col-sm-10">
+                                                                        <div class="input-group" id="updateStatusEmailField" style="cursor: default!important;">
+                                                                            <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                                                                            <input type="text" class="form-control" id="updateStatusEmail" readonly/>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                
+                                                                <div class="row mb-3">
+                                                                    <label for="updateStatusTitle" class="col-sm-2 col-form-label">Title: <span class="text-warning fw-bold">*</span></label>
+                                                                    <div class="col-sm-10">
+                                                                        <input type="text" class="form-control" id="updateStatusTitle" placeholder="Enter custom title or leave it blank to let system generate." required/>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row mb-3">
+                                                                    <label for="updateStatusMessage" class="col-sm-2 col-form-label">Message: <span class="text-warning fw-bold">*</span></label>
+                                                                    <div class="col-sm-10">
+                                                                        <textarea class="form-control" id="updateStatusMessage" rows="3" placeholder="Enter custom message or leave it blank to let system generate."></textarea>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn action-btn" id="updateStatusCloseBtn">Close</button>
+                                                <button type="button" class="btn action-btn" id="updateStatusSubmitBtn">Update</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                             <div class="formContainerContent hidden">
                                 <div style="overflow-x: hidden!important;">

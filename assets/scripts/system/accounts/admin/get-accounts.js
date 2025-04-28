@@ -1,4 +1,155 @@
 $(document).ready(async function () {
+  if (!localStorage.getItem('filterAccountRoles')) {
+    localStorage.setItem('filterAccountRoles', ACCOUNT_ROLES.join(','))
+  }
+
+  if (!localStorage.getItem('filterAccountStatus')) {
+    localStorage.setItem('filterAccountStatus', ACCOUNT_STATUS.join(','))
+  }
+
+  if (!localStorage.getItem('filterAccountVerification')) {
+    localStorage.setItem(
+      'filterAccountVerification',
+      ACCOUNT_VERIFICATION.join(',')
+    )
+  }
+
+  const filterAccountRole =
+    localStorage.getItem('filterAccountRoles') || ACCOUNT_ROLES.join(',')
+  const filterAccountStatus =
+    localStorage.getItem('filterAccountStatus') || ACCOUNT_STATUS.join(',')
+  const filterAccountVerification =
+    localStorage.getItem('filterAccountVerification') ||
+    ACCOUNT_VERIFICATION.join(',')
+
+  let tempFilterAccountRole = filterAccountRole
+  let tempFilterAccountStatus = filterAccountStatus
+  let tempFilterAccountVerification = filterAccountVerification
+
+  $('#filterAccountRoleSelected').val(tempFilterAccountRole)
+  $('#filterAccountStatusSelected').val(tempFilterAccountStatus)
+  $('#filterAccountVerificationSelected').val(tempFilterAccountVerification)
+
+  $('#filterAccountList').click(async function () {
+    openModal('#accountFilterModal')
+  })
+
+  $('#accountFilterSubmitBtn').click(async function () {
+    const selectedRoles = $('#filterAccountRoleSelected').val()
+    const selectedStatus = $('#filterAccountStatusSelected').val()
+    const selectedVerification = $('#filterAccountVerificationSelected').val()
+
+    if (
+      isEmpty(selectedRoles) ||
+      isEmpty(selectedStatus) ||
+      isEmpty(selectedVerification)
+    ) {
+      toastr.warning(
+        'Please select at least one role, status and verification. It cannot be empty.'
+      )
+      return
+    }
+
+    localStorage.setItem('filterAccountRoles', selectedRoles)
+    localStorage.setItem('filterAccountStatus', selectedStatus)
+    localStorage.setItem('filterAccountVerification', selectedVerification)
+
+    $(this).text('Filtering...').prop('disabled', true)
+    await displayAccountsList()
+    closeModal('#accountFilterModal')
+    $(this).text('Save and Close').prop('disabled', false)
+  })
+
+  $('#refreshAccountList').click(async function () {
+    LoadingManager.show($('.main-content'))
+    $(this).text('Refreshing...').prop('disabled', true)
+    await displayAccountsList()
+    $(this)
+      .html('<i class="fas fa-sync-alt me-2"></i>Refresh')
+      .prop('disabled', false)
+    LoadingManager.hide($('.main-content'))
+  })
+
+  $('.checkbox-input-role').each(function () {
+    const roleValue = $(this).data('role')
+
+    if (roleValue !== undefined && roleValue !== null) {
+      const targetRole = roleValue.toString()
+
+      if (filterAccountRole.includes(targetRole)) {
+        $(this).prop('checked', true)
+      }
+
+      $(this).on('change', function () {
+        tempFilterAccountRole = $('.checkbox-input-role:checked')
+          .map(function () {
+            const checkedRole = $(this).data('role')
+            return checkedRole !== undefined && checkedRole !== null
+              ? checkedRole.toString()
+              : null
+          })
+          .get()
+          .filter((role) => role !== null)
+
+        $('#filterAccountRoleSelected').val(tempFilterAccountRole.join(','))
+      })
+    }
+  })
+
+  $('.checkbox-input-status').each(function () {
+    const statusValue = $(this).data('status')
+
+    if (statusValue !== undefined && statusValue !== null) {
+      const targetRole = statusValue.toString()
+
+      if (filterAccountStatus.includes(targetRole)) {
+        $(this).prop('checked', true)
+      }
+
+      $(this).on('change', function () {
+        tempFilterAccountStatus = $('.checkbox-input-status:checked')
+          .map(function () {
+            const checkedStatus = $(this).data('status')
+            return checkedStatus !== undefined && checkedStatus !== null
+              ? checkedStatus.toString()
+              : null
+          })
+          .get()
+          .filter((status) => status !== null)
+
+        $('#filterAccountStatusSelected').val(tempFilterAccountStatus.join(','))
+      })
+    }
+  })
+
+  $('.checkbox-input-verify').each(function () {
+    const verifyValue = $(this).data('verify')
+
+    if (verifyValue !== undefined && verifyValue !== null) {
+      const targetVerify = verifyValue.toString()
+
+      if (filterAccountVerification.includes(targetVerify)) {
+        $(this).prop('checked', true)
+      }
+
+      $(this).on('change', function () {
+        tempFilterAccountVerification = $('.checkbox-input-verify:checked')
+          .map(function () {
+            const checkedVerify = $(this).data('verify')
+            return checkedVerify !== undefined && checkedVerify !== null
+              ? checkedVerify.toString()
+              : null
+          })
+          .get()
+          .filter((verify) => verify !== null)
+
+        $('#filterAccountVerificationSelected').val(
+          tempFilterAccountVerification.join(',')
+        )
+      })
+    }
+  })
+
   const $tableContainerElements = $('.tableContainerContent')
   const $formContainerElements = $('.formContainerContent')
   const $formMemberContent = $('.formMemberContent')
@@ -7,108 +158,25 @@ $(document).ready(async function () {
   const $forAccountBreadCrumb = $('#forAccountBreadCrumb')
   const $accountsTable = $('#accountsTable')
 
-  let dataTable = $(accountsTable).DataTable({
-    responsive: true,
-    processing: true,
-    language: {
-      processing:
-        '<div class="spinner-border text-primary" role="status"><span class="visually-hidden">Loading...</span></div>',
-      emptyTable: 'Loading accounts records...',
-      zeroRecords: 'No matching accounts found',
-      info: 'Showing _START_ to _END_ of _TOTAL_ Accounts',
-      infoEmpty: 'Showing 0 to 0 of 0 Accounts',
-      infoFiltered: '(filtered from _MAX_ total Accounts)',
-      search: 'Search Account:',
-      lengthMenu: 'Show _MENU_ Accounts',
-      paginate: {
-        first: '<i class="fas fa-angle-double-left"></i>',
-        previous: '<i class="fas fa-angle-left"></i>',
-        next: '<i class="fas fa-angle-right"></i>',
-        last: '<i class="fas fa-angle-double-right"></i>'
-      }
-    },
-    columns: [
-      { data: 'account_uid', title: 'Account ID' },
-      { data: 'role_name', title: 'Role' },
-      { data: 'email', title: 'Email' },
-      // { data: 'username', title: 'Username' },
-      {
-        data: 'email_verified_at',
-        title: 'Verified',
-        render: function (data) {
-          const verifiedClass =
-            data !== null ? 'status-verified-yes' : 'status-verified-no'
-          const icon = data !== null ? 'fa-shield-alt' : 'fa-circle-exclamation'
-          const statusText = data !== null ? 'Verified' : 'Not Verified'
-          return `<span class="status-badge ${verifiedClass}"><i class="fas ${icon}"></i>&nbsp;${statusText}</span>`
-        }
-      },
-      {
-        data: 'account_status',
-        title: 'Status',
-        render: function (data) {
-          const statusClass =
-            data === 'active' ? 'status-active' : 'status-inactive'
-          const icon = data === 'active' ? 'fa-check-circle' : 'fa-times-circle'
-          return `<span class="status-badge ${statusClass}"><i class="fas ${icon}"></i>&nbsp;${
-            data.charAt(0).toUpperCase() + data.slice(1)
-          }</span>`
-        }
-      },
-      {
-        data: 'created_at',
-        title: 'Joined Date',
-        render: function (data) {
-          return moment(data).format('DD MMM YYYY, h:mm A')
-        }
-      },
-      {
-        data: null,
-        title: 'Actions',
-        orderable: false,
-        render: function (data) {
-          const dataFor = data.role_name === 'Member' ? 'member' : 'employee'
-          return `
-            <div class="dropdown" id="requestAmortizationActionDropdown">
-              <button class="action-btn" data-bs-toggle="dropdown" aria-expanded="false">
-                <i class="fa-solid fa-bars me-1"></i><i class="fas fa-chevron-down" style="font-size: 8px; margin-bottom: 2px"></i>
-              </button>
-              <ul class="dropdown-menu profile-menu" aria-labelledby="requestAmortizationActionDropdown">
-                <li><a class="dropdown-item view-btn" href="javascript:void(0)" data-id="${data.account_id}" data-for="${dataFor}"><i class="fas fa-eye"></i> View Account</a></li>
-                <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item edit-btn" href="javascript:void(0)" data-id="${data.account_id}" data-for="${dataFor}"><i class="fas fa-edit"></i> Update Details</a></li>
-                <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="javascript:void(0)" data-id="${data.account_id}" data-for="${dataFor}"><i class="fas fa-edit"></i> Update Status</a></li>
-                <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item delete-btn" href="javascript:void(0)" data-id="${data.account_id}" data-for="${dataFor}"><i class="fas fa-trash"></i> Delete Account</a></li>
-              </ul>
-            </div>
-          `
-        }
-      }
-    ],
-    order: [[5, 'desc']] // Sort by created_at by default
-  })
-
-  // Make these functions available globally for page-loading.js
-  window.dislayAccounts = async function () {
+  window.displayAccountsList = async function () {
     try {
-      $accountsTable.addClass('loading')
-      const accounts = await fetchAccounts()
+      const accounts = await fetchAccountsByCriteria(
+        $('#filterAccountRoleSelected').val(),
+        $('#filterAccountStatusSelected').val(),
+        $('#filterAccountVerificationSelected').val()
+      )
+      //console.log(accounts)
       if (accounts.success) {
-        dataTable.clear()
-        dataTable.rows.add(accounts.data.items)
-        dataTable.draw()
-        const metaData = accounts.data.meta_data
-      } else {
-        console.error('Error fetching accounts:', response.message)
-        toastr.error('Failed to load accounts data')
+        // Destroy existing DataTable instance if it exists
+        if ($.fn.DataTable.isDataTable($accountsTable)) {
+          $accountsTable.DataTable().destroy()
+        }
+        // Clear the table body before populating new data
+        $accountsTable.find('tbody').empty()
+        DataTableAccounts($accountsTable, accounts.data)
       }
     } catch (error) {
       console.error('Error fetching accounts:', error)
-      //toastr.error('An error occurred while fetching accounts data')
-    } finally {
-      $accountsTable.removeClass('loading')
     }
   }
 
@@ -241,6 +309,118 @@ $(document).ready(async function () {
     await handlePageContent()
   })
 
+  const $updateStatusCurrentStatus = $('#updateStatusCurrentStatus')
+  const $updateStatusNewStatus = $('#updateStatusNewStatus')
+  const $updateStatusNewStatusUI = $('#updateStatusNewStatusUI')
+  const $sendEmailCheckbox = $('#sendEmailCheck')
+  const $statusMailContainer = $('#statusMailNotifyContainer')
+  const $updateStatusEmail = $('#updateStatusEmail')
+  const $updateStatusTitle = $('#updateStatusTitle')
+  const $updateStatusMessage = $('#updateStatusMessage')
+
+  $accountsTable.on('click', '.update-status-btn', function () {
+    const currentStatus = $(this).data('status')
+    const email = $(this).data('email')
+    const accountId = $(this).data('id')
+    //console.log(currentStatus, email, accountId)
+    $('#updateStatusModal').data('accountId', accountId)
+
+    //const dataFor = $(this).data('for')
+    $updateStatusCurrentStatus.val(
+      currentStatus.charAt(0).toUpperCase() + currentStatus.slice(1)
+    )
+    $updateStatusEmail.val(email)
+    openModal('#updateStatusModal')
+  })
+
+  $updateStatusNewStatus.on('change', function () {
+    //const selectedStatus = $(this).val()
+    const selectedStatusLabel = $(this).find('option:selected').text()
+    $updateStatusNewStatusUI.val(selectedStatusLabel)
+  })
+
+  $sendEmailCheckbox.on('change', function () {
+    const isChecked = $(this).is(':checked')
+    if (isChecked) {
+      $statusMailContainer.removeClass('hidden')
+      $updateStatusTitle.focus()
+    } else {
+      $statusMailContainer.addClass('hidden')
+      $updateStatusTitle.val('')
+      $updateStatusMessage.val('')
+    }
+  })
+
+  const resetUpdateStatusModalForm = function () {
+    $updateStatusNewStatus.val('')
+    $updateStatusNewStatusUI.val('')
+    $updateStatusTitle.val('')
+    $updateStatusMessage.val('')
+    $updateStatusEmail.val('')
+    $('#updateStatusModal').removeData('accountId')
+    $sendEmailCheckbox.prop('checked', false)
+    $statusMailContainer.addClass('hidden')
+  }
+
+  $('#updateStatusCloseBtn').click(function () {
+    closeModal('#updateStatusModal')
+    resetUpdateStatusModalForm()
+  })
+
+  $('#updateStatusSubmitBtn').click(async function () {
+    const currentStatus = $updateStatusCurrentStatus.val().toLowerCase()
+    const newStatus = $updateStatusNewStatus.val()
+    const isSendingEmail = $sendEmailCheckbox.is(':checked')
+    const email = $updateStatusEmail.val()
+    // Retrieve accountId from the modal's data
+    const accountId = $('#updateStatusModal').data('accountId')
+    const title = $updateStatusTitle.val()
+    const message = $updateStatusMessage.val()
+
+    // console.table({
+    //   account_id: accountId,
+    //   status: newStatus,
+    //   email: email,
+    //   title: title,
+    //   message: message,
+    //   is_sending_email: isSendingEmail
+    // })
+    // toastr.warning('This feature is currently under development.')
+    // return
+
+    if (isEmpty(newStatus)) {
+      toastr.warning('Please select a new status.')
+      return
+    }
+
+    if (newStatus === currentStatus) {
+      toastr.warning('The new status cannot be the same as the current status.')
+      return
+    }
+
+    $(this).text('Updating...').prop('disabled', true)
+    try {
+      const updated = await updateAccountStatus({
+        account_id: accountId,
+        status: newStatus,
+        email: email,
+        title: title,
+        message: message,
+        is_sending_email: isSendingEmail
+      })
+      if (updated.success) {
+        toastr.success(updated.message)
+        await displayAccountsList()
+        closeModal('#updateStatusModal')
+        resetUpdateStatusModalForm()
+      }
+    } catch (error) {
+      console.error(error)
+    } finally {
+      $(this).text('Update').prop('disabled', false)
+    }
+  })
+
   $accountsTable.on('click', '.delete-btn', async function () {
     const accountId = $(this).data('id')
     const dataFor = $(this).data('for')
@@ -276,7 +456,7 @@ $(document).ready(async function () {
                 const res = await deleteAccount(accountId)
                 if (res.success) {
                   toastr.success(res.message)
-                  await dislayAccounts()
+                  await displayAccountsList()
                 } else {
                   console.error('Error deleting account:', response.message)
                   toastr.error('Failed to load accounts data')

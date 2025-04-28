@@ -56,6 +56,7 @@ if ($request_file_name === 'login.php') {
     HTML;
 } else if ($request_file_name === 'accounts.php') {
     echo <<<HTML
+        <script type="text/javascript" src="{$base_url}/assets/scripts/system/accounts/data-tables.js" loading="lazy"></script>
         <script type="text/javascript" src="{$base_url}/assets/scripts/system/accounts/admin/get-accounts.js" loading="lazy"></script>
         <script type="text/javascript" src="{$base_url}/assets/scripts/system/accounts/admin/accounts.js" loading="lazy"></script>
         <script type="text/javascript" src="{$base_url}/assets/scripts/system/accounts/admin/create-member-accounts.js" loading="lazy"></script>
