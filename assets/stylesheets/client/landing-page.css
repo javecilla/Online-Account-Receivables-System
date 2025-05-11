@@ -1,0 +1,83 @@
+.action-btn {
+  padding: 7px 12px;
+  margin-right: 5px;
+  border-radius: 2px;
+  font-size: 0.8rem;
+  background: linear-gradient(to bottom, #ffffff 40%, #f8f9fa 100%);
+  border: 1px solid #dee2e6;
+  color: #495057;
+  transition: 0.1s ease;
+}
+.action-btn:hover {
+  background: linear-gradient(to bottom, #343a40 40%, #212529 100%);
+  border-color: none;
+  color: #ffffff;
+}
+
+.action-btn:last-child {
+  margin-right: 0;
+}
+
+.hero-buttons {
+  padding: 11px 16px;
+  margin-right: 5px;
+  border-radius: 2px;
+  font-size: 0.8rem;
+  transition: 0.1s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.hero-buttons:last-child {
+  margin-right: 0;
+}
+.hero-buttons i {
+  margin-right: 5px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.hero-buttons.secondary-button {
+  background: linear-gradient(to bottom, #ffffff 40%, #f8f9fa 100%);
+  border: 1px solid #dee2e6;
+  color: #495057;
+}
+.hero-buttons.secondary-button:hover {
+  background: linear-gradient(to bottom, #343a40 40%, #212529 100%);
+  border-color: none;
+  color: #ffffff;
+}
+
+.hero-buttons.primary-button {
+  background: linear-gradient(to bottom, #343a40 40%, #212529 100%);
+  border-color: none;
+  color: #ffffff;
+}
+.hero-buttons.primary-button:hover {
+  transform: scale(0.98);
+}
+
+.form-control {
+  background: linear-gradient(to bottom, #ffffff 40%, #f8f9fa 100%) !important;
+  border: 1px solid #dee2e6 !important;
+  border-radius: 3px !important;
+  color: #495057 !important;
+}
+.form-control::placeholder {
+  color: #848d95 !important;
+  opacity: 1 !important;
+  font-size: 0.9rem !important;
+}
+.form-control:read-only {
+  pointer-events: none !important;
+  background-color: #ebeff2 !important;
+}
+.form-control.is-invalid,
+.form-select.is-invalid {
+  border: 1px solid var(--danger-color) !important;
+}
+.g-recaptcha-widgets {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}

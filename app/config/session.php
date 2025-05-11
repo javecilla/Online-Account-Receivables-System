@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 require_once __DIR__ . '/env.php';
 require_once __DIR__ . '/logger.php';
+require_once __DIR__ . '/../constants/system.php';
 
 
 function configure_session(): void
@@ -124,5 +125,5 @@ function is_member(): bool
 
 function is_employee(): bool
 {
-    return isset($_SESSION['role_name']) && ($_SESSION['role_name'] === 'Administrator' || $_SESSION['role_name'] === 'Accountant');
+    return isset($_SESSION['role_name']) && in_array($_SESSION['role_name'], EMPLOYEE_ROLES);
 }

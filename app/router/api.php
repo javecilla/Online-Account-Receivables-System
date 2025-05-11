@@ -168,6 +168,14 @@ try {
                 handle_update_account_status($payload);
                 break;
 
+            case 'create_contact_messages':
+                handle_create_contact_messages($payload);
+                break;
+
+            case 'update_contact_map':
+                handle_update_contact_map($payload);
+                break;
+
             default:
                 throw new Exception('Bad Request! Invalid action.', 400);
                 break;
@@ -390,6 +398,14 @@ try {
 
             case 'get_accounts_by_criteria':
                 handle_get_accounts_by_criteria($payload);
+                break;
+
+            case 'get_contact_map':
+                handle_get_contact_map($payload);
+                break;
+
+             case 'get_aboutus_content':
+                handle_get_aboutus_content($payload);
                 break;
 
             default:

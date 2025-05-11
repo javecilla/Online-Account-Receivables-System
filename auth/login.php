@@ -44,11 +44,12 @@
             </div>
 
             <div class="form-group login-buttons">
-              <button type="button" class="btn action-btn request-btn" onclick="window.location.href='account-request?reg=true#external'">Account Request</button>
+              <button type="button" class="btn action-btn request-btn" onclick="window.location.href='/'">Back to Home</button>
               <button type="button" class="btn action-btn login-btn">Login</button>
             </div>
 
             <div class="form-group links">
+              <p>Don't have an account yet? <a href="/auth/account-request?reg=true#external">apply membership</a> </p>
               <p>Existing account but <a href="javascript:void(0)" style="cursor: no-drop">currently deactivated</a> or <a href="account-verification?purpose=request#external">not yet verified</a>?</p>
               <p>Forgot Password? No worries, please <a href="javascript:void(0)" style="cursor: no-drop">click here</a> to reset your password.</p>
             </div>

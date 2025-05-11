@@ -55,3 +55,11 @@ function generate_random_number(int $length = 6): int
     $max = pow(10, $length) - 1;
     return random_int($min, $max);
 }
+
+function base_url(): string
+{
+    $protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? 'https' : 'http';
+    $host = $_SERVER['HTTP_HOST'];
+    // $script_name = dirname($_SERVER['SCRIPT_NAME']);
+    return $protocol. '://'. $host;
+}

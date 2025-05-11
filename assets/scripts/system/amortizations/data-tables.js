@@ -241,6 +241,16 @@ window.DataTableAmortizationsByStatus = function ($amortizationsTable, data) {
 
           // --- Calculate the theoretical next due date ---
           const paymentDay = startDate.date()
+
+          // Check if loan start date is in the future
+          if (startDate.isAfter(currentDate)) {
+            // For future loans, the first payment is due on the start date
+            const daysUntilStart = startDate.diff(currentDate, 'days')
+            return `<span class="status-badge status-active" data-bs-toggle="tooltip" title="Loan starts on ${startDate.format(
+              'DD MMM YYYY'
+            )}">Starts in ${daysUntilStart} days</span>`
+          }
+
           let theoreticalNextDueDate = currentDate.clone().date(paymentDay)
 
           // If this month's payment day has already passed, the *next* theoretical due date is next month
@@ -327,9 +337,24 @@ window.DataTableAmortizationsByStatus = function ($amortizationsTable, data) {
             }
           } else if (daysUntilDue <= 0) {
             // Due today (but status is not 'overdue' yet)
-            badgeClass = 'as-defaulted' // Use overdue style or a specific 'due-today' style
-            text = 'Due Today'
-            tooltipText = `Payment due today: ${tooltipDate}`
+            // Check if the loan was created today (start date is today)
+            if (startDate.isSame(currentDate, 'day')) {
+              // For loans created today, show when the first payment is due (typically one month later)
+              const firstDueDate = startDate
+                .clone()
+                .add(1, 'month')
+                .date(paymentDay)
+              badgeClass = 'status-active' // Use a more neutral style for new loans
+              text = `First Due ${firstDueDate.format('DD MMM')}`
+              tooltipText = `First payment due on ${firstDueDate.format(
+                'DD MMM YYYY'
+              )}`
+            } else {
+              // Regular due today case
+              badgeClass = 'as-defaulted' // Use overdue style or a specific 'due-today' style
+              text = 'Due Today'
+              tooltipText = `Payment due today: ${tooltipDate}`
+            }
           } else if (daysUntilDue <= dueSoonThreshold) {
             // Due soon
             badgeClass = 'status-pending' // Warning style (or your 'due-soon' style)
@@ -386,6 +411,16 @@ window.DataTableAmortizationsByStatus = function ($amortizationsTable, data) {
                 <li><a class="dropdown-item view-details-btn" href="javascript:void(0)" data-amortization-id="${data.amortization_id}"><i class="fas fa-eye me-1"></i> View Details</a></li>
                 <li><a class="dropdown-item update-status-btn" href="javascript:void(0)" data-amortization-id="${data.amortization_id}" data-amortization-status="${data.status}" data-member-id="${data.member_id}" data-email="${data.email}" data-full-name="${data.full_name}"><i class="fas fa-edit me-1"></i> Update Status</a></li>
                 <li><a class="dropdown-item send-reminder-btn" href="javascript:void(0)" data-amortization-id="${data.amortization_id}" data-member-id="${data.member_id}" data-email="${data.email}" data-full-name="${data.full_name}"><i class="fas fa-bell me-1"></i> Notify Member</a></li>
+                <li><a class="dropdown-item pay-balance-btn" href="javascript:void(0)" 
+                  data-id="${data.amortization_id}"
+                  data-member-id="${data.member_id}"
+                  data-remaining-balance="${data.remaining_balance}"
+                  data-monthly-amount="${data.monthly_amount}"
+                  data-current-balance="${data.current_balance}"
+                  data-credit-balance="${data.credit_balance}"
+                  data-total-paid="${data.total_paid}" 
+                  data-title="Pay '${data.full_name}' Balance Due for '${data.type_name}'"><strong class="me-2">₱</strong> Pay Balance Due</a></li>
+                <li>
                 <li><a class="dropdown-item view-payments-history-btn" href="javascript:void(0)" data-amortization-id="${data.amortization_id}" data-amortization-type-name="${data.type_name}" data-member-id="${data.member_id}"><i class="fas fa-history me-1"></i> Payments History</a></li>
               </ul>
             </div>
@@ -678,4 +713,104 @@ window.DataTableMemberAmortizationPayments = function ($paymentsTable, data) {
   })
 
   return paymentsDataTable
+}
+
+window.DataTableAmortizationTypes = function ($loanTypesTable, data) {
+  if ($.fn.DataTable.isDataTable($loanTypesTable)) {
+    $loanTypesTable.DataTable().destroy()
+    $loanTypesTable.empty()
+  }
+  let loanTypesDataTable = $($loanTypesTable).DataTable({
+    responsive: true,
+    processing: true,
+    data: data,
+    language: {
+      processing:
+        '<div class="spinner-border text-primary" role="status"><span class="visually-hidden">Loading...</span></div>',
+      emptyTable: 'No loan type records found',
+      zeroRecords: 'No matching loan type found',
+      info: 'Showing _START_ to _END_ of _TOTAL_ Loan Type',
+      infoEmpty: 'Showing 0 to 0 of 0 Loan Type',
+      infoFiltered: '(filtered from _MAX_ total Loan Type)',
+      search: 'Search Loan Type:',
+      lengthMenu: 'Show _MENU_ Loan Type'
+    },
+    columns: [
+      {
+        data: 'type_name',
+        title: 'Amortization Type'
+      },
+      {
+        data: 'description',
+        title: 'Description',
+        orderable: false
+      },
+      {
+        data: 'interest_rate',
+        title: 'Interest Rate (%)'
+      },
+      {
+        data: 'term_months',
+        title: 'Term (Months)'
+      },
+      {
+        data: 'minimum_amount',
+        title: 'Minimum Amount',
+        render: function (data) {
+          return `&#8369;${parseFloat(data).toFixed(2)}`
+        }
+      },
+      {
+        data: 'maximum_amount',
+        title: 'Maximum Amount',
+        render: function (data) {
+          return `&#8369;${parseFloat(data).toFixed(2)}`
+        }
+      },
+      {
+        data: 'status',
+        title: 'Status',
+        render: function (data) {
+          if (data === 'active') {
+            return `<span class="status-badge status-active">Active</span>`
+          } else {
+            return `<span class="status-badge status-inactive">Inactive</span>`
+          }
+        }
+      },
+      {
+        data: null,
+        title: 'Actions',
+        orderable: false,
+        render: function (data) {
+          // return `
+          //   <button class="btn btn-sm action-btn edit-btn" data-id="${data.type_id}">
+          //     <i class="fas fa-edit"></i> Edit
+          //   </button>
+          //   <button class="btn btn-sm action-btn delete-btn" data-id="${data.type_id}">
+          //     <i class="fas fa-trash"></i> Delete
+          //   </button>
+          // `
+          return `
+            <div class="dropdown" id="requestAmortizationActionDropdown">
+              <button class="action-btn" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="fa-solid fa-bars me-1"></i><i class="fas fa-chevron-down" style="font-size: 8px; margin-bottom: 2px"></i>
+              </button>
+              <ul class="dropdown-menu profile-menu" aria-labelledby="requestAmortizationActionDropdown">
+                <li><a class="dropdown-item edit-btn" href="javascript:void(0)" data-id="${data.type_id}"><i class="fas fa-edit me-2"></i> Edit Details</a></li>
+                <li><a class="dropdown-item delete-btn" href="javascript:void(0)" data-id="${data.type_id}"><i class="fas fa-trash me-2"></i> Delete Type</a></li>
+              </ul>
+            </div>
+          `
+        }
+      },
+      {
+        data: 'created_at',
+        visible: false
+      }
+    ],
+    order: [[9, 'desc']]
+  })
+
+  return loanTypesDataTable
 }

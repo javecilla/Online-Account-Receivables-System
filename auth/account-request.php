@@ -7,7 +7,7 @@
       <!-- Top Header Section -->
       <div class="ar-top-side">
         <div class="ar-header">
-          <h2>Request Account (Member)</h2>
+          <h2>Members Application</h2>
           <p>Please fill out the form below to create your account. All fields marked with an asterisk (*) are required.</p>
         </div>
       </div>
@@ -130,9 +130,13 @@
 
             <div class="form-group ar-buttons action-buttons">
               <!-- left -->
-              <button type="button" class="btn action-btn back-btn" onclick="window.location.href='login'">Back to Login</button>
+              <button type="button" class="btn action-btn back-btn" onclick="window.location.href='/'">Back to Home</button>
               <!-- right -->
               <button type="button" class="btn action-btn request-btn">Submit</button>
+            </div>
+
+            <div class="form-group links">
+              <p>Already have an account? <a href="/auth/login">go to portal</a> </p>
             </div>
           </div>
         </div>

@@ -30,22 +30,32 @@ function create_amortization(array $data): array
 
         // $start_date = $data['start_date'];
         // $end_date = date('Y-m-d', strtotime($start_date . " +{$term_months} months"));
+        
+        $data['status'] = null;
+        $data['approval'] = AMORTIZATION_PENDING;
+        //check purpose if that request from admin side then the amortization will be approved automatically
+        if(isset($data['purpose']) && $data['purpose'] === 'internal') {
+            $data['status'] = AMORTIZATION_PENDING;
+            $data['approval'] = AMORTIZATION_APPROVED;
+        }
 
         $sql = "INSERT INTO member_amortizations (
             member_id, `type_id`, principal_amount, monthly_amount,
-            remaining_balance, `start_date`, end_date
-        ) VALUES (?, ?, ?, ?, ?, ?, ?)";
+            remaining_balance, `start_date`, end_date, `status`, approval
+        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         $stmt = $conn->prepare($sql);
         $stmt->bind_param(
-            'iidddss',
+            'iidddssss',
             $data['member_id'],
             $data['type_id'],
             $data['principal_amount'],
             $data['monthly_amount'],
             $data['remaining_balance'],
             $data['start_date'],
-            $data['end_date']
+            $data['end_date'],
+            $data['status'],
+            $data['approval']
         );
         $created = $stmt->execute();
         if (!$created) {

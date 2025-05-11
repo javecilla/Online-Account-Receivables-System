@@ -4,10 +4,12 @@ declare(strict_types=1);
 
 const DEFAULT_ADMIN_ID = 1; //admin id
 
+const SUPER_ADMIN = 'Super Admin';
 const ADMINISTRATOR = 'Administrator';
 const ACCOUNTANT = 'Accountant';
 const MEMBER = 'Member';
-const ACCOUNT_ROLES = [ADMINISTRATOR, ACCOUNTANT, MEMBER];
+const ACCOUNT_ROLES = [SUPER_ADMIN, ADMINISTRATOR, ACCOUNTANT, MEMBER];
+const EMPLOYEE_ROLES = [SUPER_ADMIN, ADMINISTRATOR, ACCOUNTANT];
 
 const ACTIVE = 'active';
 const INACTIVE = 'inactive';

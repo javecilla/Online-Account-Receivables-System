@@ -1,4 +1,5 @@
 <?php
+require_once __DIR__ . '/../../constants/system.php';
 require_once __DIR__ . '/../../helpers/system.php';
 require_once __DIR__ . '/../../helpers/global.php';
 require_once __DIR__ . '/../../config/session.php';
@@ -99,8 +100,7 @@ begin_session();
                 <meta name="full-name" content="{$_SESSION['full_name']}" />
                 <meta name="contact-number" content="{$_SESSION['contact_number']}" />
           HTML;
-
-          if($_SESSION['role_name'] == 'Administrator') {
+          if(in_array($_SESSION['role_name'], EMPLOYEE_ROLES)) {
             echo <<<HTML
                 <meta name="employee-id" content="{$_SESSION['employee_id']}" />
             HTML;
@@ -148,16 +148,31 @@ begin_session();
     <link rel="stylesheet" type="text/css" href="<?= $base_url ?>/assets/libs/sweetalert2/dist/sweetalert2.min.css" loading="lazy" />
     <link rel="stylesheet" type="text/css" href="<?= $base_url ?>/assets/libs/daterangepicker/daterangepicker.css" loading="lazy" />
     <link rel="stylesheet" type="text/css" href="<?= $base_url ?>/assets/libs/datatables/dataTables.min.css" loading="lazy" />
-
-    <!-- app -->
-    <link rel="stylesheet" type="text/css" href="<?= $base_url ?>/assets/stylesheets/common.css" loading="eager" />
-    <link rel="stylesheet" type="text/css" href="<?= $base_url ?>/assets/stylesheets/layouts/sidebar.css" loading="eager" />
-    <link rel="stylesheet" type="text/css" href="<?= $base_url ?>/assets/stylesheets/layouts/header.css" loading="eager" />
-    <link rel="stylesheet" type="text/css" href="<?= $base_url ?>/assets/stylesheets/layouts/footer.css" loading="eager" />
-    <link rel="stylesheet" type="text/css" href="<?= $base_url ?>/assets/stylesheets/layouts/responsive.css" loading="eager" />
+    <link rel="stylesheet" type="text/css" href="<?= $base_url ?>/assets/libs/select2/select2.min.css" loading="lazy" />
+    <link rel="stylesheet" type="text/css" href="<?= $base_url ?>/assets/libs/leaflet/leaflet.css" loading="lazy" />
 
     <?php
-    if ($request_file_name === 'login.php') {
+        if ($request_file_name !== 'index.php') {
+            echo <<<HTML
+              <!-- app -->
+                <link rel="stylesheet" type="text/css" href="{$base_url}/assets/stylesheets/common.css" loading="eager" />
+                <link rel="stylesheet" type="text/css" href="{$base_url}/assets/stylesheets/layouts/sidebar.css" loading="eager" />
+                <link rel="stylesheet" type="text/css" href="{$base_url}/assets/stylesheets/layouts/header.css" loading="eager" />
+                <link rel="stylesheet" type="text/css" href="{$base_url}/assets/stylesheets/layouts/footer.css" loading="eager" />
+                <link rel="stylesheet" type="text/css" href="{$base_url}/assets/stylesheets/layouts/responsive.css" loading="eager" />
+            HTML;
+        }
+    ?>
+
+    <?php
+    if ($request_file_name === 'index.php') {
+        echo <<<HTML
+          <link rel="stylesheet" type="text/css" href="{$base_url}/assets/stylesheets/client/landing-page.css" loading="eager" />
+          <link rel="stylesheet" type="text/css" href="{$base_url}/assets/stylesheets/layouts/topbar.css" loading="eager" />
+          <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+          HTML;
+    }
+    else if ($request_file_name === 'login.php') {
         echo <<<HTML
           <link rel="stylesheet" type="text/css" href="{$base_url}/assets/stylesheets/client/login.css" loading="eager" />
           <script src="https://www.google.com/recaptcha/api.js" async defer></script>
@@ -194,6 +209,11 @@ begin_session();
         echo <<<HTML
           <link rel="stylesheet" type="text/css" href="{$base_url}/assets/stylesheets/system/invoices.css" loading="eager" />
           <link rel="stylesheet" type="text/css" href="{$base_url}/assets/stylesheets/system/invoice-tabs.css" loading="eager" />
+          HTML;
+    } else if ($request_file_name === 'contents.php') {
+        echo <<<HTML
+          <link rel="stylesheet" type="text/css" href="{$base_url}/assets/stylesheets/system/contents.css" loading="eager" />
+          <link rel="stylesheet" type="text/css" href="{$base_url}/assets/stylesheets/system/contents-tabs.css" loading="eager" />
           HTML;
     } else if ($request_file_name === 'my-account.php') {
         echo <<<HTML

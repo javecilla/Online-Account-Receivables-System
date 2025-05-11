@@ -11,6 +11,8 @@
 <script type="text/javascript" src="<?= $base_url ?>/assets/libs/daterangepicker/daterangepicker.min.js" loading="lazy"></script>
 <script type="text/javascript" src="<?= $base_url ?>/assets/libs/datatables/dataTables.min.js" loading="lazy"></script>
 <script type="text/javascript" src="<?= $base_url ?>/assets/libs/daterangepicker/daterangepicker.min.js" loading="lazy"></script>
+<script type="text/javascript" src="<?= $base_url ?>/assets/libs/select2/select2.min.js" loading="lazy"></script>
+<script type="text/javascript" src="<?= $base_url ?>/assets/libs/leaflet/leaflet.js" loading="lazy"></script>
 
 <!-- app -->
 <script type="text/javascript" src="<?= $base_url ?>/assets/scripts/common.js" loading="eager"></script>
@@ -32,6 +34,10 @@
 if ($request_file_name === 'login.php') {
     echo <<<HTML
           <script type="text/javascript" src="{$base_url}/assets/scripts/client/login.js" loading="lazy"></script>
+          HTML;
+} else if ($request_file_name === 'index.php') {
+    echo <<<HTML
+          <script type="text/javascript" src="{$base_url}/assets/scripts/client/contact.js" loading="lazy"></script>
           HTML;
 } else if ($request_file_name === 'account-verification.php') {
     echo <<<HTML
@@ -80,6 +86,8 @@ if ($request_file_name === 'login.php') {
 } else if ($request_file_name === 'invoices.php') {
     echo <<<HTML
         <script type="text/javascript" src="{$base_url}/assets/scripts/system/invoices/invoice-tabs.js" loading="lazy"></script>
+        <script type="text/javascript" src="{$base_url}/assets/scripts/system/invoices/admin/get-invoices.js" loading="lazy"></script>
+        <script type="text/javascript" src="{$base_url}/assets/scripts/system/invoices/admin/invoices.js" loading="lazy"></script>
     HTML;
 } else if ($request_file_name === 'my-account.php') {
     echo <<<HTML
@@ -89,6 +97,14 @@ if ($request_file_name === 'login.php') {
         <script type="text/javascript" src="{$base_url}/assets/scripts/client/transactions.js" loading="lazy"></script>
         <script type="text/javascript" src="{$base_url}/assets/scripts/client/my-account.js" loading="lazy"></script>
         <script type="text/javascript" src="{$base_url}/assets/scripts/client/load-balancer.js" loading="lazy"></script>
+    HTML;
+} else if ($request_file_name === 'contact.php') {
+    echo <<<HTML
+        <script src="{$base_url}/assets/scripts/client/contact.js"></script>
+    HTML;
+} else if ($request_file_name === 'contents.php') {
+    echo <<<HTML
+        <script src="{$base_url}/assets/scripts/system/contents/contacts.js"></script>
     HTML;
 }
 ?>

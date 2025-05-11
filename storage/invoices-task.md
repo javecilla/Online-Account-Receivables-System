@@ -160,10 +160,6 @@ The recurring system continues generating new invoices on schedule, regardless o
 2. Late payments and penalties are handled separately
 3. Clear audit trail of all charges and penalties
 
-This approach aligns with your database structure where:
-
-- <mcfile name="db-design.sql" path="c:\xampp\htdocs\bulsu-school\account-receivable-system-project\storage\sql\updated\db-design.sql"></mcfile> includes both `member_types.penalty_rate` for calculating late fees and `member_invoices` for tracking all types of charges.
-
 =================================================
 
 3. Overdue Invoice Handling

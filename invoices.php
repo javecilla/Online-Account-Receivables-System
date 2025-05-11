@@ -20,12 +20,12 @@
                                             <button class="btn action-btn">
                                                 <i class="fas fa-sync-alt me-2"></i>Refresh
                                             </button>
-                                            <button class="btn action-btn">
+                                            <button class="btn action-btn" id="createInvoiceFormBtn">
                                                 <i class="fas fa-plus-circle me-2"></i> Create Invoice
                                             </button>
                                         </div>
                                         <div class="formContainerContent hidden">
-                                            <button class="btn action-btn">
+                                            <button class="btn action-btn backToInvoiceListBtn">
                                                 <i class="fa-solid fa-chevron-left me-2"></i>Back
                                             </button>
                                         </div>
@@ -168,6 +168,111 @@
                                                         </tr>
                                                     </tbody>
                                                 </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="formContainerContent">
+                                <h5>New Invoice</h5>
+                                <div style="overflow-x: hidden!important;">
+                                    <div class="row mb-3">
+                                        <label for="createInvoiceMember" class="col-sm-2 col-form-label">Member: <span class="text-danger fw-bold">*</span></label>
+                                        <div class="col-sm-10">
+                                            <select class="form-control" id="createInvoiceMember">
+                                                <option value="21">Jerome Avecilla</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <label for="createInvoiceAmountField" class="col-sm-2 col-form-label">Amount: <span class="text-danger fw-bold">*</span></label>
+                                        <div class="col-sm-10">
+                                            <div class="input-group" id="createInvoiceAmountField">
+                                                <span class="input-group-text">₱</span>
+                                                <input type="text" class="form-control" id="createInvoiceAmount" placeholder="0.00"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <label for="createInvoiceDescription" class="col-sm-2 col-form-label">Description: <span class="text-danger fw-bold">*</span></label>
+                                        <div class="col-sm-10">
+                                            <textarea class="form-control" id="createInvoiceDescription" rows="3" placeholder="Enter description..."></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <label for="createInvoiceTypeSelection" class="col-sm-2 col-form-label">Invoice Type: <span class="text-danger fw-bold">*</span></label>
+                                        <div class="col-sm-10">
+                                            <div class="input-group" id="createInvoiceTypeSelection">
+                                                <input type="text" class="form-control" id="createInvoiceTypeUI" value="Regular" readonly />
+                                                <span class="input-group-text" style="width: 5%;">
+                                                    <select id="createInvoiceType" style="width: 60%;" aria-label="createInvoiceType" aria-describedby="createInvoiceTypeAddon">
+                                                        <option value="0" selected>Regular</option>
+                                                        <option value="1">Recurring</option>
+                                                    </select>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3 hidden" id="recurringPeriodSelectionContainer">
+                                        <label for="createInvoiceRecurringPeriodSelection" class="col-sm-2 col-form-label">Recurring Period: <span class="text-danger fw-bold">*</span></label>
+                                        <div class="col-sm-10">
+                                            <div class="input-group" id="createInvoiceRecurringPeriodSelection">
+                                                <input type="text" class="form-control" id="createInvoiceRecurringPeriodUI" placeholder="Select a recurring period..." readonly />
+                                                <span class="input-group-text" style="width: 5%;">
+                                                    <select id="createInvoiceRecurringPeriod" style="width: 60%;" aria-label="createInvoiceRecurringPeriod" aria-describedby="createInvoiceRecurringPeriodAddon">
+                                                        <option value="" selected></option>
+                                                        <option value="monthly">Monthly</option>
+                                                        <option value="quarterly">Quarterly</option>
+                                                        <option value="annually">Annually</option>
+                                                    </select>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <label for="createInvoiceDueDate" class="col-sm-2 col-form-label">Due Date: <span class="text-danger fw-bold">*</span></label>
+                                        <div class="col-sm-10">
+                                            <input type="date" class="form-control" id="createInvoiceDueDate"/>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <label for="createInvoiceNumberField" class="col-sm-2 col-form-label">Invoice Number: <span class="text-primary fw-bold">*</span></label>
+                                        <div class="col-sm-10">
+                                            <div class="input-group" id="createInvoiceNumberField">
+                                                <span class="input-group-text" id="createInvoiceNumber"><span id="invoiceType">INV</span><span id="invoiceDateToDay"></span></span>
+                                                <input type="text" class="form-control" id="invoiceNumberLastDigit" maxlength="4" value="2124" readonly/>
+                                            </div>
+                                            <div class="form-check mt-3">
+                                                <input class="form-check-input" type="checkbox" id="overrideInvoiceNumberCheck">
+                                                <label class="form-check-label" for="overrideInvoiceNumberCheck">
+                                                    Override Invoice Number
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <label for="" class="col-sm-2 col-form-label"></label>
+                                        <div class="col-sm-10">
+                                            <div id="generatedRecurringInvoices">
+                                                <label>
+                                                    <button class="action-btn">
+                                                        <i class="fas fa-file-invoice"></i> (1) 2025-04-30
+                                                    </button>
+                                                    <div><input type="radio" checked/></div>
+                                                </label>
+                                                <label>
+                                                    <button class="action-btn">
+                                                        <i class="fas fa-file-invoice"></i> (2) 2025-07-30
+                                                    </button>
+                                                    <div><input type="radio" disabled/></div>
+                                                </label>
+                                                <label>
+                                                    <button class="action-btn">
+                                                        <i class="fas fa-file-invoice"></i> (3) 2025-10-30
+                                                    </button>
+                                                    <div><input type="radio" disabled/></div>
+                                                </label>
                                             </div>
                                         </div>
                                     </div>

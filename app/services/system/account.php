@@ -719,7 +719,8 @@ function set_authenticated_account(array $auth_account): void {
     $_SESSION['role_name'] = $auth_account['role_name'];
 
     //retrieve specific data base on the user role
-    if ($auth_account['role_name'] === ADMINISTRATOR || $auth_account['role_name'] === ACCOUNTANT) {
+    //if ($auth_account['role_name'] === SUPER_ADMIN || $auth_account['role_name'] === ADMINISTRATOR || $auth_account['role_name'] === ACCOUNTANT) {
+    if(in_array($auth_account['role_name'], EMPLOYEE_ROLES)) {
         $e_result = get_employee_by_account($auth_account['account_id']);
         $employee = $e_result['data'];
 

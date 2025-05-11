@@ -19,7 +19,8 @@ function handle_create_amortization(mixed $payload): void
         'remaining_balance' => 'required|numeric|min:1', //total repayment amount
         'term_months' => 'required|numeric|min:1', //beta not sure pa
         'start_date' => 'required|date:YYYY-MM-DD',
-        'end_date' => 'required|date:YYYY-MM-DD'
+        'end_date' => 'required|date:YYYY-MM-DD',
+        'purpose' => 'optional|string|in:internal,external'
     ]);
 
     layer_two_amortization_validation($validated);
