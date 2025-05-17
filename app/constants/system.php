@@ -23,7 +23,11 @@ const DEPOSIT = 'deposit';
 const INTEREST = 'interest';
 const WITHDRAWAL = 'withdrawal';
 const FEE = 'fee';
-const TRANSACTION_TYPES = [DEPOSIT, INTEREST, WITHDRAWAL, FEE];
+const CREDIT = 'credit';
+const CREDIT_USED = 'credit_used';
+const DEBIT = 'debit'; // Note: Not used in TRANSACTION_TYPES, but included for completeness
+const LOAN_PAYMENT = 'loan_payment';
+const TRANSACTION_TYPES = [DEPOSIT, INTEREST, WITHDRAWAL, FEE, CREDIT, CREDIT_USED, LOAN_PAYMENT];
 
 const MINIMUM_PENALTY = 50.00;
 
@@ -67,3 +71,8 @@ const BUSINESS_LOAN = 'Business Loan';
 const PERSONAL_LOAN = 'Personal Loan';
 const AGRICULTURAL_LOAN = 'Agricultural Loan';
 const LOAN_TYPE_NAMES = [EDUCATIONAL_LOAN, CALAMITY_LOAN, BUSINESS_LOAN, PERSONAL_LOAN, AGRICULTURAL_LOAN];
+
+const PENDING = 'pending';
+const APPROVED = 'approved';
+const REJECTED = 'rejected';
+const MEMBERSHIP_APPROVAL_STATUS = [PENDING, APPROVED, REJECTED];

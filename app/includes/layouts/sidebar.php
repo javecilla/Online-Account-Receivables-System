@@ -29,21 +29,39 @@ if(is_authenticated()) {
             </a>
         </li>
         <li class="s-admin <?= is_employee() ? 'd-block' : 'd-none'?>">
-            <a href="<?= $base_url ?>/accounts" title="Accounts | OARSMC">
-                <i class="fas fa-users"></i>
-                <span>Accounts</span>
-            </a>
-        </li>
-        <li class="s-admin <?= is_employee() ? 'd-block' : 'd-none'?>">
-            <a href="<?= $base_url ?>/members" title="Members | OARSMC">
-                <i class="fas fa-user"></i>
-                <span>Members</span>
+            <a href="<?= $base_url ?>/invoices" title="Invoices | OARSMC">
+                <i class="fas fa-file-invoice"></i>
+                <span>Invoices</span>
             </a>
         </li>
         <li class="s-admin <?= is_employee() ? 'd-block' : 'd-none'?>">
             <a href="<?= $base_url ?>/amortizations" title="Amortizations | OARSMC">
                 <i class="fas fa-credit-card"></i>
-                <span>Amortizations</span>
+                <span>Loans</span>
+            </a>
+        </li>
+        <li class="s-admin <?= is_employee() ? 'd-block' : 'd-none'?>">
+            <a href="javascript:void(0)" data-href="/cooperative-accounts" title="Cooperative Accounts | OARSMC">
+                <!-- <i class="fa-solid fa-folder"></i> -->
+                 <i class="fa-solid fa-id-card"></i>
+                <span>Cooperative Accounts</span>
+            </a>
+            <ul>
+                <li class="active">
+                    <a href="<?= $base_url ?>/cooperative-accounts?type_name=<?=urlencode('Fixed Deposit')?>&type_id=3">Fixed</a>
+                </li>
+                <li>
+                    <a href="<?= $base_url ?>/cooperative-accounts?type_name=<?=urlencode('Savings Account')?>&type_id=1">Savings</a>
+                </li>
+                <li>
+                    <a href="<?= $base_url ?>/cooperative-accounts?type_name=<?=urlencode('Time Deposit')?>&type_id=2">Time Deposits</a>
+                </li>
+            </ul>
+        </li>
+        <li class="s-admin <?= is_employee() ? 'd-block' : 'd-none'?>">
+            <a href="<?= $base_url ?>/members" title="Members | OARSMC">
+                <i class="fas fa-user"></i>
+                <span>Members</span>
             </a>
         </li>
         <li class="s-member <?= is_member() ? 'd-block' : 'd-none'?>">
@@ -53,9 +71,9 @@ if(is_authenticated()) {
             </a>
         </li>
         <li class="s-admin <?= is_employee() ? 'd-block' : 'd-none'?>">
-            <a href="<?= $base_url ?>/invoices" title="Invoices | OARSMC">
-                <i class="fas fa-file-invoice"></i>
-                <span>Invoices</span>
+            <a href="<?= $base_url ?>/accounts" title="Accounts | OARSMC">
+                <i class="fas fa-users"></i>
+                <span>User Accounts</span>
             </a>
         </li>
          <li class="s-admin <?= is_employee() ? 'd-block' : 'd-none'?>">

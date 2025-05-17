@@ -11,6 +11,7 @@ $(document).ready(function () {
       // Wait for all initialization tasks to complete,Load all dashboard components concurrently
       await Promise.all([
         updateDashboardMetrics(),
+        updateSummaryMetrics(),
         updateDateRangeText(start, end),
         updateMonthlyBalanceTrendsChart(currentYear),
         fetchAndRenderLoanPerformanceData(),

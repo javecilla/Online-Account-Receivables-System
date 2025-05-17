@@ -378,6 +378,11 @@ function process_amortization_payment(array $data): array
         $payment_amount = $data['final_amount_payment'];
         $credit_amount = $data['used_credit_balance'];
 
+        //get cooperative account info
+        $ca = get_cooperative_account_by_type($member['member_id'], LOAN);
+        if(!$ca['success']) return $ca;
+        $coop_account = $ca['data'];
+
         //handle payment that uses their credit balance in loan payment
         if($data['is_use_credit'] && $credit_amount > 0) {
             //update member credit balance
@@ -389,8 +394,8 @@ function process_amortization_payment(array $data): array
             }
 
             //record transaction
-            $credit_recorded = record_transaction($member['member_id'], [
-                'transaction_type' => WITHDRAWAL,
+            $credit_recorded = record_transaction($coop_account['caid'], [
+                'transaction_type' => CREDIT_USED,
                 'amount' => $credit_amount,
                 'previous_balance' => $member['credit_balance'],
                 'new_balance' => $new_credit_balance,
@@ -417,8 +422,8 @@ function process_amortization_payment(array $data): array
             }
 
             //record transaction
-            $credit_recorded = record_transaction($member['member_id'], [
-                'transaction_type' => DEPOSIT,
+            $credit_recorded = record_transaction($coop_account['caid'], [
+                'transaction_type' => CREDIT,
                 'amount' => $credit_amount,
                 'previous_balance' => $member['credit_balance'],
                 'new_balance' => $new_credit_balance,
@@ -432,7 +437,7 @@ function process_amortization_payment(array $data): array
         }
 
         //calculate member new balance
-        $new_balance = $member['current_balance'] + $payment_amount;
+        $new_balance = $member['current_balance'] - $payment_amount;
         //update member current balance
         $updated_balance = update_member_current_balance($member['member_id'], $new_balance);
         if (!$updated_balance['success']) {
@@ -466,8 +471,8 @@ function process_amortization_payment(array $data): array
         }
 
         //record main payment transaction
-        $payment_recorded = record_transaction($member['member_id'], [
-            'transaction_type' => DEPOSIT,
+        $payment_recorded = record_transaction($coop_account['caid'], [
+            'transaction_type' => LOAN_PAYMENT,
             'amount' => $payment_amount,
             'previous_balance' => $member['current_balance'],
             'new_balance' => $new_balance,
@@ -666,14 +671,14 @@ function get_daily_transaction_stats(?string $start_date = null, ?string $end_da
         $types = "";
 
         if ($start_date && $end_date) {
-            $where_clause = " WHERE DATE(created_at) BETWEEN ? AND ?";
+            $where_clause = " WHERE DATE(mt.created_at) BETWEEN ? AND ?";
             $params = [$start_date, $end_date];
             $types = "ss";
         }
 
         $sql = $base_sql . $where_clause . "
-        GROUP BY DATE(created_at), transaction_type
-        ORDER BY transaction_date DESC";
+        GROUP BY transaction_date, mt.transaction_type
+        ORDER BY transaction_date DESC, mt.transaction_type";
 
         if ($params) {
             $stmt = $conn->prepare($sql);
@@ -699,21 +704,21 @@ function get_monthly_balance_trends(?string $year = null): array
     try {
         $conn = open_connection();
 
-        $base_sql = vw_monthly_balance_trends();
+        // Wrap the base query in a subquery
+        $base_sql = "SELECT * FROM (" . vw_monthly_balance_trends() . ") AS trends";
 
         $where_clause = "";
         $params = [];
         $types = "";
 
         if ($year) {
-            $where_clause = " WHERE DATE_FORMAT(mt.created_at, '%Y-%m') LIKE ?";
+            $where_clause = " WHERE month_year LIKE ?";
             $params = [$year . '%'];
             $types = "s";
         }
 
-        $sql = $base_sql . $where_clause . "
-        GROUP BY DATE_FORMAT(mt.created_at, '%Y-%m'), mt.type_name
-        ORDER BY month_year DESC, account_type";
+        // Add ORDER BY to the outer query
+        $sql = $base_sql . $where_clause . " ORDER BY month_year DESC, account_type";
 
         if ($params) {
             $stmt = $conn->prepare($sql);

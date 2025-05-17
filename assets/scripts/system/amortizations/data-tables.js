@@ -130,6 +130,10 @@ window.DataTableAmortizationsByStatus = function ($amortizationsTable, data) {
     },
     columns: [
       {
+        data: 'member_uid',
+        title: 'Member'
+      },
+      {
         data: 'type_name',
         title: 'Amortization Type',
         render: function (data) {
@@ -157,37 +161,63 @@ window.DataTableAmortizationsByStatus = function ($amortizationsTable, data) {
         }
       },
       {
-        data: 'full_name',
-        title: 'Member'
+        data: 'interest_rate',
+        title: 'Interest Rate %',
+        render: function (data) {
+          return `${parseFloat(data).toFixed(2)}%`
+        }
       },
-      // {
-      //   data: 'principal_amount',
-      //   title: 'Principal Amount',
-      //   render: function (data) {
-      //     return `&#8369;${parseFloat(data).toFixed(2)}`
-      //   }
-      // },
       {
-        data: 'remaining_balance',
-        title: 'Balance Due',
+        data: 'principal_amount',
+        title: 'Principal Amount',
+        render: function (data) {
+          return `&#8369;${parseFloat(data).toFixed(2)}`
+        }
+      },
+      {
+        data: null,
+        title: 'Period',
+        render: function (data) {
+          const startDate = moment(data.start_date)
+          const endDate = moment(data.end_date)
+          const months = endDate.diff(startDate, 'months')
+          return `${months} months`
+        }
+      },
+      {
+        data: null,
+        title: 'Total Amortization',
+        render: function (data) {
+          const remainingBalance = parseFloat(data.remaining_balance) || 0
+          const totalPaid = parseFloat(data.total_paid) || 0
+          const totalAmortization = remainingBalance + totalPaid
+          return `&#8369;${parseFloat(totalAmortization).toFixed(2)}`
+        }
+      },
+      {
+        data: 'monthly_amount',
+        title: 'Monthly Amount',
+        orderable: false,
         render: function (data) {
           return `&#8369;${parseFloat(data).toFixed(2)}`
         }
       },
       {
         data: 'total_paid',
-        title: 'Total Paid',
+        title: 'Total Paid (Payment)',
+        orderable: false,
         render: function (data) {
           return `&#8369;${parseFloat(data).toFixed(2)}`
         }
       },
-      // {
-      //   data: 'monthly_amount',
-      //   title: 'Monthly Amount',
-      //   render: function (data) {
-      //     return `&#8369;${parseFloat(data).toFixed(2)}`
-      //   }
-      // },
+      {
+        data: 'remaining_balance',
+        title: 'Remaining Balance',
+        orderable: false,
+        render: function (data) {
+          return `&#8369;${parseFloat(data).toFixed(2)}`
+        }
+      },
       {
         data: null,
         title: 'Progress',
@@ -225,178 +255,178 @@ window.DataTableAmortizationsByStatus = function ($amortizationsTable, data) {
     </span>`
         }
       },
-      {
-        data: null, // Calculated from other data
-        title: 'Next Due',
-        orderable: true, // Usually calculated columns aren't easily sortable
-        render: function (data, type, row) {
-          // Check if loan is already paid or term ended
-          if (row.status === 'paid' || row.status === 'completed') {
-            // Added completed check
-            return '<span class="status-badge as-completed">Paid</span>'
-          }
-          const currentDate = moment()
-          const startDate = moment(row.start_date)
-          const endDate = moment(row.end_date)
+      // {
+      //   data: null, // Calculated from other data
+      //   title: 'Next Due',
+      //   orderable: true, // Usually calculated columns aren't easily sortable
+      //   render: function (data, type, row) {
+      //     // Check if loan is already paid or term ended
+      //     if (row.status === 'paid' || row.status === 'completed') {
+      //       // Added completed check
+      //       return '<span class="status-badge as-completed">Paid</span>'
+      //     }
+      //     const currentDate = moment()
+      //     const startDate = moment(row.start_date)
+      //     const endDate = moment(row.end_date)
 
-          // --- Calculate the theoretical next due date ---
-          const paymentDay = startDate.date()
+      //     // --- Calculate the theoretical next due date ---
+      //     const paymentDay = startDate.date()
 
-          // Check if loan start date is in the future
-          if (startDate.isAfter(currentDate)) {
-            // For future loans, the first payment is due on the start date
-            const daysUntilStart = startDate.diff(currentDate, 'days')
-            return `<span class="status-badge status-active" data-bs-toggle="tooltip" title="Loan starts on ${startDate.format(
-              'DD MMM YYYY'
-            )}">Starts in ${daysUntilStart} days</span>`
-          }
+      //     // Check if loan start date is in the future
+      //     if (startDate.isAfter(currentDate)) {
+      //       // For future loans, the first payment is due on the start date
+      //       const daysUntilStart = startDate.diff(currentDate, 'days')
+      //       return `<span class="status-badge status-active" data-bs-toggle="tooltip" title="Loan starts on ${startDate.format(
+      //         'DD MMM YYYY'
+      //       )}">Starts in ${daysUntilStart} days</span>`
+      //     }
 
-          let theoreticalNextDueDate = currentDate.clone().date(paymentDay)
+      //     let theoreticalNextDueDate = currentDate.clone().date(paymentDay)
 
-          // If this month's payment day has already passed, the *next* theoretical due date is next month
-          // But for overdue calculation, we might need the *last* missed one.
-          // Let's calculate the due date for the *current* cycle first.
-          if (theoreticalNextDueDate.isBefore(currentDate, 'day')) {
-            // If today is past this month's payment day, the *next* due date is next month
-            theoreticalNextDueDate.add(1, 'month')
-          }
-          // Ensure calculated next due date is not after the end date
-          if (theoreticalNextDueDate.isAfter(endDate)) {
-            theoreticalNextDueDate = endDate
-          }
-          // --- End theoretical next due date calculation ---
+      //     // If this month's payment day has already passed, the *next* theoretical due date is next month
+      //     // But for overdue calculation, we might need the *last* missed one.
+      //     // Let's calculate the due date for the *current* cycle first.
+      //     if (theoreticalNextDueDate.isBefore(currentDate, 'day')) {
+      //       // If today is past this month's payment day, the *next* due date is next month
+      //       theoreticalNextDueDate.add(1, 'month')
+      //     }
+      //     // Ensure calculated next due date is not after the end date
+      //     if (theoreticalNextDueDate.isAfter(endDate)) {
+      //       theoreticalNextDueDate = endDate
+      //     }
+      //     // --- End theoretical next due date calculation ---
 
-          // --- Handle Term End separately ---
-          // Check if the loan term has ended, even if not marked 'paid'
-          if (currentDate.isAfter(endDate)) {
-            if (row.status === 'overdue') {
-              // Calculate months overdue since the end date
-              const monthsOverdueSinceEnd = currentDate.diff(endDate, 'months')
-              const overdueText =
-                monthsOverdueSinceEnd > 0
-                  ? `Overdue by ${monthsOverdueSinceEnd} month${
-                      monthsOverdueSinceEnd > 1 ? 's' : ''
-                    }`
-                  : 'Overdue' // If less than a month past end date
-              return `<span class="status-badge as-defaulted" data-bs-toggle="tooltip" title="Loan term ended ${endDate.format(
-                'DD MMM YYYY'
-              )}">${overdueText}</span>`
-            }
-            // If term ended but status isn't 'paid' or 'overdue', show Term Ended
-            return `<span class="status-badge status-inactive">Term Ended</span>`
-          }
-          // --- End Term End Handling ---
+      //     // --- Handle Term End separately ---
+      //     // Check if the loan term has ended, even if not marked 'paid'
+      //     if (currentDate.isAfter(endDate)) {
+      //       if (row.status === 'overdue') {
+      //         // Calculate months overdue since the end date
+      //         const monthsOverdueSinceEnd = currentDate.diff(endDate, 'months')
+      //         const overdueText =
+      //           monthsOverdueSinceEnd > 0
+      //             ? `Overdue by ${monthsOverdueSinceEnd} month${
+      //                 monthsOverdueSinceEnd > 1 ? 's' : ''
+      //               }`
+      //             : 'Overdue' // If less than a month past end date
+      //         return `<span class="status-badge as-defaulted" data-bs-toggle="tooltip" title="Loan term ended ${endDate.format(
+      //           'DD MMM YYYY'
+      //         )}">${overdueText}</span>`
+      //       }
+      //       // If term ended but status isn't 'paid' or 'overdue', show Term Ended
+      //       return `<span class="status-badge status-inactive">Term Ended</span>`
+      //     }
+      //     // --- End Term End Handling ---
 
-          const daysUntilDue = theoreticalNextDueDate.diff(currentDate, 'days')
+      //     const daysUntilDue = theoreticalNextDueDate.diff(currentDate, 'days')
 
-          // Display based on days remaining or overdue status
-          const dueSoonThreshold = 7
-          let badgeClass = 'status-active' // Default style (e.g., 'status-info' or your active style)
-          let text = `Due in ${daysUntilDue} days`
-          let tooltipDate = theoreticalNextDueDate.format('DD MMM YYYY')
-          let tooltipText = `Next Payment: ${tooltipDate}`
+      //     // Display based on days remaining or overdue status
+      //     const dueSoonThreshold = 7
+      //     let badgeClass = 'status-active' // Default style (e.g., 'status-info' or your active style)
+      //     let text = `Due in ${daysUntilDue} days`
+      //     let tooltipDate = theoreticalNextDueDate.format('DD MMM YYYY')
+      //     let tooltipText = `Next Payment: ${tooltipDate}`
 
-          if (row.status === 'overdue') {
-            badgeClass = 'as-defaulted' // Overdue style
+      //     if (row.status === 'overdue') {
+      //       badgeClass = 'as-defaulted' // Overdue style
 
-            // Calculate the *first* missed due date
-            // This requires iterating back from the theoreticalNextDueDate until we find the first one
-            // that is before the current date.
-            let firstMissedDueDate = theoreticalNextDueDate.clone()
-            while (firstMissedDueDate.isSameOrAfter(currentDate, 'day')) {
-              firstMissedDueDate.subtract(1, 'month')
-              // Adjust day if month subtraction changed it (e.g., Feb 30 -> Feb 28)
-              firstMissedDueDate.date(paymentDay)
-              // Safety break if something goes wrong, or if it goes before start date
-              if (firstMissedDueDate.isBefore(startDate)) break
-            }
-            // If the loop went too far back (before start date), use the start date's first payment cycle due date
-            if (firstMissedDueDate.isBefore(startDate)) {
-              firstMissedDueDate = startDate.clone().date(paymentDay)
-              if (firstMissedDueDate.isBefore(startDate)) {
-                // If start date itself is late in month
-                firstMissedDueDate.add(1, 'month')
-              }
-            }
+      //       // Calculate the *first* missed due date
+      //       // This requires iterating back from the theoreticalNextDueDate until we find the first one
+      //       // that is before the current date.
+      //       let firstMissedDueDate = theoreticalNextDueDate.clone()
+      //       while (firstMissedDueDate.isSameOrAfter(currentDate, 'day')) {
+      //         firstMissedDueDate.subtract(1, 'month')
+      //         // Adjust day if month subtraction changed it (e.g., Feb 30 -> Feb 28)
+      //         firstMissedDueDate.date(paymentDay)
+      //         // Safety break if something goes wrong, or if it goes before start date
+      //         if (firstMissedDueDate.isBefore(startDate)) break
+      //       }
+      //       // If the loop went too far back (before start date), use the start date's first payment cycle due date
+      //       if (firstMissedDueDate.isBefore(startDate)) {
+      //         firstMissedDueDate = startDate.clone().date(paymentDay)
+      //         if (firstMissedDueDate.isBefore(startDate)) {
+      //           // If start date itself is late in month
+      //           firstMissedDueDate.add(1, 'month')
+      //         }
+      //       }
 
-            const monthsOverdue = currentDate.diff(firstMissedDueDate, 'months')
+      //       const monthsOverdue = currentDate.diff(firstMissedDueDate, 'months')
 
-            if (monthsOverdue > 0) {
-              text = `Overdue by ${monthsOverdue} month${
-                monthsOverdue > 1 ? 's' : ''
-              }`
-              tooltipText = `First missed payment likely around ${firstMissedDueDate.format(
-                'DD MMM YYYY'
-              )}`
-            } else {
-              // If overdue but less than a full month, show simpler message
-              text = 'Overdue'
-              tooltipText = `Payment was due on/before ${firstMissedDueDate.format(
-                'DD MMM YYYY'
-              )}`
-            }
-          } else if (daysUntilDue <= 0) {
-            // Due today (but status is not 'overdue' yet)
-            // Check if the loan was created today (start date is today)
-            if (startDate.isSame(currentDate, 'day')) {
-              // For loans created today, show when the first payment is due (typically one month later)
-              const firstDueDate = startDate
-                .clone()
-                .add(1, 'month')
-                .date(paymentDay)
-              badgeClass = 'status-active' // Use a more neutral style for new loans
-              text = `First Due ${firstDueDate.format('DD MMM')}`
-              tooltipText = `First payment due on ${firstDueDate.format(
-                'DD MMM YYYY'
-              )}`
-            } else {
-              // Regular due today case
-              badgeClass = 'as-defaulted' // Use overdue style or a specific 'due-today' style
-              text = 'Due Today'
-              tooltipText = `Payment due today: ${tooltipDate}`
-            }
-          } else if (daysUntilDue <= dueSoonThreshold) {
-            // Due soon
-            badgeClass = 'status-pending' // Warning style (or your 'due-soon' style)
-            text = `Due in ${daysUntilDue} days`
-            tooltipText = `Next Payment: ${tooltipDate}`
-          }
-          // Else (due later than threshold), the default text and badgeClass are used.
+      //       if (monthsOverdue > 0) {
+      //         text = `Overdue by ${monthsOverdue} month${
+      //           monthsOverdue > 1 ? 's' : ''
+      //         }`
+      //         tooltipText = `First missed payment likely around ${firstMissedDueDate.format(
+      //           'DD MMM YYYY'
+      //         )}`
+      //       } else {
+      //         // If overdue but less than a full month, show simpler message
+      //         text = 'Overdue'
+      //         tooltipText = `Payment was due on/before ${firstMissedDueDate.format(
+      //           'DD MMM YYYY'
+      //         )}`
+      //       }
+      //     } else if (daysUntilDue <= 0) {
+      //       // Due today (but status is not 'overdue' yet)
+      //       // Check if the loan was created today (start date is today)
+      //       if (startDate.isSame(currentDate, 'day')) {
+      //         // For loans created today, show when the first payment is due (typically one month later)
+      //         const firstDueDate = startDate
+      //           .clone()
+      //           .add(1, 'month')
+      //           .date(paymentDay)
+      //         badgeClass = 'status-active' // Use a more neutral style for new loans
+      //         text = `First Due ${firstDueDate.format('DD MMM')}`
+      //         tooltipText = `First payment due on ${firstDueDate.format(
+      //           'DD MMM YYYY'
+      //         )}`
+      //       } else {
+      //         // Regular due today case
+      //         badgeClass = 'as-defaulted' // Use overdue style or a specific 'due-today' style
+      //         text = 'Due Today'
+      //         tooltipText = `Payment due today: ${tooltipDate}`
+      //       }
+      //     } else if (daysUntilDue <= dueSoonThreshold) {
+      //       // Due soon
+      //       badgeClass = 'status-pending' // Warning style (or your 'due-soon' style)
+      //       text = `Due in ${daysUntilDue} days`
+      //       tooltipText = `Next Payment: ${tooltipDate}`
+      //     }
+      //     // Else (due later than threshold), the default text and badgeClass are used.
 
-          return `<span class="status-badge ${badgeClass}" data-bs-toggle="tooltip" title="${tooltipText}">${text}</span>`
-        }
-      },
-      {
-        data: 'status',
-        title: 'Status',
-        render: function (data) {
-          //console.log(data)
-          let typeClass
-          let icon
-          switch (data) {
-            case 'paid':
-              typeClass = 'as-completed'
-              icon = 'fas fa-info-circle'
-              break
-            case 'pending':
-              typeClass = 'as-dilaw'
-              icon = 'fas fa-check-circle'
-              break
-            case 'overdue':
-              typeClass = 'as-defaulted'
-              icon = 'fas fa-clock'
-              break
-            case 'defaulted':
-            default:
-              typeClass = 'as-defaulted'
-              icon = 'fas fa-times-circle'
-              break
-          }
-          return `<span class="status-badge ${typeClass}"><i class="fas ${icon}"></i>&nbsp;${
-            data.charAt(0).toUpperCase() + data.slice(1)
-          }</span>`
-        }
-      },
+      //     return `<span class="status-badge ${badgeClass}" data-bs-toggle="tooltip" title="${tooltipText}">${text}</span>`
+      //   }
+      // },
+      // {
+      //   data: 'status',
+      //   title: 'Status',
+      //   render: function (data) {
+      //     //console.log(data)
+      //     let typeClass
+      //     let icon
+      //     switch (data) {
+      //       case 'paid':
+      //         typeClass = 'as-completed'
+      //         icon = 'fas fa-info-circle'
+      //         break
+      //       case 'pending':
+      //         typeClass = 'as-dilaw'
+      //         icon = 'fas fa-check-circle'
+      //         break
+      //       case 'overdue':
+      //         typeClass = 'as-defaulted'
+      //         icon = 'fas fa-clock'
+      //         break
+      //       case 'defaulted':
+      //       default:
+      //         typeClass = 'as-defaulted'
+      //         icon = 'fas fa-times-circle'
+      //         break
+      //     }
+      //     return `<span class="status-badge ${typeClass}"><i class="fas ${icon}"></i>&nbsp;${
+      //       data.charAt(0).toUpperCase() + data.slice(1)
+      //     }</span>`
+      //   }
+      // },
       {
         data: null,
         title: 'Actions',
@@ -437,7 +467,7 @@ window.DataTableAmortizationsByStatus = function ($amortizationsTable, data) {
         visible: false
       }
     ],
-    order: [[8, 'desc']],
+    order: [[11, 'desc']],
     drawCallback: function (settings) {
       var tooltipTriggerList = [].slice.call(
         document.querySelectorAll('[data-bs-toggle="tooltip"]')
@@ -481,6 +511,10 @@ window.DataTableAmortizationsByApproval = function ($loanRequestsTable, data) {
     },
     columns: [
       {
+        data: 'member_uid',
+        title: 'Member'
+      },
+      {
         data: 'type_name',
         title: 'Amortization Type',
         render: function (data) {
@@ -507,10 +541,6 @@ window.DataTableAmortizationsByApproval = function ($loanRequestsTable, data) {
           return `<span class="status-badge ${statusClass}">${data}</span>`
         }
       },
-      {
-        data: 'full_name',
-        title: 'Member'
-      },
       // {
       //   data: 'current_balance',
       //   title: 'Current Balance',
@@ -523,6 +553,16 @@ window.DataTableAmortizationsByApproval = function ($loanRequestsTable, data) {
         title: 'Principal Amount',
         render: function (data) {
           return `&#8369;${parseFloat(data).toFixed(2)}`
+        }
+      },
+      {
+        data: null,
+        title: 'Total Amortization',
+        render: function (data) {
+          const remainingBalance = parseFloat(data.remaining_balance) || 0
+          const totalPaid = parseFloat(data.total_paid) || 0
+          const totalAmortization = remainingBalance + totalPaid
+          return `&#8369;${parseFloat(totalAmortization).toFixed(2)}`
         }
       },
       {

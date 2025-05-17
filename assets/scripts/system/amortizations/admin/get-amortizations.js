@@ -1011,7 +1011,6 @@ $(document).ready(async function () {
       .prop('disabled', false)
   })
 
-  const $createInvoiceMemberSelect = $('#createInvoiceMember')
   const $amortizationTypeSelect = $('#requestAmortizationType')
   const $amortizationTermMonthsInput = $('#requestAmortizationTermMonths')
   const $amortizationAmountInput = $('#requestAmortizationAmount')
@@ -1024,9 +1023,13 @@ $(document).ready(async function () {
   const $amortizationStartDateInput = $('#requestAmortizationStartDate')
   const $amortizationEndDateInput = $('#requestAmortizationEndDate')
 
+  const $createInvoiceMemberSelect = $('#createInvoiceMember')
   const displayMembersSelection = async function () {
     try {
-      const members = await fetchMembersByCriteria(`${LOAN}`, `${ACTIVE}`)
+      const members = await fetchCooperativeAccountsByType(
+        `${LOAN}`,
+        `${ACTIVE}`
+      )
       if (members.success) {
         console.log(members.data)
 

@@ -561,7 +561,7 @@
                                                                         </div>
                                                                     </div>
                                                                     <div class="row mb-2">
-                                                                        <label for="selectedRequestAmortizationTermMonths" class="col-sm-2 col-form-label">Term Months:</label>
+                                                                        <label for="selectedRequestAmortizationTermMonths" class="col-sm-2 col-form-label">Term Months (Period):</label>
                                                                         <div class="col-sm-10">
                                                                             <span id="selectedRequestAmortizationTermMonths" class="form-control more-about_context">12</span>
                                                                         </div>
@@ -582,12 +582,12 @@
                                                             </div>
                                                         </div>
                                                         <div class="row mb-3">
-                                                            <label for="requestAmortizationTermMonths" class="col-sm-2 col-form-label">Term Months: <span class="text-danger fw-bold">*</span></label>
+                                                            <label for="requestAmortizationTermMonths" class="col-sm-2 col-form-label">Term Months (Period): <span class="text-danger fw-bold">*</span></label>
                                                             <div class="col-sm-10">
                                                                 <input type="text" class="form-control" id="requestAmortizationTermMonths" placeholder="--" required readonly/>
                                                                 <div class="form-check">
                                                                     <input class="form-check-input" type="checkbox" value="" id="termMonthsCheck" required>
-                                                                    <label class="form-check-label" for="termMonthsCheck">Override term months</label>
+                                                                    <label class="form-check-label" for="termMonthsCheck">Override term months (Period)</label>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -763,7 +763,7 @@
                                                 <th>Amortization Type</th>
                                                 <th>Description</th>
                                                 <th>Interest Rate</th>
-                                                <th>Term Months</th>
+                                                <th>Term Months (Period)</th>
                                                 <th>Minimum Amount</th>
                                                 <th>Max Amount</th>
                                                 <th>Status</th>

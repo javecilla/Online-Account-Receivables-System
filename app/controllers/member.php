@@ -295,6 +295,7 @@ function handle_deposit_transaction(mixed $payload): void
 {
     $validated = validate_data($payload, [
         'member_id' => 'required|numeric|min:1|check:member_model',
+        'caid' => 'required|numeric|min:1',
         'amount' => 'required|numeric|min:100'
     ]);
 
@@ -306,16 +307,9 @@ function handle_deposit_transaction(mixed $payload): void
         return_response($member);
     }
 
-    // Check if account type is loan
-    if (strtolower($member['data']['membership_type']) === 'loan') {
-        return_response([
-            'success' => false,
-            'message' => 'Deposit operations are not allowed for loan accounts',
-            'status' => 400
-        ]);
-    }
+    $validated['data']['transaction_type'] = DEPOSIT;
 
-    $transaction = update_balance($member_id, $amount, DEPOSIT);
+    $transaction = update_balance($validated['data']);
     return_response($transaction);
 }
 
@@ -323,27 +317,29 @@ function handle_withdrawal_transaction(mixed $payload): void
 {
     $validated = validate_data($payload, [
         'member_id' => 'required|numeric|min:1|check:member_model',
+        'caid' => 'required|numeric|min:1',
         'amount' => 'required|numeric|min:100'
     ]);
 
     $member_id = (int)$validated['data']['member_id'];
+    $caid = (int)$validated['data']['caid'];
     $amount = (float)$validated['data']['amount'];
 
-    $member = get_member($member_id);
+    $member = get_registered_member($member_id);
     if (!$member['success']) {
         return_response($member);
     }
 
-    if (strtolower($member['data']['membership_type']) === 'loan') {
-        return_response([
-            'success' => false,
-            'message' => 'Withdrawal operations are not allowed for loan accounts',
-            'status' => 400
-        ]);
-    }
+    // $coop = get_cooperative_account($caid);
+    // if (!$coop['success']) {
+    //     return_response($coop);
+    // }
+    //$coop['data']['membership_type']; e.g., Savings Account, Fixed Deposit, etc.
 
     $current_balance = $member['data']['current_balance'];
-    $minimum_balance = $member['data']['minimum_balance'];
+    //$minimum_balance = $member['data']['minimum_balance'];
+
+    //$member['data']['cooperative_accounts'];
 
     //check if withdrawal amount exceeds current balance
     if ($amount > $current_balance) {
@@ -359,24 +355,120 @@ function handle_withdrawal_transaction(mixed $payload): void
         ]);
     }
 
-    //check if withdrawal would violate minimum balance
-    $new_balance = $current_balance - $amount;
-    if ($new_balance < $minimum_balance) {
-        return_response([
-            'success' => false,
-            'message' => 'Transaction failed. Withdrawal would put account below minimum balance.',
-            'data' => [
-                'current_balance' => $current_balance,
-                'withdrawal_amount' => $amount,
-                'minimum_balance' => $minimum_balance,
-                'maximum_withdrawal' => $current_balance - $minimum_balance
-            ],
-            'status' => 403
-        ]);
-    }
+    $validated['data']['transaction_type'] = WITHDRAWAL;
 
-    $transaction = update_balance($member_id, $amount, WITHDRAWAL);
+    $transaction = update_balance($validated['data']);
     return_response($transaction);
+}
+
+function handle_maturity_withdrawal_transaction(mixed $payload): void 
+{ 
+    $validated = validate_data($payload, [ 
+        'member_id' => 'required|numeric|min:1|check:member_model', 
+        'caid' => 'required|numeric|min:1', 
+        'amount' => 'required|numeric|min:100' 
+    ]); 
+
+    $member_id = (int)$validated['data']['member_id']; 
+    $caid = (int)$validated['data']['caid']; 
+    $amount = (float)$validated['data']['amount']; 
+
+    // Get cooperative account details 
+    $coop = get_cooperative_account($caid); 
+    if (!$coop['success']) { 
+        return_response($coop); 
+    } 
+    
+    // Check if account type is Fixed or Time Deposit 
+    if ($coop['data']['membership_type'] != 'Fixed Deposit' && $coop['data']['membership_type'] != 'Time Deposit') { 
+        return_response([ 
+            'success' => false, 
+            'message' => 'This withdrawal type is only for Fixed or Time Deposit accounts', 
+            'status' => 400 
+        ]); 
+    } 
+    
+    // Check maturity date 
+    $maturity_date = calculate_maturity_date($coop['data']['opened_date'], $coop['data']['membership_id']); 
+    $current_date = date('Y-m-d'); 
+    
+    $is_mature = strtotime($current_date) >= strtotime($maturity_date); 
+    
+    // Apply early withdrawal penalty if not mature 
+    if (!$is_mature) { 
+        // Calculate penalty 
+        $penalty_rate = $coop['data']['penalty_rate']; 
+        $penalty_amount = $amount * $penalty_rate; 
+        
+        // Ensure penalty is within bounds 
+        $penalty_amount = max( 
+            $coop['data']['minimum_penalty_fee'], 
+            min($penalty_amount, $coop['data']['maximum_penalty_fee']) 
+        ); 
+        
+        // Add penalty note 
+        $validated['data']['notes'] = 'Early withdrawal penalty applied: ' . 
+            number_format($penalty_amount, 2) . ' (' . 
+            ($penalty_rate * 100) . '% of withdrawal amount)'; 
+            
+        // Create notification for early withdrawal penalty
+        // $notification_data = [
+        //     'account_id' => $_SESSION['account_id'] ?? DEFAULT_ADMIN_ID,
+        //     'title' => 'Early Withdrawal Penalty',
+        //     'message' => "A penalty of " . number_format($penalty_amount, 2) . " has been applied for early withdrawal from your " . 
+        //                 $coop['data']['type_name'] . " account. Maturity date was " . $maturity_date . ".",
+        //     'type' => 'warning'
+        // ];
+        // create_notification($notification_data);
+    } else {
+        // Add note for mature withdrawal
+        $validated['data']['notes'] = 'Maturity withdrawal - account matured on ' . $maturity_date;
+    } 
+    
+    // Continue with regular withdrawal logic 
+    $validated['data']['transaction_type'] = WITHDRAWAL; 
+    $transaction = update_balance($validated['data']); 
+    
+    // If early withdrawal, also record the penalty fee transaction 
+    if (!$is_mature && isset($penalty_amount)) { 
+        $penalty_data = [ 
+            'member_id' => $member_id, 
+            'caid' => $caid, 
+            'amount' => $penalty_amount, 
+            'transaction_type' => FEE, 
+            'notes' => 'Early withdrawal penalty fee for ' . $coop['data']['type_name'] . ' account' 
+        ]; 
+        $penalty_transaction = update_balance($penalty_data); 
+        
+        // Add penalty information to the response
+        if ($transaction['success']) {
+            $transaction['data']['penalty_applied'] = true;
+            $transaction['data']['penalty_amount'] = $penalty_amount;
+            $transaction['data']['days_to_maturity'] = ceil((strtotime($maturity_date) - strtotime($current_date)) / (60 * 60 * 24));
+            $transaction['message'] = 'Withdrawal processed with early withdrawal penalty';
+        }
+    } 
+    
+    // Add maturity information to the response
+    if ($transaction['success']) {
+        $transaction['data']['is_mature'] = $is_mature;
+        $transaction['data']['maturity_date'] = $maturity_date;
+        
+        // Update account status if full withdrawal
+        $member = get_member($member_id);
+        if ($member['success'] && isset($member['data']['current_balance']) && 
+            $member['data']['current_balance'] <= 0) {
+            
+            // Close the account if balance is zero after withdrawal
+            update_membership_status($member_id, CLOSED);
+            $transaction['data']['account_closed'] = true;
+            $transaction['message'] = $is_mature ? 
+                'Maturity withdrawal processed successfully. Account closed.' : 
+                'Early withdrawal processed with penalty. Account closed.';
+        }
+    }
+    
+    return_response($transaction); 
 }
 
 function handle_credit_interest(mixed $payload): void
@@ -528,4 +620,259 @@ function handle_get_member_upcoming_payments(mixed $payload): void
 
     $metrics = get_member_upcoming_payments((int)$validated['data']['member_id']);
     return_response($metrics);
+}
+
+function handle_get_cooperative_accounts_by_criteria(mixed $payload): void
+{
+    //log_request('data:', $payload);
+    $validated = validate_data($payload, [
+        'membership_types' => 'required', //in:Savings Account,Time Deposit,Fixed Deposit,Special Savings,Youth Savings,Loan
+        'status' => 'required' //in:active,inactive,suspended,closed
+    ]);
+
+    $mt_array = array_map('trim', explode(',', $validated['data']['membership_types']));
+    foreach ($mt_array as $type) {
+        if (!in_array($type, MEMBERSHIP_TYPES)) {
+            return_response([
+                'success' => false,
+                'message' => "Invalid membership type value: {$type}",
+                'status' => 400
+            ]);
+        }
+    }
+
+    $s_array = array_map('trim', explode(',', $validated['data']['status']));
+    foreach ($s_array as $status) {
+        if (!in_array($status, MEMBERSHIP_STATUS)) {
+            return_response([
+               'success' => false,
+               'message' => "Invalid status value: {$status}",
+               'status' => 400
+            ]);
+        }
+    }
+
+    $members = get_cooperative_accounts_by_criteria($mt_array, $s_array);
+    return_response($members);
+}
+
+function handle_get_members_by_approval(mixed $payload): void
+{
+    $validated = validate_data($payload, [
+       'approval' =>'required' //in:approved,pending
+    ]);
+
+    $as_array = array_map('trim', explode(',', $validated['data']['approval']));
+    foreach ($as_array as $approval) {
+        if (!in_array($approval, MEMBERSHIP_APPROVAL_STATUS)) {
+            return_response([
+              'success' => false,
+              'message' => "Invalid approval status value: {$approval}",
+              'status' => 400
+            ]);
+        }
+    }
+
+    $members = get_members_by_approval($as_array);
+    return_response($members);
+}
+
+function handle_register_member(mixed $payload): void
+{
+    //log_request('payload', $payload);
+    $validated = validate_data($payload, [
+        //account information
+        'profile_picture' => 'optional|image|mimes:jpeg,jpg,png|size:1048576',
+        'role_id' => 'required|numeric|min:1|check:role_model',
+        'email'   => 'required|email|check:is_email_unique',
+        'username' => 'required|check:is_username_unique',
+        'password' => 'required|min:8|contains:lowercase,uppercase,number,symbol',
+        'confirm_password' => 'required|match:password',
+        //member
+        'first_name' => 'required|string',
+        'middle_name' => 'optional|string',
+        'last_name' => 'required|string',
+        'sex' => 'required|in:M,F',
+        'contact_number' => 'required|length:13',
+        'house_address' => 'required',
+        'barangay' => 'required',
+        'municipality' => 'required|string',
+        'province' => 'required|string',
+        'region' => 'required',
+        //cooperative
+        'selected_caids' =>'required',
+        'page_from' => 'required',
+        'recaptcha_response' => 'optional'
+    ]);
+
+     $page_from = $validated['data']['page_from'];
+    if ($page_from === 'external') {
+        $verified = verify_recaptcha($validated['data']['recaptcha_response'], get_client_ip());
+        if(!$verified['success']) {
+            return_response($verified);
+        }
+    }
+
+    $upload_dir = __DIR__ . '/../../storage/uploads/profiles/';
+    if (!file_exists($upload_dir)) {
+        mkdir($upload_dir, 0755, true);
+    }
+
+    $file = null;
+    // Process the profile picture upload if one was provided
+    if (isset($validated['data']['profile_picture']) && is_array($validated['data']['profile_picture'])) {
+        $file = $validated['data']['profile_picture'];
+    } else if (isset($_FILES['profile_picture']) && !empty($_FILES['profile_picture']['name'])) {
+        $file = $_FILES['profile_picture'];
+    }
+
+    // Only process the file if one was actually uploaded
+    if ($file !== null && isset($file['name']) && !empty($file['name'])) {
+        $filename = uniqid() . '_' . basename($file['name']);
+        $upload_path = $upload_dir . $filename;
+
+        if (move_uploaded_file($file['tmp_name'], $upload_path)) {
+            $validated['data']['profile_picture'] = $filename;
+        } else {
+            return_response(['success' => false, 'message' => 'Failed to upload profile picture', 'status' => 500]);
+        }
+    } else {
+        // No profile picture provided, set to null
+        $validated['data']['profile_picture'] = null;
+    }
+
+    $created = register_member($validated['data']);
+    if(!$created['success']) {
+        return_response($created);
+    }
+
+    $response_message = 'Registered successfully. ';
+    if($page_from === 'external') {
+        $mailed = send_verification_email($validated['data']['email']);
+        if (!$mailed['success']) {
+            return_response($mailed);
+        }
+        $response_message .= $mailed['message'];
+    }
+
+    return_response(['success' => true, 'message' => $response_message]);
+
+}
+
+function handle_get_registered_member(mixed $payload): void
+{
+    $validated = validate_data($payload, [
+        'member_id' => 'required|numeric|min:1',
+    ]);
+    $member = get_registered_member((int)$validated['data']['member_id']);
+    return_response($member);
+}
+
+function handle_update_registered_member(mixed $payload): void
+{
+    //log_request('payload', $payload);
+    $validated = validate_data($payload, [
+        //account information
+        'member_id' =>'required|numeric|min:1|check:member_model',
+        'account_id' =>'required|numeric|min:1|check:account_model',
+        'profile_picture' => 'optional|image|mimes:jpeg,jpg,png|size:1048576',
+        'role_id' => 'required|numeric|min:1|check:role_model',
+        'email'   => 'required|email|check_except:is_email_unique,account_id',
+        'username' => 'required|check_except:is_username_unique,account_id',
+        'password' => 'optional|min:8|contains:lowercase,uppercase,number,symbol',
+        'confirm_password' => 'optional|match:password',
+        //member
+        'first_name' => 'required|string',
+        'middle_name' => 'optional|string',
+        'last_name' => 'required|string',
+        'sex' => 'required|in:M,F',
+        'contact_number' => 'required|length:13',
+        'house_address' => 'required',
+        'barangay' => 'required',
+        'municipality' => 'required|string',
+        'province' => 'required|string',
+        'region' => 'required',
+        //cooperative
+        // 'selected_caids' =>'required',
+        // 'page_from' => 'required'
+        'account_changes' => 'required'
+    ]);
+
+    // Ensure account_changes is properly decoded as an array
+    if (isset($validated['data']['account_changes']) && is_string($validated['data']['account_changes'])) {
+        $validated['data']['account_changes'] = json_decode($validated['data']['account_changes'], true);
+    }
+
+    //check if there are image upload
+    if(!empty($validated['data']['profile_picture'])) {
+        $upload_dir = __DIR__. '/../../storage/uploads/profiles/';
+        $file = null;
+        // Process the profile picture upload
+        if (isset($validated['data']['profile_picture']) && is_array($validated['data']['profile_picture'])) {
+            $file = $validated['data']['profile_picture'];
+        } else if (isset($_FILES['profile_picture']) &&!empty($_FILES['profile_picture']['name'])) {
+            $file = $_FILES['profile_picture'];
+        }
+
+        $filename = uniqid() . '_' . basename($file['name']);
+        $upload_path = $upload_dir . $filename;
+
+        if (move_uploaded_file($file['tmp_name'], $upload_path)) {
+            $validated['data']['profile_picture'] = $filename;
+        } else {
+            return_response(['success' => false, 'message' => 'Failed to upload profile picture', 'status' => 500]);
+        }
+    }
+
+    $updated = update_registered_member($validated['data']);
+    return_response($updated);
+}
+
+function handle_update_member_approval_status(mixed $payload): void
+{
+    $validated = validate_data($payload, [
+        'member_id' =>'required|numeric|min:1|check:member_model',
+        'approval' =>'required|string|in:approved,rejected,pending'
+    ]);
+
+    $member_id = (int)$validated['data']['member_id'];
+    $approval = $validated['data']['approval'];
+
+    $updated = update_member_approval_status($member_id, $approval);
+    return_response($updated);
+}
+
+function handle_get_registered_members(mixed $payload): void
+{
+    $members = get_registered_members();
+    return_response($members);
+}
+
+function handle_apply_services_to_member(mixed $payload): void
+{
+    $validated = validate_data($payload, [
+        'member_id' =>'required|numeric|min:1|check:member_model',
+        'selected_caids' =>'required'
+    ]);
+
+    $member_id = (int)$validated['data']['member_id'];
+    # $data['selected_caids'] = '6,7'
+    $type_id_array = array_map('trim', explode(',', $validated['data']['selected_caids']));
+    
+    $created = apply_services_to_member($member_id, $type_id_array);
+    return_response($created);
+}
+
+function handle_get_transactions_by_cooperative(mixed $payload): void 
+{
+    $validated = validate_data($payload, [
+        'member_id' =>'required|numeric|min:1|check:member_model',
+        'type_name' => 'required|in:Savings Account,Time Deposit,Fixed Deposit,Special Savings,Youth Savings,Loan'
+    ]);
+
+    $member_id = (int)$validated['data']['member_id'];
+    $type_name = $validated['data']['type_name'];
+
+    $transactions = get_transactions_by_cooperative($member_id, $type_name);
+    return_response($transactions);
 }

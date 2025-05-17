@@ -10,7 +10,7 @@
 
 .sidebar-brand {
   /* padding: 10px 20px; */
-  margin-bottom: 25px;
+  margin-bottom: 20px;
   border-bottom: red !important;
   /* font-size: 1.5rem;
   font-weight: bold;
@@ -28,6 +28,7 @@
 
 .sidebar-menu li {
   margin-bottom: 5px;
+  position: relative;
 }
 
 .sidebar-menu a {
@@ -59,4 +60,81 @@
 
 .sidebar-menu span {
   margin-left: 20px !important;
+}
+
+/* Nested menu styles */
+.sidebar-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 0 45px;
+  position: relative;
+}
+
+.sidebar-menu ul:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 10px;
+  border-left: 1px dashed #dee2e6;
+  height: 100%;
+  z-index: 1;
+}
+
+.sidebar-menu ul li {
+  position: relative;
+}
+
+.sidebar-menu ul li:before {
+  content: '';
+  position: absolute;
+  top: 15px;
+  left: -20px;
+  width: 15px;
+  border-top: 1px dashed #dee2e6;
+}
+
+.sidebar-menu ul li a {
+  padding: 8px 15px;
+  font-size: 0.95em;
+  display: flex;
+  align-items: center;
+}
+
+.sidebar-menu ul li:last-child:before {
+  height: 15px;
+  border-left: none;
+}
+
+.sidebar-menu > li > a[href='#'] {
+  cursor: pointer;
+  position: relative;
+}
+
+/* .sidebar-menu > li > a[href='#']:after {
+  content: '\f105';
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  position: absolute;
+  right: 20px;
+  transition: transform 0.2s;
+  color: #6c757d;
+} */
+
+.sidebar-menu > li:hover > a[href='#']:after {
+  transform: rotate(90deg);
+  color: #495057;
+}
+
+.sidebar-menu ul li a:before {
+  content: '\f07b';
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  margin-right: 5px;
+  color: #6c757d;
+}
+
+.sidebar-menu ul li a:hover:before {
+  content: '\f07c';
+  font-weight: 900;
+  color: #495057;
 }

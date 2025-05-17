@@ -132,6 +132,10 @@ try {
             case 'credit_interest':
                 handle_credit_interest($payload);
                 break;
+                
+            case 'maturity_withdrawal':
+                handle_maturity_withdrawal_transaction($payload);
+                break;
 
             case 'check_penalties':
                 handle_check_and_apply_penalties($payload);
@@ -174,6 +178,26 @@ try {
 
             case 'update_contact_map':
                 handle_update_contact_map($payload);
+                break;
+                
+            case 'update_aboutus_content':
+                handle_update_aboutus_content($payload);
+                break;
+
+            case 'register_member':
+                handle_register_member($payload);
+                break;
+
+            case 'update_registered_member':
+                handle_update_registered_member($payload);
+                break;
+
+            case 'update_member_approval_status':
+                handle_update_member_approval_status($payload);
+                break;
+
+            case 'apply_services_to_member':
+                handle_apply_services_to_member($payload);
                 break;
 
             default:
@@ -408,6 +432,26 @@ try {
                 handle_get_aboutus_content($payload);
                 break;
 
+            case 'get_cooperative_accounts_by_criteria':
+                handle_get_cooperative_accounts_by_criteria($payload);
+                break;
+
+            case 'get_members_by_approval':
+                handle_get_members_by_approval($payload);
+                break;
+
+            case 'get_registered_member':
+                handle_get_registered_member($payload);
+                break;
+
+            case 'get_registered_members':
+                handle_get_registered_members($payload);
+                break;
+
+            case 'get_transactions_by_cooperative':
+                handle_get_transactions_by_cooperative($payload);
+                break;
+                
             default:
                 throw new Exception('Bad Request! Invalid action.', 400);
                 break;

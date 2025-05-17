@@ -12,11 +12,23 @@ $(document).ready(function () {
     // Extract the last part of the URL (the page name)
     const href = $(this).attr('href')
     const hrefPage = href.split('/').pop()
+
     // console.log('href page', hrefPage)
+    // console.log('data href page', dataHrefPage)
     // console.log('matches current:', hrefPage === currentPage)
-    if (href && hrefPage === currentPage) {
-      $(this).addClass('active')
-      titlePage.text($(this).attr('title'))
+    if (href === 'javascript:void(0)') {
+      const dataHref = $(this).data('href')
+      const dataHrefPage = dataHref.split('/').pop()
+
+      if (dataHref && dataHrefPage === currentPage) {
+        $(this).addClass('active')
+        titlePage.text($(this).attr('title'))
+      }
+    } else {
+      if (href && hrefPage === currentPage) {
+        $(this).addClass('active')
+        titlePage.text($(this).attr('title'))
+      }
     }
   })
 })

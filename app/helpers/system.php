@@ -13,20 +13,49 @@ function hash_password(string $password): string
 
 function get_server_request_data(): ?array
 {
-    # Retrieve the raw POST input
-    $rawInput = file_get_contents('php://input');
-    log_request('get_server_request_data(): ', ['rawInput' => $rawInput]);
+    # Check if the request is multipart/form-data (file upload)
+    $contentType = $_SERVER['CONTENT_TYPE'] ?? '';
+    
+    if (strpos($contentType, 'multipart/form-data') !== false) {
+        # Handle multipart/form-data request
+        $request = [];
+        
+        # Get the action from POST data
+        $request['action'] = $_POST['action'] ?? null;
+        
+        # Prepare data array from POST and FILES
+        $request['data'] = $_POST;
+        
+        # Remove action from data to avoid duplication
+        if (isset($request['data']['action'])) {
+            unset($request['data']['action']);
+        }
+        
+        # Process file uploads if any
+        foreach ($_FILES as $key => $file) {
+            if ($file['error'] === UPLOAD_ERR_OK) {
+                $request['data'][$key] = $file;
+            }
+        }
+        
+        log_request('request (multipart): ', $request);
+        return $request;
+    } else {
+        # Handle JSON request
+        $rawInput = file_get_contents('php://input');
+        log_request('get_server_request_data(): ', ['rawInput' => $rawInput]);
 
-    # Decode the JSON input
-    $request = json_decode($rawInput, true);
-    log_request('request: ', $request);
+        # Decode the JSON input
+        $request = json_decode($rawInput, true);
+        log_request('request (json): ', $request);
 
-    # Check if the JSON decoding was successful
-    if (is_null($request)) {
-        return null;
+        # Check if the JSON decoding was successful
+        if (is_null($request)) {
+            return null;
+        }
+
+        return $request;
     }
-
-    return $request;
 }
 
 function get_query_params(): array

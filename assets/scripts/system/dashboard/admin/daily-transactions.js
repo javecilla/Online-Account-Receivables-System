@@ -6,7 +6,10 @@ const chartColors = {
   deposit: 'rgb(67, 97, 238)',
   withdrawal: 'rgb(88, 145, 192)',
   interest: 'rgb(75, 192, 192)',
-  fee: 'rgb(153, 102, 255)'
+  fee: 'rgb(153, 102, 255)',
+  loan_payment: 'rgb(255, 159, 64)',
+  credit: 'rgb(255, 99, 132)',
+  credit_used: 'rgb(255, 205, 86)'
 }
 
 // Initialize date range picker with custom display format

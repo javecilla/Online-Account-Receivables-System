@@ -1,48 +1,109 @@
 $(document).ready(async function () {
-  //member info
-  const membershipTypesSelect = $('#membershipType')
-  const membershipTypeUI = $('#membershipTypeUI')
-  const firstName = $('#firstName')
-  const lastName = $('#lastName')
-  const middleName = $('#middleName')
-  const contactNumber = $('#contactNumber')
-  const houseAddress = $('#houseAddress')
-  const barangay = $('#barangay')
-  const municipality = $('#municipality')
-  const province = $('#province')
-  const region = $('#region')
-  //account info
-  const accountRole = $('#accountRole')
-  const username = $('#username')
-  const email = $('#email')
-  const password = $('#password')
-  const confirmPassword = $('#confirmPassword')
-  try {
-    LoadingManager.show($('.ar-container'))
-    const membershipTypes = await fetchMembershipTypes()
-    //console.log(membershipTypes)
-    if (membershipTypes.success) {
-      membershipTypesSelect.empty()
-      membershipTypeUI.val('')
-      membershipTypesSelect.append('<option value="" selected></option>')
-      membershipTypes.data.forEach((type) => {
-        membershipTypesSelect.append(
-          `<option value="${type.type_id}">${type.type_name}</option>`
-        )
-      })
+  // Profile picture upload functionality
+  const $profilePictureInput = $('#cmProfilePicture')
+  const $profilePreview = $('#profilePreview')
+  const $profileUploadBtn = $('#profileUploadBtn')
+  const $profileRemoveBtn = $('#profileRemoveBtn')
+  const defaultProfileSrc = '/assets/images/default-profile.png'
 
-      membershipTypesSelect.on('change', function () {
-        const selectedMembershipTypeName = $(this).find(':selected').text()
-        membershipTypeUI.val(selectedMembershipTypeName)
-      })
+  // Handle file selection
+  $profilePictureInput.on('change', function (e) {
+    if (this.files && this.files[0]) {
+      const reader = new FileReader()
+
+      reader.onload = function (e) {
+        // Update preview image with selected file
+        $profilePreview.attr('src', e.target.result)
+        // Show remove button and hide upload button
+        $profileUploadBtn.addClass('hidden')
+        $profileRemoveBtn.removeClass('hidden')
+      }
+
+      reader.readAsDataURL(this.files[0])
     }
-  } catch (error) {
-    console.error(error)
-  } finally {
-    LoadingManager.hide($('.ar-container'))
+  })
+
+  function resetProfilePicture() {
+    $profilePictureInput.val('')
+    $profilePreview.attr('src', defaultProfileSrc)
+    $profileUploadBtn.removeClass('hidden')
+    $profileRemoveBtn.addClass('hidden')
   }
 
-  contactNumber.on('input', function () {
+  // Handle remove button click
+  $profileRemoveBtn.on('click', resetProfilePicture)
+
+  const $cmConfirmPassword = $('#cmConfirmPassword')
+
+  //password toggle
+  $('#togglePassword').click(function () {
+    const passwordFieldType = $cmConfirmPassword.attr('type')
+    const eyeIcon = $('.eye-icon')
+
+    if (passwordFieldType === 'password') {
+      $cmConfirmPassword.attr('type', 'text')
+      eyeIcon.removeClass('fa-eye-slash').addClass('fa-eye')
+    } else {
+      $cmConfirmPassword.attr('type', 'password')
+      eyeIcon.removeClass('fa-eye').addClass('fa-eye-slash')
+    }
+  })
+
+  const $cmSexUI = $('#cmSexUI')
+  const $cmSex = $('#cmSex')
+  $cmSex.on('change', function () {
+    //const selectedSex = $(this).val()
+    const selectedSexLabel = $(this).find('option:selected').text()
+    $cmSexUI.val(selectedSexLabel)
+  })
+
+  //membership type card selection
+  function handleCooperativeAccountSelection() {
+    // Get the hidden input field
+    const $selectedAccountsInput = $('#cmSelectedCooperativeAccounts')
+
+    // Get initial selected values
+    let selectedAccounts = $selectedAccountsInput.val()
+      ? $selectedAccountsInput.val().split(',')
+      : []
+
+    // Mark initially selected checkboxes
+    selectedAccounts.forEach((id) => {
+      $(`.servicesOffer input[data-id="${id}"]`).prop('checked', true)
+      $(`.servicesOffer input[data-id="${id}"]`)
+        .closest('label')
+        .addClass('selected')
+    })
+
+    // Add event listener to all checkboxes
+    $('.servicesOffer input[type="checkbox"]').on('change', function () {
+      const accountId = $(this).data('id').toString()
+      const $label = $(this).closest('label')
+
+      if ($(this).is(':checked')) {
+        // Add to selected accounts if not already included
+        if (!selectedAccounts.includes(accountId)) {
+          selectedAccounts.push(accountId)
+        }
+        $label.addClass('selected')
+      } else {
+        // Remove from selected accounts
+        selectedAccounts = selectedAccounts.filter((id) => id !== accountId)
+        $label.removeClass('selected')
+      }
+
+      // Update the hidden input with comma-separated values
+      $selectedAccountsInput.val(selectedAccounts.join(','))
+    })
+
+    // Update the alert message
+    $('.servicesOffer .alert-light').html(
+      '<small><span class="fw-bold text-danger">*</span> Please select the cooperative account types you wish to open. You can choose multiple account types based on your needs. Each selection will determine the services available to your membership.</small>'
+    )
+  }
+
+  const $cmContactNumber = $('#cmContactNumber')
+  $cmContactNumber.on('input', function () {
     let value = $(this).val()
     value = value.replace(/\D/g, '')
     if (value.length > 10) {
@@ -51,36 +112,74 @@ $(document).ready(async function () {
     $(this).val(value)
   })
 
-  $('#togglePassword').click(function () {
-    const passwordField = $('#confirmPassword')
-    const passwordFieldType = passwordField.attr('type')
-    const eyeIcon = $('.eye-icon')
+  const $cmEmail = $('#cmEmail')
+  const $cmUsername = $('#cmUsername')
+  const $cmPassword = $('#cmPassword')
+  const $cmFirstName = $('#cmFirstName')
+  const $cmMiddleName = $('#cmMiddleName')
+  const $cmLastName = $('#cmLastName')
 
-    if (passwordFieldType === 'password') {
-      passwordField.attr('type', 'text')
-      eyeIcon.removeClass('fa-eye-slash').addClass('fa-eye')
-    } else {
-      passwordField.attr('type', 'password')
-      eyeIcon.removeClass('fa-eye').addClass('fa-eye-slash')
-    }
-  })
+  const $cmHouseAddress = $('#cmHouseAddress')
+  const $cmBarangay = $('#cmBarangay')
+  const $cmMunicipality = $('#cmMunicipality')
+  const $cmProvince = $('#cmProvince')
+  const $cmRegion = $('#cmRegion')
 
-  function validateFields() {
+  const $cmAccountRole = $('#cmAccountRole')
+  const $cmSelectedCooperativeAccounts = $('#cmSelectedCooperativeAccounts')
+
+  function resetMemberRegistrationForm() {
+    resetProfilePicture()
+    $cmEmail.val('')
+    $cmUsername.val('')
+    $cmPassword.val('')
+    $cmConfirmPassword.val('')
+
+    $cmFirstName.val('')
+    $cmMiddleName.val('')
+    $cmLastName.val('')
+    $cmSexUI.val('')
+    $cmSex.val('')
+    $cmContactNumber.val('')
+    $cmHouseAddress.val('')
+    $cmBarangay.val('')
+    $cmMunicipality.val('')
+    $cmProvince.val('')
+    $cmRegion.val('')
+    $('.eye-icon').removeClass('fa-eye').addClass('fa-eye-slash')
+    $('#togglePassword').prop('checked', false)
+    $('.servicesOffer input[type="checkbox"]').prop('checked', false)
+    $('.servicesOffer input[type="checkbox"]')
+      .closest('label')
+      .removeClass('selected')
+    $cmSelectedCooperativeAccounts.val('')
+    $('.servicesOffer.alert-light').html(
+      '<small><span class="fw-bold text-danger">*</span> Please select the cooperative account types you wish to open. You can choose multiple account types based on your needs. Each selection will determine the services available to your membership.</small>'
+    )
+    grecaptcha.reset()
+  }
+
+  const $clearFormMemberRegistrationBtn = $('#clearFormMemberRegistrationBtn')
+  //$clearFormMemberRegistrationBtn.on('click', resetMemberRegistrationForm)
+
+  function validateRequiredFields() {
     const requiredFields = [
-      membershipTypesSelect,
-      firstName,
-      lastName,
-      contactNumber,
-      houseAddress,
-      barangay,
-      municipality,
-      province,
-      region,
-      accountRole,
-      username,
-      email,
-      password,
-      confirmPassword
+      $cmAccountRole,
+      $cmEmail,
+      $cmUsername,
+      $cmPassword,
+      $cmConfirmPassword,
+      $cmFirstName,
+      //$cmMiddleName,
+      $cmLastName,
+      $cmSex,
+      $cmContactNumber,
+      $cmHouseAddress,
+      $cmBarangay,
+      $cmMunicipality,
+      $cmProvince,
+      $cmRegion,
+      $cmSelectedCooperativeAccounts
     ]
 
     for (let i = 0; i < requiredFields.length; i++) {
@@ -92,10 +191,24 @@ $(document).ready(async function () {
     return true
   }
 
-  $('.request-btn').click(async function () {
-    const isValid = validateFields()
-    if (!isValid) {
+  const $submitRegisterMemberBtn = $('#submitRegisterMemberBtn')
+  $submitRegisterMemberBtn.on('click', async function () {
+    if (!validateRequiredFields()) {
       toastr.warning('Please fill in all required fields.')
+      return
+    }
+
+    const emailValidation = await isValidEmail($cmEmail.val())
+    if (!emailValidation) {
+      toastr.warning('Invalid email address.')
+      return
+    }
+
+    const passwordValidation = validatePasswordStrict($cmPassword.val())
+    if (!passwordValidation) {
+      toastr.warning(
+        'Password must contain at least 8 characters, including uppercase, lowercase, numbers, and special characters.'
+      )
       return
     }
 
@@ -106,100 +219,61 @@ $(document).ready(async function () {
       return
     }
 
-    const emailValidation = await isValidEmail(email.val())
-    if (!emailValidation) {
-      toastr.warning('Invalid email address.')
-      return
-    }
-
-    const validatePassword = function (password) {
-      const hasUpperCase = /[A-Z]/.test(password)
-      const hasLowerCase = /[a-z]/.test(password)
-      const hasNumber = /\d/.test(password)
-      const hasSpecialChar = /[!@#$%^&*(),.?":{}|<>[\]\/\\]/.test(password)
-      const isValidLength = password.length >= 8
-
-      return (
-        hasUpperCase &&
-        hasLowerCase &&
-        hasNumber &&
-        hasSpecialChar &&
-        isValidLength
-      )
-    }
-
-    const passwordValidation = validatePassword(password.val())
-    if (!passwordValidation) {
-      toastr.warning(
-        'Password must contain at least 8 characters, including uppercase, lowercase, numbers, and special characters.'
-      )
-      return
-    }
-
-    //check password match
-    if (password.val() !== confirmPassword.val()) {
+    if ($cmPassword.val() !== $cmConfirmPassword.val()) {
       toastr.warning('Passwords do not match.')
       return
     }
 
-    const formData = {
-      action: 'create_member_cooperative',
-      data: {
-        type_id: membershipTypesSelect.val(),
-        first_name: firstName.val(),
-        last_name: lastName.val(),
-        middle_name: middleName.val(),
-        contact_number: `+63${contactNumber.val()}`,
-        house_address: houseAddress.val(),
-        barangay: barangay.val(),
-        municipality: municipality.val(),
-        province: province.val(),
-        region: region.val(),
-        role_id: accountRole.data('id'),
-        username: username.val(),
-        email: email.val(),
-        password: password.val(),
-        confirm_password: confirmPassword.val(),
-        page_from: getHashFragment(),
-        recaptcha_response: grecaptchaResponse
+    const profilePicture = $profilePictureInput[0].files[0]
+    if (profilePicture) {
+      const allowedExtensions = ['jpg', 'jpeg', 'png']
+      const fileExtension = profilePicture.name.split('.').pop().toLowerCase()
+      if (!allowedExtensions.includes(fileExtension)) {
+        toastr.warning(
+          'Invalid profile picture format. Only JPG, JPEG, and PNG files are allowed.'
+        )
+        return
       }
     }
-    //console.log(formData)
+
+    const formData = new FormData()
+    // Account information
+    formData.append('profile_picture', profilePicture)
+    formData.append('role_id', $cmAccountRole.data('id'))
+    formData.append('email', $cmEmail.val())
+    formData.append('username', $cmUsername.val())
+    formData.append('password', $cmPassword.val())
+    formData.append('confirm_password', $cmConfirmPassword.val())
+    // Member information
+    formData.append('first_name', $cmFirstName.val())
+    formData.append('middle_name', $cmMiddleName.val())
+    formData.append('last_name', $cmLastName.val())
+    formData.append('sex', $cmSex.val())
+    formData.append('contact_number', `+63${$cmContactNumber.val()}`)
+    formData.append('house_address', $cmHouseAddress.val())
+    formData.append('barangay', $cmBarangay.val())
+    formData.append('municipality', $cmMunicipality.val())
+    formData.append('province', $cmProvince.val())
+    formData.append('region', $cmRegion.val())
+    // Cooperative accounts
+    formData.append('selected_caids', $cmSelectedCooperativeAccounts.val())
+    formData.append('page_from', getHashFragment())
+    formData.append('recaptcha_response', grecaptchaResponse)
+
     try {
-      //LoadingManager.show($('.ar-container'))
-      $(this).text('Requesting...').prop('disabled', true)
-      const response = await createMemberCooperative(formData)
-      console.log(response)
+      $(this).prop('disabled', true).text('Processing...')
+
+      const response = await registerMember(formData)
       if (response.success) {
         toastr.success(response.message)
-        //reset form
-        grecaptcha.reset()
-        membershipTypesSelect.val('')
-        membershipTypeUI.val('')
-        firstName.val('')
-        lastName.val('')
-        middleName.val('')
-        contactNumber.val('')
-        houseAddress.val('')
-        barangay.val('')
-        municipality.val('')
-        province.val('')
-        region.val('')
-        //accountRole.val('')
-        username.val('')
-        email.val('')
-        password.val('')
-        confirmPassword.val('')
-        $('.eye-icon').removeClass('fa-eye').addClass('fa-eye-slash')
-        $('#togglePassword').prop('checked', false)
-        grecaptcha.reset()
+        resetMemberRegistrationForm()
       }
     } catch (error) {
-      grecaptcha.reset()
-      console.error(error)
+      console.error('Registration error:', error)
     } finally {
-      //LoadingManager.hide($('.ar-container'))
-      $(this).text('Request').prop('disabled', false)
+      $(this).prop('disabled', false).text('Register')
     }
   })
+
+  handleCooperativeAccountSelection()
 })

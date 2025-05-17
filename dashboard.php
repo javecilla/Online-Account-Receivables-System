@@ -52,6 +52,62 @@
             </div>
         </div>
 
+        <!-- Risk Assessment Metrics -->
+         <div class="row mb-4">
+            <!-- Fixed Deposit -->
+            <div class="col-md-3 mb-4 mb-md-0">
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <h2 class="card-title"><i class="fa-solid fa-coins text-success me-2"></i>Fixed Deposit</h2>
+                    </div>
+                    <h3 class="card-value" id="FDtotalAccounts">0</h3>
+                    <p class="card-subtitle">Average Balance: <span id="FDAverageBalance">₱0.00</span></p>
+                    <p class="card-subtitle">Accounts Below Minimum: <span id="FDAccountsBelowMinimum">0</span></p>
+                    <p class="card-subtitle">Percent Below Minimum: <span id="FDPercentBelowMinimum">0%</span></p>
+                </div>
+            </div>
+
+            <!-- Savings Account -->
+            <div class="col-md-3 mb-4 mb-md-0">
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <h2 class="card-title"><i class="fa-solid fa-money-bill-transfer text-info me-2"></i>Savings Account</h2>
+                    </div>
+                    <h3 class="card-value" id="SAtotalAccounts">0</h3>
+                    <p class="card-subtitle">Average Balance: <span id="SAAverageBalance">₱0.00</span></p>
+                    <p class="card-subtitle">Accounts Below Minimum: <span id="SAAccountsBelowMinimum">0</span></p>
+                    <p class="card-subtitle">Percent Below Minimum: <span id="SAPercentBelowMinimum">0%</span></p>
+                </div>
+            </div>
+
+            <!-- Time Deposit -->
+            <div class="col-md-3 mb-4 mb-md-0">
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <h2 class="card-title"><i class="fa-solid fa-clock text-danger me-2"></i>Time Deposit</h2>
+                    </div>
+                    <h3 class="card-value" id="TDtotalAccounts">0</h3>
+                    <p class="card-subtitle">Average Balance: <span id="TDAverageBalance">₱0.00</span></p>
+                    <p class="card-subtitle">Accounts Below Minimum: <span id="TDAccountsBelowMinimum">0</span></p>
+                    <p class="card-subtitle">Percent Below Minimum: <span id="TDPercentBelowMinimum">0%</span></p>
+                </div>
+            </div>
+
+            <!-- Loan -->
+            <div class="col-md-3 mb-4 mb-md-0">
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <h2 class="card-title"><i class="fa-solid fa-hand-holding-dollar text-warning me-2"></i>Loan</h2>
+                    </div>
+                    <h3 class="card-value" id="loanAccounts">0</h3>
+                    <p class="card-subtitle">Average Balance: <span id="loanAverageBalance">₱0.00</span></p>
+                    <p class="card-subtitle">Accounts Below Minimum: <span id="loanAccountsBelowMinimum">0</span></p>
+                    <p class="card-subtitle">Percent Below Minimum: <span id="loanPercentBelowMinimum">0%</span></p>
+                </div>
+            </div>
+            
+        </div>
+
         <!-- Daily Transaction Stats -->
         <div class="row mb-4">
             <div class="col-12">

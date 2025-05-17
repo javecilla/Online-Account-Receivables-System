@@ -8,24 +8,26 @@ function vw_monthly_balance_trends(): string
         # Monthly Account Balance Trends
         CREATE VIEW vw_monthly_balance_trends AS
     */
-    return "SELECT DATE_FORMAT(mt.created_at, '%Y-%m') as month_year,
-            mt.type_name as account_type,
-            COUNT(DISTINCT m.member_id) as total_members,
-            SUM(mt2.amount) as total_transactions,
+    return "SELECT DATE_FORMAT(mtr.created_at, '%Y-%m') as month_year,
+            mty.type_name as account_type,
+            COUNT(DISTINCT mem.member_id) as total_members,
+            SUM(mtr.amount) as total_transactions,
             SUM(
                 CASE
-                    WHEN mt2.transaction_type IN ('deposit', 'interest') THEN mt2.amount
+                    WHEN mtr.transaction_type IN ('deposit', 'interest', 'credit') THEN mtr.amount
                     ELSE 0
                 END
             ) as total_credits,
             SUM(
                 CASE
-                    WHEN mt2.transaction_type IN ('withdrawal', 'fee') THEN mt2.amount
+                    WHEN mtr.transaction_type IN ('withdrawal', 'fee', 'credit_used', 'loan_payment') THEN mtr.amount
                     ELSE 0
                 END
             ) as total_debits,
-            AVG(m.current_balance) as average_balance
-        FROM member_types mt
-            JOIN members m ON m.type_id = mt.type_id
-            LEFT JOIN member_transactions mt2 ON m.member_id = mt2.member_id";
+            AVG(mem.current_balance) as average_balance
+        FROM member_transactions mtr
+            JOIN cooperative_accounts ca ON mtr.cooperative_id = ca.caid
+            JOIN members mem ON ca.member_id = mem.member_id
+            JOIN member_types mty ON ca.type_id = mty.type_id
+        GROUP BY month_year, account_type";
 }

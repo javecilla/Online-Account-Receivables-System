@@ -295,11 +295,17 @@ function delete_member(int $member_id): array
  * Balance Management Functions
  */
 
-function update_balance(int $member_id, float $amount, string $transaction_type): array
+function update_balance(array $data): array
 {
+    //int $member_id, float $amount, string $transaction_type
     try {
         $conn = open_connection();
         $conn->begin_transaction();
+
+        $member_id = (int)$data['member_id'];
+        $caid = (int)$data['caid'];
+        $amount = (float)$data['amount'];
+        $transaction_type = $data['transaction_type'];
 
         $member = get_member($member_id);
         if (!$member['success']) {
@@ -347,7 +353,7 @@ function update_balance(int $member_id, float $amount, string $transaction_type)
             'created_by' => $_SESSION['account_id'] ?? DEFAULT_ADMIN_ID
         ];
 
-        $recorded = record_transaction($member_id, $transaction_data);
+        $recorded = record_transaction($caid, $transaction_data);
         if (!$recorded['success']) {
             $conn->rollback();
             return $recorded;
@@ -501,13 +507,41 @@ function credit_interest(int $member_id): array
     }
 }
 
+function get_transactions_by_cooperative(int $member_id, string $cooperative_type): array
+{
+    try {
+        $conn = open_connection();
+
+        $base_sql = vw_member_transaction_history();
+        $sql = $base_sql . " WHERE m.member_id = ? AND t.type_name = ? ORDER BY mt.created_at DESC";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param('is', $member_id, $cooperative_type);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        $transactions = [];
+        while ($row = $result->fetch_assoc()) {
+            $transactions[] = $row;
+        }
+
+        return [
+            'success' => true,
+            'message' => 'Member transactions retrieved successfully',
+            'data' => $transactions
+        ];
+    } catch (Exception $e) {
+        log_error("Error fetching member transactions: {$e->getTraceAsString()}");
+        return ['success' => false, 'message' => "Error: {$e->getMessage()}"];
+    }
+}
+
 function get_member_transactions(int $member_id): array
 {
     try {
         $conn = open_connection();
 
         $base_sql = vw_member_transaction_history();
-        $sql = $base_sql . "WHERE m.member_id = ?";
+        $sql = $base_sql . " WHERE m.member_id = ?";
         $stmt = $conn->prepare($sql);
         $stmt->bind_param('i', $member_id);
         $stmt->execute();
@@ -551,7 +585,7 @@ function get_members_transactions(): array
     }
 }
 
-function record_transaction(int $member_id, array $data): array
+function record_transaction(int $cooperative_id, array $data): array
 {
     try {
         $conn = open_connection();
@@ -560,14 +594,14 @@ function record_transaction(int $member_id, array $data): array
         $reference_number = 'TXN' . date('Ymd') . generate_random_number(4);
 
         $sql = "INSERT INTO member_transactions (
-            member_id, transaction_type, amount, previous_balance,
+            cooperative_id, transaction_type, amount, previous_balance,
             new_balance, reference_number, notes, created_by
         ) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
         $stmt = $conn->prepare($sql);
         $stmt->bind_param(
             'isdddssi',
-            $member_id,
+            $cooperative_id,
             $data['transaction_type'],
             $data['amount'],
             $data['previous_balance'],
@@ -689,10 +723,9 @@ function get_member_savings_goal_metrics(int $member_id): array {
                 WHEN mt.minimum_balance > 0 THEN (m.current_balance / mt.minimum_balance) * 100
                 ELSE 0 
             END AS savings_progress_percentage
-        FROM 
-            members m
-        JOIN 
-            member_types mt ON m.type_id = mt.type_id
+        FROM cooperative_accounts ca
+        INNER JOIN members m ON ca.member_id = m.member_id
+        INNER JOIN member_types mt ON ca.type_id = mt.type_id
         WHERE mt.type_name IN ('Savings Account', 'Time Deposit', 'Fixed Deposit', 'Special Savings', 'Youth Savings')
             AND m.member_id = ?";
         $stmt = $conn->prepare($sql);
@@ -700,11 +733,11 @@ function get_member_savings_goal_metrics(int $member_id): array {
         $stmt->execute();
         $result = $stmt->get_result();
 
-        if ($result->num_rows === 0) {
-            return ['success' => false,'message' => 'Member not found'];
-        }
+        // if ($result->num_rows === 0) {
+        //     return ['success' => false,'message' => 'Member not found'];
+        // }
 
-        $metrics = $result->fetch_assoc();
+        $metrics = $result->num_rows > 0 ? $result->fetch_assoc() : [];
         return ['success' => true, 'message' => 'Retrieved successfully', 'data' => $metrics];
     } catch (Exception $e) {
         log_error("Error: {$e->getTraceAsString()}");
@@ -800,13 +833,367 @@ function get_member_upcoming_payments(int $member_id): array {
         $stmt->execute();
         $result = $stmt->get_result();
 
-        if ($result->num_rows === 0) {
-            return ['success' => false,'message' => 'Member not found'];
-        }
-
-        $metrics = $result->fetch_all(MYSQLI_ASSOC);
+        $metrics = $result->num_rows > 0 ? $result->fetch_all(MYSQLI_ASSOC) : [];
         return ['success' => true, 'message' => 'Retrieved successfully', 'data' => $metrics];
     } catch (Exception $e) {
+        log_error("Error: {$e->getTraceAsString()}");
+        return ['success' => false,'message' => "Error: {$e->getMessage()}"];
+    }
+}
+
+function get_cooperative_accounts_by_criteria(array $membership_type, array $status): array {
+    try {
+     $conn = open_connection();
+
+        $mt_placeholders = str_repeat('?,', count($membership_type) - 1) . '?';
+        $status_placeholders = str_repeat('?,', count($status) - 1). '?';
+
+        $sql = vw_cooperative_accounts_details() . " WHERE mt.type_name IN ({$mt_placeholders}) AND ca.status IN ({$status_placeholders})";
+        $stmt = $conn->prepare($sql);
+        $params = array_merge($membership_type, $status);
+        $types = str_repeat('s', count($membership_type)) . str_repeat('s', count($status));
+        $stmt->bind_param($types, ...$params);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $members = $result->num_rows > 0 ? $result->fetch_all(MYSQLI_ASSOC) : [];
+
+        return ['success' => true, 'message' => 'Retrieved successfully', 'data' => $members];   
+    } catch (Exception $e) {
+        log_error("Error: {$e->getTraceAsString()}");
+        return ['success' => false,'message' => "Error: {$e->getMessage()}"];
+    }
+}
+
+function get_members_by_approval(array $approval_status): array {
+    try {
+        $conn = open_connection();
+        $as_placeholders = str_repeat('?,', count($approval_status) - 1). '?';
+
+        $sql = vw_member_details() . " WHERE m.approval_status IN ({$as_placeholders})";
+        $stmt = $conn->prepare($sql);
+        $params = array_merge($approval_status);
+        $types = str_repeat('s', count($approval_status));
+        $stmt->bind_param($types, ...$params);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $members = $result->num_rows > 0 ? $result->fetch_all(MYSQLI_ASSOC) : [];
+
+        return ['success' => true, 'message' => 'Retrieved successfully', 'data' => $members];
+    } catch (Exception $e) {
+        log_error("Error: {$e->getTraceAsString()}");
+        return ['success' => false,'message' => "Error: {$e->getMessage()}"];
+    }
+}
+
+
+function register_member(array $data): array {
+    try {
+        log_request('received in services: ', $data);
+
+        $conn = open_connection();
+        $conn->begin_transaction();
+        $conn->autocommit(false);
+
+        $account_uid = 'A' . generate_random_number(6);
+        $hashed_password = hash_password($data['confirm_password']);
+        $active = 'active';
+
+        $profile_img = null;
+        if (isset($data['profile_picture']) && is_array($data['profile_picture']) && !empty($data['profile_picture']['name'])) {
+            $profile_img = $data['profile_picture']['name'];
+        } elseif (isset($data['profile_picture']) && is_string($data['profile_picture'])) {
+            $profile_img = $data['profile_picture'];
+        }
+
+        //insert account table
+        $a_sql = "INSERT INTO accounts (role_id, account_uid, email, email_verified_at, username, `password`, profile_image, account_status)
+            VALUES (?,?,?,NOW(),?,?,?,?)
+        ";
+        $a_stmt = $conn->prepare($a_sql);
+        $a_stmt->bind_param('issssss', $data['role_id'], $account_uid, $data['email'], $data['username'], $hashed_password, $profile_img, $active);
+        $a_created = $a_stmt->execute();
+        if (!$a_created) {
+            $conn->rollback();
+            return ['success' => false,'message' => 'Failed to create account'];
+        }
+        $account_id = $a_stmt->insert_id;
+        //return ['success' => true,'message' => 'Account created successfully: '.$account_id];
+
+        $member_uid = 'M' . generate_random_number(6);
+        $approval_status = $data['page_from'] === 'internal'? 'approved' : 'pending';
+
+        //insert member table
+        $m_sql = "INSERT INTO members (account_id, member_uid, approval_status, first_name, middle_name, last_name, sex, contact_number, house_address, barangay, municipality, province, region)
+            VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)
+        ";
+        $m_stmt = $conn->prepare($m_sql);
+        $m_stmt->bind_param('issssssssssss', $account_id, $member_uid, $approval_status, $data['first_name'], $data['middle_name'], $data['last_name'], $data['sex'], $data['contact_number'], $data['house_address'], $data['barangay'], $data['municipality'], $data['province'], $data['region']);
+        $m_created = $m_stmt->execute();
+        if (!$m_created) {
+            $conn->rollback();
+            return ['success' => false,'message' => 'Failed to create member'];
+        }
+        $member_id = $m_stmt->insert_id;
+        //return ['success' => true,'message' => 'Member created successfully: '.$member_id];
+
+        $opened_date = date('Y-m-d');
+        $ca_status = $data['page_from'] === 'internal'? 'active' : 'pending';
+
+        # $data['selected_caids'] = '6,7'
+        $type_id_array = array_map('trim', explode(',', $data['selected_caids']));
+        foreach ($type_id_array as $type_id) {
+            $ca_sql = "INSERT INTO cooperative_accounts (type_id, member_id, opened_date, status)
+                VALUES (?,?,?,?)
+            ";
+            $ca_stmt = $conn->prepare($ca_sql);
+            $ca_stmt->bind_param('iiss', $type_id, $member_id, $opened_date, $ca_status);
+            $ca_created = $ca_stmt->execute();
+            if (!$ca_created) {
+                $conn->rollback();
+                return ['success' => false,'message' => 'Failed to create cooperative account'];
+            }
+        }
+
+        $conn->commit();
+        return ['success' => true,'message' => 'Member registered successfully'];
+    } catch(Exception $e) {
+        $conn->rollback();
+        log_error("Error: {$e->getTraceAsString()}");
+        return ['success' => false,'message' => "Error: {$e->getMessage()}"];
+    }
+}
+
+function apply_services_to_member(int $member_id, array $services): array {
+    try {
+        $conn = open_connection();
+        $conn->begin_transaction();
+        $conn->autocommit(false);
+
+        //$member_id = $data['member_id'];
+        $opened_date = date('Y-m-d');
+        $ca_status = 'active';
+        foreach ($services as $type_id) {
+            $ca_sql = "INSERT INTO cooperative_accounts (type_id, member_id, opened_date, status)
+                VALUES (?,?,?,?)
+            ";
+            $ca_stmt = $conn->prepare($ca_sql);
+            $ca_stmt->bind_param('iiss', $type_id, $member_id, $opened_date, $ca_status);
+            $ca_created = $ca_stmt->execute();
+            if (!$ca_created) {
+                $conn->rollback();
+                return ['success' => false,'message' => 'Failed to create cooperative account'];
+            }
+        }
+
+        $conn->commit();
+        return ['success' => true,'message' => 'Services applied successfully'];
+    } catch(Exception $e) {
+        $conn->rollback();
+        log_error("Error: {$e->getTraceAsString()}");
+        return ['success' => false,'message' => "Error: {$e->getMessage()}"];
+    }
+}
+
+function update_registered_member(array $data): array {
+    try {
+        log_request('received in services: ', $data);
+
+        $conn = open_connection();
+        $conn->begin_transaction();
+        $conn->autocommit(false);
+
+        //update account table
+        $base_sql = "UPDATE accounts SET email=?, username=?";
+        $params = [$data['email'], $data['username']];
+        $types = 'ss';
+
+        if(!empty($data['profile_picture'])) {
+            $base_sql .= ", profile_image=?";
+            $params[] = $data['profile_picture'];
+            $types .= 's';
+        }
+
+        if(isset($data['password']) && $data['password'] !== 'null' && $data['password'] !== null && !empty($data['confirm_password'])) {
+            $hashed_password = hash_password($data['confirm_password']);
+            $base_sql.= ", password=?";
+            $params[] = $hashed_password;
+            $types.='s';
+        }
+
+        $base_sql.=" WHERE account_id=?";
+        $params[] = $data['account_id'];
+        $types.='i';
+
+        $a_sql = $base_sql;
+        $a_stmt = $conn->prepare($a_sql);
+        $a_stmt->bind_param($types,...$params);
+        $a_updated = $a_stmt->execute();
+        if (!$a_updated) {
+            $conn->rollback();
+            return ['success' => false,'message' => 'Failed to update account'];
+        }
+
+        //update member table
+        $base_sql = "UPDATE members SET first_name=?, last_name=?, sex=?, contact_number=?, house_address=?, barangay=?, municipality=?, province=?, region=?";
+        $params = [$data['first_name'], $data['last_name'], $data['sex'], $data['contact_number'], $data['house_address'], $data['barangay'], $data['municipality'], $data['province'], $data['region']];
+        $types ='sssssssss';
+
+        if(!empty($data['middle_name'])) {
+            $base_sql.= ", middle_name=?";
+            $params[] = $data['middle_name'];
+            $types.='s';
+        }
+
+        $base_sql.=" WHERE member_id=?";
+        $params[] = $data['member_id'];
+        $types.='i';
+
+        $m_sql = $base_sql;
+        $m_stmt = $conn->prepare($m_sql);
+        $m_stmt->bind_param($types,...$params);
+        $m_updated = $m_stmt->execute();
+        if (!$m_updated) {
+            $conn->rollback();
+            return ['success' => false,'message' => 'Failed to update member'];
+        }
+
+        //update accounts cooperative
+        if (!empty($data['account_changes']) && is_array($data['account_changes'])) {
+            $ca_stmt = $conn->prepare("UPDATE cooperative_accounts SET `status`=? WHERE caid=?");
+            foreach ($data['account_changes'] as $account) {
+                // Only update if something changed
+                if ($account['status'] !== $account['original_status']) {
+                    $ca_stmt->bind_param('si', $account['status'], $account['caid']);
+                    if (!$ca_stmt->execute()) {
+                        $conn->rollback();
+                        return ['success' => false, 'message' => 'Failed to update cooperative account: ' . $ca_stmt->error];
+                    }
+                }
+            }
+        }
+        
+        $conn->commit();
+        return ['success' => true, 'message' => 'Info updated successfully.'];
+    } catch(Exception $e) {
+        $conn->rollback();
+        log_error("Error: {$e->getTraceAsString()}");
+        return ['success' => false,'message' => "Error: {$e->getMessage()}"];
+    }
+}
+
+function get_registered_member(int $member_id): array {
+    try {
+        $conn = open_connection();
+
+        $sql = vw_registered_member_details() . " WHERE m.member_id = ?";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param('i', $member_id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        if ($result->num_rows === 0) {
+            return ['success' => false, 'message' => 'Member not found'];
+        }
+
+        $member = $result->fetch_assoc();
+        
+        // Decode the cooperative_accounts JSON string into a PHP array
+        if (!empty($member['cooperative_accounts'])) {
+            $member['cooperative_accounts'] = json_decode($member['cooperative_accounts'], true);
+        } else {
+            $member['cooperative_accounts'] = []; // Set to empty array if null or empty
+        }
+
+        return ['success' => true, 'message' => 'Retrieved successfully', 'data' => $member];
+    } catch(Exception $e) {
+        log_error("Error: {$e->getTraceAsString()}");
+        return ['success' => false, 'message' => "Error: {$e->getMessage()}"];
+    }
+}
+
+function get_registered_members(): array {
+    try {
+        $conn = open_connection();
+
+        $sql = vw_registered_member_details() . " WHERE m.approval_status = 'approved'";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        $members =  $result->num_rows > 0? $result->fetch_all(MYSQLI_ASSOC) : [];
+        return ['success' => true,'message' => 'Retrieved successfully', 'data' => $members];
+    } catch(Exception $e) {
+        log_error("Error: {$e->getTraceAsString()}");
+        return ['success' => false,'message' => "Error: {$e->getMessage()}"];
+    }
+}
+
+function update_member_approval_status(int $member_id, string $approval_status): array {
+    try {
+        $conn = open_connection();
+        $conn->begin_transaction();
+        $conn->autocommit(false);
+
+        $m_sql = "UPDATE members SET approval_status=? WHERE member_id=? LIMIT 1";
+        $m_stmt = $conn->prepare($m_sql);
+        $m_stmt->bind_param('si', $approval_status, $member_id);
+        $updated = $m_stmt->execute();
+        if (!$updated) {
+            $conn->rollback();
+            return ['success' => false,'message' => 'Failed to update member approval status'];
+        }
+
+        if($approval_status === 'approved') {
+            $ca_sql = "UPDATE cooperative_accounts SET `status`='active' WHERE member_id=?";
+            $ca_stmt = $conn->prepare($ca_sql);
+            $ca_stmt->bind_param('i', $member_id);
+            $updated = $ca_stmt->execute();
+            if (!$updated) {
+                $conn->rollback();
+                return ['success' => false,'message' => 'Failed to update member cooperative account status'];
+            }
+        }
+
+        $conn->commit();
+        return ['success' => true,'message' => 'Approval status updated successfully'];
+    } catch(Exception $e) {
+        $conn->rollback();
+        log_error("Error: {$e->getTraceAsString()}");
+        return ['success' => false,'message' => "Error: {$e->getMessage()}"];
+    }
+}
+
+function get_cooperative_account_by_type(int $member_id, string $type_name): array {
+    try {
+        $conn = open_connection();
+
+        $sql = vw_cooperative_accounts_details(). " WHERE m.member_id = ? AND mt.type_name = ?";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param('is', $member_id, $type_name);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        $account =  $result->num_rows > 0? $result->fetch_assoc() : [];
+        return ['success' => true,'message' => 'Retrieved successfully', 'data' => $account];
+    } catch(Exception $e) {
+        log_error("Error: {$e->getTraceAsString()}");
+        return ['success' => false,'message' => "Error: {$e->getMessage()}"];
+    }
+}
+
+function get_cooperative_account(int $caid): array {
+    try {
+        $conn = open_connection();
+
+        $sql = vw_cooperative_accounts_details(). " WHERE ca.caid = ?";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param('i', $caid);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        $account =  $result->num_rows > 0? $result->fetch_assoc() : [];
+        return ['success' => true,'message' => 'Retrieved successfully', 'data' => $account];
+    } catch(Exception $e) {
         log_error("Error: {$e->getTraceAsString()}");
         return ['success' => false,'message' => "Error: {$e->getMessage()}"];
     }

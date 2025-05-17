@@ -4,7 +4,11 @@ $(document).ready(function () {
 
   async function initializePage() {
     try {
-      await Promise.all([displayMembers(), displayMembersTransactionLogs()])
+      await Promise.all([
+        displayRegisteredMembers(),
+        displayPendingMembers(),
+        displayMembersSelection()
+      ])
     } catch (error) {
       console.error('Error initializing page:', error)
       toastr.error('An error occurred while loading the page')

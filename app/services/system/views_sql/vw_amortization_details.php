@@ -37,6 +37,7 @@ function vw_amortization_details(): string
          -- ma.remaining_balance as balance_due,
         m.current_balance,
         m.credit_balance,
+        m.member_uid,
         CONCAT(m.first_name, ' ',IFNULL(CONCAT(LEFT(m.middle_name, 1), '. '), ''), m.last_name) as full_name,
          a.email
     FROM member_amortizations ma

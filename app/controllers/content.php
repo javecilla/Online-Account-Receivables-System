@@ -92,3 +92,15 @@ function handle_get_aboutus_content(mixed $payload): void
     $about = get_aboutus_content();
     return_response($about);
 }
+
+function handle_update_aboutus_content(mixed $payload): void {
+    $validated = validate_data($payload, [
+        'aboutus_id' => 'required',
+        'title' => 'required',
+        'description' => 'required',
+        'features' => 'required'
+    ]);
+
+    $updated = update_aboutus_content($validated['data']);
+    return_response($updated);
+}

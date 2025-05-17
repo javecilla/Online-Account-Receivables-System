@@ -129,14 +129,16 @@ function validate_data(mixed $data, array $expected_field_types): ?array
         $is_optional = in_array('optional', $rules);
 
         // Check if the field exists and has a non-empty value
-        $fieldExists = isset($data[$field]) && $data[$field] !== null && $data[$field] !== '';
+        // Also handle case where frontend sends "null" as a string
+        $fieldExists = isset($data[$field]) && $data[$field] !== null && $data[$field] !== '' && $data[$field] !== 'null';
 
         // Handle file validation if the field exists in $_FILES
         $file = $_FILES[$field] ?? null;
 
         // Always set the field value in validated data if it exists
+        // Convert string "null" to actual null value
         if (isset($data[$field])) {
-            $validated_data[$field] = $data[$field];
+            $validated_data[$field] = ($data[$field] === 'null') ? null : $data[$field];
         }
 
         // Skip validation if field is optional and empty

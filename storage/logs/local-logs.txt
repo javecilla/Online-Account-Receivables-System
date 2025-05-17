@@ -1,0 +1,54 @@
+[17-May-2025 23:34:10 Europe/Berlin] [[17-May-2025 23:34:10 Europe/Berlin]] Action: get_server_request_data(): , Data: {
+    "rawInput": "{\"action\":\"login_account\",\"data\":{\"uid\":\"admin\",\"password\":\"admin\",\"recaptcha_response\":\"03AFcWeA7Z8ciYlptOnoFwi_vwm8P8R3o1lKiKKU6C9RCwIMOOBm0_DMIa56Ibg-5qhG_CEDhL7NcrlxfWzyC13A3Ww-gn316SrP_aTgFoqoJ9KZZg2puIQ018azjgSUSS511DZgOGaKFFgPo0EUzl64u9cn_201eI-IA4TCZwXfg1JXOCW7JxHzAwXXOzipPJhgInzQ_h7NKEz5jhraYuvystpVsXYFuGsMsDs3JqOvnLY_X0Eu3XOFeNa1oSJNW8AMPiLfN_rUMEtNZ4yCWFc-DHD3dJriaPBQ1irDkwII2t3yKewT2Lptwml57cJwT_1pwtF8z1Nmm0CVc0IEhhwKjIlhpWNgrQI9CQBbsCdbuRCEFaJLcgYhhRb3e0O5HMal6hffOGS1Szto2seXOLwm4UqAiN_ZyE8ZKhU-K-HYSW7JqCHXfPtE5eg1dBkeKdqjpre3VgKQQXErJYseafpG6DBf1swgtp7_1pLeAzfZ83cNg5sCPVywfQqahN2DmtF_lqba7vZ8PGm3c5UQBkxAEBHGYES3lBSVkIKvLhZOnLN9YIzu1V_aE32RAwNcux4jCQPlgc5UsfykB-a5SLNWfP9u8Comp3QehvlP_jvRMj9FJoSdlkZ99n048GQY7Qiy8fP9rP91JWozBU1Bew8FOCDHUqtDUWF26Eam5tj4RwIe93JO2HAlthO7Hzn4mBqfd1Nf8PYkmVoSBqhoNNc7guxAuOdJq33Zjf43hLylIOlcUeBbWHS_3TDn1DC0hZG9z8kw3pJAr8cqJDT6EdA4FOlBvnEJESLeIlYQRUwxxpS5lI1rDpnog8QdV7b9K62ouHkeJ2Zjlg5XZEyaIjL_Gvre5saVyKVpe1xjjK3iVvp12vZ1nDTjiMnm9E1kLCe0ITJfDzAyL5j1owRk9oQzGHOxD5n3YuTtMDFHxDYz8ae5st795_p4IKLTsYwbBfxbbxe-imUugV-ly3KBwplgGoFfqQpbAz3A\"}}"
+}
+
+[17-May-2025 23:34:10 Europe/Berlin] [[17-May-2025 23:34:10 Europe/Berlin]] Action: request (json): , Data: {
+    "action": "login_account",
+    "data": {
+        "uid": "admin",
+        "password": "admin",
+        "recaptcha_response": "03AFcWeA7Z8ciYlptOnoFwi_vwm8P8R3o1lKiKKU6C9RCwIMOOBm0_DMIa56Ibg-5qhG_CEDhL7NcrlxfWzyC13A3Ww-gn316SrP_aTgFoqoJ9KZZg2puIQ018azjgSUSS511DZgOGaKFFgPo0EUzl64u9cn_201eI-IA4TCZwXfg1JXOCW7JxHzAwXXOzipPJhgInzQ_h7NKEz5jhraYuvystpVsXYFuGsMsDs3JqOvnLY_X0Eu3XOFeNa1oSJNW8AMPiLfN_rUMEtNZ4yCWFc-DHD3dJriaPBQ1irDkwII2t3yKewT2Lptwml57cJwT_1pwtF8z1Nmm0CVc0IEhhwKjIlhpWNgrQI9CQBbsCdbuRCEFaJLcgYhhRb3e0O5HMal6hffOGS1Szto2seXOLwm4UqAiN_ZyE8ZKhU-K-HYSW7JqCHXfPtE5eg1dBkeKdqjpre3VgKQQXErJYseafpG6DBf1swgtp7_1pLeAzfZ83cNg5sCPVywfQqahN2DmtF_lqba7vZ8PGm3c5UQBkxAEBHGYES3lBSVkIKvLhZOnLN9YIzu1V_aE32RAwNcux4jCQPlgc5UsfykB-a5SLNWfP9u8Comp3QehvlP_jvRMj9FJoSdlkZ99n048GQY7Qiy8fP9rP91JWozBU1Bew8FOCDHUqtDUWF26Eam5tj4RwIe93JO2HAlthO7Hzn4mBqfd1Nf8PYkmVoSBqhoNNc7guxAuOdJq33Zjf43hLylIOlcUeBbWHS_3TDn1DC0hZG9z8kw3pJAr8cqJDT6EdA4FOlBvnEJESLeIlYQRUwxxpS5lI1rDpnog8QdV7b9K62ouHkeJ2Zjlg5XZEyaIjL_Gvre5saVyKVpe1xjjK3iVvp12vZ1nDTjiMnm9E1kLCe0ITJfDzAyL5j1owRk9oQzGHOxD5n3YuTtMDFHxDYz8ae5st795_p4IKLTsYwbBfxbbxe-imUugV-ly3KBwplgGoFfqQpbAz3A"
+    }
+}
+
+[18-May-2025 05:34:11 Asia/Manila] [[18-May-2025 05:34:11 Asia/Manila]] Action: Session Data: , Data: {
+    "ip_address": "127.0.0.1",
+    "user_agent": "Mozilla\/5.0 (Windows NT 10.0; Win64; x64; rv:138.0) Gecko\/20100101 Firefox\/138.0",
+    "session_hash": "6e3b26ed2ef2a1d8425e48f2da2f6f98f2737557b2efc2b9899dd47815644cfd",
+    "session_id": "67fvd1dv6d0v5pg3tr1g843u22",
+    "account_id": 1,
+    "account_uid": "A581822",
+    "email": "jeromesavc@gmail.com",
+    "username": "admin",
+    "account_status": "active",
+    "role_name": "Super Admin",
+    "employee_id": 1,
+    "first_name": "Jerome",
+    "last_name": "Avecilla",
+    "middle_name": "Sotel",
+    "full_name": "Jerome S. Avecilla",
+    "contact_number": "+639772465533"
+}
+
+[17-May-2025 23:34:45 Europe/Berlin] [[17-May-2025 23:34:45 Europe/Berlin]] Action: get_server_request_data(): , Data: {
+    "rawInput": "{\"action\":\"update_member_approval_status\",\"data\":{\"member_id\":50,\"approval\":\"approved\"}}"
+}
+
+[17-May-2025 23:34:45 Europe/Berlin] [[17-May-2025 23:34:45 Europe/Berlin]] Action: request (json): , Data: {
+    "action": "update_member_approval_status",
+    "data": {
+        "member_id": 50,
+        "approval": "approved"
+    }
+}
+
+[17-May-2025 23:34:51 Europe/Berlin] [[17-May-2025 23:34:51 Europe/Berlin]] Action: data:, Data: {
+    "approval": "pending,rejected",
+    "member_id": "50"
+}
+
+[17-May-2025 23:34:52 Europe/Berlin] [[17-May-2025 23:34:52 Europe/Berlin]] Action: data:, Data: {
+    "status": "paid,pending,overdue,defaulted",
+    "member_id": "50"
+}
+

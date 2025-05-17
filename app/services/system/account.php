@@ -18,18 +18,42 @@ function create_account(array $data): array
 
         $conn->begin_transaction();
 
-        $sql = "INSERT INTO accounts (role_id, account_uid, email, username, `password`) 
-                VALUES (?, ?, ?, ?, ?)";
+        // Check if profile picture is included
+        $profile_img = null;
+        if (isset($data['profile_picture']) && is_array($data['profile_picture']) && !empty($data['profile_picture']['name'])) {
+            $profile_img = $data['profile_picture']['name'];
+        } elseif (isset($data['profile_picture']) && is_string($data['profile_picture'])) {
+            $profile_img = $data['profile_picture'];
+        }
+        
+        if ($profile_img) {
+            $sql = "INSERT INTO accounts (role_id, account_uid, email, username, `password`, profile_img) 
+                    VALUES (?, ?, ?, ?, ?, ?)";
 
-        $stmt = $conn->prepare($sql);
-        $stmt->bind_param(
-            "issss",
-            $data['role_id'],
-            $account_uid,
-            $data['email'],
-            $data['username'],
-            $hashed_password
-        );
+            $stmt = $conn->prepare($sql);
+            $stmt->bind_param(
+                "isssss",
+                $data['role_id'],
+                $account_uid,
+                $data['email'],
+                $data['username'],
+                $hashed_password,
+                $profile_img
+            );
+        } else {
+            $sql = "INSERT INTO accounts (role_id, account_uid, email, username, `password`) 
+                    VALUES (?, ?, ?, ?, ?)";
+
+            $stmt = $conn->prepare($sql);
+            $stmt->bind_param(
+                "issss",
+                $data['role_id'],
+                $account_uid,
+                $data['email'],
+                $data['username'],
+                $hashed_password
+            );
+        }
 
         $created = $stmt->execute();
         if (!$created) {

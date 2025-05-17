@@ -8,17 +8,18 @@ function vw_dashboard_metrics(): string
         CREATE VIEW vw_dashboard_metrics AS
     */
     return "WITH active_members_summary AS (
-        SELECT COUNT(*) as total_active_members,
-            SUM(COALESCE(current_balance, 0)) as total_active_balances
-        FROM members
-        WHERE membership_status = 'active'
+        SELECT COUNT(DISTINCT m.member_id) as total_active_members,
+            SUM(COALESCE(m.current_balance, 0)) as total_active_balances
+        FROM members m
+        JOIN cooperative_accounts ca ON m.member_id = ca.member_id
+        WHERE m.approval_status = 'approved' AND ca.status = 'active'
     ),
     receivables_summary AS (
-        SELECT SUM(COALESCE(remaining_balance, 0)) as total_receivables,
+        SELECT SUM(COALESCE(ma.remaining_balance, 0)) as total_receivables,
             SUM(
                 CASE
                     WHEN ma.status = 'overdue' OR (CURRENT_DATE > ma.end_date AND ma.status = 'pending') 
-                    THEN COALESCE(remaining_balance, 0)
+                    THEN COALESCE(ma.remaining_balance, 0)
                     ELSE 0
                 END
             ) as overdue_receivables,

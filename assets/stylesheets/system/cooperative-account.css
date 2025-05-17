@@ -1,0 +1,771 @@
+/* members Page Styles */
+.card {
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border: none;
+  margin-bottom: 20px;
+}
+
+.card-body {
+  padding: 1.5rem;
+}
+
+.module-title {
+  color: var(--dark-color);
+  font-family: var(--font-nunito);
+  font-weight: 600;
+  margin-bottom: 0;
+  font-size: 1rem;
+}
+
+#membersTable {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  /* table-layout: fixed; */
+}
+
+#membersTable thead th {
+  background-color: #f8f9fa;
+  font-weight: 600;
+  color: #495057;
+  padding: 12px 15px;
+  border-bottom: 2px solid #dee2e6;
+  white-space: nowrap;
+}
+
+#membersTable thead th:first-child {
+  /* Member ID */
+  width: 8%;
+}
+#membersTable thead th:nth-child(2) {
+  /* profile */
+  width: 2%;
+}
+#membersTable thead th:nth-child(3) {
+  /* full name*/
+  width: 10%;
+}
+#membersTable thead th:nth-child(4) {
+  /* contact */
+  width: 10%;
+}
+#membersTable thead th:nth-child(5) {
+  /* acc type */
+  width: 10%;
+}
+#membersTable thead th:nth-child(6) {
+  /* mem status */
+  width: 10%;
+}
+#membersTable thead th:nth-child(7) {
+  /* risk level */
+  width: 10%;
+}
+#membersTable thead th:nth-child(8) {
+  /* action*/
+  width: 3%;
+}
+
+#membersTable tbody td {
+  padding: 12px 15px;
+  vertical-align: middle;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.status-badge {
+  padding: 6px 12px;
+  border-radius: 5px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.status-badge .badge-icon {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 6px;
+}
+
+.status-badge .badge-icon i {
+  font-size: 0.9rem;
+}
+
+/* Positive transaction types */
+.tt-deposit,
+.tt-interest,
+.tt-credit {
+  background-color: rgba(40, 167, 69, 0.2); /* Light green */
+  color: #28a745; /* Green text */
+  border: 1px solid rgba(40, 167, 69, 0.3);
+}
+
+.tt-deposit .badge-icon,
+.tt-interest .badge-icon,
+.tt-credit .badge-icon {
+  background-color: rgba(40, 167, 69, 0.3); /* Slightly darker green for icon */
+  color: #28a745; /* Green icon */
+}
+
+/* Negative transaction types */
+.tt-withdrawal,
+.tt-fee,
+.tt-credit-used,
+.tt-loan-payment {
+  background-color: rgba(220, 53, 69, 0.2); /* Light red */
+  color: #dc3545; /* Red text */
+  border: 1px solid rgba(220, 53, 69, 0.3);
+}
+
+.tt-withdrawal .badge-icon,
+.tt-fee .badge-icon,
+.tt-credit-used .badge-icon,
+.tt-loan-payment .badge-icon {
+  background-color: rgba(220, 53, 69, 0.3); /* Slightly darker red for icon */
+  color: #dc3545; /* Red icon */
+}
+
+/* Unknown transaction type */
+.tt-unknown {
+  background-color: rgba(108, 117, 125, 0.2); /* Light gray */
+  color: #6c757d; /* Gray text */
+  border: 1px solid rgba(108, 117, 125, 0.3);
+}
+
+.tt-unknown .badge-icon {
+  background-color: rgba(
+    108,
+    117,
+    125,
+    0.3
+  ); /* Slightly darker gray for icon */
+  color: #6c757d; /* Gray icon */
+}
+
+/* Existing styles (preserved) */
+.status-active {
+  background-color: rgba(93, 126, 196, 0.1);
+  color: #417ec8;
+  border: 1px solid rgba(51, 76, 188, 0.2);
+}
+
+.status-inactive,
+.as-defaulted {
+  background-color: rgba(220, 53, 69, 0.1);
+  color: #dc3545;
+  border: 1px solid rgba(220, 53, 69, 0.2);
+}
+
+.at-savings-account,
+.at-agricultural-loan,
+.tt-deposit,
+.as-completed,
+.ap-online-payment,
+.as-approved {
+  background-color: rgba(40, 167, 69, 0.2);
+  color: #28a745;
+  border: 1px solid rgba(40, 167, 69, 0.3);
+}
+
+.at-time-deposit,
+.at-educational-loan,
+.as-pending {
+  background-color: rgba(255, 193, 7, 0.2);
+  color: #ffc107;
+  border: 1px solid rgba(255, 193, 7, 0.3);
+}
+
+.at-fixed-deposit,
+.at-calamity-loan,
+.ff-interest,
+.ap-bank-transfer,
+.no-history {
+  background-color: rgba(0, 123, 255, 0.2);
+  color: var(--primary-color);
+  border: 1px solid rgba(0, 123, 255, 0.3);
+}
+
+.at-special-savings,
+.at-business-loan,
+.ap-check {
+  background-color: rgba(23, 162, 184, 0.2);
+  color: #17a2b8;
+  border: 1px solid rgba(23, 162, 184, 0.3);
+}
+
+.at-loan {
+  background-color: rgba(255, 165, 0, 0.2);
+  color: #ff8c00;
+  border: 1px solid rgba(255, 165, 0, 0.3);
+}
+
+.at-youth-savings,
+.at-personal-loan,
+.ff-fee,
+.ap-cash {
+  background-color: rgba(111, 66, 193, 0.2); /* Purple for youth savings */
+  color: #6f42c1;
+  border: 1px solid rgba(111, 66, 193, 0.3);
+}
+
+.tt-withdrawal,
+.ap-others,
+.as-rejected {
+  background-color: rgba(220, 53, 69, 0.2);
+  color: #dc3545;
+  border: 1px solid rgba(220, 53, 69, 0.3);
+}
+
+.risk-low,
+.status-approved {
+  background-color: rgba(40, 167, 69, 0.2);
+  color: #28a745;
+  border: 1px solid rgba(40, 167, 69, 0.3);
+}
+
+.risk-medium,
+.status-pending {
+  background-color: rgba(255, 193, 7, 0.2);
+  color: #ffc107;
+  border: 1px solid rgba(255, 193, 7, 0.3);
+}
+
+.risk-high,
+.status-inactive,
+.status-rejected {
+  background-color: rgba(220, 53, 69, 0.2);
+  color: #dc3545;
+  border: 1px solid rgba(220, 53, 69, 0.3);
+}
+
+.rate-badge {
+  background: linear-gradient(to bottom, #ffffff 40%, #f8f9fa 100%);
+  border: 1px solid #dee2e6;
+}
+
+.action-btn {
+  padding: 7px 12px;
+  margin-right: 5px;
+  border-radius: 2px;
+  font-size: 0.8rem;
+  background: linear-gradient(to bottom, #ffffff 40%, #f8f9fa 100%);
+  border: 1px solid #dee2e6;
+  color: #495057;
+  transition: 0.1s ease;
+}
+.action-btn:hover {
+  background: linear-gradient(to bottom, #343a40 40%, #212529 100%);
+  border-color: none;
+  color: #ffffff;
+}
+.action-btn.active {
+  background: linear-gradient(to bottom, #343a40 40%, #212529 100%);
+  border-color: none;
+  color: #ffffff;
+}
+
+.action-btn:last-child {
+  margin-right: 0;
+}
+
+.action-btn i {
+  margin-right: 5px;
+}
+
+/* .action-btn.view-btn {
+  background-color: rgba(123, 126, 123, 0.1);
+  color: #818481;
+  border-color: #565a56;
+}
+
+.action-btn.edit-btn {
+  color: #ffc107;
+  border-color: #ffc107;
+}
+
+.action-btn.delete-btn {
+  color: #dc3545;
+  border-color: #dc3545;
+} */
+
+/* DataTables custom styling */
+.dataTables_wrapper .dataTables_length,
+.dataTables_wrapper .dataTables_filter {
+  margin-bottom: 15px;
+}
+
+.dataTables_wrapper .dataTables_info,
+.dataTables_wrapper .dataTables_paginate {
+  margin-top: 15px;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+  border-radius: 4px;
+  margin: 0 2px;
+  background: linear-gradient(to bottom, #ffffff 0%, #f8f9fa 100%) !important;
+  border: 1px solid #dee2e6 !important;
+  color: #495057 !important;
+  transition: all 0.2s ease-in-out;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.current {
+  background: linear-gradient(to bottom, #e9ecef 0%, #dee2e6 100%) !important;
+  border-color: #ced4da !important;
+  color: #212529 !important;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+  background: linear-gradient(to bottom, #f8f9fa 0%, #e9ecef 100%) !important;
+  border-color: #ced4da !important;
+  color: #212529 !important;
+}
+
+@media (max-width: 768px) {
+  .action-btn {
+    padding: 4px 8px;
+    font-size: 0.75rem;
+  }
+
+  #membersTable thead th,
+  #membersTable tbody td {
+    padding: 10px;
+  }
+}
+
+.dashboard-card {
+  /* background: linear-gradient(to bottom, #f8f9fa 40%, #e9ecef 100%); */
+  background: transparent;
+  border-radius: 5px;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  height: 100%;
+  border: 1px solid #f3f3f3;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.card-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #495057;
+  margin: 0;
+}
+
+.card-value {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #212529;
+  margin: 0;
+}
+
+.card-subtitle {
+  font-size: 0.8rem;
+  color: #495057;
+  margin: 5px 0;
+}
+
+.card-subtitle span {
+  font-weight: 600;
+  color: #212529;
+}
+
+/* .member-profile-card {
+  
+} */
+
+.member-profile-card .profile-image-container img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+}
+
+.member-profile-card .member-basic-info h5 {
+  font-size: 1.1rem;
+}
+
+.member-profile-card .member-basic-info p {
+  font-size: 0.85rem;
+}
+
+.member-profile-card hr {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.member-profile-card p {
+  font-size: 0.9rem;
+  color: #495057;
+  margin-bottom: 0.5rem;
+}
+
+.member-profile-card p:last-child {
+  margin-bottom: 0;
+}
+
+.member-profile-card p i {
+  width: 1.2em;
+  text-align: center;
+}
+
+.member-profile-card p span {
+  color: #212529;
+}
+
+.member-profile-card p span#memberAddress {
+  display: inline-block;
+  vertical-align: top;
+  max-width: calc(100% - 2em);
+}
+
+@media (max-width: 767.98px) {
+  .member-profile-card .d-flex {
+    flex-direction: column;
+    align-items: center !important;
+    text-align: center;
+  }
+  .member-profile-card .profile-image-container {
+    margin-right: 0 !important;
+    margin-bottom: 0.75rem;
+  }
+  .member-profile-card .member-basic-info {
+    width: 100%;
+  }
+  .member-profile-card p i {
+    margin-right: 3px;
+  }
+}
+
+.progress {
+  height: 8px;
+  background-color: #e9ecef;
+  border-radius: 4px;
+  margin: 10px 0;
+}
+
+.progress-bar {
+  background-color: var(--info-color);
+  border-radius: 4px;
+}
+
+/* form create new member */
+.formGroupContainer {
+  position: relative;
+  border: 1px solid #f3f3f3;
+  border-radius: 5px;
+  padding: 30px 20px 20px;
+  margin-bottom: 20px;
+}
+
+.formGroupContainer::before {
+  /* content: 'Account Information'; */
+  position: absolute;
+  top: -10px;
+  left: 15px;
+  background-color: #fff;
+  padding: 0 10px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #495057;
+}
+.formGroupContainer.accountInformation::before {
+  content: 'ACCOUNT INFORMATION';
+}
+.formGroupContainer.memberInformation::before {
+  content: 'MEMBER INFORMATION';
+}
+.formGroupContainer.servicesOffer::before {
+  content: 'SERVICES OFFERS';
+}
+/* Profile Picture Upload Styling */
+.profile-picture-container {
+  position: relative;
+  width: 180px;
+  height: 150px;
+  overflow: hidden;
+  border: 1px solid #ddd;
+  border-radius: 2px;
+  margin-bottom: 10px;
+}
+
+.profile-picture-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.profile-upload-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(to bottom, #ffffff 40%, #f8f9fa 100%);
+  color: #495057;
+  padding: 7px 12px;
+  border-radius: 2px;
+  border: 1px solid #dee2e6;
+  cursor: pointer;
+  font-size: 0.8rem;
+  transition: 0.1s ease;
+}
+
+.profile-upload-btn:hover {
+  background: linear-gradient(to bottom, #343a40 40%, #212529 100%);
+  border-color: none;
+  color: #ffffff;
+}
+
+.profile-upload-btn i {
+  margin-right: 8px;
+}
+
+.profile-remove-btn {
+  background: linear-gradient(to bottom, #343a40 40%, #212529 100%);
+  border-color: none;
+  color: #ffffff;
+}
+
+.profile-remove-btn:hover {
+  background: linear-gradient(to bottom, #ffffff 40%, #f8f9fa 100%);
+  border: 1px solid #dee2e6;
+  color: #495057;
+}
+
+#cmProfilePicture {
+  position: absolute;
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.password-toggle {
+  cursor: pointer !important;
+}
+
+/* membership type card design */
+.servicesOffer .soSelection {
+  display: inline-block;
+  position: relative;
+  margin: 10px;
+  padding: 15px;
+  width: 150px;
+  height: 150px;
+  background-color: #fff;
+  border: 2px solid #f3f3f3;
+  border-radius: 8px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  vertical-align: top;
+}
+
+.servicesOffer .soSelection:hover {
+  border-color: #ddd;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.servicesOffer .soSelection img {
+  display: block;
+  margin: 0 auto 10px;
+  max-width: 70px;
+  height: auto;
+}
+
+.servicesOffer .soSelection input[type='checkbox'] {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  margin: 0;
+  transform: scale(1.2);
+}
+
+.servicesOffer .soSelection.selected {
+  border-color: #4e73df;
+  background-color: #f8f9fc;
+}
+
+/* .servicesOffer #cmSelectedCooperativeAccounts {
+  display: none;
+} */
+
+.transaction-items {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.transaction-item {
+  padding: 12px 15px;
+  border-bottom: 1px solid #e9ecef;
+  transition: background-color 0.2s;
+}
+
+.transaction-item:hover {
+  background-color: #f8f9fa;
+}
+
+.transaction-item:last-child {
+  border-bottom: none;
+}
+
+.transaction-info {
+  display: flex;
+  align-items: center;
+}
+
+.transaction-type {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 15px;
+  flex-shrink: 0;
+}
+
+.transaction-type.deposit {
+  background-color: rgba(40, 167, 69, 0.1);
+  color: #28a745;
+}
+
+.transaction-type.withdrawal {
+  background-color: rgba(220, 53, 69, 0.1);
+  color: #dc3545;
+}
+
+.transaction-details {
+  flex-grow: 1;
+}
+
+.transaction-title {
+  font-weight: 600;
+  color: #343a40;
+  margin-bottom: 2px;
+}
+
+.transaction-reference {
+  font-size: 0.8rem;
+  color: #6c757d;
+  margin-bottom: 2px;
+}
+
+.transaction-date {
+  font-size: 0.8rem;
+  color: #6c757d;
+}
+
+.transaction-amount {
+  font-weight: 600;
+  font-size: 1.1rem;
+  text-align: right;
+  flex-shrink: 0;
+  min-width: 100px;
+}
+
+/* Positive transactions (increase balance or credit) */
+.transaction-amount.deposit,
+.transaction-amount.interest,
+.transaction-amount.credit {
+  color: #28a745; /* Green */
+}
+
+/* Negative transactions (decrease balance or credit) */
+.transaction-amount.withdrawal,
+.transaction-amount.fee,
+.transaction-amount.loan_payment,
+.transaction-amount.credit_used {
+  color: #dc3545; /* Red */
+}
+
+/* Transaction type icon container */
+.transaction-type {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+  flex-shrink: 0;
+}
+
+/* Positive transaction type icons */
+.transaction-type.deposit,
+.transaction-type.interest,
+.transaction-type.credit {
+  background-color: #e6f4ea; /* Light green background */
+  color: #28a745; /* Green icon */
+}
+
+/* Negative transaction type icons */
+.transaction-type.withdrawal,
+.transaction-type.fee,
+.transaction-type.loan_payment,
+.transaction-type.credit_used {
+  background-color: #f8d7da; /* Light red background */
+  color: #dc3545; /* Red icon */
+}
+
+/* Icon styles inside transaction type */
+.transaction-type i {
+  font-size: 1.2rem;
+}
+
+.select2-selection__rendered {
+  padding: 0px 5px !important;
+}
+.select2-container .select2-selection--single {
+  /* display: flex;
+  align-items: center; */
+  padding-top: 5px;
+  height: 39px !important;
+  text-indent: 7px !important;
+  font-size: 0.9rem !important;
+  background: linear-gradient(to bottom, #ffffff 40%, #f8f9fa 100%) !important;
+  border: 1px solid #dee2e6 !important;
+  color: #495057 !important;
+}
+.select2-selection__arrow {
+  height: 38px !important;
+  top: 0px !important;
+}
+
+.custom-select2-dropdown {
+  max-height: 850px !important;
+  overflow-y: auto;
+}
+
+.modal-open .select2-container--open .select2-dropdown {
+  z-index: 1056 !important;
+}
+
+.select2-container--open .select2-dropdown {
+  display: block !important;
+}
+
+body.modal-open {
+  overflow: auto !important;
+  padding-right: 0 !important;
+}
+
+.select2-container {
+  width: 100% !important;
+}

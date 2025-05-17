@@ -75,3 +75,25 @@ function get_aboutus_content() {
       return ['success' => false, 'message' => "Database error occurred: {$e->getMessage()}"];
   }
 }
+
+function update_aboutus_content(array $data): array {
+  try {
+    $conn = open_connection();
+    $conn->autocommit(false);
+    $stmt = $conn->prepare("UPDATE aboutus_content SET title = ?, description = ?, features = ? WHERE id = ?");
+    $stmt->bind_param("sssi", $data['title'], $data['description'], $data['features'], $data['aboutus_id']);
+    $updated = $stmt->execute();
+    
+    if(!$updated) {
+      $conn->rollback();
+      return ['success' => false, 'message' => 'Failed to update about us content'];
+    }
+
+    $conn->commit();
+    return ['success' => true, 'message' => 'About us content updated successfully'];
+  } catch (Exception $e) {
+      $conn->rollback();
+      log_error("Error: {$e->getTraceAsString()}");
+      return ['success' => false, 'message' => "Database error occurred: {$e->getMessage()}"];
+  }
+}

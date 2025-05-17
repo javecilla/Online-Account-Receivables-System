@@ -50,6 +50,8 @@ require_once __DIR__ . '/system/views_sql/vw_quarterly_financial_summary_transac
 // require_once __DIR__ . '/system/views_sql/test.php';
 require_once __DIR__ . '/system/views_sql/vw_member_loan_metrics.php';
 require_once __DIR__ . '/system/views_sql/vw_member_risk_dashboard.php';
+require_once __DIR__ . '/system/views_sql/vw_cooperative_accounts_details.php';
+require_once __DIR__ . '/system/views_sql/vw_registered_member_details.php';
 
 require_once __DIR__ . '/system/account_role.php';
 require_once __DIR__ . '/system/account.php';
@@ -60,3 +62,4 @@ require_once __DIR__ . '/system/amortization_type.php';
 require_once __DIR__ . '/system/amortization.php';
 require_once __DIR__ . '/system/notifications.php';
 require_once __DIR__ . '/system/content.php';
+require_once __DIR__ . '/system/deposit_maturity.php';

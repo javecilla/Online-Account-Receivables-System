@@ -334,3 +334,31 @@ const processAmortizationPayment = async (paymentData) => {
     throw error
   }
 }
+
+const fetchCooperativeAccountsByType = async (
+  membership_types = 'Savings Account,Time Deposit,Fixed Deposit,Special Savings,Youth Savings,Loan',
+  status = 'active,inactive,suspended,closed'
+) => {
+  try {
+    const response = await axios.get(
+      `${API_URL}?action=get_cooperative_accounts_by_criteria&membership_types=${membership_types}&status=${status}`,
+      {
+        headers: HEADERS
+      }
+    )
+
+    if (!response.data || !response.data.success) {
+      throw new Error(
+        response.data?.message || 'Failed to fetch amortizations by criteria'
+      )
+    }
+    return response.data
+  } catch (error) {
+    console.error('Error fetching amortizations by criteria:', error)
+    const errorMessage =
+      error.response?.data?.message ||
+      'Something went wrong while processing request.'
+    toastr.error(errorMessage)
+    throw error
+  }
+}

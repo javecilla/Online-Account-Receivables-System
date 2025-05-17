@@ -49,8 +49,9 @@ if ($request_file_name === 'login.php') {
           HTML;
 } else if ($request_file_name === 'dashboard.php') {
     echo <<<HTML
-        <script type="text/javascript" src="{$base_url}/assets/scripts/system/dashboard/admin/daily-transactions.js" loading="lazy"></script>
+        <script type="text/javascript" src="{$base_url}/assets/scripts/system/dashboard/admin/dashboard-metrics.js" loading="lazy"></script>
         <script type="text/javascript" src="{$base_url}/assets/scripts/system/dashboard/admin/summary-metrics.js" loading="lazy"></script>
+        <script type="text/javascript" src="{$base_url}/assets/scripts/system/dashboard/admin/daily-transactions.js" loading="lazy"></script>
         <script type="text/javascript" src="{$base_url}/assets/scripts/system/dashboard/admin/monthly-balance-trends.js" loading="lazy"></script>
         <script type="text/javascript" src="{$base_url}/assets/scripts/system/dashboard/admin/loan-performance-metrics.js" loading="lazy"></script>
         <script type="text/javascript" src="{$base_url}/assets/scripts/system/dashboard/admin/outstanding-receivables-by-member.js" loading="lazy"></script>
@@ -71,10 +72,10 @@ if ($request_file_name === 'login.php') {
 } else if ($request_file_name === 'members.php') {
     echo <<<HTML
         <script type="text/javascript" src="{$base_url}/assets/scripts/system/members/data-tables.js" loading="lazy"></script>
-        <script type="text/javascript" src="{$base_url}/assets/scripts/system/members/admin/update-member.js" loading="lazy"></script>
+        <!-- <script type="text/javascript" src="{$base_url}/assets/scripts/system/members/admin/update-member.js" loading="lazy"></script> -->
         <script type="text/javascript" src="{$base_url}/assets/scripts/system/members/admin/get-members.js" loading="lazy"></script>
         <script type="text/javascript" src="{$base_url}/assets/scripts/system/members/admin/members.js" loading="lazy"></script>
-        <script type="text/javascript" src="{$base_url}/assets/scripts/system/members/member-tabs.js" loading="lazy"></script>
+        <!-- <script type="text/javascript" src="{$base_url}/assets/scripts/system/members/member-tabs.js" loading="lazy"></script> -->
     HTML;
 } else if ($request_file_name === 'amortizations.php') {
     echo <<<HTML
@@ -105,7 +106,12 @@ if ($request_file_name === 'login.php') {
 } else if ($request_file_name === 'contents.php') {
     echo <<<HTML
         <script src="{$base_url}/assets/scripts/system/contents/contacts.js"></script>
+        <script src="{$base_url}/assets/scripts/system/contents/aboutus.js"></script>
     HTML;
+} else if ($request_file_name === 'cooperative-accounts.php') {
+    echo <<<HTML
+        <script src="{$base_url}/assets/scripts/system/cooperative/admin/get-cooperative.js"></script>
+        HTML;
 }
 ?>
 </body>
