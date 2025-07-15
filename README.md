@@ -86,4 +86,9 @@ You can try the live demo [https://avecilla-project-multipurpose.infinityfreeapp
 - Portfolio: [jerome-avecilla.vercel.app](https://jerome-avecilla.vercel.app/)
 - Email: jeromesavc@gmail.com
 - GitHub: [@javecilla](https://github.com/javecilla)
+  
+## License
 
+This project is licensed under the [MIT License](LICENSE).  
+You are free to use, modify, and distribute this project **with proper credit to me as the original author**.  
+This work was developed as part of my BSIT academic journey, and I appreciate proper attribution when reused or referenced.
